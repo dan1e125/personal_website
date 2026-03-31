@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Page not found | Daniel Ordonez Arango</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2'); }
+    @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2') format('woff2'); }
+    :root { color-scheme: dark; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      color: #e5f0ff;
+      background: radial-gradient(circle at top left, rgba(34,211,238,0.12), transparent 30%),
+                  radial-gradient(circle at bottom right, rgba(59,130,246,0.14), transparent 28%),
+                  linear-gradient(180deg, #030711 0%, #07111d 50%, #030711 100%);
+      padding: 24px;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      opacity: .3;
+    }
+    .wrap { position: relative; max-width: 480px; }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(6rem, 22vw, 9rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, #e5f0ff 20%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.04em;
+    }
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      color: #22d3ee;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 16px 0 12px;
+    }
+    p {
+      color: #9bb5d6;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(84,179,255,0.45);
+      background: linear-gradient(135deg, rgba(59,130,246,0.9), rgba(34,211,238,0.65));
+      color: #e5f0ff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+    }
+    a:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,130,246,0.38); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <p class="label">[ TARGET NOT FOUND ]</p>
+    <p>This page does not exist or was moved.<br>The rest of the portfolio is intact.</p>
+    <a href="/">← Back to portfolio</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /*.gz$
+Disallow: /*.br$
+Disallow: /sw.js
+
+Crawl-delay: 1
+
+Sitemap: https://danieloa.com/sitemap.xml
