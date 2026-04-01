@@ -1965,6 +1965,7 @@ main > section + section::before {
           <div class="shell-wrap" role="region" aria-label="Interactive terminal">
             <div class="shell-top" aria-hidden="true">
               <span></span><span></span><span></span>
+              <span class="shell-top-label">daniel@portfolio:~$</span>
             </div>
             <div class="shell-output" id="shell-output" aria-live="polite" aria-atomic="false"></div>
             <div class="shell-input-row">
@@ -2007,6 +2008,8 @@ main > section + section::before {
 
           <article class="card contact-card">
             <p class="section-tag">[ CONTACT ]</p>
+            <h3>Secure channel</h3>
+            <p class="contact-intro">If you need a penetration tester who communicates findings clearly, reach out through any channel below.</p>
             <div class="contact-layout">
               <div class="social-grid contact-channel-grid">
                 <a class="social-link" href="#" data-contact="bWFpbHRvOmRhbmllbG9yZG9uZXphcmFuZ29AZ21haWwuY29t" aria-label="Copy email address">
@@ -2062,6 +2065,7 @@ main > section + section::before {
 
           <article class="card contact-form-card">
             <p class="section-tag">[ SEND A MESSAGE ]</p>
+            <h3 class="cf-heading">Direct message</h3>
             <form id="contact-form" class="cf-form" action="https://formspree.io/f/xpqykjpa" method="POST" novalidate>
               <div class="cf-group">
                 <label class="cf-label" for="cf-name">Name</label>

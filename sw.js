@@ -1,4 +1,4 @@
-var CACHE = 'danieloa-v32';
+var CACHE = 'danieloa-v35';
 var ASSETS = [
   '/',
   '/script.js?v=20260330a',
