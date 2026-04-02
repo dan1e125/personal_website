@@ -1998,6 +1998,16 @@ main > section + section::before {
             </div>
           </a>
 
+
+          <div class="cve-widget">
+            <div class="cve-header-row">
+              <p class="section-tag" id="cve-section-tag">[ CVE OF THE DAY ]</p>
+              <span class="cve-refresh-hint" id="cve-refresh-hint">↻ refreshes daily</span>
+            </div>
+            <div id="cve-body" class="cve-body">
+              <div class="cve-loading">// fetching threat intelligence</div>
+            </div>
+          </div>
         </article>
 
       </section>
@@ -2106,8 +2116,91 @@ main > section + section::before {
 
   </div>
 
+
+  <style>
+  /* ── Custom Crosshair Cursor ── */
+  @media (pointer: fine) {
+    .cursor-dot {
+      position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%; pointer-events: none;
+      z-index: 99999; transform: translate(-50%,-50%);
+      transition: width 180ms ease, height 180ms ease, background 180ms ease;
+      box-shadow: 0 0 8px rgba(34,211,238,0.9), 0 0 18px rgba(34,211,238,0.4);
+    }
+    .cursor-ring {
+      position: fixed; top: 0; left: 0; width: 30px; height: 30px;
+      border: 1px solid rgba(34,211,238,0.55); border-radius: 50%;
+      pointer-events: none; z-index: 99998; transform: translate(-50%,-50%);
+      transition: width 200ms ease, height 200ms ease, border-color 200ms ease, opacity 200ms ease;
+    }
+    .cursor-ring::before {
+      content: ''; position: absolute; width: 1px; height: 7px;
+      background: rgba(34,211,238,0.5); left: 50%; top: -9px; transform: translateX(-50%);
+      box-shadow: 0 37px 0 rgba(34,211,238,0.5);
+    }
+    .cursor-ring::after {
+      content: ''; position: absolute; height: 1px; width: 7px;
+      background: rgba(34,211,238,0.5); top: 50%; left: -9px; transform: translateY(-50%);
+      box-shadow: 37px 0 0 rgba(34,211,238,0.5);
+    }
+    body.cursor-hovering .cursor-dot {
+      width: 10px; height: 10px; background: var(--primary);
+      box-shadow: 0 0 12px rgba(59,130,246,0.9), 0 0 24px rgba(59,130,246,0.4);
+    }
+    body.cursor-hovering .cursor-ring { width: 44px; height: 44px; border-color: rgba(59,130,246,0.55); }
+    body.cursor-clicking .cursor-dot { transform: translate(-50%,-50%) scale(0.6); }
+    body.cursor-clicking .cursor-ring { transform: translate(-50%,-50%) scale(0.8); border-color: rgba(34,211,238,1); }
+  }
+
+  /* ── CVE of the Day widget ── */
+  .cve-widget {
+    margin-top: 28px; padding: 22px 24px;
+    border: 1px solid rgba(84,179,255,0.2); border-radius: 16px;
+    background: linear-gradient(180deg,rgba(10,23,36,0.55),rgba(6,15,25,0.75));
+    position: relative; overflow: hidden;
+  }
+  .cve-widget::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg,transparent,var(--accent),transparent); opacity: 0.45;
+  }
+  .cve-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .cve-header-row .section-tag { margin: 0; }
+  .cve-refresh-hint { font-family: "JetBrains Mono",monospace; font-size:.73rem; color:var(--muted); letter-spacing:.05em; }
+  .cve-loading { font-family:"JetBrains Mono",monospace; font-size:.85rem; color:var(--accent); padding:10px 0; }
+  .cve-loading::after { content:'_'; animation: blink 1s step-end infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .cve-id-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+  .cve-id {
+    font-family:"JetBrains Mono",monospace; font-size:1.02rem; font-weight:700;
+    color:var(--text); text-decoration:none; letter-spacing:.04em; transition:color 180ms ease;
+  }
+  .cve-id:hover { color:var(--accent); }
+  .cve-severity {
+    padding:3px 10px; border-radius:999px; font-family:"JetBrains Mono",monospace;
+    font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  }
+  .cve-severity.CRITICAL { background:rgba(239,68,68,0.13); border:1px solid rgba(239,68,68,0.45); color:#f87171; }
+  .cve-severity.HIGH     { background:rgba(245,158,11,0.11); border:1px solid rgba(245,158,11,0.4);  color:#fbbf24; }
+  .cve-severity.MEDIUM   { background:rgba(34,211,238,0.1);  border:1px solid rgba(34,211,238,0.35); color:#22d3ee; }
+  .cve-severity.LOW      { background:rgba(34,197,94,0.1);   border:1px solid rgba(34,197,94,0.35);  color:#4ade80; }
+  .cve-score { font-family:"JetBrains Mono",monospace; font-size:.85rem; color:var(--muted); }
+  .cve-desc {
+    font-size:.9rem; line-height:1.65; color:var(--muted); margin:0 0 14px;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .cve-meta { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .cve-meta span { font-family:"JetBrains Mono",monospace; font-size:.74rem; color:var(--muted); }
+  .cve-meta a {
+    font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--accent);
+    text-decoration:none; transition:opacity 180ms ease;
+  }
+  .cve-meta a:hover { opacity:.7; }
+  .cve-error { font-family:"JetBrains Mono",monospace; font-size:.82rem; color:var(--muted); padding:8px 0; }
+  </style>
   <script src="script.js?v=20260330a" defer></script>
   </div> <!-- Closing site-shell -->
 
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 </body>
 </html>
