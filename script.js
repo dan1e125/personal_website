@@ -909,8 +909,10 @@ if ('serviceWorker' in navigator) {
 
 /* ── Custom Crosshair Cursor ── */
 (function() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
   var dot  = document.querySelector('.cursor-dot');
   var ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
 
   var mx = -200, my = -200, rx = -200, ry = -200;
 
@@ -944,6 +946,7 @@ if ('serviceWorker' in navigator) {
 /* ── CVE of the Day ── */
 (function() {
   var body = document.getElementById('cve-body');
+  if (!body) return;
 
   var today = new Date().toISOString().slice(0, 10);
   var cacheKey = 'cve-day-' + today;
@@ -962,6 +965,7 @@ if ('serviceWorker' in navigator) {
     .then(function(r) { return r.json(); })
     .then(function(data) {
       var vulns = data.vulnerabilities || [];
+      if (!vulns.length) throw new Error('empty');
       var dateNum = parseInt(today.replace(/-/g,''), 10);
       var cve = vulns[dateNum % vulns.length].cve;
       var desc = (cve.descriptions || []).find(function(d){ return d.lang==='en'; }) || {};
