@@ -1487,6 +1487,46 @@ main > section + section::before {
 @media(max-width:767px){.identity-name{font-size:1.2rem}}
 </style>
 
+<style>
+/* ── Services section ── */
+.services-grid{margin-top:24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.service-card{border:1px solid rgba(85,144,205,0.18);background:rgba(255,255,255,0.02);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}
+.service-card:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 12px 32px rgba(59,130,246,0.12)}
+.service-card--featured{border-color:rgba(34,211,238,0.35);background:linear-gradient(180deg,rgba(34,211,238,0.06),rgba(255,255,255,0.02))}
+.service-icon{font-size:1.8rem;line-height:1}
+.service-card strong{font-size:1rem;color:var(--text)}
+.service-card>span{color:var(--muted);font-size:.9rem;line-height:1.6;flex:1}
+.service-price{font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.88rem;letter-spacing:.04em}
+.service-quote-btn{padding:10px 14px;font-size:.82rem;border-radius:10px;margin-top:4px;text-align:center}
+.quote-layout{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.quote-row{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.quote-label{font-family:JetBrains Mono,monospace;font-size:.82rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.quote-select{background:rgba(6,15,25,0.9);border:1px solid rgba(84,179,255,0.25);border-radius:10px;color:var(--text);padding:12px 14px;font-size:.9rem;font-family:"Inter",sans-serif;outline:none;cursor:pointer;transition:border-color 180ms ease;width:100%}
+.quote-select:focus{border-color:var(--accent)}
+.quote-addons{display:grid;gap:10px}
+.quote-check{display:flex;align-items:center;gap:10px;cursor:pointer;color:var(--muted);font-size:.9rem}
+.quote-check input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+.quote-check:hover{color:var(--text)}
+.quote-price-display{padding:20px 0;border-bottom:1px solid var(--line)}
+.quote-price-label{font-family:JetBrains Mono,monospace;font-size:.8rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.quote-price-range{display:flex;align-items:baseline;gap:8px;margin:8px 0}
+.quote-price-min,.quote-price-max{font-size:2rem;font-weight:700;color:var(--text)}
+.quote-price-sep{color:var(--muted);font-size:1.4rem}
+.quote-price-unit{font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.9rem;letter-spacing:.06em}
+.quote-price-note{color:var(--muted);font-size:.88rem;margin:8px 0 0}
+.quote-price-sub{color:rgba(155,181,214,0.6);font-size:.82rem;margin:4px 0 0}
+
+
+
+
+
+
+
+.quote-disclaimer p{color:rgba(155,181,214,0.5);font-size:.78rem;line-height:1.6;margin:0}
+@media(max-width:1023px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-layout{grid-template-columns:1fr}}
+@media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-price-min,.quote-price-max{font-size:1.5rem}}
+</style>
+
 <body>
   <!-- Cache-buster: 2026-03-14 00:25:10 UTC -->
   <noscript>
@@ -1529,6 +1569,8 @@ main > section + section::before {
         <a href="#certifications">Certifications</a>
         <a href="#shell">Shell</a>
               <a href="#resources">Resources</a>
+        
+        <a href="#quote">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
 </header>
@@ -1965,6 +2007,7 @@ main > section + section::before {
           <div class="shell-wrap" role="region" aria-label="Interactive terminal">
             <div class="shell-top" aria-hidden="true">
               <span></span><span></span><span></span>
+              <span class="shell-top-label">daniel@portfolio:~$</span>
             </div>
             <div class="shell-output" id="shell-output" aria-live="polite" aria-atomic="false"></div>
             <div class="shell-input-row">
@@ -1998,18 +2041,259 @@ main > section + section::before {
             </div>
           </a>
 
-
-          <div class="cve-widget">
-            <div class="cve-header-row">
-              <p class="section-tag" id="cve-section-tag">[ CVE OF THE DAY ]</p>
-              <span class="cve-refresh-hint" id="cve-refresh-hint">↻ refreshes daily</span>
-            </div>
-            <div id="cve-body" class="cve-body">
-              <div class="cve-loading">// fetching threat intelligence</div>
-            </div>
-          </div>
         </article>
 
+      </section>
+
+
+      <style>
+/* ═══ QUOTE CALCULATOR ═══════════════════════════════════ */
+.qc-layout{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
+.qc-configurator{display:flex;flex-direction:column;gap:28px}
+.qc-block{background:rgba(8,20,38,0.7);border:1px solid rgba(84,179,255,0.1);border-radius:20px;padding:28px 28px 24px;transition:border-color 200ms}
+.qc-block:focus-within,.qc-block:hover{border-color:rgba(84,179,255,0.25)}
+.qc-block-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.qc-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#030711;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.qc-block-title{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;margin:0}
+.qc-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qc-svc-card{position:relative;background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:16px;padding:20px 18px;cursor:pointer;transition:all 220ms cubic-bezier(.4,0,.2,1);text-align:left;color:inherit;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.qc-svc-card:hover{border-color:rgba(84,179,255,0.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.qc-svc-card.active{border-color:#22d3ee;background:rgba(34,211,238,0.05);box-shadow:0 0 0 1px rgba(34,211,238,0.25),0 12px 40px rgba(34,211,238,0.12)}
+.qc-svc-card.active .qc-svc-name{color:#e2e8f0}
+.qc-svc-card.active .qc-svc-price{color:#22d3ee}
+.qc-svc-emoji{font-size:1.7rem;line-height:1;margin-bottom:4px;pointer-events:none}
+.qc-svc-name{font-size:.9rem;font-weight:700;color:#94a3b8;transition:color 200ms;line-height:1.3;pointer-events:none}
+.qc-svc-price{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#64748b;letter-spacing:.04em;transition:color 200ms;pointer-events:none}
+.qc-check{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(84,179,255,0.25);display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all 200ms;pointer-events:none}
+.qc-svc-card.active .qc-check{background:#22d3ee;border-color:#22d3ee;color:#030711}
+.qc-toggle-group{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qc-toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all 200ms;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.qc-toggle:hover{border-color:rgba(84,179,255,0.38);transform:translateY(-1px)}
+.qc-toggle.active{border-color:#3b82f6;background:linear-gradient(160deg,rgba(59,130,246,0.1),rgba(34,211,238,0.04))}
+.qc-toggle strong{font-size:.88rem;color:#cbd5e1;display:block;transition:color 200ms;pointer-events:none}
+.qc-toggle.active strong{color:#e2e8f0}
+.qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#475569;pointer-events:none}
+.qc-chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qc-chip{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.12);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all 200ms;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.qc-chip:hover{border-color:rgba(84,179,255,0.35);transform:translateY(-1px)}
+.qc-chip.active{border-color:rgba(34,211,238,0.45);background:rgba(34,211,238,0.05)}
+.qc-chip-left{display:flex;align-items:center;gap:10px;pointer-events:none}
+.qc-chip-icon{font-size:1.1rem;line-height:1;flex-shrink:0}
+.qc-chip-label{font-size:.82rem;color:#94a3b8;transition:color 200ms;line-height:1.4}
+.qc-chip.active .qc-chip-label{color:#cbd5e1}
+.qc-chip-pct{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.1);border-radius:6px;padding:2px 7px;flex-shrink:0;white-space:nowrap;pointer-events:none}
+.qc-result-panel{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.qc-result-card{background:linear-gradient(160deg,rgba(11,24,42,0.98),rgba(6,14,24,1));border:1px solid rgba(84,179,255,0.2);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:24px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
+.qc-result-svc-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#3b82f6;display:flex;align-items:center;gap:8px}
+.qc-result-svc-label span{height:1px;flex:1;background:rgba(59,130,246,0.3)}
+.qc-result-svc-name{font-size:1rem;font-weight:700;color:#e2e8f0;margin:4px 0 0}
+.qc-price-block{display:flex;flex-direction:column;gap:8px}
+.qc-price-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#475569}
+.qc-price-range{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.qc-price-from,.qc-price-to{font-size:2.4rem;font-weight:800;color:#f1f5f9;letter-spacing:-.03em;transition:all 350ms ease}
+.qc-price-sep{color:#334155;font-size:1.5rem;font-weight:300;align-self:center}
+.qc-price-curr{font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;align-self:flex-end;padding-bottom:6px;letter-spacing:.06em}
+.qc-gauge-wrap{height:6px;background:rgba(30,41,59,0.8);border-radius:4px;overflow:hidden;border:1px solid rgba(84,179,255,0.08)}
+.qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee,#38bdf8);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px}
+.qc-config-summary{display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.02);border-radius:12px;padding:16px}
+.qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
+.qc-config-key{color:#475569;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
+.qc-config-val{color:#94a3b8;font-weight:600}
+.qc-addons-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.qc-addon-tag{font-size:.66rem;font-family:'JetBrains Mono',monospace;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2);border-radius:6px;padding:2px 7px;color:#22d3ee}
+.qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:16px 24px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.qc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.4);filter:brightness(1.1)}
+.qc-cta-arrow{font-size:1.1rem;transition:transform 200ms;pointer-events:none}
+.qc-cta-btn:hover .qc-cta-arrow{transform:translateX(4px)}
+.qc-disclaimer-note{font-size:.7rem;color:#334155;text-align:center;line-height:1.6;border-top:1px solid rgba(84,179,255,0.07);padding-top:12px}
+@media(max-width:1023px){.qc-layout{grid-template-columns:1fr}.qc-result-panel{position:static}}
+@media(max-width:599px){.qc-svc-grid{grid-template-columns:1fr 1fr}.qc-chip-grid{grid-template-columns:1fr}.qc-price-from,.qc-price-to{font-size:1.8rem}}
+      </style>
+
+
+      <!-- ── Services ─────────────────────────────────────────── -->
+      <section id="services" class="container">
+        <div class="section-header">
+          <h2 class="section-title">What I Offer</h2>
+          <p class="section-subtitle">Specialized offensive security services built around real-world attack techniques and industry standards.</p>
+        </div>
+        <div class="services-grid">
+
+          <article class="service-card">
+            <span class="service-icon">🌐</span>
+            <strong>Web Application Pentest</strong>
+            <span>Manual and automated testing of web apps and APIs following OWASP Top 10 and PTES. Covers auth, injection, business logic, and more.</span>
+          </article>
+
+
+
+          <article class="service-card service-card--featured">
+            <span class="service-icon">🏢</span>
+            <strong>Active Directory Pentest</strong>
+            <span>Full AD environment assessment: Kerberoasting, Pass-the-Hash, BloodHound path analysis, privilege escalation to Domain Admin.</span>
+          </article>
+
+        </div>
+      </section>
+      <!-- ── /Services ──────────────────────────────────────────── -->
+
+      <section id="quote" class="container">
+        <div class="section-heading qc-section-header">
+          <p class="section-tag" id="quote-tag">[ PRICING ]</p>
+          <h3 id="quote-heading">Instant project estimate</h3>
+          <p class="section-copy" id="quote-copy">Configure your engagement below and get a real&#8209;time price range based on global market rates.</p>
+        </div>
+        <div class="qc-layout">
+
+          <!-- LEFT: CONFIGURATOR -->
+          <div class="qc-configurator">
+
+            <!-- Step 1: Service -->
+            <div class="qc-block">
+              <div class="qc-block-header">
+                <span class="qc-num">01</span>
+                <p class="qc-block-title" id="ql-service">Choose your service</p>
+              </div>
+              <div class="qc-svc-grid">
+                <button class="qc-svc-card active" data-svc="pentest_web" type="button">
+                  <span class="qc-check">&#10003;</span>
+                  <span class="qc-svc-emoji">&#127760;</span>
+                  <span class="qc-svc-name">Web App Pentest</span>
+                  <span class="qc-svc-price">From $3,000</span>
+                </button>
+  
+                <button class="qc-svc-card" data-svc="pentest_ad" type="button">
+                  <span class="qc-check">&#10003;</span>
+                  <span class="qc-svc-emoji">&#127970;</span>
+                  <span class="qc-svc-name">Active Directory</span>
+                  <span class="qc-svc-price">From $5,000</span>
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Step 2: Scope -->
+            <div class="qc-block">
+              <div class="qc-block-header">
+                <span class="qc-num">02</span>
+                <p class="qc-block-title" id="ql-scope">Engagement scope</p>
+              </div>
+              <div class="qc-toggle-group">
+                <button class="qc-toggle active" data-scope="small" type="button">
+                  <strong>Small</strong>
+                  <small>1&#8211;5 targets</small>
+                </button>
+                <button class="qc-toggle" data-scope="medium" type="button">
+                  <strong>Medium</strong>
+                  <small>6&#8211;15 targets</small>
+                </button>
+                <button class="qc-toggle" data-scope="large" type="button">
+                  <strong>Large</strong>
+                  <small>15+ targets</small>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Complexity -->
+            <div class="qc-block">
+              <div class="qc-block-header">
+                <span class="qc-num">03</span>
+                <p class="qc-block-title" id="ql-complexity">Environment complexity</p>
+              </div>
+              <div class="qc-toggle-group">
+                <button class="qc-toggle active" data-cplx="low" type="button">
+                  <strong>Standard</strong>
+                  <small>Common stack</small>
+                </button>
+                <button class="qc-toggle" data-cplx="medium" type="button">
+                  <strong>Custom</strong>
+                  <small>Proprietary logic</small>
+                </button>
+                <button class="qc-toggle" data-cplx="high" type="button">
+                  <strong>Enterprise</strong>
+                  <small>Complex / hybrid</small>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Add-ons -->
+            <div class="qc-block">
+              <div class="qc-block-header">
+                <span class="qc-num">04</span>
+                <p class="qc-block-title" id="ql-addons">Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:#475569">(optional)</span></p>
+              </div>
+              <div class="qc-chip-grid">
+                <button class="qc-chip" data-addon="urgent" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#9889;</span>
+                    <span class="qc-chip-label">Rush delivery<br><span style="font-size:.7rem;color:#475569">Under 2 weeks</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+25%</span>
+                </button>
+                <button class="qc-chip" data-addon="executive" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#128196;</span>
+                    <span class="qc-chip-label">Executive report<br><span style="font-size:.7rem;color:#475569">C-level summary</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+15%</span>
+                </button>
+                <button class="qc-chip" data-addon="onsite" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#128205;</span>
+                    <span class="qc-chip-label">On-site work<br><span style="font-size:.7rem;color:#475569">Physical presence</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+20%</span>
+                </button>
+                <button class="qc-chip" data-addon="retest" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#128260;</span>
+                    <span class="qc-chip-label">Free re-test<br><span style="font-size:.7rem;color:#475569">After remediation</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+10%</span>
+                </button>
+              </div>
+            </div>
+          </div><!-- /qc-configurator -->
+
+          <!-- RIGHT: RESULT PANEL -->
+          <div class="qc-result-panel">
+            <div class="qc-result-card">
+              <div>
+                <p class="qc-result-svc-label">Selected service <span></span></p>
+                <p class="qc-result-svc-name" id="qr-svc-name">Web App Pentest</p>
+              </div>
+              <div class="qc-price-block">
+                <p class="qc-price-label" id="qr-label">Estimated range</p>
+                <div class="qc-price-range">
+                  <span class="qc-price-from" id="q-min">$3,000</span>
+                  <span class="qc-price-sep">&#8212;</span>
+                  <span class="qc-price-to" id="q-max">$6,000</span>
+                  <span class="qc-price-curr" id="q-unit">USD</span>
+                </div>
+                <div class="qc-gauge-wrap"><div class="qc-gauge" id="qc-bar" style="width:18%"></div></div>
+              </div>
+              <div class="qc-config-summary">
+                <div class="qc-config-row">
+                  <span class="qc-config-key">Scope</span>
+                  <span class="qc-config-val" id="qr-scope">Small &middot; 1&#8211;5 targets</span>
+                </div>
+                <div class="qc-config-row">
+                  <span class="qc-config-key">Complexity</span>
+                  <span class="qc-config-val" id="qr-cplx">Standard</span>
+                </div>
+                <div class="qc-config-row" id="qr-addons-row" style="display:none">
+                  <span class="qc-config-key">Add-ons</span>
+                  <span class="qc-addons-row" id="qr-addons-tags"></span>
+                </div>
+              </div>
+              <a href="#contact" class="qc-cta-btn">
+                Get a formal proposal <span class="qc-cta-arrow">&#8594;</span>
+              </a>
+              <p class="qc-disclaimer-note">Automated estimate only &#8212; not a binding quote.<br>A signed authorization agreement is required before any engagement begins.</p>
+            </div>
+          </div><!-- /qc-result-panel -->
+
+        </div><!-- /qc-layout -->
       </section>
 
       <section id="contact" class="container contact-wrap">
@@ -2017,6 +2301,8 @@ main > section + section::before {
 
           <article class="card contact-card">
             <p class="section-tag">[ CONTACT ]</p>
+            <h3>Secure channel</h3>
+            <p class="contact-intro">If you need a penetration tester who communicates findings clearly, reach out through any channel below.</p>
             <div class="contact-layout">
               <div class="social-grid contact-channel-grid">
                 <a class="social-link" href="#" data-contact="bWFpbHRvOmRhbmllbG9yZG9uZXphcmFuZ29AZ21haWwuY29t" aria-label="Copy email address">
@@ -2072,6 +2358,7 @@ main > section + section::before {
 
           <article class="card contact-form-card">
             <p class="section-tag">[ SEND A MESSAGE ]</p>
+            <h3 class="cf-heading">Direct message</h3>
             <form id="contact-form" class="cf-form" action="https://formspree.io/f/xpqykjpa" method="POST" novalidate>
               <div class="cf-group">
                 <label class="cf-label" for="cf-name">Name</label>
@@ -2116,91 +2403,8 @@ main > section + section::before {
 
   </div>
 
-
-  <style>
-  /* ── Custom Crosshair Cursor ── */
-  @media (pointer: fine) {
-    .cursor-dot {
-      position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-      background: var(--accent); border-radius: 50%; pointer-events: none;
-      z-index: 99999; transform: translate(-50%,-50%);
-      transition: width 180ms ease, height 180ms ease, background 180ms ease;
-      box-shadow: 0 0 8px rgba(34,211,238,0.9), 0 0 18px rgba(34,211,238,0.4);
-    }
-    .cursor-ring {
-      position: fixed; top: 0; left: 0; width: 30px; height: 30px;
-      border: 1px solid rgba(34,211,238,0.55); border-radius: 50%;
-      pointer-events: none; z-index: 99998; transform: translate(-50%,-50%);
-      transition: width 200ms ease, height 200ms ease, border-color 200ms ease, opacity 200ms ease;
-    }
-    .cursor-ring::before {
-      content: ''; position: absolute; width: 1px; height: 7px;
-      background: rgba(34,211,238,0.5); left: 50%; top: -9px; transform: translateX(-50%);
-      box-shadow: 0 37px 0 rgba(34,211,238,0.5);
-    }
-    .cursor-ring::after {
-      content: ''; position: absolute; height: 1px; width: 7px;
-      background: rgba(34,211,238,0.5); top: 50%; left: -9px; transform: translateY(-50%);
-      box-shadow: 37px 0 0 rgba(34,211,238,0.5);
-    }
-    body.cursor-hovering .cursor-dot {
-      width: 10px; height: 10px; background: var(--primary);
-      box-shadow: 0 0 12px rgba(59,130,246,0.9), 0 0 24px rgba(59,130,246,0.4);
-    }
-    body.cursor-hovering .cursor-ring { width: 44px; height: 44px; border-color: rgba(59,130,246,0.55); }
-    body.cursor-clicking .cursor-dot { transform: translate(-50%,-50%) scale(0.6); }
-    body.cursor-clicking .cursor-ring { transform: translate(-50%,-50%) scale(0.8); border-color: rgba(34,211,238,1); }
-  }
-
-  /* ── CVE of the Day widget ── */
-  .cve-widget {
-    margin-top: 28px; padding: 22px 24px;
-    border: 1px solid rgba(84,179,255,0.2); border-radius: 16px;
-    background: linear-gradient(180deg,rgba(10,23,36,0.55),rgba(6,15,25,0.75));
-    position: relative; overflow: hidden;
-  }
-  .cve-widget::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg,transparent,var(--accent),transparent); opacity: 0.45;
-  }
-  .cve-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-  .cve-header-row .section-tag { margin: 0; }
-  .cve-refresh-hint { font-family: "JetBrains Mono",monospace; font-size:.73rem; color:var(--muted); letter-spacing:.05em; }
-  .cve-loading { font-family:"JetBrains Mono",monospace; font-size:.85rem; color:var(--accent); padding:10px 0; }
-  .cve-loading::after { content:'_'; animation: blink 1s step-end infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  .cve-id-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
-  .cve-id {
-    font-family:"JetBrains Mono",monospace; font-size:1.02rem; font-weight:700;
-    color:var(--text); text-decoration:none; letter-spacing:.04em; transition:color 180ms ease;
-  }
-  .cve-id:hover { color:var(--accent); }
-  .cve-severity {
-    padding:3px 10px; border-radius:999px; font-family:"JetBrains Mono",monospace;
-    font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
-  }
-  .cve-severity.CRITICAL { background:rgba(239,68,68,0.13); border:1px solid rgba(239,68,68,0.45); color:#f87171; }
-  .cve-severity.HIGH     { background:rgba(245,158,11,0.11); border:1px solid rgba(245,158,11,0.4);  color:#fbbf24; }
-  .cve-severity.MEDIUM   { background:rgba(34,211,238,0.1);  border:1px solid rgba(34,211,238,0.35); color:#22d3ee; }
-  .cve-severity.LOW      { background:rgba(34,197,94,0.1);   border:1px solid rgba(34,197,94,0.35);  color:#4ade80; }
-  .cve-score { font-family:"JetBrains Mono",monospace; font-size:.85rem; color:var(--muted); }
-  .cve-desc {
-    font-size:.9rem; line-height:1.65; color:var(--muted); margin:0 0 14px;
-    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
-  }
-  .cve-meta { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-  .cve-meta span { font-family:"JetBrains Mono",monospace; font-size:.74rem; color:var(--muted); }
-  .cve-meta a {
-    font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--accent);
-    text-decoration:none; transition:opacity 180ms ease;
-  }
-  .cve-meta a:hover { opacity:.7; }
-  .cve-error { font-family:"JetBrains Mono",monospace; font-size:.82rem; color:var(--muted); padding:8px 0; }
-  </style>
-  <script src="script.js?v=20260330a" defer></script>
+  <script src="script.js?v=20260409a" defer></script>
   </div> <!-- Closing site-shell -->
 
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 </body>
 </html>
