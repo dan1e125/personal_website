@@ -1540,6 +1540,67 @@ body { line-height: 1.65; }
 .quote-disclaimer p{color:rgba(155,181,214,0.5);font-size:.78rem;line-height:1.6;margin:0}
 @media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-layout{grid-template-columns:1fr}}
 @media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-price-min,.quote-price-max{font-size:1.5rem}}
+
+.qc-layout{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
+.qc-configurator{display:flex;flex-direction:column;gap:28px}
+.qc-block{background:rgba(8,20,38,0.7);border:1px solid rgba(84,179,255,0.1);border-radius:20px;padding:28px 28px 24px;transition:border-color 200ms}
+.qc-block:focus-within,.qc-block:hover{border-color:rgba(84,179,255,0.25)}
+.qc-block-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.qc-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#030711;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.qc-block-title{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;margin:0}
+.qc-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qc-svc-card{position:relative;background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:16px;padding:20px 18px;cursor:pointer;transition:all 220ms cubic-bezier(.4,0,.2,1);text-align:left;color:inherit;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.qc-svc-card:hover{border-color:rgba(84,179,255,0.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.qc-svc-card.active{border-color:#22d3ee;background:rgba(34,211,238,0.05);box-shadow:0 0 0 1px rgba(34,211,238,0.25),0 12px 40px rgba(34,211,238,0.12)}
+.qc-svc-card.active .qc-svc-name{color:#e2e8f0}
+.qc-svc-card.active .qc-svc-price{color:#22d3ee}
+.qc-svc-emoji{font-size:1.7rem;line-height:1;margin-bottom:4px;pointer-events:none}
+.qc-svc-name{font-size:.9rem;font-weight:700;color:#94a3b8;transition:color 200ms;line-height:1.3;pointer-events:none}
+.qc-svc-price{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#64748b;letter-spacing:.04em;transition:color 200ms;pointer-events:none}
+.qc-check{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(84,179,255,0.25);display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all 200ms;pointer-events:none}
+.qc-svc-card.active .qc-check{background:#22d3ee;border-color:#22d3ee;color:#030711}
+.qc-toggle-group{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qc-toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all 200ms;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.qc-toggle:hover{border-color:rgba(84,179,255,0.38);transform:translateY(-1px)}
+.qc-toggle.active{border-color:#3b82f6;background:linear-gradient(160deg,rgba(59,130,246,0.1),rgba(34,211,238,0.04))}
+.qc-toggle strong{font-size:.88rem;color:#cbd5e1;display:block;transition:color 200ms;pointer-events:none}
+.qc-toggle.active strong{color:#e2e8f0}
+.qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#475569;pointer-events:none}
+.qc-chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qc-chip{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.12);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all 200ms;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.qc-chip:hover{border-color:rgba(84,179,255,0.35);transform:translateY(-1px)}
+.qc-chip.active{border-color:rgba(34,211,238,0.45);background:rgba(34,211,238,0.05)}
+.qc-chip-left{display:flex;align-items:center;gap:10px;pointer-events:none}
+.qc-chip-icon{font-size:1.1rem;line-height:1;flex-shrink:0}
+.qc-chip-label{font-size:.82rem;color:#94a3b8;transition:color 200ms;line-height:1.4}
+.qc-chip.active .qc-chip-label{color:#cbd5e1}
+.qc-chip-pct{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.1);border-radius:6px;padding:2px 7px;flex-shrink:0;white-space:nowrap;pointer-events:none}
+.qc-result-panel{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.qc-result-card{background:linear-gradient(160deg,rgba(11,24,42,0.98),rgba(6,14,24,1));border:1px solid rgba(84,179,255,0.2);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:24px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
+.qc-result-svc-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#3b82f6;display:flex;align-items:center;gap:8px}
+.qc-result-svc-label span{height:1px;flex:1;background:rgba(59,130,246,0.3)}
+.qc-result-svc-name{font-size:1rem;font-weight:700;color:#e2e8f0;margin:4px 0 0}
+.qc-price-block{display:flex;flex-direction:column;gap:8px}
+.qc-price-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#475569}
+.qc-price-range{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.qc-price-from,.qc-price-to{font-size:2.4rem;font-weight:800;color:#f1f5f9;letter-spacing:-.03em;transition:all 350ms ease}
+.qc-price-sep{color:#334155;font-size:1.5rem;font-weight:300;align-self:center}
+.qc-price-curr{font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;align-self:flex-end;padding-bottom:6px;letter-spacing:.06em}
+.qc-gauge-wrap{height:6px;background:rgba(30,41,59,0.8);border-radius:4px;overflow:hidden;border:1px solid rgba(84,179,255,0.08)}
+.qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee,#38bdf8);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px}
+.qc-config-summary{display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.02);border-radius:12px;padding:16px}
+.qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
+.qc-config-key{color:#475569;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
+.qc-config-val{color:#94a3b8;font-weight:600}
+.qc-addons-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.qc-addon-tag{font-size:.66rem;font-family:'JetBrains Mono',monospace;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2);border-radius:6px;padding:2px 7px;color:#22d3ee}
+.qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:16px 24px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.qc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.4);filter:brightness(1.1)}
+.qc-cta-arrow{font-size:1.1rem;transition:transform 200ms;pointer-events:none}
+.qc-cta-btn:hover .qc-cta-arrow{transform:translateX(4px)}
+.qc-disclaimer-note{font-size:.7rem;color:#334155;text-align:center;line-height:1.6;border-top:1px solid rgba(84,179,255,0.07);padding-top:12px}
+@media(max-width:1023px){.qc-layout{grid-template-columns:1fr}.qc-result-panel{position:static}}
+@media(max-width:599px){.qc-svc-grid{grid-template-columns:1fr 1fr}.qc-chip-grid{grid-template-columns:1fr}.qc-price-from,.qc-price-to{font-size:1.8rem}}
 </style>
 
 <body>
@@ -1581,8 +1642,9 @@ body { line-height: 1.65; }
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#quote">Pricing</a>
-        <a href="#certifications">Certifications</a>
+        
         <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1991,6 +2053,60 @@ body { line-height: 1.65; }
         </div><!-- /qc-layout -->
       </section>
 
+      <section id="about" class="container">
+        <article class="card">
+          <p class="section-tag">[ ABOUT ]</p>
+          <p>I approach each engagement from the perspective of someone who has built software — understanding how vulnerabilities are introduced makes them easier to find and enables remediation advice that actually works. My training spans the full attack surface: web application exploitation, Active Directory attacks, network pivoting, privilege escalation, binary exploitation and incident response — covering both offensive and defensive angles.</p>
+        </article>
+      </section>
+
+      <section id="experience" class="container">
+        <div class="section-heading">
+          <p class="section-tag">[ PROFESSIONAL EXPERIENCE ]</p>
+          <h3>Real-World Impact & Career Timeline</h3>
+        </div>
+
+        <!-- Operational History -->
+        <h4 class="subsection-h4">Operational history</h4>
+        <div class="timeline timeline-3col timeline-connected">
+          <article class="timeline-item card">
+            <span class="timeline-index">01</span>
+            
+            <h4>Zeroazul</h4>
+            <p class="role">Full-Stack Developer &amp; Security Specialist &middot; Dec 2025 &ndash; Apr 2026</p>
+            <ul class="detail-list">
+              <li>Web application development using PHP, JavaScript and Node.js with security integrated from the start.</li>
+              <li>Network and application security — hardening, vulnerability assessments and secure architecture decisions.</li>
+              <li>Linux server administration — deployment, configuration and maintenance of production environments.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item card">
+            <span class="timeline-index">02</span>
+            
+            <h4>HTB Academy — CPTS &amp; CWEE Paths</h4>
+            <p class="role">Offensive Security Training &middot; 2025</p>
+            <ul class="detail-list">
+              <li>Completed full penetration testing methodology covering web apps, networks and Active Directory through the CPTS path.</li>
+              <li>Covered advanced server-side and client-side web exploitation techniques through the CWEE path.</li>
+              <li>Trained in professional reporting — translating technical findings into actionable business impact.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item card">
+            <span class="timeline-index">03</span>
+            
+            <h4>HTB Academy — CDSA Path</h4>
+            <p class="role">Defensive Security Training &middot; 2025</p>
+            <ul class="detail-list">
+              <li>Trained in SIEM monitoring and log analysis using Splunk and Elastic Stack.</li>
+              <li>Completed DFIR and incident response labs, including forensic acquisition and threat triage.</li>
+              <li>Built detection rules with Suricata/Snort and developed incident response playbooks for common attack patterns.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section id="certifications" class="container">
         <article class="card wide-card">
 
@@ -2067,127 +2183,6 @@ body { line-height: 1.65; }
 
           <!-- OWASP pills removed — attack coverage detailed in HTB Lab Coverage section above -->
           </div>
-        </article>
-      </section>
-
-      <section id="htb-coverage" class="container">
-        <article class="card wide-card">
-          <p class="section-tag">[ 658 TARGETS COMPROMISED ]</p>
-
-          <!-- Row 1 -->
-          <div class="mini-grid mini-grid--mt">
-            <div class="mini-card">
-              <strong>Web Application Exploitation</strong>
-              <span>SQL injection, XSS, CSRF, SSRF, file upload bypasses, authentication flaws, API vulnerabilities, insecure deserialization, XXE, broken access control, IDOR and command injection. Covered through the CPTS and Web Penetration Tester paths.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Active Directory Attacks</strong>
-              <span>Kerberoasting, AS-REP roasting, DCSync, Pass-the-Hash, Pass-the-Ticket, GPO abuse, ACL exploitation, BloodHound enumeration, domain privilege escalation and persistence techniques. Covered through the Penetration Tester and Active Directory Enumeration paths — also trained in AD hardening and detection engineering.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Privilege Escalation</strong>
-              <span>Linux: SUID/SGID binaries, kernel exploits, sudo misconfigurations, cron job abuse, writable paths and NFS shares. Windows: SeImpersonatePrivilege, unquoted service paths, DLL hijacking, registry manipulation and token impersonation.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Network & Service Exploitation</strong>
-              <span>SMB, RDP, SSH, FTP, SNMP, WinRM and MSSQL exploitation. Port forwarding, proxychains, pivoting through compromised hosts, tunneling and lateral movement across segmented networks.</span>
-            </div>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="mini-grid mini-grid--mt">
-            <div class="mini-card">
-              <strong>Reconnaissance & Enumeration</strong>
-              <span>Passive and active recon using Nmap, Masscan, Gobuster, ffuf, Wfuzz, Feroxbuster, Shodan and OSINT techniques. DNS enumeration, subdomain discovery, virtual host fuzzing and certificate transparency lookups.</span>
-            </div>
-            <div class="mini-card">
-              <strong>SOC Analysis & Threat Detection</strong>
-              <span>Log analysis, SIEM monitoring with Splunk and Elastic Stack, traffic analysis with Wireshark and tcpdump, IDS/IPS rule tuning with Suricata and Snort. DFIR activities, threat hunting and incident triage. Covered through the CDSA and SOC Analyst paths.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Binary Exploitation</strong>
-              <span>Buffer overflow attacks on 32-bit Windows and Linux systems, CPU architecture and register analysis, shellcode development, Python exploit scripting, and stack-based overflow techniques. Covered through the Intro to Binary Exploitation path.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Post-Exploitation & Persistence</strong>
-              <span>Credential dumping with Mimikatz and secretsdump, C2 staging concepts, maintaining access via scheduled tasks and registry run keys, data exfiltration techniques and covering tracks across Windows and Linux environments.</span>
-            </div>
-          </div>
-
-          <!-- Row 3 -->
-          <div class="mini-grid mini-grid--mt">
-            <div class="mini-card">
-              <strong>AI / LLM Red Teaming</strong>
-              <span>Prompt injection attacks, adversarial ML, LLM output manipulation, AI data pipeline exploitation, model evasion (white-box and black-box), MCP protocol vulnerabilities and AI application attacks. Covered through the AI Red Teamer path modules.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Wi-Fi Penetration Testing</strong>
-              <span>WPA/WPA2 handshake capture, PMKID attacks, evil twin access points, deauthentication attacks, WPS exploitation, password cracking with Hashcat and Aircrack-ng, and targeted dictionary strategies for wireless assessments.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Malware Analysis & DFIR</strong>
-              <span>Static and dynamic malware analysis, unpacking, reverse engineering with x64dbg, memory forensics with Volatility, disk imaging with FTK Imager and KAPE, Linux forensics, timeline reconstruction from MFT/USN Journal and Windows event logs.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Active Directory Hardening</strong>
-              <span>Remediating common AD pentest findings, hardening default configurations, detection engineering for AD attacks, logging strategies and ongoing maintenance best practices. Covers both attacker and defender perspectives.</span>
-            </div>
-          </div>
-
-        </article>
-      </section>
-
-      <section id="experience" class="container">
-        <div class="section-heading">
-          <p class="section-tag">[ PROFESSIONAL EXPERIENCE ]</p>
-          <h3>Real-World Impact & Career Timeline</h3>
-        </div>
-
-        <!-- Operational History -->
-        <h4 class="subsection-h4">Operational history</h4>
-        <div class="timeline timeline-3col timeline-connected">
-          <article class="timeline-item card">
-            <span class="timeline-index">01</span>
-            
-            <h4>Zeroazul</h4>
-            <p class="role">Full-Stack Developer &amp; Security Specialist &middot; Dec 2025 &ndash; Apr 2026</p>
-            <ul class="detail-list">
-              <li>Web application development using PHP, JavaScript and Node.js with security integrated from the start.</li>
-              <li>Network and application security — hardening, vulnerability assessments and secure architecture decisions.</li>
-              <li>Linux server administration — deployment, configuration and maintenance of production environments.</li>
-            </ul>
-          </article>
-
-          <article class="timeline-item card">
-            <span class="timeline-index">02</span>
-            
-            <h4>HTB Academy — CPTS &amp; CWEE Paths</h4>
-            <p class="role">Offensive Security Training &middot; 2025</p>
-            <ul class="detail-list">
-              <li>Completed full penetration testing methodology covering web apps, networks and Active Directory through the CPTS path.</li>
-              <li>Covered advanced server-side and client-side web exploitation techniques through the CWEE path.</li>
-              <li>Trained in professional reporting — translating technical findings into actionable business impact.</li>
-            </ul>
-          </article>
-
-          <article class="timeline-item card">
-            <span class="timeline-index">03</span>
-            
-            <h4>HTB Academy — CDSA Path</h4>
-            <p class="role">Defensive Security Training &middot; 2025</p>
-            <ul class="detail-list">
-              <li>Trained in SIEM monitoring and log analysis using Splunk and Elastic Stack.</li>
-              <li>Completed DFIR and incident response labs, including forensic acquisition and threat triage.</li>
-              <li>Built detection rules with Suricata/Snort and developed incident response playbooks for common attack patterns.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="about" class="container">
-        <article class="card">
-          <p class="section-tag">[ ABOUT ]</p>
-          <p>I approach each engagement from the perspective of someone who has built software — understanding how vulnerabilities are introduced makes them easier to find and enables remediation advice that actually works. My training spans the full attack surface: web application exploitation, Active Directory attacks, network pivoting, privilege escalation, binary exploitation and incident response — covering both offensive and defensive angles.</p>
         </article>
       </section>
 
