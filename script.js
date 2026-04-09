@@ -164,8 +164,6 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     
     
     
-    :'paths',
-
     // ── Contact ──
     '#services-tag':'[ SERVICIOS ]','#services-heading':'Servicios','#services-copy':'Proyectos remotos, entregables claros. La llamada de alcance es gratuita — sin compromiso.','#svc-va-desc':'Escaneo automatizado + manual de tu superficie de ataque con hallazgos validados y un reporte de remediación priorizado. Punto de entrada de menor costo antes de un pentest completo.','#svc-ai-desc':'Identifica riesgos de prompt injection, fuga de datos y manipulación de modelos en tus aplicaciones con IA antes de que lleguen a producción.','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos','#contact .section-tag':'[ CONTACTO ]',
     '#contact h3':'Contáctame',
