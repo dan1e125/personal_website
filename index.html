@@ -695,15 +695,8 @@ body { line-height: 1.65; }
 
 
 
-.timeline-3col {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-
-
 @media (max-width: 1023px) {
   
-  .timeline-3col { grid-template-columns: 1fr !important; }
   .timeline-item { min-height: auto; }
 }
 
@@ -2057,7 +2050,7 @@ body { line-height: 1.65; }
           <h3 id="experience-heading">Background &amp; Training</h3>
         </div>
 
-        <div class="timeline timeline-3col timeline-connected">
+        <div class="timeline timeline-connected">
           <article class="timeline-item card">
             <span class="timeline-index">01</span>
             
@@ -2073,24 +2066,13 @@ body { line-height: 1.65; }
           <article class="timeline-item card">
             <span class="timeline-index">02</span>
             
-            <h4>HTB Academy — CPTS &amp; CWEE Paths</h4>
-            <p class="role">Offensive Security Training &middot; 2025</p>
+            <h4>HTB Academy — Offensive &amp; Defensive Paths</h4>
+            <p class="role">Penetration Testing &amp; Security Training &middot; 2025</p>
             <ul class="detail-list">
-              <li>Completed full penetration testing methodology covering web apps, networks and Active Directory through the CPTS path.</li>
-              <li>Covered advanced server-side and client-side web exploitation techniques through the CWEE path.</li>
+              <li>Completed full penetration testing methodology covering web apps, networks and Active Directory (CPTS path).</li>
+              <li>Covered advanced web exploitation techniques including server-side and client-side attacks (CWEE path).</li>
+              <li>Trained in SIEM monitoring, DFIR and incident response using Splunk, Elastic Stack and Suricata (CDSA path).</li>
               <li>Trained in professional reporting — translating technical findings into actionable business impact.</li>
-            </ul>
-          </article>
-
-          <article class="timeline-item card">
-            <span class="timeline-index">03</span>
-            
-            <h4>HTB Academy — CDSA Path</h4>
-            <p class="role">Defensive Security Training &middot; 2025</p>
-            <ul class="detail-list">
-              <li>Trained in SIEM monitoring and log analysis using Splunk and Elastic Stack.</li>
-              <li>Completed DFIR and incident response labs, including forensic acquisition and threat triage.</li>
-              <li>Built detection rules with Suricata/Snort and developed incident response playbooks for common attack patterns.</li>
             </ul>
           </article>
         </div>
