@@ -550,6 +550,8 @@ body { line-height: 1.65; }
 }
 
 /* 5. List items — check-list, simple-list, detail-list */
+.check-list li,
+.simple-list li {
   line-height: 1.65;
 }
 .detail-list li { line-height: 1.65; }
@@ -600,12 +602,17 @@ body { line-height: 1.65; }
 }
 
 /* mini-grid bottom margin (experience section) */
+.mini-grid--mb { margin-bottom: 40px; }
 
 /* mini-grid top margin (certifications section) */
+.mini-grid--mt { margin-top: 20px; }
 
 /* Skills section group wrappers */
+.skill-group { margin-top: 8px; }
+.skill-group--gap { margin-top: 28px; }
 
 /* Skills/certifications inner h4 */
+.skill-group-h4 {
   color: var(--accent);
   font-size: 1rem;
   font-weight: 600;
@@ -614,6 +621,8 @@ body { line-height: 1.65; }
 }
 
 /* Certifications pill group */
+.cert-pill-group { margin-top: 28px; }
+.cert-pill-group .pill-grid { margin-top: 12px; }
 
 /* Timeline 3-col override for experience section */
 .timeline-3col {
@@ -648,15 +657,19 @@ body { line-height: 1.65; }
 
   /* Experience subsection headings */
   .subsection-h4 { font-size: 1.15rem; margin: 24px 0 12px; }
+  .mini-grid--mb { margin-bottom: 24px; }
 
   /* Reduce footer bottom padding */
   .contact-wrap { padding-bottom: 60px !important; }
 
   /* Pill sizes on mobile */
+  .pill-grid span { font-size: .82rem; padding: 8px 12px; }
 
   /* Skills group gaps on mobile */
+  .skill-group--gap { margin-top: 20px; }
 
   /* Cert pill group */
+  .cert-pill-group { margin-top: 20px; }
 }
 
 /* ── VERY SMALL PHONES (≤ 479px) ─────────────── */
@@ -686,8 +699,10 @@ body { line-height: 1.65; }
     font-size: clamp(1.25rem, 7vw, 1.6rem) !important;
   }
   .subsection-h4 { font-size: 1.05rem; }
+  .skill-group-h4 { font-size: .9rem; }
 
   /* Pills */
+  .pill-grid span { font-size: .76rem !important; padding: 6px 10px !important; }
 
   /* Contact icons */
   .social-icon { width: 40px !important; height: 40px !important; flex: 0 0 40px !important; }
@@ -729,9 +744,11 @@ body { line-height: 1.65; }
   h2, h3, h4 { color: #111 !important; }
   .section-tag, .eyebrow, .subsection-label, .role, .timeline-index { color: #0066cc !important; }
   p, li, span, .lead { color: #333 !important; }
+  .pill-grid span { border: 1px solid #999 !important; color: #111 !important; background: #f5f5f5 !important; }
   .cert-item, .mini-card, .quick-stats li { background: #fafafa !important; border: 1px solid #ddd !important; }
   a { color: inherit !important; text-decoration: none !important; }
   section { padding: 24pt 0 !important; }
+  .section-grid, .timeline, .mini-grid { grid-template-columns: 1fr !important; gap: 16pt !important; }
   .hero { grid-template-columns: 1fr !important; padding: 16pt 0 !important; }
   @page { margin: 18mm; }
 }
@@ -789,12 +806,19 @@ body { line-height: 1.65; }
 }
 
 /* 4. Skill pill color categories */
+.pill--attack     { border-color: rgba(239,68,68,0.38)  !important; background: rgba(239,68,68,0.08)  !important; color: #fca5a5 !important; }
+.pill--code       { border-color: rgba(34,197,94,0.35)  !important; background: rgba(34,197,94,0.07)  !important; color: #86efac !important; }
+.pill--infra      { border-color: rgba(168,85,247,0.35) !important; background: rgba(168,85,247,0.07) !important; color: #d8b4fe !important; }
+.pill--compliance { border-color: rgba(251,191,36,0.35) !important; background: rgba(251,191,36,0.07) !important; color: #fde68a !important; }
+.pill--defense    { border-color: rgba(59,130,246,0.38)  !important; background: rgba(59,130,246,0.08)  !important; color: #93c5fd !important; }
 /* Card hover glow — intensify gradient border on hover */
 .card { transition: box-shadow 220ms ease, transform 220ms ease; }
 .card:hover { box-shadow: 0 24px 56px rgba(0,0,0,0.45), 0 0 0 1px rgba(34,211,238,0.22); transform: translateY(-2px); }
 .hero .card:hover { transform: none; } /* hero cards stay static */
 
 /* Pill hover effect */
+.pill-grid span { transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+.pill-grid span:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 4px 14px rgba(59,130,246,0.18); filter: brightness(1.15); }
 
 /* Section h3 accent — subtle left border on section headings */
 .section-heading h3 { padding-left: 14px; border-left: 2px solid var(--accent); }
@@ -802,6 +826,7 @@ body { line-height: 1.65; }
 
 /* Typed cursor blink */
 @keyframes typed-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.typed-cursor { display:inline-block; color:var(--accent); font-weight:300; animation:typed-blink 0.9s step-start infinite; }
 @media(prefers-reduced-motion:reduce){ .typed-cursor{animation:none} }
 
 /* Bigger profile photo in hero */
@@ -825,6 +850,7 @@ body { line-height: 1.65; }
 
 /* Gradient section separators */
 #about::before, #experience::before, #skills::before,
+#htb-coverage::before, #certifications::before,
 #services::before, #quote::before, #contact::before {
   content: '';
   display: block;
@@ -1055,14 +1081,17 @@ body { line-height: 1.65; }
   mask-composite: exclude;
   pointer-events: none;
 }
+.transcript-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 10px;
 }
+.transcript-header strong {
   font-size: 1.15rem;
 }
+.evidence-badge {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -1085,20 +1114,24 @@ body { line-height: 1.65; }
   line-height: 1.6;
   margin-bottom: 20px;
 }
+.transcript-mini-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 10px;
 }
+.transcript-mini-stats > div {
   padding: 12px 10px;
   border-radius: 12px;
   border: 1px solid rgba(245,158,11,0.2);
   background: rgba(245,158,11,0.05);
   text-align: center;
 }
+.transcript-mini-stats strong {
   display: block;
   font-size: 1.2rem;
   color: #fcd34d;
 }
+.transcript-mini-stats span {
   display: block;
   color: var(--muted);
   font-size: 0.72rem;
@@ -1106,6 +1139,7 @@ body { line-height: 1.65; }
   font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.04em;
 }
+.transcript-download-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1113,10 +1147,12 @@ body { line-height: 1.65; }
   padding-top: 16px;
   border-top: 1px solid rgba(245,158,11,0.18);
 }
+.transcript-download-row small {
   color: var(--muted);
   font-size: 0.8rem;
   font-family: "JetBrains Mono", monospace;
 }
+.transcript-download-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1131,8 +1167,10 @@ body { line-height: 1.65; }
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease;
 }
+.transcript-download-btn:hover { transform: translateY(-2px); border-color: rgba(245,158,11,0.8); }
 
 /* Student ID badge */
+.student-id-badge {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -1147,6 +1185,7 @@ body { line-height: 1.65; }
 }
 
 /* HTB Academy live verification link */
+.htb-verify-link {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1159,16 +1198,22 @@ body { line-height: 1.65; }
   color: var(--text);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
+.htb-verify-link:hover {
   transform: translateY(-2px);
   border-color: rgba(34,211,238,0.55);
   box-shadow: 0 8px 24px rgba(34,211,238,0.1);
 }
+.verify-icon {
   font-size: 1.3rem;
   color: var(--accent);
   flex-shrink: 0;
 }
+.verify-body { display: grid; gap: 4px; }
+.verify-body strong { color: var(--accent); font-size: 0.95rem; }
+.verify-body span { color: var(--muted); font-size: 0.82rem; font-family: "JetBrains Mono", monospace; }
 
 /* Stats cross-reference link */
+.stats-evidence-link {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1180,11 +1225,14 @@ body { line-height: 1.65; }
   text-decoration: none;
   transition: color 180ms ease;
 }
+.stats-evidence-link:hover { color: #fcd34d; }
+.stats-evidence-link::before {
   content: "📄";
   font-size: 0.85em;
 }
 
 /* Training evidence callout */
+.transcript-evidence-callout {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1194,21 +1242,26 @@ body { line-height: 1.65; }
   background: linear-gradient(90deg, rgba(245,158,11,0.07), rgba(59,130,246,0.04));
   margin-bottom: 24px;
 }
+.callout-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
 }
+.transcript-evidence-callout .callout-body {
   flex: 1;
   min-width: 0;
 }
+.transcript-evidence-callout .callout-body strong {
   display: block;
   font-size: 0.92rem;
   color: #fcd34d;
   margin-bottom: 3px;
 }
+.transcript-evidence-callout .callout-body p {
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.55;
 }
+.callout-link {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -1223,6 +1276,7 @@ body { line-height: 1.65; }
   text-decoration: none;
   transition: transform 180ms ease, border-color 180ms ease;
 }
+.callout-link:hover { transform: translateY(-2px); border-color: rgba(245,158,11,0.7); }
 
 /* Floating transcript CTA */
 .transcript-float {
@@ -1264,6 +1318,11 @@ body { line-height: 1.65; }
 }
 @media (max-width: 767px) {
   .transcript-float { left: 16px; bottom: 80px; }
+  .transcript-mini-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .transcript-header { flex-direction: column; gap: 8px; }
+  .transcript-download-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .transcript-evidence-callout { flex-wrap: wrap; }
+  .callout-link { width: 100%; justify-content: center; }
 }
 @media (max-width: 479px) {
   .transcript-float { display: none; }
@@ -1298,6 +1357,12 @@ body { line-height: 1.65; }
 }
 /* ── HTB ACCORDION ───────────────────────────── */
 @media(max-width:767px){
+  #htb-coverage .mini-card{cursor:pointer;user-select:none}
+  #htb-coverage .mini-card .card-chevron{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.85rem;line-height:1;margin-left:8px;transition:transform 240ms ease;display:inline-block;flex-shrink:0}
+  #htb-coverage .mini-card:not(.is-open) span{display:none}
+  #htb-coverage .mini-card.is-open .card-chevron{transform:rotate(180deg)}
+  #htb-coverage .mini-card strong{margin-bottom:0;display:flex;align-items:center;justify-content:space-between}
+  #htb-coverage .mini-grid{grid-template-columns:1fr!important;gap:8px!important}
 }
   </style>
   <style>
@@ -1314,6 +1379,7 @@ body { line-height: 1.65; }
   .identity-header { flex-direction: row !important; align-items: center !important; gap: 16px !important; }
   .hex-wrap { width: 100px !important; height: 100px !important; }
   .identity-text { gap: 5px !important; }
+  .identity-role { font-size: .76rem !important; }
   .identity-text .section-tag { font-size: .7rem !important; }
 }
 /* ── SPEC ROW — even 2-col on mobile ─────────── */
@@ -1332,6 +1398,7 @@ body { line-height: 1.65; }
   overflow: hidden;
   font-family: "JetBrains Mono", monospace;
 }
+.shell-top {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -1339,10 +1406,12 @@ body { line-height: 1.65; }
   background: rgba(255,255,255,0.04);
   border-bottom: 1px solid rgba(34,211,238,0.12);
 }
+.shell-top span {
   width: 11px; height: 11px;
   border-radius: 999px;
   background: rgba(255,255,255,0.15);
 }
+.shell-top-label {
   margin-left: 10px;
   color: var(--accent);
   font-size: 0.78rem;
@@ -1358,6 +1427,7 @@ body { line-height: 1.65; }
   font-size: 0.88rem;
   line-height: 1.6;
 }
+.shell-line { display: flex; gap: 10px; flex-wrap: wrap; }
 .shell-line.cmd { color: var(--text); }
 .shell-line.cmd::before { content: "$ "; color: var(--accent); flex-shrink: 0; }
 .shell-line.out { color: var(--muted); white-space: pre-wrap; word-break: break-word; }
@@ -1365,12 +1435,14 @@ body { line-height: 1.65; }
 .shell-line.out.warn { color: #fcd34d; }
 .shell-line.out.err { color: #f87171; }
 .shell-line.out.cyan { color: var(--accent); }
+.shell-input-row {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px 20px 16px;
   border-top: 1px solid rgba(34,211,238,0.1);
 }
+.shell-prompt { color: var(--accent); font-size: 0.9rem; user-select: none; }
 .shell-input {
   flex: 1;
   background: transparent;
@@ -1402,6 +1474,7 @@ body { line-height: 1.65; }
 /* Identity hierarchy improvements */
 .identity-text{gap:12px}
 .identity-name{font-size:1.5rem;font-weight:800;letter-spacing:.01em;background:linear-gradient(120deg,#e5f0ff 40%,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.identity-role{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 .identity-text .section-tag{font-size:.72rem;letter-spacing:.1em}
 .identity-text .availability-badge{margin-top:4px}
 @media(max-width:767px){.identity-name{font-size:1.2rem}}
@@ -1435,6 +1508,24 @@ body { line-height: 1.65; }
 .service-cta{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;padding:8px 14px;border-radius:10px;border:1px solid var(--line-strong);background:rgba(255,255,255,0.03);transition:all 180ms ease}
 .service-cta:hover{background:rgba(34,211,238,0.08);border-color:var(--accent);color:var(--accent)}
 .service-price{font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.88rem;letter-spacing:.04em}
+.service-quote-btn{padding:10px 14px;font-size:.82rem;border-radius:10px;margin-top:4px;text-align:center}
+.quote-layout{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.quote-row{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.quote-label{font-family:JetBrains Mono,monospace;font-size:.82rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.quote-select{background:rgba(6,15,25,0.9);border:1px solid rgba(84,179,255,0.25);border-radius:10px;color:var(--text);padding:12px 14px;font-size:.9rem;font-family:"Inter",sans-serif;outline:none;cursor:pointer;transition:border-color 180ms ease;width:100%}
+.quote-select:focus{border-color:var(--accent)}
+.quote-addons{display:grid;gap:10px}
+.quote-check{display:flex;align-items:center;gap:10px;cursor:pointer;color:var(--muted);font-size:.9rem}
+.quote-check input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+.quote-check:hover{color:var(--text)}
+.quote-price-display{padding:20px 0;border-bottom:1px solid var(--line)}
+.quote-price-label{font-family:JetBrains Mono,monospace;font-size:.8rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.quote-price-range{display:flex;align-items:baseline;gap:8px;margin:8px 0}
+.quote-price-min,.quote-price-max{font-size:2rem;font-weight:700;color:var(--text)}
+.quote-price-sep{color:var(--muted);font-size:1.4rem}
+.quote-price-unit{font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.9rem;letter-spacing:.06em}
+.quote-price-note{color:var(--muted);font-size:.88rem;margin:8px 0 0}
+.quote-price-sub{color:rgba(155,181,214,0.6);font-size:.82rem;margin:4px 0 0}
 
 .quote-disclaimer p{color:rgba(155,181,214,0.5);font-size:.78rem;line-height:1.6;margin:0}
 @media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-layout{grid-template-columns:1fr}}
@@ -1447,7 +1538,7 @@ body { line-height: 1.65; }
 .qc-block-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .qc-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#030711;flex-shrink:0;font-family:'JetBrains Mono',monospace}
 .qc-block-title{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;margin:0}
-.qc-svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.qc-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .qc-svc-card{position:relative;background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:16px;padding:20px 18px;cursor:pointer;transition:all 220ms cubic-bezier(.4,0,.2,1);text-align:left;color:inherit;display:flex;flex-direction:column;gap:6px;overflow:hidden}
 .qc-svc-card:hover{border-color:rgba(84,179,255,0.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
 .qc-svc-card.active{border-color:#22d3ee;background:rgba(34,211,238,0.05);box-shadow:0 0 0 1px rgba(34,211,238,0.25),0 12px 40px rgba(34,211,238,0.12)}
@@ -1474,12 +1565,6 @@ body { line-height: 1.65; }
 .qc-chip-label{font-size:.82rem;color:#e2e8f0;transition:color 200ms;line-height:1.4}
 .qc-chip.active .qc-chip-label{color:#cbd5e1}
 .qc-chip-pct{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.1);border-radius:6px;padding:2px 7px;flex-shrink:0;white-space:nowrap;pointer-events:none}
-.qc-env-params{display:flex;flex-direction:column;gap:14px}
-.qc-env-row{display:flex;flex-direction:column;gap:8px}
-.qc-env-divider{height:1px;background:rgba(84,179,255,0.08);margin:4px -4px}
-.qc-sub-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin:0}
-.qc-configurator>.qc-block{position:relative}
-.qc-configurator>.qc-block:not(:last-child)::after{content:'';position:absolute;left:41px;bottom:-28px;height:28px;width:2px;margin-left:-1px;background:linear-gradient(to bottom,rgba(59,130,246,0.22),rgba(34,211,238,0.06));border-radius:1px;pointer-events:none}
 .qc-result-panel{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
 .qc-result-card{background:linear-gradient(160deg,rgba(11,24,42,0.98),rgba(6,14,24,1));border:1px solid rgba(84,179,255,0.2);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:24px;box-shadow:0 24px 60px rgba(0,0,0,0.4)}
 .qc-result-svc-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#3b82f6;display:flex;align-items:center;gap:8px}
@@ -1499,7 +1584,7 @@ body { line-height: 1.65; }
 .qc-config-val{color:#e2e8f0;font-weight:600}
 .qc-addons-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
 .qc-addon-tag{font-size:.66rem;font-family:'JetBrains Mono',monospace;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2);border-radius:6px;padding:2px 7px;color:#22d3ee}
-.qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:18px 24px;color:#fff;font-size:.95rem;font-weight:800;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;box-shadow:0 0 0 1px rgba(34,211,238,0.25),0 8px 32px rgba(37,99,235,0.35)}
+.qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:16px 24px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
 .qc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.4);filter:brightness(1.1)}
 .qc-cta-arrow{font-size:1.1rem;transition:transform 200ms;pointer-events:none}
 .qc-cta-btn:hover .qc-cta-arrow{transform:translateX(4px)}
@@ -1593,8 +1678,8 @@ body { line-height: 1.65; }
               <span>Active Directory</span>
             </div>
             <div class="spec-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22V12m0 0V2m0 10H2m10 0h10"/></svg>
-              <span>Privilege Escalation</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <span>SOC / DFIR</span>
             </div>
             <div class="spec-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/></svg>
@@ -1632,9 +1717,9 @@ body { line-height: 1.65; }
           <p class="terminal-label">daniel@portfolio:~$ ./profile_scan</p>
           <div class="terminal-stream" id="terminal-stream" aria-hidden="true">
             <p>> Scanning operator profile...</p>
-            <p>> [✓] Services: Web · AD · AI/LLM · VA</p>
+            <p>> [✓] 658 targets compromised</p>
+            <p>> [✓] Ranking: Top 1% globally</p>
             <p>> [✓] Mode: REMOTE · Available</p>
-            <p>> [✓] Report: EN / ES · Actionable</p>
           </div>
           <div class="status-grid">
             <div>
@@ -1751,7 +1836,7 @@ body { line-height: 1.65; }
         <div class="section-heading">
           <p class="section-tag">[ HOW IT WORKS ]</p>
           <h3 id="process-heading">From first contact to final report</h3>
-          <p class="section-copy" id="process-copy">A straightforward engagement cycle designed to minimize disruption and maximize actionable output. Most engagements complete in 1–2 weeks from scoping call to final report.</p>
+          <p class="section-copy" id="process-copy">A straightforward engagement cycle designed to minimize disruption and maximize actionable output.</p>
         </div>
         <div class="process-grid">
 
@@ -1790,14 +1875,10 @@ body { line-height: 1.65; }
         </div>
       </section>
 
-      <div class="container" style="text-align:center;padding:0 0 2rem">
-        <a class="button primary" href="#quote" style="font-size:1rem">See pricing →</a>
-      </div>
-
       <section id="quote" class="container">
         <div class="section-heading qc-section-header">
           <p class="section-tag" id="quote-tag">[ PRICING ]</p>
-          <h3 id="quote-heading">Price your engagement in 60 seconds</h3>
+          <h3 id="quote-heading">Instant project estimate</h3>
           <p class="section-copy" id="quote-copy">Configure your engagement below and get a real&#8209;time price range based on global market rates.</p>
         </div>
         <div class="qc-layout">
@@ -1841,55 +1922,54 @@ body { line-height: 1.65; }
               </div>
             </div>
 
-            <!-- Step 2: Environment Parameters -->
+            <!-- Step 2: Scope -->
             <div class="qc-block">
               <div class="qc-block-header">
                 <span class="qc-num">02</span>
-                <p class="qc-block-title">Environment parameters</p>
+                <p class="qc-block-title" id="ql-scope">Engagement scope</p>
               </div>
-              <div class="qc-env-params">
-                <div class="qc-env-row">
-                  <p class="qc-sub-label" id="ql-scope">Scope</p>
-                  <div class="qc-toggle-group">
-                    <button class="qc-toggle active" data-scope="small" type="button">
-                      <strong>Small</strong>
-                      <small>1&#8211;5 targets</small>
-                    </button>
-                    <button class="qc-toggle" data-scope="medium" type="button">
-                      <strong>Medium</strong>
-                      <small>6&#8211;15 targets</small>
-                    </button>
-                    <button class="qc-toggle" data-scope="large" type="button">
-                      <strong>Large</strong>
-                      <small>15+ targets</small>
-                    </button>
-                  </div>
-                </div>
-                <div class="qc-env-divider"></div>
-                <div class="qc-env-row">
-                  <p class="qc-sub-label" id="ql-complexity">Complexity</p>
-                  <div class="qc-toggle-group">
-                    <button class="qc-toggle active" data-cplx="low" type="button">
-                      <strong>Standard</strong>
-                      <small>Common stack</small>
-                    </button>
-                    <button class="qc-toggle" data-cplx="medium" type="button">
-                      <strong>Custom</strong>
-                      <small>Proprietary logic</small>
-                    </button>
-                    <button class="qc-toggle" data-cplx="high" type="button">
-                      <strong>Enterprise</strong>
-                      <small>Complex / hybrid</small>
-                    </button>
-                  </div>
-                </div>
+              <div class="qc-toggle-group">
+                <button class="qc-toggle active" data-scope="small" type="button">
+                  <strong>Small</strong>
+                  <small>1&#8211;5 targets</small>
+                </button>
+                <button class="qc-toggle" data-scope="medium" type="button">
+                  <strong>Medium</strong>
+                  <small>6&#8211;15 targets</small>
+                </button>
+                <button class="qc-toggle" data-scope="large" type="button">
+                  <strong>Large</strong>
+                  <small>15+ targets</small>
+                </button>
               </div>
             </div>
 
-                        <!-- Step 3: Testing Type -->
+            <!-- Step 3: Complexity -->
             <div class="qc-block">
               <div class="qc-block-header">
                 <span class="qc-num">03</span>
+                <p class="qc-block-title" id="ql-complexity">Environment complexity</p>
+              </div>
+              <div class="qc-toggle-group">
+                <button class="qc-toggle active" data-cplx="low" type="button">
+                  <strong>Standard</strong>
+                  <small>Common stack</small>
+                </button>
+                <button class="qc-toggle" data-cplx="medium" type="button">
+                  <strong>Custom</strong>
+                  <small>Proprietary logic</small>
+                </button>
+                <button class="qc-toggle" data-cplx="high" type="button">
+                  <strong>Enterprise</strong>
+                  <small>Complex / hybrid</small>
+                </button>
+              </div>
+            </div>
+
+                        <!-- Step 4: Testing Type -->
+            <div class="qc-block">
+              <div class="qc-block-header">
+                <span class="qc-num">04</span>
                 <p class="qc-block-title" id="ql-tbox">Testing type</p>
               </div>
               <div class="qc-toggle-group">
@@ -1908,10 +1988,10 @@ body { line-height: 1.65; }
               </div>
             </div>
 
-            <!-- Step 4: Add-ons -->
+            <!-- Step 5: Add-ons -->
             <div class="qc-block">
               <div class="qc-block-header">
-                <span class="qc-num">04</span>
+                <span class="qc-num">05</span>
                 <p class="qc-block-title" id="ql-addons">Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span></p>
               </div>
               <div class="qc-chip-grid">
@@ -1959,17 +2039,13 @@ body { line-height: 1.65; }
                   <span class="qc-config-key">Complexity</span>
                   <span class="qc-config-val" id="qr-cplx">Standard</span>
                 </div>
-                <div class="qc-config-row">
-                  <span class="qc-config-key">Testing</span>
-                  <span class="qc-config-val" id="qr-tbox">Black-box</span>
-                </div>
                 <div class="qc-config-row" id="qr-addons-row" style="display:none">
                   <span class="qc-config-key">Add-ons</span>
                   <span class="qc-addons-row" id="qr-addons-tags"></span>
                 </div>
               </div>
               <a href="#contact" class="qc-cta-btn" id="qc-main-cta">
-                Book a free scoping call <span class="qc-cta-arrow">&#8594;</span>
+                Get a formal proposal <span class="qc-cta-arrow">&#8594;</span>
               </a>
               <p class="qc-disclaimer-note">Automated estimate only &#8212; not a binding quote.<br>A signed authorization agreement is required before any engagement begins.</p>
             </div>
@@ -1985,13 +2061,13 @@ body { line-height: 1.65; }
         </div>
 
         <!-- Operational History -->
-        <h4 class="subsection-h4">Experience &amp; Training</h4>
+        <h4 class="subsection-h4">Operational history</h4>
         <div class="timeline timeline-3col timeline-connected">
           <article class="timeline-item card">
             <span class="timeline-index">01</span>
             
             <h4>Zeroazul</h4>
-            <p class="role">Full-Stack Developer &amp; Security Specialist &middot; Ongoing</p>
+            <p class="role">Full-Stack Developer &amp; Security Specialist &middot; Dec 2025 &ndash; Apr 2026</p>
             <ul class="detail-list">
               <li>Web application development using PHP, JavaScript and Node.js with security integrated from the start.</li>
               <li>Network and application security — hardening, vulnerability assessments and secure architecture decisions.</li>
@@ -2110,7 +2186,7 @@ body { line-height: 1.65; }
           <article class="card contact-card">
             <p class="section-tag">[ CONTACT ]</p>
             <h3>Get in touch</h3>
-            <p class="contact-intro">Available for remote engagements worldwide. Response within 24h. The first call costs nothing — we define scope, timeline and fit before any agreement.</p>
+            <p class="contact-intro">Available for remote engagements worldwide. Response within 24h. Scoping call is free — no commitment required.</p>
             <div class="contact-layout">
               <div class="social-grid contact-channel-grid">
                 <a class="social-link" href="#" data-contact="bWFpbHRvOmRhbmllbG9yZG9uZXphcmFuZ29AZ21haWwuY29t" aria-label="Copy email address">
