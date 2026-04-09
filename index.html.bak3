@@ -1555,24 +1555,24 @@ body { line-height: 1.65; }
 .qc-svc-card.active .qc-svc-name{color:#e2e8f0}
 .qc-svc-card.active .qc-svc-price{color:#22d3ee}
 .qc-svc-emoji{font-size:1.7rem;line-height:1;margin-bottom:4px;pointer-events:none}
-.qc-svc-name{font-size:.9rem;font-weight:700;color:#e2e8f0;transition:color 200ms;line-height:1.3;pointer-events:none}
-.qc-svc-price{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#94a3b8;letter-spacing:.04em;transition:color 200ms;pointer-events:none}
+.qc-svc-name{font-size:.9rem;font-weight:700;color:#94a3b8;transition:color 200ms;line-height:1.3;pointer-events:none}
+.qc-svc-price{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#64748b;letter-spacing:.04em;transition:color 200ms;pointer-events:none}
 .qc-check{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(84,179,255,0.25);display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all 200ms;pointer-events:none}
 .qc-svc-card.active .qc-check{background:#22d3ee;border-color:#22d3ee;color:#030711}
 .qc-toggle-group{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .qc-toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all 200ms;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .qc-toggle:hover{border-color:rgba(84,179,255,0.38);transform:translateY(-1px)}
 .qc-toggle.active{border-color:#3b82f6;background:linear-gradient(160deg,rgba(59,130,246,0.1),rgba(34,211,238,0.04))}
-.qc-toggle strong{font-size:.88rem;color:#e2e8f0;display:block;transition:color 200ms;pointer-events:none}
+.qc-toggle strong{font-size:.88rem;color:#cbd5e1;display:block;transition:color 200ms;pointer-events:none}
 .qc-toggle.active strong{color:#e2e8f0}
-.qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#94a3b8;pointer-events:none}
+.qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#475569;pointer-events:none}
 .qc-chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .qc-chip{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.12);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all 200ms;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .qc-chip:hover{border-color:rgba(84,179,255,0.35);transform:translateY(-1px)}
 .qc-chip.active{border-color:rgba(34,211,238,0.45);background:rgba(34,211,238,0.05)}
 .qc-chip-left{display:flex;align-items:center;gap:10px;pointer-events:none}
 .qc-chip-icon{font-size:1.1rem;line-height:1;flex-shrink:0}
-.qc-chip-label{font-size:.82rem;color:#e2e8f0;transition:color 200ms;line-height:1.4}
+.qc-chip-label{font-size:.82rem;color:#94a3b8;transition:color 200ms;line-height:1.4}
 .qc-chip.active .qc-chip-label{color:#cbd5e1}
 .qc-chip-pct{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.1);border-radius:6px;padding:2px 7px;flex-shrink:0;white-space:nowrap;pointer-events:none}
 .qc-result-panel{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
@@ -1581,7 +1581,7 @@ body { line-height: 1.65; }
 .qc-result-svc-label span{height:1px;flex:1;background:rgba(59,130,246,0.3)}
 .qc-result-svc-name{font-size:1rem;font-weight:700;color:#e2e8f0;margin:4px 0 0}
 .qc-price-block{display:flex;flex-direction:column;gap:8px}
-.qc-price-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8}
+.qc-price-label{font-size:.68rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#475569}
 .qc-price-range{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
 .qc-price-from,.qc-price-to{font-size:2.4rem;font-weight:800;color:#f1f5f9;letter-spacing:-.03em;transition:all 350ms ease}
 .qc-price-sep{color:#334155;font-size:1.5rem;font-weight:300;align-self:center}
@@ -1590,8 +1590,8 @@ body { line-height: 1.65; }
 .qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee,#38bdf8);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px}
 .qc-config-summary{display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.02);border-radius:12px;padding:16px}
 .qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
-.qc-config-key{color:#94a3b8;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
-.qc-config-val{color:#e2e8f0;font-weight:600}
+.qc-config-key{color:#475569;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
+.qc-config-val{color:#94a3b8;font-weight:600}
 .qc-addons-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
 .qc-addon-tag{font-size:.66rem;font-family:'JetBrains Mono',monospace;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2);border-radius:6px;padding:2px 7px;color:#22d3ee}
 .qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:16px 24px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
@@ -1972,32 +1972,10 @@ body { line-height: 1.65; }
               </div>
             </div>
 
-                        <!-- Step 4: Testing Type -->
+            <!-- Step 4: Add-ons -->
             <div class="qc-block">
               <div class="qc-block-header">
                 <span class="qc-num">04</span>
-                <p class="qc-block-title" id="ql-tbox">Testing type</p>
-              </div>
-              <div class="qc-toggle-group">
-                <button class="qc-toggle active" data-tbox="black" type="button">
-                  <strong>Black-box</strong>
-                  <small>No prior access</small>
-                </button>
-                <button class="qc-toggle" data-tbox="grey" type="button">
-                  <strong>Grey-box</strong>
-                  <small>Partial credentials</small>
-                </button>
-                <button class="qc-toggle" data-tbox="white" type="button">
-                  <strong>White-box</strong>
-                  <small>Full access + code</small>
-                </button>
-              </div>
-            </div>
-
-            <!-- Step 5: Add-ons -->
-            <div class="qc-block">
-              <div class="qc-block-header">
-                <span class="qc-num">05</span>
                 <p class="qc-block-title" id="ql-addons">Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span></p>
               </div>
               <div class="qc-chip-grid">
@@ -2008,12 +1986,26 @@ body { line-height: 1.65; }
                   </span>
                   <span class="qc-chip-pct">+25%</span>
                 </button>
+                <button class="qc-chip" data-addon="executive" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#128196;</span>
+                    <span class="qc-chip-label">Executive report<br><span style="font-size:.7rem;color:var(--muted)">C-level summary</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+15%</span>
+                </button>
                 <button class="qc-chip" data-addon="onsite" type="button">
                   <span class="qc-chip-left">
                     <span class="qc-chip-icon">&#128205;</span>
                     <span class="qc-chip-label">On-site work<br><span style="font-size:.7rem;color:var(--muted)">Physical presence</span></span>
                   </span>
                   <span class="qc-chip-pct">+20%</span>
+                </button>
+                <button class="qc-chip" data-addon="retest" type="button">
+                  <span class="qc-chip-left">
+                    <span class="qc-chip-icon">&#128260;</span>
+                    <span class="qc-chip-label">Free re-test<br><span style="font-size:.7rem;color:var(--muted)">After remediation</span></span>
+                  </span>
+                  <span class="qc-chip-pct">+10%</span>
                 </button>
               </div>
             </div>
