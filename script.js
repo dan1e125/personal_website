@@ -479,7 +479,6 @@ window.addEventListener('scroll', function() {
 window.addEventListener('DOMContentLoaded', function() {
   updateScrollProgress();
   updateActiveNav();
-  if (prefersReducedMotion) console.log('Reduced motion detected — animations disabled.');
 });
 
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function() {
@@ -975,68 +974,6 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('mouseup',   function() { document.body.classList.remove('cursor-clicking'); });
   document.addEventListener('mouseleave', function() { dot.style.opacity='0'; ring.style.opacity='0'; });
   document.addEventListener('mouseenter', function() { dot.style.opacity='1'; ring.style.opacity='1'; });
-}());
-
-/* ── CVE of the Day ── */
-(function() {
-  var body = document.getElementById('cve-body');
-  if (!body) return;
-
-  var today = new Date().toISOString().slice(0, 10);
-  var cacheKey = 'cve-day-' + today;
-  var cached = localStorage.getItem(cacheKey);
-  if (cached) { try { renderCVE(JSON.parse(cached)); return; } catch(e) {} }
-
-  var endDate   = new Date().toISOString().replace(/\.\d+Z$/, '.000');
-  var startDate = new Date(Date.now() - 8 * 86400000).toISOString().replace(/\.\d+Z$/, '.000');
-  var url = 'https://services.nvd.nist.gov/rest/json/cves/2.0' +
-    '?cvssV3Severity=CRITICAL' +
-    '&pubStartDate=' + startDate +
-    '&pubEndDate='   + endDate +
-    '&resultsPerPage=20';
-
-  fetch(url)
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      var vulns = data.vulnerabilities || [];
-      if (!vulns.length) throw new Error('empty');
-      var dateNum = parseInt(today.replace(/-/g,''), 10);
-      var cve = vulns[dateNum % vulns.length].cve;
-      var desc = (cve.descriptions || []).find(function(d){ return d.lang==='en'; }) || {};
-      var m = cve.metrics || {};
-      var cvssEntry = ((m.cvssMetricV31 || m.cvssMetricV30 || m.cvssMetricV2) || [{}])[0];
-      var cvssData  = cvssEntry.cvssData || {};
-      var result = {
-        id:          cve.id,
-        description: desc.value || 'No description available.',
-        score:       cvssData.baseScore    || 'N/A',
-        severity:    cvssData.baseSeverity || 'CRITICAL',
-        published:   (cve.published || '').slice(0, 10)
-      };
-      localStorage.setItem(cacheKey, JSON.stringify(result));
-      renderCVE(result);
-    })
-    .catch(function() {
-      body.innerHTML = '<div class="cve-error">// threat feed unavailable — check back later.</div>';
-    });
-
-  function renderCVE(d) {
-    var nvdUrl = 'https://nvd.nist.gov/vuln/detail/' + d.id;
-    var isEs   = (document.documentElement.lang === 'es');
-    var pubLabel = isEs ? 'Publicado: ' : 'Published: ';
-    var detLink  = isEs ? '→ Detalles NVD' : '→ NVD Details';
-    body.innerHTML =
-      '<div class="cve-id-row">' +
-        '<a class="cve-id" href="' + nvdUrl + '" target="_blank" rel="noopener">' + d.id + '</a>' +
-        '<span class="cve-severity ' + d.severity + '">' + d.severity + '</span>' +
-        '<span class="cve-score">CVSS ' + d.score + '</span>' +
-      '</div>' +
-      '<p class="cve-desc">' + d.description.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p>' +
-      '<div class="cve-meta">' +
-        '<span>' + pubLabel + d.published + '</span>' +
-        '<a href="' + nvdUrl + '" target="_blank" rel="noopener">' + detLink + '</a>' +
-      '</div>';
-  }
 }());
 
 /* ── Quote Calculator v4 ─────────────────────────────────── */
