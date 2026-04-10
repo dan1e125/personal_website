@@ -1,7 +1,7 @@
-var CACHE = 'danieloa-v42';
+var CACHE = 'danieloa-v43';
 var ASSETS = [
   '/',
-  '/script.js?v=20260416',
+  '/script.js?v=20260417',
   '/daniel_profile.webp',
   '/daniel_profile.jpg',
   '/manifest.json',
@@ -26,9 +26,8 @@ self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(keys.filter(function(k) { return k !== CACHE; }).map(function(k) { return caches.delete(k); }));
-    })
+    }).then(function() { return self.clients.claim(); })
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', function(e) {
@@ -44,6 +43,8 @@ self.addEventListener('fetch', function(e) {
           caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
         }
         return res;
+      }).catch(function() {
+        return new Response('Offline', {status:503,statusText:'Service Unavailable'});
       });
     })
   );
