@@ -1,39 +1,12 @@
-var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & AI/LLM security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & AI/LLM security testing. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.brand-block .eyebrow':'Cybersecurity Portfolio','.topnav a[href="#about"]':'About','.topnav a[href="#experience"]':'Experience','.topnav a[href="#resources"]':'Resources','.topnav a[href="#certifications"]':'Certifications','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do — findings your dev team can actually fix.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'Networks','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'SOC / DFIR','.hero-copy .spec-item:nth-child(5) span':'AI / LLM','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.secondary[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.secondary[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
-'.link-strip a[href="https://www.linkedin.com/in/danie125/"]':'LinkedIn','.avail-text':'Available for engagements','.terminal-label':'daniel@portfolio:~$ ./profile_scan','.status-grid div:nth-child(1) span':'Status','.status-grid div:nth-child(1) strong':'ACTIVE','.status-grid div:nth-child(2) span':'Focus','.status-grid div:nth-child(2) strong':'PENTEST','.status-grid div:nth-child(3) span':'Mode','.status-grid div:nth-child(3) strong':'REMOTE','.status-grid div:nth-child(4) span':'Coverage','.status-grid div:nth-child(4) strong':'WEB / NET / SYS','.status-grid div:nth-child(5) span':'Availability','.status-grid div:nth-child(5) strong':'OPEN','.status-grid div:nth-child(6) span':'Languages','.status-grid div:nth-child(6) strong':'EN / ES','#experience .section-heading .section-tag':'[ PROFESSIONAL EXPERIENCE ]','#experience .section-heading h3':'Background & Training','#experience > h4:nth-of-type(1)':'Experience & Training','#experience .mini-grid--mb .mini-card:nth-child(1) strong':'Offensive + Defensive Context','#experience .mini-grid--mb .mini-card:nth-child(1) span':'I assess weaknesses with an attacker mindset while keeping remediation and defensive priorities in focus.','#experience .mini-grid--mb .mini-card:nth-child(2) strong':'Application + Infrastructure View','#experience .mini-grid--mb .mini-card:nth-child(2) span':'Application layer and infrastructure environments — web, API, server-side and network attack surfaces.','#experience .mini-grid--mb .mini-card:nth-child(3) strong':'Incident Response Training','#experience .mini-grid--mb .mini-card:nth-child(3) span':'Incident response, threat detection and forensic analysis.','#experience .mini-grid--mb .mini-card:nth-child(4) strong':'Clear Reporting','#experience .mini-grid--mb .mini-card:nth-child(4) span':'Every engagement ends with findings ranked by risk and written in plain language — actionable for both technical teams and decision-makers.','#experience .timeline-item:nth-child(1) .role':'Full-Stack Developer & Security Specialist · Ongoing','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(1)':'Web application development using PHP, JavaScript and Node.js with security integrated from the start.','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(2)':'Network and application security — hardening, vulnerability assessments and secure architecture decisions.','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(3)':'Linux server administration — deployment, configuration and maintenance of production environments.','#experience .timeline-item:nth-child(2) .role':'Offensive Security Training · 2025','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(1)':'Completed full penetration testing methodology covering web apps, networks and Active Directory through the CPTS path.','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(2)':'Covered advanced server-side and client-side web exploitation techniques through the CWEE path.','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(3)':'Trained in scoping, methodology and professional engagement documentation.','#experience .timeline-item:nth-child(3) .role':'Defensive Security Training · 2025','#experience .timeline-item:nth-child(3) .detail-list li:nth-child(1)':'Trained in SIEM monitoring, log analysis and detection engineering.','#experience .timeline-item:nth-child(3) .detail-list li:nth-child(2)':'Completed DFIR and incident response labs through the CDSA path.','#experience .timeline-item:nth-child(3) .detail-list li:nth-child(3)':'Built IDS/IPS detection rules and developed incident response playbooks.','#skills article:nth-child(1) .section-tag':'[ TECHNICAL ARSENAL ]','#skills article:nth-child(1) h4':'Penetration Testing Tools','#skills article:nth-child(2) div:nth-child(1) h4':'Programming & Scripting','#skills article:nth-child(2) div:nth-child(2) h4':'Infrastructure & Platforms','#skills article:nth-child(2) div:nth-child(3) h4':'Compliance & Methodologies','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(1) strong':'Web Application Exploitation','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(1) span':'SQL injection, XSS, CSRF, SSRF, file upload bypasses, authentication flaws, API vulnerabilities, insecure deserialization, XXE, broken access control, IDOR and command injection. Covered through the CPTS and Web Penetration Tester paths.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(2) strong':'Active Directory Attacks','#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(2) span':'Kerberoasting, AS-REP roasting, DCSync, Pass-the-Hash, Pass-the-Ticket, GPO abuse, ACL exploitation, BloodHound enumeration, domain privilege escalation and persistence techniques. Covered through the Penetration Tester path.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(3) strong':'Privilege Escalation','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(3) span':'Linux: SUID/SGID binaries, kernel exploits, sudo misconfigurations, cron job abuse, writable paths and NFS shares. Windows: SeImpersonatePrivilege, unquoted service paths, DLL hijacking, registry manipulation and token impersonation.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(4) strong':'Network & Service Exploitation','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(4) span':'SMB, RDP, SSH, FTP, SNMP, WinRM and MSSQL exploitation. Port forwarding, proxychains, pivoting through compromised hosts, tunneling and lateral movement across segmented networks.','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(1) strong':'Reconnaissance & Enumeration','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(1) span':'Passive and active recon using Nmap, Masscan, Gobuster, ffuf, Wfuzz, Feroxbuster, Shodan and OSINT techniques. DNS enumeration, subdomain discovery, virtual host fuzzing and certificate transparency lookups.','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(2) strong':'SOC Analysis & Threat Detection','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(2) span':'Log analysis, SIEM monitoring with Splunk and Elastic Stack, traffic analysis with Wireshark and tcpdump, IDS/IPS rule tuning with Suricata and Snort. DFIR activities, threat hunting and incident triage. Covered through the CDSA and SOC Analyst paths.','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(3) strong':'Binary Exploitation','#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(3) span':'Buffer overflow attacks on 32-bit Windows and Linux systems, CPU architecture and register analysis, shellcode development, Python exploit scripting, and stack-based overflow techniques. Covered through the Intro to Binary Exploitation path.','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(4) strong':'Post-Exploitation & Persistence','#htb-coverage .mini-grid:nth-child(5) .mini-card:nth-child(4) span':'Credential dumping with Mimikatz and secretsdump, C2 staging concepts, maintaining access via scheduled tasks and registry run keys, data exfiltration techniques and covering tracks across Windows and Linux environments.','#certifications article:nth-child(1) .section-tag':'[ EDUCATION / CERTIFICATIONS ]','#certifications .training-section:nth-of-type(1) .section-tag':'[ HTB Job Role & Skills Paths Completed ]','.path-card:nth-child(1) span:last-child':'Web recon, authentication flaws, API exploitation and OWASP-aligned methodology.','.path-card:nth-child(2) span:last-child':'End-to-end methodology: recon, exploitation, post-exploitation, lateral movement and reporting.','.path-card:nth-child(3) span:last-child':'Threat detection, DFIR, incident response and SOC analysis procedures.','.path-card:nth-child(4) span:last-child':'Practical foundations covering both attack and defense disciplines.','.cert-group:nth-child(1) .subsection-label':'External cybersecurity studies','#about article:nth-child(1) p:nth-of-type(2)':'I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know where developers leave gaps. I pair that with offensive security training across the full attack surface: web exploitation, Active Directory attacks, privilege escalation, network pivoting and binary exploitation. Every engagement ends with a report your team can actually act on.','#resources article:nth-child(1) .section-tag':'[ RESOURCES ]','#resources article:nth-child(1) h3':'Downloadable material','#contact h3':'Get in touch','#cg-profiles':'Online profiles','.contact-intro':'Available for remote engagements worldwide. Response within 24h. The first call costs nothing — we define scope, timeline and fit before any agreement.','.contact-card-email-title':'Email','.contact-card-email-copy':'Direct message channel','.contact-card-phone-title':'Phone','.contact-card-phone-copy':'Direct call — fastest response','.cg-li-title':'LinkedIn','.cg-li-desc':'Professional profile and networking','.cg-gh-title':'GitHub','.cg-gh-desc':'Code, projects and technical footprint','footer a[href="#main"]':'↑ Back to top','.contact-form-card .section-tag':'[ SEND A MESSAGE ]','.cf-heading':'Direct message','label[for="cf-name"]':'Name','label[for="cf-email"]':'Email','label[for="cf-message"]':'Message','.cf-btn-text':'Send message','.topnav a[href="#services"]':'Services','.topnav a[href="#quote"]':'Pricing','#process-heading':'From first contact to final report','#process-copy':'A straightforward engagement cycle designed to minimize disruption and maximize actionable output. Most engagements complete in 1–2 weeks from scoping call to final report.','#process-step1-title':'Scoping Call','#process-step1-desc':'Free 30-minute call to understand your environment, define targets and agree on rules of engagement. No commitment required.','#process-step2-title':'Proposal & NDA','#process-step2-desc':'You receive a written proposal with scope, timeline, methodology and fixed price. NDA signed before any work begins.','#process-step3-title':'Engagement','#process-step3-desc':'Active testing phase. You get progress updates throughout. Any critical findings are reported immediately.','#process-step4-title':'Report & Re-test','#process-step4-desc':'Detailed PDF report with risk ratings, proof-of-concept and remediation steps. Free re-test included to verify fixes.','.topnav a[href="#process"]':'Process','#services-tag':'[ SERVICES ]','#services-heading':'Services','#services-copy':'Remote engagements, clear deliverables. Scoping call is free — no commitment required.','#svc-va-desc':'Automated + manual scan of your attack surface with validated findings and a prioritized remediation report. Lower-cost entry point before a full pentest.','#svc-ai-desc':'Identify prompt injection, data leakage, and model manipulation risks in your AI-powered applications before they reach production.','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},terminalLines:['> Scanning operator profile...','> [✓] Services: Web · AD · AI/LLM · VA','> [✓] Mode: REMOTE · Available','> [✓] Report: EN / ES · Actionable'],
-'#process-heading':'From first contact to final report','#process-copy':'A straightforward engagement cycle designed to minimize disruption and maximize actionable output.','#process-step1-title':'Scoping Call','#process-step1-desc':'Free 30-minute call to understand your environment, define targets and agree on rules of engagement. No commitment required.','#process-step2-title':'Proposal & NDA','#process-step2-desc':'You receive a written proposal with scope, timeline, methodology and fixed price. NDA signed before any work begins.','#process-step3-title':'Engagement','#process-step3-desc':'Active testing phase. You get progress updates throughout. Any critical findings are reported immediately.','#process-step4-title':'Report & Re-test','#process-step4-desc':'Detailed PDF report with risk ratings, proof-of-concept and remediation steps. Free re-test included to verify fixes.','.topnav a[href="#process"]':'Process','#services-tag':'[ SERVICES ]',
-'#services-heading':'What I offer',
-'#services-copy':'Professional cybersecurity services — scoped, executed and reported to industry standards.',
-
-
-
-
-
-
-
-
-
-
-
-
-
-'#svc-va-desc':'Automated + manual scan of your infrastructure with risk-classified findings and remediation guidance.',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'#quote-tag':'[ PRICING ]',
-'#quote-heading':'Get an instant quote',
-'#quote-copy':'Estimates are based on global market standards. A 30% deposit is required to initiate any engagement.'},es:{
+var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & AI/LLM security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & AI/LLM security testing. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.brand-block .eyebrow':'Cybersecurity Portfolio','.topnav a[href="#about"]':'About','.topnav a[href="#experience"]':'Experience','.topnav a[href="#certifications"]':'Certifications','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do, delivering findings your dev team can actually fix.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'Networks','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'Privilege Escalation','.hero-copy .spec-item:nth-child(5) span':'AI / LLM','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
+'.avail-text':'Available for engagements','.terminal-label':'daniel@portfolio:~$ ./profile_scan','.status-grid div:nth-child(1) span':'Status','.status-grid div:nth-child(1) strong':'ACTIVE','.status-grid div:nth-child(2) span':'Focus','.status-grid div:nth-child(2) strong':'PENTEST','.status-grid div:nth-child(3) span':'Mode','.status-grid div:nth-child(3) strong':'REMOTE','.status-grid div:nth-child(4) span':'Coverage','.status-grid div:nth-child(4) strong':'WEB / NET / SYS','.status-grid div:nth-child(5) span':'Availability','.status-grid div:nth-child(5) strong':'OPEN','.status-grid div:nth-child(6) span':'Languages','.status-grid div:nth-child(6) strong':'EN / ES','#experience .section-heading .section-tag':'[ PROFESSIONAL EXPERIENCE ]','#experience .section-heading h3':'Background & Training','#experience .timeline-item:nth-child(1) .role':'Full-Stack Developer & Security Specialist · Ongoing','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(1)':'Web application development using PHP, JavaScript and Node.js with security integrated from the start.','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(2)':'Network and application security — hardening, vulnerability assessments and secure architecture decisions.','#experience .timeline-item:nth-child(1) .detail-list li:nth-child(3)':'Linux server administration — deployment, configuration and maintenance of production environments.','#experience .timeline-item:nth-child(2) .role':'Offensive Security Training · 2025','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(1)':'Completed full penetration testing methodology covering web apps, networks and Active Directory through the CPTS path.','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(2)':'Covered advanced server-side and client-side web exploitation techniques through the CWEE path.','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(3)':'Trained in scoping, methodology and professional engagement documentation.','#certifications article:nth-child(1) .section-tag':'[ EDUCATION / CERTIFICATIONS ]','#certifications .training-section:nth-of-type(1) .section-tag':'[ HTB Job Role & Skills Paths Completed ]','.path-card:nth-child(1) span:last-child':'Web recon, authentication flaws, API exploitation and OWASP-aligned methodology.','.path-card:nth-child(2) span:last-child':'End-to-end methodology: recon, exploitation, post-exploitation, lateral movement and reporting.','.path-card:nth-child(3) span:last-child':'Threat detection, DFIR, incident response and SOC analysis procedures.','.path-card:nth-child(4) span:last-child':'Practical foundations covering both attack and defense disciplines.','.path-card:nth-child(5) strong':'Active Directory Enumeration','.path-card:nth-child(5) span:last-child':'In-depth AD enumeration techniques, tools and attack surface mapping. Hard difficulty path.','.path-card:nth-child(6) strong':'Information Security Foundations','.path-card:nth-child(6) span:last-child':'Core InfoSec concepts: networking, cryptography, pentesting methodology and career foundations.','.path-card:nth-child(7) strong':'SOC Analyst Prerequisites','.path-card:nth-child(7) span:last-child':'Prerequisite knowledge for SOC operations — security fundamentals and threat analysis concepts.','.path-card:nth-child(8) strong':'Operating System Fundamentals','.path-card:nth-child(8) span:last-child':'Windows and Linux internals, administration and hardening in line with security best practices.','.path-card:nth-child(9) strong':'Local Privilege Escalation','.path-card:nth-child(9) span:last-child':'Manual and tool-assisted privilege escalation techniques on Windows and Linux systems.','.path-card:nth-child(10) strong':'Intro to Binary Exploitation','.path-card:nth-child(10) span:last-child':'Buffer overflows, shellcode and exploit scripting. Hard difficulty path.','.path-card:nth-child(11) strong':'Basic Toolset','.path-card:nth-child(11) span:last-child':'Core offensive security tools and their practical application across various scenarios.','.path-card:nth-child(12) strong':'Cracking into Hack The Box','.path-card:nth-child(12) span:last-child':'First guided HTB machine walkthrough — bridging academy knowledge and real-world labs.','.cert-group:nth-child(1) .subsection-label':'External cybersecurity studies','#about article:nth-child(1) p:nth-of-type(2)':'I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know where developers leave gaps. I pair that with offensive security training across the full attack surface: web exploitation, Active Directory attacks, network pivoting and privilege escalation. Every engagement ends with a report your team can actually act on.','#contact h3':'Get in touch','#cg-profiles':'Online profiles','.contact-intro':'Available for remote engagements worldwide. Response within 24h. The first call costs nothing — we define scope, timeline and fit before any agreement.','.contact-card-phone-title':'Phone','.contact-card-phone-copy':'Direct call — fastest response','.cg-li-title':'LinkedIn','.cg-li-desc':'Professional profile and networking','.cg-gh-title':'GitHub','.cg-gh-desc':'Code, projects and technical footprint','footer a[href="#main"]':'↑ Back to top','.contact-form-card .section-tag':'[ SEND A MESSAGE ]','.cf-heading':'Direct message','label[for="cf-name"]':'Name','label[for="cf-email"]':'Email','label[for="cf-message"]':'Message','.cf-btn-text':'Send message','.topnav a[href="#services"]':'Services','.topnav a[href="#quote"]':'Pricing','#process-heading':'From first contact to final report','#process-copy':'A straightforward engagement cycle designed to minimize disruption and maximize actionable output. Most engagements complete in 1–2 weeks from scoping call to final report.','#process-step1-title':'Scoping Call','#process-step1-desc':'Free 30-minute call to understand your environment, define targets and agree on rules of engagement. No commitment required.','#process-step2-title':'Proposal & NDA','#process-step2-desc':'You receive a written proposal with scope, timeline, methodology and fixed price. NDA signed before any work begins.','#process-step3-title':'Engagement','#process-step3-desc':'Active testing phase. You get progress updates throughout. Any critical findings are reported immediately — no waiting for the final report.','#process-step4-title':'Report & Re-test','#process-step4-desc':'Detailed PDF report with risk ratings, proof-of-concept and remediation steps. Free re-test included to verify fixes.','.topnav a[href="#process"]':'Process','#services-tag':'[ SERVICES ]','#services-heading':'Services','#services-copy':'Remote engagements, clear deliverables, and findings your team can act on.','#svc-web-title':'Web Application Pentest','#svc-web-desc':'Find exploitable vulnerabilities in your app before a breach does. OWASP-aligned manual testing with a written report your team can act on immediately.','#svc-ad-title':'Active Directory Pentest','#svc-ad-desc':'Identify attack paths through your internal network before a threat actor does. BloodHound mapping, credential attacks, and a clear remediation roadmap.','#svc-va-desc':'Automated + manual scan of your attack surface with validated findings and a prioritized remediation report. Lower-cost entry point before a full pentest.','#svc-ai-desc':'Identify prompt injection, data leakage, and model manipulation risks in your AI-powered applications before they reach production.','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},
+  formMessages:{
+    requiredFields:'Please fill in all fields.',
+    invalidEmail:'Please enter a valid email address.',
+    success:'✓ Message sent! I will get back to you within 24 hours.',
+    submitFailed:'Submission failed. Please try again.',
+    networkError:'Network error. Please try again or use the email channel.'
+  },terminalLines:['> Scanning operator profile...','> [✓] Services: Web · AD · AI/LLM · VA','> [✓] Mode: REMOTE · Available','> [✓] Report: EN / ES · Actionable'],},es:{
   documentTitle:'Daniel Ordonez Arango | Pentester',
   metaDescription:'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory e IA/LLM. HTB Top 1%, 658 objetivos. Trabajo remoto, reportes claros.',
   ogTitle:'Daniel Ordonez Arango | Pentester',
@@ -41,10 +14,14 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
   selectors:{
     // ── Header ──
     '.brand-block .eyebrow':'Portafolio de Ciberseguridad',
+    '.topnav a[href="#services"]':'Servicios',
     '.topnav a[href="#about"]':'Sobre mi',
+    '#about-heading':'Sobre mí',
+    '.topnav a[href="#process"]':'Proceso',
+    '.topnav a[href="#quote"]':'Precios',
     
     '.topnav a[href="#experience"]':'Experiencia',
-    '.topnav a[href="#resources"]':'Recursos',
+    
     '.topnav a[href="#certifications"]':'Certificaciones',
     '.topnav a[href="#contact"]':'Contacto',
 
@@ -55,15 +32,15 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '.hero-copy .spec-item:nth-child(1) span':'Pentest Web',
     '.hero-copy .spec-item:nth-child(2) span':'Redes',
     '.hero-copy .spec-item:nth-child(3) span':'Active Directory',
-    '.hero-copy .spec-item:nth-child(4) span':'SOC / DFIR',
+    '.hero-copy .spec-item:nth-child(4) span':'Escalada de privilegios',
     '.hero-copy .spec-item:nth-child(5) span':'IA / LLM',
-    '#process-heading':'Del primer contacto al informe final','#process-copy':'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados accionables. La mayoría de los proyectos se completan en 1–2 semanas desde la llamada de alcance hasta el informe final.','#process-step1-title':'Llamada de alcance','#process-step1-desc':'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.','#process-step2-title':'Propuesta y NDA','#process-step2-desc':'Recibes propuesta escrita con alcance, cronograma, metodología y precio fijo. NDA firmado antes de iniciar.','#process-step3-title':'Engagement','#process-step3-desc':'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos reportados de inmediato.','#process-step4-title':'Reporte y re-test','#process-step4-desc':'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.','.topnav a[href="#process"]':'Proceso','.topnav a[href="#services"]':'Servicios','.topnav a[href="#quote"]':'Precios','.hero-actions .button.primary':'Solicitar una llamada de alcance gratuita',
-    '.hero-actions .button.secondary[href="daniel_cv_new.pdf"]':'Ver CV original',
-    '.hero-actions .button.secondary[href="htb-academy-student-transcript.pdf"]':'Descargar transcript',
+    '#process-heading':'Del primer contacto al informe final','#process-copy':'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados accionables. La mayoría de los proyectos se completan en 1–2 semanas desde la llamada de alcance hasta el informe final.','#process-step1-title':'Llamada de alcance','#process-step1-desc':'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.','#process-step2-title':'Propuesta y NDA','#process-step2-desc':'Recibes propuesta escrita con alcance, cronograma, metodología y precio fijo. NDA firmado antes de iniciar.','#process-step3-title':'Engagement','#process-step3-desc':'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos reportados de inmediato.','#process-step4-title':'Reporte y re-test','#process-step4-desc':'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.','.hero-actions .button.primary':'Solicitar una llamada de alcance gratuita',
+    '.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'Ver CV original',
+    '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Descargar transcript',
     '.quick-stats li:nth-child(1) span':'Paths HTB completados',
     '.quick-stats li:nth-child(2) span':'Objetivos comprometidos',
     '.quick-stats li:nth-child(3) span':'Ranking HTB',
-    '.link-strip a[href="https://www.linkedin.com/in/danie125/"]':'LinkedIn',
+    
     
     '.avail-text':'Disponible para proyectos',
 
@@ -73,24 +50,24 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '.status-grid div:nth-child(1) strong':'ACTIVO',
     '.status-grid div:nth-child(2) span':'Enfoque',
     '.status-grid div:nth-child(2) strong':'PENTEST',
-    '.status-grid div:nth-child(3) span':'Cobertura',
-    '.status-grid div:nth-child(3) strong':'WEB / RED / SIS',
-    '.status-grid div:nth-child(4) span':'Evidencia',
+    '.status-grid div:nth-child(3) span':'Modo',
+    '.status-grid div:nth-child(3) strong':'REMOTO',
+    '.status-grid div:nth-child(4) span':'Cobertura',
     '.status-grid div:nth-child(4) strong':'WEB / RED / SIS','.status-grid div:nth-child(5) span':'Disponibilidad','.status-grid div:nth-child(5) strong':'ABIERTO','.status-grid div:nth-child(6) span':'Idiomas','.status-grid div:nth-child(6) strong':'ES / EN',
 
     // ── Experience ──
     '#experience .section-heading .section-tag':'[ EXPERIENCIA ]',
     '#experience .section-heading h3':'Formación y Experiencia',
-    '#experience > h4:nth-of-type(1)':'Lo que aporto',
-    '#experience .mini-grid--mb .mini-card:nth-child(1) strong':'Contexto Ofensivo + Defensivo',
-    '#experience .mini-grid--mb .mini-card:nth-child(1) span':'Evaluo debilidades con mentalidad de atacante manteniendo el foco en remediacion y prioridades defensivas.',
-    '#experience .mini-grid--mb .mini-card:nth-child(2) strong':'Vision de Aplicacion + Infraestructura',
-    '#experience .mini-grid--mb .mini-card:nth-child(2) span':'Capa de aplicacion e infraestructura — web, API, servidor y superficies de ataque de red.',
-    '#experience .mini-grid--mb .mini-card:nth-child(3) strong':'Entrenamiento en Respuesta a Incidentes',
-    '#experience .mini-grid--mb .mini-card:nth-child(3) span':'Respuesta a incidentes, deteccion de amenazas y analisis forense.',
-    '#experience .mini-grid--mb .mini-card:nth-child(4) strong':'Conocimiento de Desarrollador',
-    '#experience .mini-grid--mb .mini-card:nth-child(4) span':'Cada evaluación concluye con hallazgos clasificados por riesgo y redactados en lenguaje claro — accionables para equipos técnicos y directivos.',
-    '#experience > h4:nth-of-type(2)':'Historial operativo',
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     '#experience .timeline-item:nth-child(1) .role':'Desarrollador Full-Stack y Especialista en Seguridad · Dic 2025 – Abr 2026',
     '#experience .timeline-item:nth-child(1) .detail-list li:nth-child(1)':'Desarrollo de aplicaciones web con PHP, JavaScript y Node.js con seguridad integrada desde el inicio.',
     '#experience .timeline-item:nth-child(1) .detail-list li:nth-child(2)':'Seguridad de redes y aplicaciones — hardening, evaluaciones de vulnerabilidades y decisiones de arquitectura segura.',
@@ -99,43 +76,23 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#experience .timeline-item:nth-child(2) .detail-list li:nth-child(1)':'Completado el path CPTS — metodologia completa de pentesting para web, redes y Active Directory.',
     '#experience .timeline-item:nth-child(2) .detail-list li:nth-child(2)':'Tecnicas avanzadas de explotacion web del lado del servidor y del cliente a traves del path CWEE.',
     '#experience .timeline-item:nth-child(2) .detail-list li:nth-child(3)':'Entrenamiento en alcance, metodologia y documentacion profesional de engagements.',
-    '#experience .timeline-item:nth-child(3) .role':'Entrenamiento en Seguridad Defensiva',
-    '#experience .timeline-item:nth-child(3) .detail-list li:nth-child(1)':'Entrenamiento en monitoreo SIEM, analisis de logs e ingenieria de deteccion.',
-    '#experience .timeline-item:nth-child(3) .detail-list li:nth-child(2)':'Labs de DFIR y respuesta a incidentes a traves del path CDSA.',
-    '#experience .timeline-item:nth-child(3) .detail-list li:nth-child(3)':'Construccion de reglas de deteccion IDS/IPS y desarrollo de playbooks de respuesta a incidentes.',
+    
+    
+    
+    
 
     // ── Skills ──
-    '#skills article:nth-child(1) .section-tag':'[ ARSENAL TECNICO ]',
-    '#skills article:nth-child(1) h4':'Herramientas Ofensivas / Pentesting','#skills article:nth-child(1) .skill-group--gap h4':'Herramientas Defensivas / DFIR',
-    '#skills article:nth-child(2) div:nth-child(1) h4':'Programacion y Scripting',
-    '#skills article:nth-child(2) div:nth-child(2) h4':'Infraestructura y Plataformas',
-    '#skills article:nth-child(2) div:nth-child(3) h4':'Cumplimiento normativo y Metodologias',
 
-    // ── HTB Lab Coverage ──
-    
-    '#htb-coverage h3':'Cobertura de Laboratorios HackTheBox',
-    
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(1) strong':'Explotacion de Aplicaciones Web',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(1) span':'Inyeccion SQL, XSS, CSRF, SSRF, bypasses de carga de archivos, fallas de autenticacion, vulnerabilidades de API, deserializacion insegura, XXE, control de acceso roto, IDOR e inyeccion de comandos. Cubierto en los paths CPTS y Web Penetration Tester.',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(2) strong':'Ataques Active Directory',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(2) span':'Kerberoasting, AS-REP roasting, DCSync, Pass-the-Hash, Pass-the-Ticket, abuso de GPO, explotacion de ACL, enumeracion con BloodHound, escalacion de privilegios de dominio y tecnicas de persistencia. Cubierto en el path Penetration Tester.',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(3) strong':'Escalacion de Privilegios',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(3) span':'Linux: binarios SUID/SGID, exploits de kernel, configuraciones incorrectas de sudo, abuso de cron jobs, rutas con escritura y recursos compartidos NFS. Windows: SeImpersonatePrivilege, rutas de servicio sin comillas, DLL hijacking, manipulacion de registro e impersonacion de tokens.',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(4) strong':'Explotacion de Red y Servicios',
-    '#htb-coverage .mini-grid:nth-child(2) .mini-card:nth-child(4) span':'Explotacion de SMB, RDP, SSH, FTP, SNMP, WinRM y MSSQL. Redireccionamiento de puertos, proxychains, pivoting a traves de hosts comprometidos, tunelizacion y movimiento lateral en redes segmentadas.',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(1) strong':'Reconocimiento y Enumeracion',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(1) span':'Reconocimiento pasivo y activo usando Nmap, Masscan, Gobuster, ffuf, Wfuzz, Feroxbuster, Shodan y tecnicas OSINT. Enumeracion DNS, descubrimiento de subdominios, fuzzing de virtual hosts y consultas de transparencia de certificados.',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(2) strong':'Analisis SOC y Deteccion de Amenazas',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(2) span':'Analisis de logs, monitoreo SIEM con Splunk y Elastic Stack, analisis de trafico con Wireshark y tcpdump, ajuste de reglas IDS/IPS con Suricata y Snort. Actividades DFIR, caza de amenazas y triaje de incidentes. Cubierto en los paths CDSA y SOC Analyst.',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(3) strong':'Explotacion de Binarios',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(3) span':'Ataques de buffer overflow en sistemas Windows y Linux de 32 bits, analisis de arquitectura CPU y registros, desarrollo de shellcode, scripting de exploits en Python y tecnicas de overflow basadas en pila. Cubierto en el path Intro to Binary Exploitation.',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(4) strong':'Post-Explotacion y Persistencia',
-    '#htb-coverage .mini-grid:nth-child(3) .mini-card:nth-child(4) span':'Volcado de credenciales con Mimikatz y secretsdump, conceptos de staging C2, mantenimiento de acceso via tareas programadas y run keys de registro, tecnicas de exfiltracion de datos y borrado de huellas en entornos Windows y Linux.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(1) strong':'Red Teaming IA / LLM','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(1) span':'Ataques de prompt injection, ML adversarial, manipulacion de salidas LLM, explotacion de pipelines de datos IA, evasion de modelos, vulnerabilidades del protocolo MCP y ataques a aplicaciones de IA.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(2) strong':'Pentesting Wi-Fi','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(2) span':'Captura de handshakes WPA/WPA2, ataques PMKID, puntos de acceso evil twin, ataques de deautenticacion, explotacion de WPS, crackeo de contrasenas con Hashcat y Aircrack-ng.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(3) strong':'Analisis de Malware y DFIR','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(3) span':'Analisis estatico y dinamico de malware, ingenieria inversa con x64dbg, forense de memoria con Volatility, imagenes de disco con FTK Imager y KAPE, forense en Linux, reconstruccion de linea de tiempo desde MFT/USN Journal.','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(4) strong':'Hardening de Active Directory','#htb-coverage .mini-grid:nth-child(4) .mini-card:nth-child(4) span':'Remediacion de hallazgos comunes de pentest en AD, hardening de configuraciones, ingenieria de deteccion para ataques AD, estrategias de logging y mejores practicas de mantenimiento.',
+
+
+
+
+
 
     // ── Certifications ──
     '#certifications article:nth-child(1) .section-tag':'[ EDUCACION / CERTIFICACIONES ]',
-    '#certifications article:nth-child(1) h3':'Base de formacion',
-    '#certifications article:nth-child(1) .section-copy':'Certificaciones externas y fundamentos de desarrollo que complementan el entrenamiento en HTB Academy.',
+    
+    
     '#certifications .training-section:nth-of-type(1) .section-tag':'[ Paths HTB de Job Role y Skills Completados ]',
     '.path-card:nth-child(1) span:last-child':'Reconocimiento web, explotacion, APIs e informes profesionales.',
     '.path-card:nth-child(2) span:last-child':'Metodologia completa: recon, explotacion, post-explotacion, movimiento lateral e informes.',
@@ -148,16 +105,12 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
 
     // ── About ──
     '#about article:nth-child(1) .section-tag':'[ SOBRE MI ]',
-    '#about article:nth-child(1) h3':'Resumen profesional',
-    '#about article:nth-child(1) p:nth-of-type(2)':'Empecé como desarrollador full-stack. Ese contexto cambia cómo hago las pruebas — entiendo cómo se construyen las aplicaciones y sé dónde los desarrolladores dejan brechas. Combino eso con entrenamiento en seguridad ofensiva: explotación web, ataques a Active Directory, escalada de privilegios, pivoting en redes y explotación binaria. Cada engagement termina con un reporte que tu equipo puede ejecutar de inmediato.',
+
+    '#about article:nth-child(1) p:nth-of-type(2)':'Empecé como desarrollador full-stack. Ese contexto cambia cómo hago las pruebas — entiendo cómo se construyen las aplicaciones y sé dónde los desarrolladores dejan brechas. Combino eso con entrenamiento en seguridad ofensiva: explotación web, ataques a Active Directory, pivoting en redes y escalada de privilegios. Cada engagement termina con un reporte que tu equipo puede ejecutar de inmediato.',
     
     
 
-    // ── Resources ──
-    '#resources article:nth-child(1) .section-tag':'[ RECURSOS ]',
-    '#resources article:nth-child(1) h3':'Material descargable',
-    '#resources article:nth-child(1) .section-copy':'Descarga la transcripción o consulta el perfil de HTB directamente.',
-    
+        
     
     
     
@@ -165,17 +118,17 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     
     
     // ── Contact ──
-    '#services-tag':'[ SERVICIOS ]','#services-heading':'Servicios','#services-copy':'Proyectos remotos, entregables claros. La llamada de alcance es gratuita — sin compromiso.','#svc-va-desc':'Escaneo automatizado + manual de tu superficie de ataque con hallazgos validados y un reporte de remediación priorizado. Punto de entrada de menor costo antes de un pentest completo.','#svc-ai-desc':'Identifica riesgos de prompt injection, fuga de datos y manipulación de modelos en tus aplicaciones con IA antes de que lleguen a producción.','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos','#contact .section-tag':'[ CONTACTO ]',
+    '#services-tag':'[ SERVICIOS ]','#services-heading':'Servicios','#services-copy':'Proyectos remotos, entregables claros, hallazgos que tu equipo puede corregir.','#svc-web-title':'Pentest de Aplicación Web','#svc-web-desc':'Encuentra vulnerabilidades explotables en tu aplicación antes de una brecha. Testing manual alineado con OWASP con un reporte que tu equipo puede ejecutar de inmediato.','#svc-ad-title':'Pentest de Active Directory','#svc-ad-desc':'Identifica rutas de ataque en tu red interna antes que un actor de amenaza. Mapeo con BloodHound, simulación de ataques de credenciales y una hoja de ruta de remediación clara.','#svc-va-desc':'Escaneo automatizado + manual de tu superficie de ataque con hallazgos validados y un reporte de remediación priorizado. Punto de entrada de menor costo antes de un pentest completo.','#svc-ai-desc':'Identifica riesgos de prompt injection, fuga de datos y manipulación de modelos en tus aplicaciones con IA antes de que lleguen a producción.','.service-cta':'Solicitar cotización →','#qc-main-cta':'Reservar llamada de alcance gratis →','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos','#contact .section-tag':'[ CONTACTO ]',
     '#contact h3':'Contáctame',
     '#cg-profiles':'Perfiles online','.contact-intro':'Disponible para proyectos remotos en todo el mundo. Respondo en menos de 24h. La primera llamada es gratuita — definimos alcance, cronograma y compatibilidad antes de cualquier acuerdo.',
-    '.contact-card-email-title':'Correo',
-    '.contact-card-email-copy':'Canal de mensaje directo',
+    
+    
     '.contact-card-phone-title':'Telefono',
     '.contact-card-phone-copy':'Llamada directa — respuesta inmediata',
     '.cg-li-title':'LinkedIn',
     '.cg-li-desc':'Perfil profesional y red de contactos',
     '.cg-gh-title':'GitHub',
-    '#contact .social-grid .social-link:nth-child(4) .social-copy span':'Codigo, proyectos y huella tecnica',
+    '.cg-gh-desc':'Codigo, proyectos y huella tecnica',
 
     // ── Footer ──
     'footer a[href="#main"]':'↑ Volver arriba',
@@ -192,6 +145,13 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#cf-name':'Tu nombre',
     '#cf-email':'tu@correo.com',
     '#cf-message':'Describe el proyecto o engagement...'
+  },
+  formMessages:{
+    requiredFields:'Por favor completa todos los campos.',
+    invalidEmail:'Por favor ingresa un correo válido.',
+    success:'✓ Mensaje enviado. Te respondo en menos de 24 horas.',
+    submitFailed:'Error al enviar. Por favor intenta de nuevo.',
+    networkError:'Error de red. Intenta de nuevo o usa el canal de correo.'
   },
   terminalLines:[
     '> Enumerando modulos de experiencia...','> Paths HTB completados: 12','> Objetivos comprometidos: 658','> Ranking: Top 1%','> Enfoque: seguridad web, de red y enterprise','> Objetivo: reducir riesgo explotable'
@@ -239,6 +199,12 @@ function startTerminal(locale) {
 function applyLocale(locale) {
   const copy = translations[locale] || translations.en;
   Object.entries(copy.selectors).forEach(function(entry) { setText(entry[0], entry[1]); });
+  if (copy.placeholders) {
+    Object.entries(copy.placeholders).forEach(function(entry) {
+      var node = document.querySelector(entry[0]);
+      if (node) node.placeholder = entry[1];
+    });
+  }
   document.documentElement.lang = locale === 'es' ? 'es' : 'en';
   document.title = copy.documentTitle;
   if (metaDescription) metaDescription.setAttribute('content', copy.metaDescription);
@@ -302,6 +268,7 @@ applyLocale(currentLocale);
   var form = document.getElementById('contact-form');
   var btn  = document.getElementById('cf-submit');
   var status = document.getElementById('cf-status');
+  if (!form || !btn || !status) return;
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -313,13 +280,14 @@ applyLocale(currentLocale);
     var message = form.querySelector('#cf-message').value.trim();
     var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    var msgs = (translations[currentLocale] || translations.en).formMessages || {};
     if (!name || !email || !message) {
-      status.textContent = 'Please fill in all fields.';
+      status.textContent = msgs.requiredFields || 'Please fill in all fields.';
       status.className = 'cf-status error';
       return;
     }
     if (!emailRe.test(email)) {
-      status.textContent = 'Please enter a valid email address.';
+      status.textContent = msgs.invalidEmail || 'Please enter a valid email address.';
       status.className = 'cf-status error';
       return;
     }
@@ -340,12 +308,13 @@ applyLocale(currentLocale);
       btn.classList.remove('loading');
       btn.disabled = false;
       if (res.ok) {
-        status.textContent = '✓ Message sent! I will get back to you within 24 hours.';
+        status.textContent = ((translations[currentLocale]||translations.en).formMessages||{}).success||'✓ Message sent!';
         status.className = 'cf-status success';
         form.reset();
       } else {
         return res.json().then(function(data) {
-          var msg = (data && data.errors) ? data.errors.map(function(e){ return e.message; }).join(', ') : 'Submission failed. Please try again.';
+          var msgs2=(translations[currentLocale]||translations.en).formMessages||{};
+          var msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs2.submitFailed||'Submission failed.');
           status.textContent = msg;
           status.className = 'cf-status error';
         });
@@ -354,7 +323,7 @@ applyLocale(currentLocale);
     .catch(function() {
       btn.classList.remove('loading');
       btn.disabled = false;
-      status.textContent = 'Network error. Please try again or use the email channel.';
+      status.textContent=((translations[currentLocale]||translations.en).formMessages||{}).networkError||'Network error.';
       status.className = 'cf-status error';
     });
   });
@@ -498,30 +467,6 @@ window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',
 
 
 
-// Typed text effect for hero role
-(function() {
-  var el = document.getElementById('typed-role');
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var words = ['Penetration Tester', 'Web App Hacker', 'Network Auditor', 'Full-Stack Dev'];
-  if (prefersReducedMotion) { el.textContent = words[0]; return; }
-  var wi = 0, ci = 0, deleting = false, delay = 0;
-  function tick() {
-    var word = words[wi];
-    if (!deleting) {
-      el.textContent = word.slice(0, ci + 1);
-      ci++;
-      if (ci === word.length) { deleting = true; delay = 2200; }
-      else { delay = 70; }
-    } else {
-      el.textContent = word.slice(0, ci - 1);
-      ci--;
-      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 400; }
-      else { delay = 35; }
-    }
-    setTimeout(tick, delay);
-  }
-  setTimeout(tick, 800);
-}());
 
 // Service Worker registration
 if ('serviceWorker' in navigator) {
@@ -530,22 +475,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Floating transcript CTA — shows after scrolling past hero
-(function() {
-  var floatEl = document.getElementById('transcript-float');
-  if (!floatEl) return;
-  var heroEl = document.querySelector('.hero');
-  function updateFloat() {
-    var heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom + window.pageYOffset : 600;
-    var show = window.pageYOffset > heroBottom;
-    floatEl.classList.toggle('visible', show);
-    floatEl.setAttribute('aria-hidden', String(!show));
-    var link = floatEl.querySelector('a');
-    if (link) link.tabIndex = show ? 0 : -1;
-  }
-  window.addEventListener('scroll', updateFloat, { passive: true });
-  updateFloat();
-}());
 
 // ── HAMBURGER MENU ────────────────────────────
 (function() {
@@ -588,196 +517,7 @@ if ('serviceWorker' in navigator) {
   });
 }());
 
-// ── HTB COVERAGE ACCORDION (mobile) ──────────
-(function() {
-  if (window.innerWidth > 767) return;
-  var htb = document.getElementById('htb-coverage');
-  if (!htb) return;
-  htb.querySelectorAll('.mini-card').forEach(function(card) {
-    var strong = card.querySelector('strong');
-    if (!strong) return;
-    var chev = document.createElement('span');
-    chev.className = 'card-chevron';
-    chev.setAttribute('aria-hidden', 'true');
-    chev.textContent = '▾';
-    strong.appendChild(chev);
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.addEventListener('click', function() { card.classList.toggle('is-open'); });
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('is-open'); }
-    });
-  });
-}());
 
-/* ── Interactive Shell Widget ── */
-(function () {
-  var input  = document.getElementById('shell-input');
-  var output = document.getElementById('shell-output');
-  if (!input || !output) return;
-  var hist = [], hidx = -1;
-  var BANNER = [
-    '  ____              _      _ ',
-    ' |  _ \\  __ _ _ __ (_) ___| |',
-    " | | | |/ _` | '_ \\| |/ _ \\ |",
-    ' | |_| | (_| | | | | |  __/ |',
-    ' |____/ \\__,_|_| |_|_|\\___|_|',
-    '',
-    '  daniel@portfolio -- pentester shell v1.0',
-    '  type "help" for available commands'
-  ];
-  var CMD = {};
-  CMD['help'] = function(){ return [
-    {t:'cyan',v:'Available commands:'},
-    {t:'out', v:'  whoami            -- who is this person?'},
-    {t:'out', v:'  nmap danieloa.com -- run a port scan'},
-    {t:'out', v:'  ls                -- list portfolio files'},
-    {t:'out', v:'  cat skills.txt    -- print the skills file'},
-    {t:'out', v:'  cat certs.txt     -- list certifications'},
-    {t:'out', v:'  uname -a          -- system info'},
-    {t:'out', v:'  htb               -- HTB Academy stats'},
-    {t:'out', v:'  sudo su           -- try it ;)'},
-    {t:'out', v:'  ping danieloa.com -- check connectivity'},
-    {t:'out', v:'  ssh daniel@danieloa.com -- try to connect'},
-    {t:'out', v:'  exploit           -- launch an attack'},
-    {t:'out', v:'  id                -- current user info'},
-    {t:'out', v:'  history           -- command history'},
-    {t:'out', v:'  clear             -- clear terminal'},
-    {t:'warn',v:'  konami            -- trigger the easter egg'}
-  ]; };
-  CMD['whoami'] = function(){ return [
-    {t:'ok',  v:'daniel'},
-    {t:'out', v:'Penetration Tester & Full-Stack Developer'},
-    {t:'out', v:'Location  : Colombia (Remote)'},
-    {t:'out', v:'Focus     : Web . Networks . Active Directory'},
-    {t:'out', v:'Status    : Available for engagements'}
-  ]; };
-  CMD['nmap danieloa.com'] = function(){ return [
-    {t:'cyan',v:'Starting Nmap 7.94 ( https://nmap.org )'},
-    {t:'out', v:'Scanning danieloa.com (72.60.167.75)...'},
-    {t:'out', v:''},
-    {t:'out', v:'PORT    STATE  SERVICE  VERSION'},
-    {t:'ok',  v:'22/tcp  open   ssh      OpenSSH 8.9'},
-    {t:'ok',  v:'80/tcp  open   http     nginx (redirect)'},
-    {t:'ok',  v:'443/tcp open   https    nginx + TLS 1.3'},
-    {t:'out', v:''},
-    {t:'out', v:'3 open ports. No low-hanging fruit here.'},
-    {t:'warn',v:'Nmap done -- 1 IP scanned in 0.42s'}
-  ]; };
-  CMD['ls'] = function(){ return [
-    {t:'cyan',v:'drwxr-xr-x  portfolio/'},
-    {t:'out', v:'  index.html                        -- you are here'},
-    {t:'out', v:'  daniel_cv_new.pdf                 -- curriculum vitae'},
-    {t:'out', v:'  htb-academy-student-transcript.pdf'},
-    {t:'out', v:'  /dev/null                         -- where excuses go'}
-  ]; };
-  CMD['cat skills.txt'] = function(){ return [
-    {t:'cyan',v:'=== skills.txt ==='},
-    {t:'ok',  v:'[OFFENSIVE]'},
-    {t:'out', v:'  Web App Exploitation . Active Directory . Priv Esc'},
-    {t:'out', v:'  Network Pivoting . Binary Exploitation . Recon'},
-    {t:'ok',  v:'[DEFENSIVE]'},
-    {t:'out', v:'  SIEM . DFIR . Threat Detection . Incident Response'},
-    {t:'ok',  v:'[DEV]'},
-    {t:'out', v:'  JavaScript . Node.js . Python . Bash'},
-    {t:'ok',  v:'[TOOLS]'},
-    {t:'out', v:'  Nmap . Burp Suite . Metasploit . BloodHound . Mimikatz'}
-  ]; };
-  CMD['cat certs.txt'] = function(){ return [
-    {t:'cyan',v:'=== certs.txt ==='},
-    {t:'ok',  v:'[HTB ACADEMY -- training completed, exam pending]'},
-    {t:'out', v:'  CPTS -- Certified Penetration Testing Specialist'},
-    {t:'out', v:'  CDSA -- Certified Defensive Security Analyst'},
-    {t:'out', v:'  CWEE -- Certified Web Exploitation Expert'},
-    {t:'out', v:'  CJCA -- Junior Cybersecurity Analyst Associate'},
-    {t:'ok',  v:'[EXTERNAL]'},
-    {t:'out', v:'  IBM  Cybersecurity Analyst Professional Certificate'},
-    {t:'out', v:'  Google Cybersecurity Professional Certificate'},
-    {t:'out', v:''},
-    {t:'out', v:'Student ID: HTB-E9139F3DCE'}
-  ]; };
-  CMD['uname -a'] = function(){ return [
-    {t:'out', v:'Linux portfolio 5.15.0 #1 SMP x86_64 GNU/Linux'},
-    {t:'out', v:'Kernel  : Highly caffeinated'},
-    {t:'out', v:'Uptime  : since first shell session'},
-    {t:'out', v:'Shell   : /bin/ambition'}
-  ]; };
-  CMD['htb'] = function(){ return [
-    {t:'cyan',v:'=== HackTheBox Academy Stats ==='},
-    {t:'ok',  v:'Ranking    : Top 1% globally'},
-    {t:'out', v:'Targets    : 658 compromised'},
-    {t:'out', v:'Paths      : 12 paths completed'},
-    {t:'out', v:'Certs      : CPTS . CDSA . CWEE . CJCA'},
-    {t:'out', v:'Student ID : HTB-E9139F3DCE'}
-  ]; };
-  CMD['sudo su'] = function(){ return [
-    {t:'out', v:'[sudo] password for visitor:'},
-    {t:'err', v:'Sorry, try 0day. Permission denied.'},
-    {t:'warn',v:'This incident will be reported.'}
-  ]; };
-  CMD['sudo su -'] = CMD['sudo su'];
-  CMD['sudo'] = function(){ return [{t:'err',v:'Nice try. No root for you.'}]; };
-  CMD['exit'] = function(){ return [{t:'warn',v:'There is no escape from this portfolio.'}]; };
-  CMD['rm -rf /'] = function(){ return [
-    {t:'warn',v:'rm: it is dangerous to operate recursively on /'},
-    {t:'err', v:'rm: use --no-preserve-root to override this failsafe'},
-    {t:'cyan',v:'Just kidding. Nice try though.'}
-  ]; };
-  CMD['konami'] = function(){ return [
-    {t:'cyan',v:'Easter egg detected. Here is your hint:'},
-    {t:'warn', v:'  Keyboard sequence: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A'},
-    {t:'out', v:'  Type it on your keyboard anywhere on the page.'},
-    {t:'ok',  v:'  Good luck, operator.'}
-  ]; };
-  CMD['ping danieloa.com'] = function(){var lines=[{t:'out',v:'PING danieloa.com (72.60.167.75): 56 data bytes'}];[12,14,11,13,12,14,11,13].forEach(function(ms,i){lines.push({t:'ok',v:'64 bytes from 72.60.167.75: icmp_seq='+i+' ttl=64 time='+ms+'.'+Math.floor(Math.random()*9)+' ms'});});lines.push({t:'warn',v:'--- danieloa.com ping statistics ---'});lines.push({t:'out',v:'8 packets transmitted, 8 received, 0% packet loss'});return lines;};
-  CMD['ping'] = function(){ return [{t:'err',v:'Usage: ping danieloa.com'}]; };
-  CMD['ssh daniel@danieloa.com'] = function(){ return [{t:'out',v:'ssh: connect to host danieloa.com port 22'},{t:'err',v:'Permission denied (publickey,password).'},{t:'warn',v:'Access restricted. This operator does not leave the door open.'}]; };
-  CMD['ssh'] = CMD['ssh daniel@danieloa.com'];
-  CMD['exploit'] = function(){ return [{t:'warn',v:'msf6 > use exploit/multi/handler'},{t:'out',v:'msf6 exploit(multi/handler) > set PAYLOAD linux/x64/shell_reverse_tcp'},{t:'out',v:'PAYLOAD => linux/x64/shell_reverse_tcp'},{t:'out',v:'msf6 exploit(multi/handler) > run'},{t:'cyan',v:'[*] Started reverse TCP handler on 0.0.0.0:4444'},{t:'ok',v:'[+] Meterpreter session 1 opened'},{t:'warn',v:'Just kidding. No shells here. Try a real engagement.'}]; };
-  CMD['id'] = function(){ return [{t:'ok',v:'uid=1337(daniel) gid=1337(pentest) groups=1337(pentest),0(root),27(sudo),1000(htb-top1pct)'}]; };
-  CMD['history'] = function(){ return [{t:'out',v:'  1  nmap -sV -sC target.htb'},{t:'out',v:'  2  gobuster dir -u http://target.htb -w medium.txt'},{t:'out',v:'  3  sqlmap -u "http://target.htb/login" --dump'},{t:'out',v:'  4  evil-winrm -i 10.10.10.10 -u administrator -p Password123'},{t:'warn',v:'  5  rm -rf /evidence/*    # redacted'},{t:'ok',v:'  6  ./submit_report.sh'}]; };
-  CMD['clear'] = function(){ output.innerHTML = ''; return null; };
-  function unknown(cmd){ return [
-    {t:'err',v:'command not found: ' + cmd},
-    {t:'out',v:'type "help" to list available commands'}
-  ]; }
-  function addLine(cls, text){
-    var el = document.createElement('div');
-    el.className = 'shell-line out ' + cls;
-    el.textContent = text;
-    output.appendChild(el);
-  }
-  function run(raw){
-    var cmd = raw.trim();
-    var cmdEl = document.createElement('div');
-    cmdEl.className = 'shell-line cmd';
-    cmdEl.textContent = cmd;
-    output.appendChild(cmdEl);
-    var key = cmd.toLowerCase();
-    var fn = CMD[key] || CMD[key.split(' ')[0]] || null;
-    var lines = fn ? fn() : unknown(cmd);
-    if (lines) lines.forEach(function(l){ addLine(l.t, l.v); });
-    output.scrollTop = output.scrollHeight;
-  }
-  BANNER.forEach(function(l){ addLine('cyan', l); });
-  input.addEventListener('keydown', function(e){
-    if (e.key === 'Enter'){
-      var val = input.value;
-      if (val.trim()){ hist.unshift(val); hidx = -1; run(val); input.value = ''; }
-      e.preventDefault();
-    } else if (e.key === 'ArrowUp'){
-      hidx = Math.min(hidx + 1, hist.length - 1);
-      if (hist[hidx] !== undefined) input.value = hist[hidx];
-      e.preventDefault();
-    } else if (e.key === 'ArrowDown'){
-      hidx = Math.max(hidx - 1, -1);
-      input.value = hidx === -1 ? '' : hist[hidx];
-      e.preventDefault();
-    }
-  });
-  var wrap = document.querySelector('.shell-wrap');
-  if (wrap) wrap.addEventListener('click', function(){ input.focus(); });
-}());
 
 /* ── Konami Code + Matrix Rain Easter Egg ── */
 (function () {
@@ -984,9 +724,13 @@ if ('serviceWorker' in navigator) {
     vuln_assessment: { name:'Vuln Assessment',      base:[500,1500],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.2, high:1.5},  tbox:{black:1.0,grey:1.15,white:1.35} },
     pentest_ai:      { name:'AI / LLM Assessment', base:[2000,4500],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.8},  tbox:{black:1.0,grey:1.2,white:1.45} }
   };
-  var ADDONS = { urgent:{label:'Rush',pct:.25}, onsite:{label:'On-site',pct:.20} };
-  var SCOPE_LABELS = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
-  var CPLX_LABELS  = { low:'Standard', medium:'Custom', high:'Enterprise' };
+  var ADDONS = { urgent:{label:'Rush',pct:.25} };
+  var SCOPE_LABELS_EN = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
+  var SCOPE_LABELS_ES = { small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' };
+  var CPLX_LABELS_EN  = { low:'Standard', medium:'Custom', high:'Enterprise' };
+  var CPLX_LABELS_ES  = { low:'Estándar', medium:'Personalizado', high:'Empresarial' };
+  var TBOX_LABELS_EN  = { black:'Black-box', grey:'Grey-box', white:'White-box' };
+  var TBOX_LABELS_ES  = { black:'Caja negra', grey:'Grey-box', white:'Caja blanca' };
   var SCOPE_SETS = {
     pentest_web:      { small:'1–5 pages/endpoints', medium:'6–15 pages/endpoints', large:'15+ pages/endpoints' },
     pentest_ad:       { small:'1–3 hosts',           medium:'4–10 hosts',           large:'10+ hosts'           },
@@ -997,6 +741,9 @@ if ('serviceWorker' in navigator) {
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
+    var SCOPE_LABELS = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
+    var CPLX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
+    var TBOX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
     var svcBtn   = document.querySelector('.qc-svc-card.active');
     var scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
     var cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
@@ -1046,8 +793,7 @@ if ('serviceWorker' in navigator) {
     document.querySelectorAll(group).forEach(function(b){ b.classList.remove('active'); });
     clicked.classList.add('active');
     if (group === '.qc-svc-card') {
-      var onsiteChip = document.querySelector('.qc-chip[data-addon="onsite"]');
-      if (onsiteChip) onsiteChip.style.display = (clicked.dataset.svc === 'pentest_ai') ? 'none' : '';
+  
     }
     recalc();
   }
@@ -1094,7 +840,11 @@ if ('serviceWorker' in navigator) {
         var msg = document.getElementById('cf-message');
         if (msg && svcBtn && minEl && maxEl) {
           var svcName = (PRICES[svcBtn.dataset.svc]||{}).name || svcBtn.dataset.svc;
-          msg.value = 'I\'m interested in ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Please send me a detailed proposal.';
+          if (typeof currentLocale!=='undefined' && currentLocale==='es') {
+            msg.value = 'Me interesa el servicio de ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Por favor envíame una propuesta detallada.';
+          } else {
+            msg.value = 'I\'m interested in ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Please send me a detailed proposal.';
+          }
         }
       });
     }
