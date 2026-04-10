@@ -187,10 +187,278 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
-  <style>:root{--bg:#06111a;--bg-soft:rgba(10,24,36,0.88);--panel:rgba(9,19,31,0.78);--panel-strong:rgba(11,22,36,0.95);--line:rgba(70,120,180,0.22);--line-strong:rgba(84,179,255,0.45);--text:#e5f0ff;--muted:#9bb5d6;--primary:#3b82f6;--accent:#22d3ee;--shadow:0 20px 40px rgba(0,0,0,0.35);--radius:20px;--container:1280px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:"Inter",sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(34,211,238,0.12),transparent 30%),radial-gradient(circle at top right,rgba(59,130,246,0.16),transparent 28%),linear-gradient(180deg,#030711 0,#07111d 50%,#030711 100%)}body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;opacity:.3}.site-shell{position:relative;overflow:hidden}.noise,.grid{position:fixed;inset:0;pointer-events:none}.noise{opacity:.06;background-image:radial-gradient(#fff .4px,transparent .4px);background-size:10px 10px}.grid{background:linear-gradient(rgba(59,130,246,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.08) 1px,transparent 1px);background-size:120px 120px;mask-image:radial-gradient(circle at center,black 45%,transparent 90%);opacity:.22}.container{width:min(calc(100% - 32px),var(--container));margin:0 auto}.topbar{width:min(calc(100% - 32px),var(--container));margin:0 auto;padding:24px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}.brand-block{display:flex;align-items:center;gap:14px}.brand-mark{width:16px;height:16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--primary));box-shadow:0 0 24px rgba(34,211,238,0.7)}.eyebrow,.section-tag,.topnav a,.terminal-label,.timeline-index,.role,.cert-item strong{font-family:"JetBrains Mono",monospace}.eyebrow,.section-tag,.terminal-label,.role,.topnav a{color:var(--accent);letter-spacing:.08em;text-transform:uppercase}.topbar h1,.hero h2,h3,h4,p{margin:0}.topbar h1{font-size:1rem;letter-spacing:.2em}.topnav{display:flex;gap:18px;flex-wrap:wrap}.lang-switch{display:inline-flex;align-items:center;gap:8px;padding:6px;border:1px solid rgba(84,179,255,0.2);border-radius:999px;background:rgba(255,255,255,0.03)}.lang-button{border:0;background:transparent;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.82rem;padding:8px 12px;border-radius:999px;cursor:pointer;transition:background 180ms ease,color 180ms ease,transform 180ms ease}.lang-button:hover{color:var(--text);transform:translateY(-1px)}.lang-button.is-active{color:var(--text);background:linear-gradient(135deg,rgba(59,130,246,0.9),rgba(34,211,238,0.55))}.topnav a,.button{text-decoration:none;transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,color 180ms ease}.topnav a{color:var(--muted);font-size:.83rem}.topnav a:hover{color:var(--text);transform:translateY(-1px)}.hero{padding:92px 0 64px;display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:stretch}.card{position:relative;padding:32px;background:linear-gradient(180deg,rgba(10,23,36,0.88),rgba(6,15,25,0.92));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(59,130,246,0.45),rgba(34,211,238,0.18),transparent 70%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:24px}.hero h2{max-width:12ch;font-size:clamp(3rem,6vw,4.8rem);line-height:1.02}.lead{max-width:60ch;color:var(--muted);font-size:1.05rem;line-height:1.8}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;border:1px solid var(--line-strong);color:var(--text)}.button:hover{transform:translateY(-2px)}.button.primary{background:linear-gradient(135deg,rgba(59,130,246,0.95),rgba(34,211,238,0.7));box-shadow:0 12px 32px rgba(59,130,246,0.28)}.button.gold{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(59,130,246,0.05));border-color:rgba(245,158,11,0.45);box-shadow:0 0 24px rgba(245,158,11,0.12);position:relative;overflow:hidden}.button.gold::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(245,158,11,0.18),transparent 60%);opacity:0;transition:opacity 220ms ease}.button.gold:hover{border-color:rgba(245,158,11,0.7);box-shadow:0 0 40px rgba(245,158,11,0.22);color:#fcd34d;transform:translateY(-2px)}.button.gold:hover::before{opacity:1}.quick-stats{list-style:none;padding:0;margin:4px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.quick-stats li,.status-grid div{border:1px solid rgba(85,144,205,0.18);background:rgba(255,255,255,0.02);border-radius:16px}.quick-stats li{padding:16px}.quick-stats strong{display:block;font-size:1.8rem}.quick-stats span,.simple-list,.detail-list li,.status-grid span,.contact-card p:not(.section-tag),.section-grid p:not(.section-tag),.timeline-item p{color:var(--muted)}.terminal{display:flex;flex-direction:column;gap:18px}.terminal-top{display:flex;gap:8px}.terminal-top span{width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,0.2)}.terminal-stream{min-height:180px;display:grid;gap:10px;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.95rem}.status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.status-grid div{padding:14px}.status-grid strong{display:block;margin-top:4px}section{padding:64px 0}.section-heading{margin-bottom:24px}.section-heading h3,.section-grid h3,.contact-card h3{margin-top:8px;font-size:clamp(1.7rem,2vw,2.4rem)}.mini-grid{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.mini-card{border:1px solid rgba(85,144,205,0.18);background:rgba(255,255,255,0.02);border-radius:16px;padding:16px}.mini-card strong{display:block;margin-bottom:8px}.mini-card span,.section-copy{color:var(--muted)}.training-section{margin-top:26px}.subsection-label{margin:0 0 14px;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}.path-card{position:relative}.cert-groups{display:grid;gap:20px}.cert-group{padding-top:2px}.timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.timeline-item{min-height:260px}.detail-list{margin:0;padding-left:18px;display:grid;gap:12px;line-height:1.7}.timeline-index{display:inline-block;margin-bottom:16px;color:var(--accent)}.role{display:inline-block;margin:10px 0 18px;font-size:.88rem}.contact-wrap{padding-bottom:96px}.contact-phone-link{display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--text);border-radius:16px;border:1px solid rgba(84,179,255,0.28);background:rgba(59,130,246,0.05);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.contact-phone-link:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 0 18px rgba(34,211,238,0.12)}.contact-profiles-group{margin-top:4px}.contact-group-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;padding-top:14px;border-top:1px solid rgba(84,179,255,0.12)}.contact-card{display:grid;gap:18px}.contact-layout{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}.social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-channel-grid .social-link{min-height:108px}.social-link:hover{transform:translateY(-2px);border-color:var(--line-strong)}.social-link{min-height:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--text);border-radius:16px;border:1px solid rgba(84,179,255,0.2);background:rgba(255,255,255,0.02);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.social-icon{width:48px;height:48px;flex:0 0 48px;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;color:#dbeafe;background:linear-gradient(135deg,rgba(59,130,246,0.22),rgba(34,211,238,0.1));box-shadow:inset 0 0 0 1px rgba(84,179,255,0.18)}.social-icon svg{width:24px;height:24px}.social-copy{display:grid;gap:6px}.social-copy strong{font-size:1rem}.social-copy span{color:var(--muted);line-height:1.5}.identity-header{display:flex;align-items:center;gap:22px;padding-bottom:24px;border-bottom:1px solid var(--line)}.profile-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(34,211,238,0.6);box-shadow:0 0 0 6px rgba(34,211,238,0.1),0 0 36px rgba(34,211,238,0.22);flex-shrink:0}.identity-text{display:flex;flex-direction:column;gap:7px}.identity-name{font-size:1.12rem;font-weight:700;letter-spacing:.025em;color:var(--text)}.identity-text .section-tag{margin:0}@media(max-width:1023px){.hero,.section-grid,.timeline,.mini-grid,.contact-layout,.social-grid{grid-template-columns:1fr}.hero h2{max-width:none}.topbar{position:static;padding-top:20px;flex-direction:column;align-items:flex-start;gap:16px}.topnav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.topnav a{min-height:44px;display:flex;align-items:center;justify-content:center;padding:10px 12px;text-align:center;border:1px solid rgba(84,179,255,0.16);border-radius:12px;background:rgba(255,255,255,0.02)}.lang-switch{align-self:flex-start}}@media(max-width:767px){.container,.topbar{width:min(calc(100% - 24px),var(--container))}section{padding:44px 0}.card{padding:22px;border-radius:18px}.hero{padding-top:20px;gap:18px}.hero h2{font-size:clamp(2.25rem,12vw,3rem);line-height:1.05}.lead{font-size:.98rem;line-height:1.7}.topbar{gap:14px}.brand-block{align-items:flex-start}.topbar h1{font-size:.92rem;letter-spacing:.14em}.topnav{grid-template-columns:repeat(2,minmax(0,1fr))}.topnav a{font-size:.76rem;padding:10px}.lang-switch{width:100%;justify-content:space-between}.lang-button{flex:1 1 0}.identity-header{flex-direction:column;align-items:flex-start;gap:14px;padding-bottom:20px}.profile-photo{width:80px;height:80px}.hero-actions{display:grid;grid-template-columns:1fr;width:100%}.hero-actions .button{width:100%}.quick-stats,.status-grid{grid-template-columns:1fr}.quick-stats li,.status-grid div{padding:14px}.terminal{gap:14px}.terminal-stream{min-height:0;font-size:.85rem}.section-heading h3,.section-grid h3,.contact-card h3{font-size:clamp(1.5rem,7vw,1.9rem)}.mini-card,.social-link{padding:14px 16px}.detail-list,.simple-list,.social-link{align-items:flex-start}.contact-channel-grid .social-link{min-height:92px}}h4{font-size:1.2rem;font-weight:600;margin:0;color:var(--text)}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.lang-button:focus-visible{background:rgba(34,211,238,0.2)}.skip-link{position:absolute;top:-100px;left:0;background:var(--accent);color:var(--bg);padding:12px 24px;text-decoration:none;font-weight:600;border-radius:0 0 8px 0;z-index:100;transition:top .3s}.skip-link:focus{top:0;outline:2px solid var(--primary);outline-offset:2px}.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:rgba(59,130,246,0.1);z-index:999}.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width .1s ease-out}.topnav a.active{color:var(--accent);background:rgba(34,211,238,0.1)}@media(max-width:767px){.section-grid,.mini-grid{gap:24px !important}.quick-stats{gap:24px !important}.status-grid{gap:12px !important}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}.progress-bar{transition:none !important}}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
+  <style>:root{--bg:#06111a;--bg-soft:rgba(10,24,36,0.88);--panel:rgba(9,19,31,0.78);--panel-strong:rgba(11,22,36,0.95);--line:rgba(70,120,180,0.22);--line-strong:rgba(84,179,255,0.45);--text:#e5f0ff;--muted:#9bb5d6;--primary:#3b82f6;--accent:#22d3ee;--shadow:0 20px 40px rgba(0,0,0,0.35);--radius:20px;--container:1280px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:"Inter",sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(34,211,238,0.12),transparent 30%),radial-gradient(circle at top right,rgba(59,130,246,0.16),transparent 28%),linear-gradient(180deg,#030711 0,#07111d 50%,#030711 100%)}body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;opacity:.3}.site-shell{position:relative;overflow:hidden}.noise,.grid{position:fixed;inset:0;pointer-events:none}.noise{opacity:.06;background-image:radial-gradient(#fff .4px,transparent .4px);background-size:10px 10px}.grid{background:linear-gradient(rgba(59,130,246,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.08) 1px,transparent 1px);background-size:120px 120px;mask-image:radial-gradient(circle at center,black 45%,transparent 90%);opacity:.22}.container{width:min(calc(100% - 32px),var(--container));margin:0 auto}.topbar{width:min(calc(100% - 32px),var(--container));margin:0 auto;padding:24px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}.brand-block{display:flex;align-items:center;gap:14px}.brand-mark{width:16px;height:16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--primary));box-shadow:0 0 24px rgba(34,211,238,0.7)}.eyebrow,.section-tag,.topnav a,.terminal-label,.timeline-index,.role,.cert-item strong{font-family:"JetBrains Mono",monospace}.eyebrow,.section-tag,.terminal-label,.role,.topnav a{color:var(--accent);letter-spacing:.08em;text-transform:uppercase}.topbar h1,.hero h2,h3,h4,p{margin:0}.topbar h1{font-size:1rem;letter-spacing:.2em}.topnav{display:flex;gap:18px;flex-wrap:wrap}.lang-switch{display:inline-flex;align-items:center;gap:8px;padding:6px;border:1px solid rgba(84,179,255,0.2);border-radius:999px;background:rgba(255,255,255,0.03)}.lang-button{border:0;background:transparent;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.82rem;padding:8px 12px;border-radius:999px;cursor:pointer;transition:background 180ms ease,color 180ms ease,transform 180ms ease}.lang-button:hover{color:var(--text);transform:translateY(-1px)}.lang-button.is-active{color:var(--text);background:linear-gradient(135deg,rgba(59,130,246,0.9),rgba(34,211,238,0.55))}.topnav a,.contact-grid a,.button{text-decoration:none;transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,color 180ms ease}.topnav a{color:var(--muted);font-size:.83rem}.topnav a:hover,.contact-grid a:hover{color:var(--text)}.hero{padding:92px 0 64px;display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:stretch}.card{position:relative;padding:32px;background:linear-gradient(180deg,rgba(10,23,36,0.88),rgba(6,15,25,0.92));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(59,130,246,0.45),rgba(34,211,238,0.18),transparent 70%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:24px}.hero h2{max-width:12ch;font-size:clamp(3rem,6vw,4.8rem);line-height:1.02}.lead{max-width:60ch;color:var(--muted);font-size:1.05rem;line-height:1.8}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;border:1px solid var(--line-strong);color:var(--text)}.button:hover{transform:translateY(-2px)}.button.primary{background:linear-gradient(135deg,rgba(59,130,246,0.95),rgba(34,211,238,0.7));box-shadow:0 12px 32px rgba(59,130,246,0.28)}.button.gold{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(59,130,246,0.05));border-color:rgba(245,158,11,0.45);box-shadow:0 0 24px rgba(245,158,11,0.12);position:relative;overflow:hidden}.button.gold::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(245,158,11,0.18),transparent 60%);opacity:0;transition:opacity 220ms ease}.button.gold:hover{border-color:rgba(245,158,11,0.7);box-shadow:0 0 40px rgba(245,158,11,0.22);color:#fcd34d;transform:translateY(-2px)}.button.gold:hover::before{opacity:1}.quick-stats{list-style:none;padding:0;margin:4px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.quick-stats li,.status-grid div{border:1px solid rgba(85,144,205,0.18);background:rgba(255,255,255,0.02);border-radius:16px}.quick-stats li{padding:16px}.quick-stats strong{display:block;font-size:1.8rem}.quick-stats span,.simple-list,.detail-list li,.status-grid span,.contact-card p:not(.section-tag),.section-grid p:not(.section-tag),.timeline-item p{color:var(--muted)}.terminal{display:flex;flex-direction:column;gap:18px}.terminal-top{display:flex;gap:8px}.terminal-top span{width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,0.2)}.terminal-stream{min-height:180px;display:grid;gap:10px;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.95rem}.status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.status-grid div{padding:14px}.status-grid strong{display:block;margin-top:4px}section{padding:64px 0}.section-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}.section-heading{margin-bottom:24px}.section-heading h3,.section-grid h3,.contact-card h3{margin-top:8px;font-size:clamp(1.7rem,2vw,2.4rem)}.mini-grid{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.mini-card{border:1px solid rgba(85,144,205,0.18);background:rgba(255,255,255,0.02);border-radius:16px;padding:16px}.mini-card strong{display:block;margin-bottom:8px}.mini-card span,.section-copy{color:var(--muted)}.resource-card{text-decoration:none;color:var(--text);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.training-section{margin-top:26px}.subsection-label{margin:0 0 14px;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}.path-card{position:relative}.cert-groups{display:grid;gap:20px}.cert-group{padding-top:2px}.timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.timeline-item{min-height:260px}.detail-list{margin:0;padding-left:18px;display:grid;gap:12px;line-height:1.7}.timeline-index{display:inline-block;margin-bottom:16px;color:var(--accent)}.role{display:inline-block;margin:10px 0 18px;font-size:.88rem}.simple-list{margin:20px 0 0;padding-left:18px;display:grid;gap:12px}.contact-wrap{padding-bottom:96px}.contact-phone-link{display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--text);border-radius:16px;border:1px solid rgba(84,179,255,0.28);background:rgba(59,130,246,0.05);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.contact-phone-link:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 0 18px rgba(34,211,238,0.12)}.contact-profiles-group{margin-top:4px}.contact-group-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;padding-top:14px;border-top:1px solid rgba(84,179,255,0.12)}.contact-card{display:grid;gap:18px}.contact-layout{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}.social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-channel-grid .social-link{min-height:108px}.social-link:hover{transform:translateY(-2px);border-color:var(--line-strong)}.social-link{min-height:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--text);border-radius:16px;border:1px solid rgba(84,179,255,0.2);background:rgba(255,255,255,0.02);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.social-icon{width:48px;height:48px;flex:0 0 48px;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;color:#dbeafe;background:linear-gradient(135deg,rgba(59,130,246,0.22),rgba(34,211,238,0.1));box-shadow:inset 0 0 0 1px rgba(84,179,255,0.18)}.social-icon svg{width:24px;height:24px}.social-copy{display:grid;gap:6px}.social-copy strong{font-size:1rem}.social-copy span{color:var(--muted);line-height:1.5}.identity-header{display:flex;align-items:center;gap:22px;padding-bottom:24px;border-bottom:1px solid var(--line)}.profile-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(34,211,238,0.6);box-shadow:0 0 0 6px rgba(34,211,238,0.1),0 0 36px rgba(34,211,238,0.22);flex-shrink:0}.identity-text{display:flex;flex-direction:column;gap:7px}.identity-name{font-size:1.12rem;font-weight:700;letter-spacing:.025em;color:var(--text)}.identity-text .section-tag{margin:0}@media(max-width:1023px){.hero,.section-grid,.timeline,.mini-grid,.contact-layout,.social-grid{grid-template-columns:1fr}.hero h2{max-width:none}.topbar{position:static;padding-top:20px;flex-direction:column;align-items:flex-start;gap:16px}.topnav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.topnav a{min-height:44px;display:flex;align-items:center;justify-content:center;padding:10px 12px;text-align:center;border:1px solid rgba(84,179,255,0.16);border-radius:12px;background:rgba(255,255,255,0.02)}.lang-switch{align-self:flex-start}}@media(max-width:767px){.container,.topbar{width:min(calc(100% - 24px),var(--container))}section{padding:44px 0}.card{padding:22px;border-radius:18px}.hero{padding-top:20px;gap:18px}.hero h2{font-size:clamp(2.25rem,12vw,3rem);line-height:1.05}.lead{font-size:.98rem;line-height:1.7}.topbar{gap:14px}.brand-block{align-items:flex-start}.topbar h1{font-size:.92rem;letter-spacing:.14em}.topnav{grid-template-columns:repeat(2,minmax(0,1fr))}.topnav a{font-size:.76rem;padding:10px}.lang-switch{width:100%;justify-content:space-between}.lang-button{flex:1 1 0}.identity-header{flex-direction:column;align-items:flex-start;gap:14px;padding-bottom:20px}.profile-photo{width:80px;height:80px}.hero-actions{display:grid;grid-template-columns:1fr;width:100%}.hero-actions .button{width:100%}.quick-stats,.status-grid{grid-template-columns:1fr}.quick-stats li,.status-grid div{padding:14px}.terminal{gap:14px}.terminal-stream{min-height:0;font-size:.85rem}.section-heading h3,.section-grid h3,.contact-card h3{font-size:clamp(1.5rem,7vw,1.9rem)}.mini-card,.social-link{padding:14px 16px}.detail-list,.simple-list,.check-list{gap:10px}.social-link{align-items:flex-start}.contact-channel-grid .social-link{min-height:92px}}h4{font-size:1.2rem;font-weight:600;margin:0;color:var(--text)}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.lang-button:focus-visible{background:rgba(34,211,238,0.2)}.skip-link{position:absolute;top:-100px;left:0;background:var(--accent);color:var(--bg);padding:12px 24px;text-decoration:none;font-weight:600;border-radius:0 0 8px 0;z-index:100;transition:top .3s}.skip-link:focus{top:0;outline:2px solid var(--primary);outline-offset:2px}.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:rgba(59,130,246,0.1);z-index:999}.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;transition:width .1s ease-out}.topnav a.active{color:var(--accent);background:rgba(34,211,238,0.1)}@media(max-width:767px){.section-grid,.mini-grid{gap:24px !important}.quick-stats{gap:24px !important}.status-grid{gap:12px !important}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}.progress-bar{transition:none !important}}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
 
   <!-- JSON-LD: Person + ProfilePage + WebSite + ItemList + FAQ -->
-  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"ProfilePage","name":"Daniel Ordonez Arango — Penetration Tester Portfolio","url":"https://danieloa.com","datePublished":"2025-12-01","dateModified":"2026-04-10","mainEntity":{"@type":"Person","@id":"https://danieloa.com#person","name":"Daniel Ordonez Arango","jobTitle":"Penetration Tester","description":"Penetration Tester who completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. Specializing in web application security, network assessments, Active Directory attacks and AI LLM security. HTB Top 1% with 658 targets compromised.","url":"https://danieloa.com","image":"https://danieloa.com/og-image.png","knowsLanguage":["en","es"],"knowsAbout":["Penetration Testing","Web Application Security","Network Security","Active Directory","Privilege Escalation","OWASP Top 10","AI LLM Security","Bug Bounty"],"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"CPTS — Certified Penetration Testing Specialist (training completed — exam pending)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"Hack The Box"}},{"@type":"EducationalOccupationalCredential","name":"CDSA — Certified Defensive Security Analyst (training completed — exam pending)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"Hack The Box"}},{"@type":"EducationalOccupationalCredential","name":"CJCA — Junior Cybersecurity Analyst Associate (training completed — exam pending)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"Hack The Box"}},{"@type":"EducationalOccupationalCredential","name":"CWEE — Certified Web Exploitation Expert (training completed — exam pending)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"Hack The Box"}},{"@type":"EducationalOccupationalCredential","name":"IBM Cybersecurity Analyst Professional Certificate","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"IBM"}},{"@type":"EducationalOccupationalCredential","name":"Google Cybersecurity Professional Certificate","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"Google"}}],"sameAs":["https://www.linkedin.com/in/danie125/","https://github.com/dan1e125","https://profile.hackthebox.com/profile/019d0d58-909e-7011-97e3-1f8ebc6567af"]}},{"@context":"https://schema.org","@type":"WebSite","name":"Daniel Ordonez Arango | Penetration Tester","url":"https://danieloa.com","description":"Cybersecurity portfolio of Daniel Ordonez Arango — Penetration Tester who completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy.","author":{"@id":"https://danieloa.com#person"},"inLanguage":["en","es"]},{"@context":"https://schema.org","@type":"ItemList","name":"Cybersecurity Certifications","itemListElement":[{"@type":"ListItem","position":1,"name":"CPTS — Certified Penetration Testing Specialist (training completed — exam pending)","description":"Hack The Box professional penetration testing path."},{"@type":"ListItem","position":2,"name":"CDSA — Certified Defensive Security Analyst (training completed — exam pending)","description":"Hack The Box defensive security path covering SOC, SIEM and DFIR."},{"@type":"ListItem","position":3,"name":"CJCA — Junior Cybersecurity Analyst Associate (training completed — exam pending)"},{"@type":"ListItem","position":4,"name":"CWEE — Certified Web Exploitation Expert (training completed — exam pending)"},{"@type":"ListItem","position":5,"name":"IBM Cybersecurity Analyst Professional Certificate"},{"@type":"ListItem","position":6,"name":"Google Cybersecurity Professional Certificate"}]},{"@context":"https://schema.org","@type":"ProfessionalService","name":"Daniel Ordonez Arango — Freelance Penetration Tester","url":"https://danieloa.com","description":"Freelance penetration testing services for startups and SMBs. Web app, Active Directory, network and AI/LLM security assessments. Remote engagements worldwide.","provider":{"@id":"https://danieloa.com#person"},"areaServed":["Colombia","Latin America","United States","Worldwide"],"availableLanguage":["English","Spanish"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Penetration Testing Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Application Penetration Test","description":"Full OWASP Top 10 assessment, business logic testing, authentication flaws, API security. Includes detailed remediation report."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Active Directory Penetration Test","description":"Internal network assessment targeting AD misconfigurations, privilege escalation paths, Kerberoasting, Pass-the-Hash and lateral movement vectors."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI / LLM Security Assessment","description":"Prompt injection, data leakage, model abuse and insecure plugin evaluation for AI-powered applications and LLM integrations."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Vulnerability Assessment","description":"Automated and manual scan of your attack surface with validated findings and a prioritized remediation report. Starting from $500."}}]}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What penetration testing services does Daniel Ordonez Arango offer?","acceptedAnswer":{"@type":"Answer","text":"Daniel Ordonez Arango offers web application penetration testing, network and infrastructure assessments, Active Directory security reviews, privilege escalation analysis, AI/LLM red teaming, and detailed remediation reporting. Available remotely for freelance engagements."}},{"@type":"Question","name":"Is Daniel Ordonez Arango certified as a penetration tester?","acceptedAnswer":{"@type":"Answer","text":"Daniel Ordonez Arango has completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. He ranks in the Top 1% globally on Hack The Box with 658 targets compromised. He also holds the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates."}},{"@type":"Question","name":"Where is Daniel Ordonez Arango based and does he work remotely?","acceptedAnswer":{"@type":"Answer","text":"Daniel Ordonez Arango is based in Colombia and is fully available for remote penetration testing engagements worldwide. He works in both English and Spanish."}},{"@type":"Question","name":"How can I contact Daniel Ordonez Arango for a penetration test?","acceptedAnswer":{"@type":"Answer","text":"You can reach Daniel via email at danielordonezarango@gmail.com, through the contact form on danieloa.com, or via LinkedIn at linkedin.com/in/danie125/. He is currently open to new engagements."}},{"@type":"Question","name":"¿Cuánto cuesta un pentest o prueba de penetración?","acceptedAnswer":{"@type":"Answer","text":"El costo de un pentest varía según el alcance. Una evaluación de aplicación web básica puede comenzar desde $3,000 USD para startups y PYMEs. Daniel Ordonez Arango ofrece presupuestos personalizados según el tamaño y complejidad del proyecto. Contáctalo en danieloa.com para una cotización."}},{"@type":"Question","name":"¿Hay pentester freelance en Colombia?","acceptedAnswer":{"@type":"Answer","text":"Sí. Daniel Ordonez Arango es un pentester freelance basado en Colombia, disponible para proyectos remotos en toda Latinoamérica y el mundo. Habla inglés y español. Top 1% global en Hack The Box con más de 658 objetivos comprometidos."}},{"@type":"Question","name":"¿Qué incluye un informe de pentest?","acceptedAnswer":{"@type":"Answer","text":"Un informe de pentest profesional incluye: resumen ejecutivo para directivos, hallazgos técnicos detallados con evidencia, clasificación de vulnerabilidades por criticidad (CVSS), pasos de explotación reproducibles y recomendaciones específicas de remediación priorizadas."}},{"@type":"Question","name":"¿Qué es una prueba de penetración de aplicaciones web?","acceptedAnswer":{"@type":"Answer","text":"Es una evaluación de seguridad ofensiva que simula ataques reales contra una aplicación web. Se evalúa el OWASP Top 10 (inyección SQL, XSS, IDOR, etc.), lógica de negocio, autenticación, APIs y más. El objetivo es encontrar vulnerabilidades antes que un atacante real."}},{"@type":"Question","name":"How much does a freelance penetration test cost for a startup?","acceptedAnswer":{"@type":"Answer","text":"Freelance pentest costs for startups typically range from $3,000 to $6,000 depending on scope. Daniel Ordonez Arango offers flexible pricing for early-stage companies and SMBs, with clear deliverables and no enterprise overhead. Contact via danieloa.com for a custom quote."}},{"@type":"Question","name":"What is AI LLM security testing?","acceptedAnswer":{"@type":"Answer","text":"AI LLM security testing evaluates applications built on large language models (like ChatGPT, Claude or custom models) for vulnerabilities such as prompt injection, jailbreaking, sensitive data leakage, insecure tool use and model denial of service. It's an emerging field critical for AI-powered products."}}]}]</script>
+  <script type="application/ld+json">
+  [
+      {
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "name": "Daniel Ordonez Arango — Penetration Tester Portfolio",
+          "url": "https://danieloa.com",
+          "datePublished": "2025-12-01",
+          "dateModified": "2026-04-10",
+          "mainEntity": {
+              "@type": "Person",
+              "@id": "https://danieloa.com#person",
+              "name": "Daniel Ordonez Arango",
+              "jobTitle": "Penetration Tester",
+              "description": "Penetration Tester who completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. Specializing in web application security, network assessments, Active Directory attacks and AI LLM security. HTB Top 1% with 658 targets compromised.",
+              "url": "https://danieloa.com",
+              "image": "https://danieloa.com/og-image.png",
+              "knowsLanguage": [
+                  "en",
+                  "es"
+              ],
+              "knowsAbout": [
+                  "Penetration Testing",
+                  "Web Application Security",
+                  "Network Security",
+                  "Active Directory",
+                  "Privilege Escalation",
+                  "OWASP Top 10",
+                  "AI LLM Security",
+                  "Bug Bounty"
+              ],
+              "hasCredential": [
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "CPTS — Certified Penetration Testing Specialist (training completed — exam pending)",                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "Hack The Box"
+                      }
+                  },
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "CDSA — Certified Defensive Security Analyst (training completed — exam pending)",
+                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "Hack The Box"
+                      }
+                  },
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "CJCA — Junior Cybersecurity Analyst Associate (training completed — exam pending)",
+                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "Hack The Box"
+                      }
+                  },
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "CWEE — Certified Web Exploitation Expert (training completed — exam pending)",
+                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "Hack The Box"
+                      }
+                  },
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "IBM Cybersecurity Analyst Professional Certificate",
+                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "IBM"
+                      }
+                  },
+                  {
+                      "@type": "EducationalOccupationalCredential",
+                      "name": "Google Cybersecurity Professional Certificate",
+                      "credentialCategory": "Professional Certification",
+                      "recognizedBy": {
+                          "@type": "Organization",
+                          "name": "Google"
+                      }
+                  }
+              ],
+              "sameAs": [
+                  "https://www.linkedin.com/in/danie125/",
+                  "https://github.com/dan1e125",
+                  "https://profile.hackthebox.com/profile/019d0d58-909e-7011-97e3-1f8ebc6567af"
+              ]
+          }
+      },
+      {
+          "@type": "WebSite",
+          "name": "Daniel Ordonez Arango | Penetration Tester",
+          "url": "https://danieloa.com",
+          "description": "Cybersecurity portfolio of Daniel Ordonez Arango — Penetration Tester who completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy.",
+          "author": {
+              "@id": "https://danieloa.com#person"
+          },
+          "inLanguage": [
+              "en",
+              "es"
+          ]
+      },
+      {
+          "@type": "ItemList",
+          "name": "Cybersecurity Certifications",
+          "itemListElement": [
+              {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "CPTS — Certified Penetration Testing Specialist (training completed — exam pending)",
+                  "description": "Hack The Box professional penetration testing path."
+              },
+              {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "CDSA — Certified Defensive Security Analyst (training completed — exam pending)",
+                  "description": "Hack The Box defensive security path covering SOC, SIEM and DFIR."
+              },
+              {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "CJCA — Junior Cybersecurity Analyst Associate (training completed — exam pending)"
+              },
+              {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "CWEE — Certified Web Exploitation Expert (training completed — exam pending)"
+              },
+              {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "IBM Cybersecurity Analyst Professional Certificate"
+              },
+              {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "name": "Google Cybersecurity Professional Certificate"
+              }
+          ]
+      },
+      {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+              {
+                  "@type": "Question",
+                  "name": "What penetration testing services does Daniel Ordonez Arango offer?",
+                  "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Daniel Ordonez Arango offers web application penetration testing, network and infrastructure assessments, Active Directory security reviews, privilege escalation analysis, AI/LLM red teaming, and detailed remediation reporting. Available remotely for freelance engagements."
+                  }
+              },
+              {
+                  "@type": "Question",
+                  "name": "Is Daniel Ordonez Arango certified as a penetration tester?",
+                  "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Daniel Ordonez Arango has completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. He ranks in the Top 1% globally on Hack The Box with 658 targets compromised. He also holds the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates."
+                  }
+              },
+              {
+                  "@type": "Question",
+                  "name": "Where is Daniel Ordonez Arango based and does he work remotely?",
+                  "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Daniel Ordonez Arango is based in Colombia and is fully available for remote penetration testing engagements worldwide. He works in both English and Spanish."
+                  }
+              },
+              {
+                  "@type": "Question",
+                  "name": "How can I contact Daniel Ordonez Arango for a penetration test?",
+                  "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "You can reach Daniel via email at danielordonezarango@gmail.com, through the contact form on danieloa.com, or via LinkedIn at linkedin.com/in/danie125/. He is currently open to new engagements."
+                  }
+              }
+          ]
+      }
+      ,
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Daniel Ordonez Arango — Freelance Penetration Tester",
+        "url": "https://danieloa.com",
+        "description": "Freelance penetration testing services for startups and SMBs. Web app, Active Directory, network and AI/LLM security assessments. Remote engagements worldwide.",
+        "provider": {"@id": "https://danieloa.com#person"},
+        "areaServed": ["Colombia", "Latin America", "United States", "Worldwide"],
+        "availableLanguage": ["English", "Spanish"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Penetration Testing Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Web Application Penetration Test",
+                        "description": "Full OWASP Top 10 assessment, business logic testing, authentication flaws, API security. Includes detailed remediation report."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Active Directory Penetration Test",
+                        "description": "Internal network assessment targeting AD misconfigurations, privilege escalation paths, Kerberoasting, Pass-the-Hash and lateral movement vectors."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "AI / LLM Security Assessment",
+                        "description": "Prompt injection, data leakage, model abuse and insecure plugin evaluation for AI-powered applications and LLM integrations."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Network & Infrastructure Pentest",
+                        "description": "External and internal network assessment: open ports, misconfigurations, vulnerability scanning, firewall bypass and exploitation."
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Cuánto cuesta un pentest o prueba de penetración?",
+                "acceptedAnswer": {"@type": "Answer", "text": "El costo de un pentest varía según el alcance. Una evaluación de aplicación web básica puede comenzar desde $3,000 USD para startups y PYMEs. Daniel Ordonez Arango ofrece presupuestos personalizados según el tamaño y complejidad del proyecto. Contáctalo en danieloa.com para una cotización."}
+            },
+            {
+                "@type": "Question",
+                "name": "¿Hay pentester freelance en Colombia?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Sí. Daniel Ordonez Arango es un pentester freelance basado en Colombia, disponible para proyectos remotos en toda Latinoamérica y el mundo. Habla inglés y español. Top 1% global en Hack The Box con más de 658 objetivos comprometidos."}
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué incluye un informe de pentest?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Un informe de pentest profesional incluye: resumen ejecutivo para directivos, hallazgos técnicos detallados con evidencia, clasificación de vulnerabilidades por criticidad (CVSS), pasos de explotación reproducibles y recomendaciones específicas de remediación priorizadas."}
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué es una prueba de penetración de aplicaciones web?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Es una evaluación de seguridad ofensiva que simula ataques reales contra una aplicación web. Se evalúa el OWASP Top 10 (inyección SQL, XSS, IDOR, etc.), lógica de negocio, autenticación, APIs y más. El objetivo es encontrar vulnerabilidades antes que un atacante real."}
+            },
+            {
+                "@type": "Question",
+                "name": "How much does a freelance penetration test cost for a startup?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Freelance pentest costs for startups typically range from $3,000 to $6,000 depending on scope. Daniel Ordonez Arango offers flexible pricing for early-stage companies and SMBs, with clear deliverables and no enterprise overhead. Contact via danieloa.com for a custom quote."}
+            },
+            {
+                "@type": "Question",
+                "name": "What is AI LLM security testing?",
+                "acceptedAnswer": {"@type": "Answer", "text": "AI LLM security testing evaluates applications built on large language models (like ChatGPT, Claude or custom models) for vulnerabilities such as prompt injection, jailbreaking, sensitive data leakage, insecure tool use and model denial of service. It's an emerging field critical for AI-powered products."}
+            }
+        ]
+    }
+  ]
+  </script>
   <style>
 
 .hero h2 {
@@ -346,10 +614,16 @@ body { line-height: 1.65; }
   margin-bottom: 20px;
 }
 
+  line-height: 1.65;
+}
 .detail-list li { line-height: 1.65; }
 
-.mini-card span { display: block; margin-top: 6px; line-height: 1.6; }
-
+.mini-card span,
+.resource-card span {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.6;
+}
 
 .timeline-item h4 { margin-bottom: 6px; }
 
@@ -371,6 +645,12 @@ body { line-height: 1.65; }
 
 #certifications .section-copy { margin-bottom: 24px; }
 
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+  letter-spacing: .01em;
+}
 
 @media (max-width: 1023px) {
   
@@ -456,6 +736,9 @@ body { line-height: 1.65; }
   .timeline-item { min-height: auto !important; }
 
   
+  .mini-card, .resource-card { padding: 14px !important; }
+
+  
   .section-heading { margin-bottom: 16px !important; }
 }
 
@@ -502,7 +785,9 @@ body { line-height: 1.65; }
   .section-tag.tag-animate { animation: none; }
 }
 
-
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+  50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
 }
 .status-grid div:first-child strong::before {
   content: "";
@@ -514,7 +799,7 @@ body { line-height: 1.65; }
   margin-right: 7px;
   margin-bottom: 1px;
   vertical-align: middle;
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: pulse-green 2s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .status-grid div:first-child strong::before { animation: none; }
@@ -527,6 +812,8 @@ body { line-height: 1.65; }
 .section-heading h3 { padding-left: 14px; border-left: 2px solid var(--accent); }
 @media (max-width: 767px) { .section-heading h3 { padding-left: 10px; } }
 
+@keyframes typed-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@media(prefers-reduced-motion:reduce)
 
 .identity-header .profile-photo { width:160px; height:160px; }
 @media(max-width:767px){ .identity-header .profile-photo { width:96px; height:96px; } }
@@ -545,7 +832,7 @@ body { line-height: 1.65; }
 }
 @media(max-width:1023px){ .timeline-connected::before { display:none; } }
 
-#about::before, #experience::before,
+#about::before, #experience::before, #skills::before,
 #services::before, #quote::before, #contact::before {
   content: '';
   display: block;
@@ -582,12 +869,28 @@ body { line-height: 1.65; }
 .path-card:nth-child(11) { border-left: 3px solid rgba(249,115,22,0.65);  }
 .path-card:nth-child(12) { border-left: 3px solid rgba(139,92,246,0.65);  }
 
+  position: relative;
+  padding-left: 20px !important;
+  overflow: hidden;
+}
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), rgba(59,130,246,0.5));
+  border-radius: 0 2px 2px 0;
+}
 
 .hero-panel {
   box-shadow: 0 0 72px rgba(34,211,238,0.1), var(--shadow);
 }
 
-
+.resource-card strong::after {
+  content: " ↓";
+  font-size: 0.85em;
+  opacity: 0.6;
+  font-weight: 400;
+}
 
 .copy-toast {
   position: fixed;
@@ -634,9 +937,9 @@ body { line-height: 1.65; }
   border-radius: 50%;
   background: #22c55e;
   flex-shrink: 0;
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: pulse-green 2s ease-in-out infinite;
 }
-@keyframes pulse-dot {
+@keyframes pulse-green {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.4); }
 }
@@ -708,7 +1011,168 @@ body { line-height: 1.65; }
   .spec-row { gap: 6px; }
   .spec-item { font-size: 0.74rem; padding: 6px 10px; }
 }
-</style>
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+  font-size: 1.15rem;
+}
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,158,11,0.5);
+  background: rgba(245,158,11,0.12);
+  color: #fcd34d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 10px;
+}
+  padding: 12px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(245,158,11,0.2);
+  background: rgba(245,158,11,0.05);
+  text-align: center;
+}
+  display: block;
+  font-size: 1.2rem;
+  color: #fcd34d;
+}
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  margin-top: 3px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.04em;
+}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(245,158,11,0.18);
+}
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: "JetBrains Mono", monospace;
+}
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(245,158,11,0.5);
+  background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(245,158,11,0.06));
+  color: #fcd34d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(34,211,238,0.4);
+  background: rgba(34,211,238,0.08);
+  color: var(--accent);
+  font-family: JetBrains Mono, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+}
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(34,211,238,0.22);
+  background: rgba(34,211,238,0.04);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+  transform: translateY(-2px);
+  border-color: rgba(34,211,238,0.55);
+  box-shadow: 0 8px 24px rgba(34,211,238,0.1);
+}
+  font-size: 1.3rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+  content: "📄";
+  font-size: 0.85em;
+}
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(245,158,11,0.3);
+  background: linear-gradient(90deg, rgba(245,158,11,0.07), rgba(59,130,246,0.04));
+  margin-bottom: 24px;
+}
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+  flex: 1;
+  min-width: 0;
+}
+  display: block;
+  font-size: 0.92rem;
+  color: #fcd34d;
+  margin-bottom: 3px;
+}
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(245,158,11,0.4);
+  background: rgba(245,158,11,0.08);
+  color: #fcd34d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.76rem;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+@media (max-width: 767px) 
+@media (max-width: 479px)</style>
   <style>
 
 .nav-toggle{display:none;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;border:1px solid rgba(84,179,255,0.22);border-radius:10px;background:rgba(255,255,255,0.025);color:var(--accent);cursor:pointer;flex-shrink:0;transition:border-color 180ms ease,background 180ms ease}
@@ -736,6 +1200,7 @@ body { line-height: 1.65; }
   .terminal:not(.is-open) .terminal-top,.terminal:not(.is-open) .terminal-label,.terminal:not(.is-open) .terminal-stream,.terminal:not(.is-open) .status-grid{display:none!important}
 }
 
+@media(max-width:767px)
   </style>
   <style>
 
@@ -758,6 +1223,39 @@ body { line-height: 1.65; }
   .spec-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
   
   .spec-item:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: start; }
+}
+  
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(34,211,238,0.12);
+}
+  width: 11px; height: 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+}
+  margin-left: 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px 16px;
+  border-top: 1px solid rgba(34,211,238,0.1);
+}
+
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(34,211,238,0.1);
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
 }
 </style>
 <style>
@@ -799,12 +1297,14 @@ body { line-height: 1.65; }
 .service-deliverables li{font-size:.82rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.5}
 .service-deliverables li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-size:.75rem;top:1px}
 .service-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.service-price{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:var(--accent);letter-spacing:.04em}
 .service-cta{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;padding:8px 14px;border-radius:10px;border:1px solid var(--line-strong);background:rgba(255,255,255,0.03);transition:all 180ms ease}
 .service-cta:hover{background:rgba(34,211,238,0.08);border-color:var(--accent);color:var(--accent)}
 .service-price{font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.88rem;letter-spacing:.04em}
 
 .quote-disclaimer p{color:rgba(155,181,214,0.5);font-size:.78rem;line-height:1.6;margin:0}
-@media(max-width:767px){.services-grid{grid-template-columns:1fr}}
+@media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-layout{grid-template-columns:1fr}}
+@media(max-width:767px){.services-grid{grid-template-columns:1fr}.quote-price-min,.quote-price-max{font-size:1.5rem}}
 
 .qc-layout{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
 .qc-configurator{display:flex;flex-direction:column;gap:28px}
@@ -881,12 +1381,6 @@ body { line-height: 1.65; }
 body.cursor-hovering .cursor-ring{transform:translate(-50%,-50%) scale(1.5);border-color:var(--accent)}
 body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 @media(prefers-reduced-motion:reduce){.cursor-dot,.cursor-ring{display:none}}
-
-.cg-li-title,.cg-gh-title{font-weight:600;color:var(--text);}
-.cg-li-desc,.cg-gh-desc{font-size:.82rem;color:var(--muted);display:block;}
-.contact-card-phone-copy{font-size:.82rem;color:var(--muted);display:block;}
-.qc-section-header{margin-bottom:1.25rem;}
-.transcript-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;}
 </style>
 
 <body>
@@ -896,7 +1390,6 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
       <div>
         <strong style="font-size:1.2rem;display:block;margin-bottom:12px">JavaScript is required</strong>
         <p style="color:#9bb5d6;max-width:40ch;margin:0 auto">This portfolio uses JavaScript for language switching and interactive elements. Please enable JavaScript to view the full experience.</p>
-        <p style="color:#9bb5d6;max-width:40ch;margin:0 auto;margin-top:8px" lang="es">Este portafolio utiliza JavaScript para el cambio de idioma y elementos interactivos. Por favor habilita JavaScript para ver la experiencia completa.</p>
       </div>
     </div>
   </noscript>
@@ -949,7 +1442,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
               </div>
             </div>
             <div class="identity-text">
-              <p class="identity-name">Daniel Ordonez Arango</p>
+              <p class="identity-name" data-text="Daniel Ordonez Arango">Daniel Ordonez Arango</p>
               <span class="availability-badge" aria-label="Available for engagements">
                 <span class="avail-dot" aria-hidden="true"></span>
                 <span class="avail-text">Available for engagements</span>
@@ -992,7 +1485,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
           <ul class="quick-stats">
             <li>
-              <strong>12</strong>
+              <strong>14</strong>
               <span>HTB paths completed</span>
             </li>
             <li>
@@ -1006,7 +1499,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
           </ul>
         </div>
 
-        <aside class="hero-panel card terminal" aria-label="Operator Status Panel">
+        <aside class="hero-panel card terminal">
           <button class="terminal-toggle" aria-label="Toggle status panel" aria-expanded="false"><span>[ STATUS PANEL ]</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
           <div class="terminal-top">
             <span></span><span></span><span></span>
@@ -1060,10 +1553,10 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <strong id="svc-web-title">Web Application Pentest</strong>
             <span id="svc-web-desc">Find exploitable vulnerabilities in your app before a breach does. OWASP-aligned manual testing with a written report your team can act on immediately.</span>
             <ul class="service-deliverables">
-              <li id="svc1-del1">OWASP Top 10 manual testing</li>
-              <li id="svc1-del2">PDF report with risk rankings</li>
-              <li id="svc1-del3">Remediation recommendations</li>
-              <li id="svc1-del4">Free re-test after fixes</li>
+              <li>OWASP Top 10 manual testing</li>
+              <li>PDF report with risk rankings</li>
+              <li>Remediation recommendations</li>
+              <li>Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
               <span class="service-price">From $3,000 USD</span>
@@ -1076,10 +1569,10 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <strong id="svc-ad-title">Active Directory Pentest</strong>
             <span id="svc-ad-desc">Identify attack paths through your internal network before a threat actor does. BloodHound mapping, credential attacks, and a clear remediation roadmap.</span>
             <ul class="service-deliverables">
-              <li id="svc2-del1">BloodHound attack path mapping</li>
-              <li id="svc2-del2">Credential attack simulation</li>
-              <li id="svc2-del3">Written remediation roadmap</li>
-              <li id="svc2-del4">Free re-test after fixes</li>
+              <li>BloodHound attack path mapping</li>
+              <li>Credential attack simulation</li>
+              <li>Written remediation roadmap</li>
+              <li>Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
               <span class="service-price">From $5,000 USD</span>
@@ -1092,11 +1585,11 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <strong id="svc-va-title">Vulnerability Assessment</strong>
             <span id="svc-va-desc">Automated + manual scan of your attack surface with validated findings and a prioritized remediation report. A lower-cost entry point before a full pentest.</span>
             <ul class="service-deliverables">
-              <li id="svc3-del1">Automated + manual validation</li>
-              <li id="svc3-del2">Prioritized remediation report</li>
-              <li id="svc3-del3">Safe for production environments</li>
-              <li id="svc3-del4">Fast turnaround: 3–5 days</li>
-              <li id="svc3-del5">Free re-test after fixes</li>
+              <li>Automated + manual validation</li>
+              <li>Prioritized remediation report</li>
+              <li>Safe for production environments</li>
+              <li>Fast turnaround: 3&ndash;5 days</li>
+              <li>Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
               <span class="service-price">From $500 USD</span>
@@ -1109,11 +1602,11 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <strong id="svc-ai-title">AI / LLM Security Assessment</strong>
             <span id="svc-ai-desc">Identify prompt injection, data leakage, and model manipulation risks in your AI-powered applications before they reach production.</span>
             <ul class="service-deliverables">
-              <li id="svc4-del1">Prompt injection testing</li>
-              <li id="svc4-del2">Data leakage &amp; model manipulation</li>
-              <li id="svc4-del3">Written findings report</li>
-              <li id="svc4-del4">Recommendations per risk</li>
-              <li id="svc4-del5">Free re-test after fixes</li>
+              <li>Prompt injection testing</li>
+              <li>Data leakage &amp; model manipulation</li>
+              <li>Written findings report</li>
+              <li>Recommendations per risk</li>
+              <li>Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
               <span class="service-price">From $2,000 USD</span>
@@ -1176,14 +1669,14 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
       </section>
 
       <div class="container" style="text-align:center;padding:0 0 2rem">
-        <a id="see-pricing-cta" class="button primary" href="#quote" style="font-size:1rem">See pricing →</a>
+        <a class="button primary" href="#quote" style="font-size:1rem">See pricing →</a>
       </div>
 
       <section id="quote" class="container" aria-labelledby="quote-heading">
         <div class="section-heading qc-section-header">
           <p class="section-tag" id="quote-tag">[ PRICING ]</p>
           <h3 id="quote-heading">Price your engagement in 60 seconds</h3>
-          <p class="section-copy" id="quote-copy">Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.</p>
+          <p class="section-copy" id="quote-copy">Configure your engagement below and get a real&#8209;time price range based on global market rates.</p>
         </div>
         <div class="qc-layout">
 
@@ -1200,21 +1693,21 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
                 <button class="qc-svc-card active" data-svc="pentest_web" type="button" aria-label="Select Web App Pentest service, from $3,000" aria-pressed="true">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji">&#127760;</span>
-                  <span class="qc-svc-name" id="qcs-name-pentest_web">Web App Pentest</span>
-                  <span class="qc-svc-price" id="qcs-price-pentest_web">From $3,000</span>
+                  <span class="qc-svc-name">Web App Pentest</span>
+                  <span class="qc-svc-price">From $3,000</span>
                 </button>
   
                 <button class="qc-svc-card" data-svc="pentest_ad" type="button" aria-label="Select Active Directory Pentest service, from $5,000" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji">&#127970;</span>
-                  <span class="qc-svc-name" id="qcs-name-pentest_ad">Active Directory</span>
-                  <span class="qc-svc-price" id="qcs-price-pentest_ad">From $5,000</span>
+                  <span class="qc-svc-name">Active Directory</span>
+                  <span class="qc-svc-price">From $5,000</span>
                 </button>
                 <button class="qc-svc-card" data-svc="vuln_assessment" type="button" aria-label="Select Vulnerability Assessment service, from $500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji">&#128269;</span>
                   <span class="qc-svc-name">Vuln Assessment</span>
-                  <span class="qc-svc-price" id="qcs-price-vuln_assessment">From $500</span>
+                  <span class="qc-svc-price">From $500</span>
                 </button>
                 <button class="qc-svc-card" data-svc="pentest_ai" type="button" aria-label="Select AI / LLM Security Assessment service, from $2,000" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
@@ -1316,7 +1809,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
           <div class="qc-result-panel">
             <div class="qc-result-card">
               <div>
-                <p class="qc-result-svc-label" id="qr-svc-label">Selected service <span></span></p>
+                <p class="qc-result-svc-label">Selected service <span></span></p>
                 <p class="qc-result-svc-name" id="qr-svc-name">Web App Pentest</p>
               </div>
               <div class="qc-price-block">
@@ -1331,26 +1824,26 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
               </div>
               <div class="qc-config-summary">
                 <div class="qc-config-row">
-                  <span class="qc-config-key" id="qr-scope-key">Scope</span>
+                  <span class="qc-config-key">Scope</span>
                   <span class="qc-config-val" id="qr-scope">Small &middot; 1&#8211;5 targets</span>
                 </div>
                 <div class="qc-config-row">
-                  <span class="qc-config-key" id="qr-cplx-key">Complexity</span>
+                  <span class="qc-config-key">Complexity</span>
                   <span class="qc-config-val" id="qr-cplx">Standard</span>
                 </div>
                 <div class="qc-config-row">
-                  <span class="qc-config-key" id="qr-tbox-key">Testing</span>
+                  <span class="qc-config-key">Testing</span>
                   <span class="qc-config-val" id="qr-tbox">Black-box</span>
                 </div>
                 <div class="qc-config-row" id="qr-addons-row" style="display:none">
-                  <span class="qc-config-key" id="qr-addons-key">Add-ons</span>
+                  <span class="qc-config-key">Add-ons</span>
                   <span class="qc-addons-row" id="qr-addons-tags"></span>
                 </div>
               </div>
-              <a href="#contact" class="qc-cta-btn" id="qc-main-cta" data-html="1">
+              <a href="#contact" class="qc-cta-btn" id="qc-main-cta">
                 Book a free scoping call <span class="qc-cta-arrow">&#8594;</span>
               </a>
-              <p class="qc-disclaimer-note" id="qc-disclaimer" data-html="1">Automated estimate only &#8212; not a binding quote.<br>A signed authorization agreement is required before any engagement begins.</p>
+              <p class="qc-disclaimer-note">Automated estimate only &#8212; not a binding quote.<br>A signed authorization agreement is required before any engagement begins.</p>
             </div>
           </div><!-- /qc-result-panel -->
 
@@ -1502,7 +1995,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
                       <span class="cg-li-desc">Professional profile and networking</span>
                     </span>
                   </a>
-                  <a class="social-link" href="https://github.com/dan1e125" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
+                  <a class="social-link" href="https://github.com/dan1e124" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
                     <span class="social-icon" aria-hidden="true">
                       <svg viewBox="0 0 24 24" role="img"><title>GitHub</title>
                         <path d="M12 2C6.48 2 2 6.6 2 12.26c0 4.53 2.87 8.37 6.84 9.72.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.33 9.33 0 0 1 12 6.82c.85 0 1.71.12 2.51.36 1.9-1.33 2.74-1.05 2.74-1.05.56 1.42.21 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.38-.01 2.48-.01 2.82 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.26C22 6.6 17.52 2 12 2Z" fill="currentColor"/>
@@ -1565,10 +2058,10 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
   
 
-  <script src="script.js?v=20260418" defer></script>
+  <script src="script.js?v=20260414" defer></script>
   </div> <!-- Closing site-shell -->
 
-  <a class="wa-float" href="https://wa.me/573136459299?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20pentesting%20services." target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
+  <a class="wa-float" href="https://wa.me/573136459299?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20pentesting." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
