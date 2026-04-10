@@ -34,8 +34,8 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-price-pentest_ad':'From $5,000',
     '#qcs-name-vuln_assessment':'Vulnerability Assessment',
     '#qcs-price-vuln_assessment':'From $500',
-    '#qcs-name-ai_llm':'AI / LLM Security',
-    '#qcs-price-ai_llm':'From $2,000','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#addon-urgent-label':'Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span>','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about article:nth-child(1) .section-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps & Active Directory.','.service-cta':'Get a quote →'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},
+    '#qcs-name-pentest_ai':'AI / LLM Security',
+    '#qcs-price-pentest_ai':'From $2,000','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $500 USD','#svc4-price':'From $2,000 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#addon-urgent-label':'Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span>','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about article:nth-child(1) .section-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps & Active Directory.','.service-cta':'Get a quote →'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},
   formMessages:{
     requiredFields:'Please fill in all fields.',
     invalidEmail:'Please enter a valid email address.',
@@ -188,8 +188,8 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-price-pentest_ad':'Desde $5,000',
     '#qcs-name-vuln_assessment':'Evaluación de Vulnerabilidades',
     '#qcs-price-vuln_assessment':'Desde $500',
-    '#qcs-name-ai_llm':'Seguridad IA / LLM',
-    '#qcs-price-ai_llm':'Desde $2,000','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#addon-urgent-label':'Entrega urgente<br><span style="font-size:.7rem;color:var(--muted)">Menos de 2 semanas</span>','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
+    '#qcs-name-pentest_ai':'Seguridad IA / LLM',
+    '#qcs-price-pentest_ai':'Desde $2,000','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#terminal-panel-label':'[ PANEL DE ESTADO ]','#svc1-price':'Desde $3,000 USD','#svc2-price':'Desde $5,000 USD','#svc3-price':'Desde $500 USD','#svc4-price':'Desde $2,000 USD','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#addon-urgent-label':'Entrega urgente<br><span style="font-size:.7rem;color:var(--muted)">Menos de 2 semanas</span>','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
     '#contact h3':'Contáctame',
     '#cg-profiles':'Perfiles online','.contact-intro':'Disponible para proyectos remotos en todo el mundo. Respondo en menos de 24h. La primera llamada es gratuita — definimos alcance, cronograma y compatibilidad antes de cualquier acuerdo.',
     
@@ -239,8 +239,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 let terminalTimer = null;
 
 function setText(selector, value) {
-  const node = document.querySelector(selector);
-  if (node) { if (node.dataset.html) node.innerHTML = value; else node.textContent = value; }
+  document.querySelectorAll(selector).forEach(function(node) {
+    if (node.dataset.html) node.innerHTML = value; else node.textContent = value;
+  });
 }
 
 // Terminal animation — single implementation
@@ -293,7 +294,45 @@ function applyLocale(locale) {
       : 'Hi Daniel, I\'m interested in learning more about your pentesting services.';
     waFloat.href = 'https://wa.me/573136459299?text=' + encodeURIComponent(waMsg);
   }
-  localStorage.setItem('portfolio-lang', locale);
+
+  // ── Dynamic aria-label updates ──
+  var svcAriaEN = {
+    pentest_web:'Select Web App Pentest, from $3,000',
+    pentest_ad:'Select Active Directory Pentest, from $5,000',
+    vuln_assessment:'Select Vulnerability Assessment, from $500',
+    pentest_ai:'Select AI / LLM Security, from $2,000'
+  };
+  var svcAriaES = {
+    pentest_web:'Seleccionar Pentest Web App, desde $3,000',
+    pentest_ad:'Seleccionar Pentest Active Directory, desde $5,000',
+    vuln_assessment:'Seleccionar Evaluaci\u00f3n de Vulnerabilidades, desde $500',
+    pentest_ai:'Seleccionar Seguridad IA / LLM, desde $2,000'
+  };
+  var svcAriaMap = locale==='es' ? svcAriaES : svcAriaEN;
+  document.querySelectorAll('.qc-svc-card[data-svc]').forEach(function(btn) {
+    var lbl = svcAriaMap[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
+  });
+  var tglAriaEN = {
+    'small':'Scope: Small, 1 to 5 targets','medium':'Scope: Medium, 6 to 15 targets','large':'Scope: Large, 15 or more targets',
+    'low':'Complexity: Standard, common tech stack','medium-cplx':'Complexity: Custom, proprietary logic','high':'Complexity: Enterprise, complex or hybrid',
+    'black':'Testing type: Black-box, no prior access','grey':'Testing type: Grey-box, partial credentials','white':'Testing type: White-box, full access and code'
+  };
+  var tglAriaES = {
+    'small':'Alcance: Peque\u00f1o, 1 a 5 objetivos','medium':'Alcance: Mediano, 6 a 15 objetivos','large':'Alcance: Grande, 15 o m\u00e1s objetivos',
+    'low':'Complejidad: Est\u00e1ndar, stack com\u00fan','medium-cplx':'Complejidad: Personalizado, l\u00f3gica propietaria','high':'Complejidad: Empresarial, complejo o h\u00edbrido',
+    'black':'Modalidad: Caja negra, sin acceso previo','grey':'Modalidad: Caja gris, credenciales parciales','white':'Modalidad: Caja blanca, acceso completo y c\u00f3digo'
+  };
+  var tglMap = locale==='es' ? tglAriaES : tglAriaEN;
+  document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(b){var k=tglMap[b.dataset.scope];if(k)b.setAttribute('aria-label',k);});
+  document.querySelectorAll('.qc-toggle[data-cplx]').forEach(function(b){var k=b.dataset.cplx==='medium'?tglMap['medium-cplx']:tglMap[b.dataset.cplx];if(k)b.setAttribute('aria-label',k);});
+  document.querySelectorAll('.qc-toggle[data-tbox]').forEach(function(b){var k=tglMap[b.dataset.tbox];if(k)b.setAttribute('aria-label',k);});
+  var chipBtn = document.querySelector('.qc-chip[data-addon="urgent"]');
+  if (chipBtn) chipBtn.setAttribute('aria-label', locale==='es'?'Complemento: Entrega urgente, menos de 2 semanas, m\u00e1s 25%':'Add-on: Rush delivery, under 2 weeks, plus 25%');
+  var termBtn = document.getElementById('terminal-toggle-btn');
+  if (termBtn) termBtn.setAttribute('aria-label', locale==='es'?'Alternar panel de estado':'Toggle status panel');
+  var emailLink = document.querySelector('[data-contact]');
+  if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', locale==='es'?'Copiar correo al portapapeles':'Copy email address to clipboard');
+    localStorage.setItem('portfolio-lang', locale);
   if(typeof window.recalc==='function')window.recalc();
 }
 
@@ -321,14 +360,14 @@ applyLocale(currentLocale);
       // Email: use clipboard — avoids OS mailto: / login redirects
       el.setAttribute('href', '#');
       el.setAttribute('role', 'button');
-      el.setAttribute('aria-label', 'Copy email address to clipboard');
+      el.setAttribute('aria-label', (typeof currentLocale!=='undefined'&&currentLocale==='es')?'Copiar correo al portapapeles':'Copy email address to clipboard');
       var email = decoded.replace(/^mailto:/, '');
       el.addEventListener('click', function(e) {
         e.preventDefault();
         var toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
-            if (toast) { toast.textContent = '✓ Email copied: ' + email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 3000); }
+            if (toast) { toast.textContent = (typeof currentLocale!=='undefined'&&currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 3000); }
           }).catch(function() {
             // Fallback: show email inline
             if (toast) { toast.textContent = email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 5000); }
@@ -796,12 +835,13 @@ if ('serviceWorker' in navigator) {
   'use strict';
 
   var PRICES = {
-    pentest_web: { name:'Web App Pentest',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    pentest_ad:     { name:'Active Directory',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    vuln_assessment: { name:'Vuln Assessment',      base:[500,1500],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.2, high:1.5},  tbox:{black:1.0,grey:1.15,white:1.35} },
-    pentest_ai:      { name:'AI / LLM Assessment', base:[2000,4500],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.8},  tbox:{black:1.0,grey:1.2,white:1.45} }
+    pentest_web: { name:'Web App Pentest',nameEs:'Pentest de Aplicación Web',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
+    pentest_ad:     { name:'Active Directory',nameEs:'Directorio Activo',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
+    vuln_assessment: { name:'Vuln Assessment',nameEs:'Evaluación de Vulnerabilidades',      base:[500,1500],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.2, high:1.5},  tbox:{black:1.0,grey:1.15,white:1.35} },
+    pentest_ai:      { name:'AI / LLM Assessment',nameEs:'Seguridad IA / LLM', base:[2000,4500],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.8},  tbox:{black:1.0,grey:1.2,white:1.45} }
   };
-  var ADDONS = { urgent:{label:'Rush',pct:.25} };
+  var ADDONS_EN = { urgent:{label:'Rush',pct:.25} };
+  var ADDONS_ES = { urgent: { label:'Urgente', pct:.25 } };
   var SCOPE_LABELS_EN = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
   var SCOPE_LABELS_ES = { small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' };
   var CPLX_LABELS_EN  = { low:'Standard', medium:'Custom', high:'Enterprise' };
@@ -814,10 +854,17 @@ if ('serviceWorker' in navigator) {
     vuln_assessment:  { small:'1–10 IPs/assets',     medium:'11–50 IPs/assets',     large:'50+ IPs/assets'      },
     pentest_ai:       { small:'1 model/integration',     medium:'2–4 models',           large:'5+ models'           }
   };
+  var SCOPE_SETS_ES = {
+    pentest_web:     { small:'1–5 páginas/endpoints', medium:'6–15 páginas/endpoints', large:'15+ páginas/endpoints' },
+    pentest_ad:      { small:'1–3 hosts', medium:'4–10 hosts', large:'10+ hosts' },
+    vuln_assessment: { small:'1–10 IPs/activos', medium:'11–50 IPs/activos', large:'50+ IPs/activos' },
+    pentest_ai:      { small:'1 modelo/integración', medium:'2–4 modelos', large:'5+ modelos' }
+  };
 
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
+    var ADDONS = (typeof currentLocale!=='undefined'&&currentLocale==='es')?ADDONS_ES:ADDONS_EN;
     var SCOPE_LABELS = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
     var CPLX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
     var TBOX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
@@ -846,14 +893,14 @@ if ('serviceWorker' in navigator) {
       var svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
       el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
     }
-    var ss = SCOPE_SETS[svc];
+    var ss = (typeof currentLocale!=='undefined'&&currentLocale==='es'?SCOPE_SETS_ES:SCOPE_SETS)[svc];
     if (ss) {
       document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(btn) {
         var s = btn.dataset.scope, small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
-    if (el('qr-svc-name')) el('qr-svc-name').textContent = p.name;
+    if (el('qr-svc-name')) el('qr-svc-name').textContent = (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
@@ -915,7 +962,7 @@ if ('serviceWorker' in navigator) {
         var maxEl = document.getElementById('q-max');
         var msg = document.getElementById('cf-message');
         if (msg && svcBtn && minEl && maxEl) {
-          var svcName = (PRICES[svcBtn.dataset.svc]||{}).name || svcBtn.dataset.svc;
+          var svcName = (function(p){return (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
           if (typeof currentLocale!=='undefined' && currentLocale==='es') {
             msg.value = 'Me interesa el servicio de ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Por favor envíame una propuesta detallada.';
           } else {
