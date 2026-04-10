@@ -1,7 +1,7 @@
-var CACHE = 'danieloa-v39';
+var CACHE = 'danieloa-v40';
 var ASSETS = [
   '/',
-  '/script.js?v=20260413',
+  '/script.js?v=20260414',
   '/manifest.json',
   '/favicon.svg',
   '/favicon.ico',
