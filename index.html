@@ -503,7 +503,6 @@ body { line-height: 1.65; }
 }
 
 
-}
 .status-grid div:first-child strong::before {
   content: "";
   display: inline-block;
@@ -925,13 +924,13 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topnav"><svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
       </div>
       <nav class="topnav" id="topnav">
-        <a href="#services" aria-label="Services section">Services</a>
-        <a href="#about" aria-label="About section">About</a>
-        <a href="#process" aria-label="Process section">Process</a>
-        <a href="#quote" aria-label="Pricing section">Pricing</a>
-        <a href="#experience" aria-label="Experience section">Experience</a>
-        <a href="#certifications" aria-label="Certifications section">Certifications</a>
-        <a href="#contact" aria-label="Contact section">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#quote">Pricing</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
 </header>
 
@@ -950,7 +949,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             </div>
             <div class="identity-text">
               <p class="identity-name">Daniel Ordonez Arango</p>
-              <span class="availability-badge" aria-label="Available for engagements">
+              <span class="availability-badge">
                 <span class="avail-dot" aria-hidden="true"></span>
                 <span class="avail-text">Available for engagements</span>
               </span>
@@ -1213,14 +1212,14 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
                 <button class="qc-svc-card" data-svc="vuln_assessment" type="button" aria-label="Select Vulnerability Assessment service, from $500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji">&#128269;</span>
-                  <span class="qc-svc-name">Vuln Assessment</span>
+                  <span class="qc-svc-name" id="qcs-name-vuln_assessment">Vuln Assessment</span>
                   <span class="qc-svc-price" id="qcs-price-vuln_assessment">From $500</span>
                 </button>
                 <button class="qc-svc-card" data-svc="pentest_ai" type="button" aria-label="Select AI / LLM Security Assessment service, from $2,000" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji">&#129302;</span>
-                  <span class="qc-svc-name">AI / LLM Assessment</span>
-                  <span class="qc-svc-price">From $2,000</span>
+                  <span class="qc-svc-name" id="qcs-name-ai_llm">AI / LLM Assessment</span>
+                  <span class="qc-svc-price" id="qcs-price-ai_llm">From $2,000</span>
                 </button>
 
               </div>
@@ -1230,23 +1229,23 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <div class="qc-block">
               <div class="qc-block-header">
                 <span class="qc-num">02</span>
-                <p class="qc-block-title">Environment parameters</p>
+                <p class="qc-block-title" id="ql-env-params">Environment parameters</p>
               </div>
               <div class="qc-env-params">
                 <div class="qc-env-row">
                   <p class="qc-sub-label" id="ql-scope">Scope</p>
                   <div class="qc-toggle-group">
                     <button class="qc-toggle active" data-scope="small" type="button" aria-label="Scope: Small, 1 to 5 targets" aria-pressed="true">
-                      <strong>Small</strong>
-                      <small>1&#8211;5 targets</small>
+                      <strong id="tgl-small-label">Small</strong>
+                      <small id="tgl-small-desc">1&#8211;5 targets</small>
                     </button>
                     <button class="qc-toggle" data-scope="medium" type="button" aria-label="Scope: Medium, 6 to 15 targets" aria-pressed="false">
-                      <strong>Medium</strong>
-                      <small>6&#8211;15 targets</small>
+                      <strong id="tgl-medium-label">Medium</strong>
+                      <small id="tgl-medium-desc">6&#8211;15 targets</small>
                     </button>
                     <button class="qc-toggle" data-scope="large" type="button" aria-label="Scope: Large, 15 or more targets" aria-pressed="false">
-                      <strong>Large</strong>
-                      <small>15+ targets</small>
+                      <strong id="tgl-large-label">Large</strong>
+                      <small id="tgl-large-desc">15+ targets</small>
                     </button>
                   </div>
                 </div>
@@ -1255,16 +1254,16 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
                   <p class="qc-sub-label" id="ql-complexity">Complexity</p>
                   <div class="qc-toggle-group">
                     <button class="qc-toggle active" data-cplx="low" type="button" aria-label="Complexity: Standard, common tech stack" aria-pressed="true">
-                      <strong>Standard</strong>
-                      <small>Common stack</small>
+                      <strong id="tgl-low-cplx">Standard</strong>
+                      <small id="tgl-low-cplx-desc">Common stack</small>
                     </button>
                     <button class="qc-toggle" data-cplx="medium" type="button" aria-label="Complexity: Custom, proprietary logic" aria-pressed="false">
-                      <strong>Custom</strong>
-                      <small>Proprietary logic</small>
+                      <strong id="tgl-medium-cplx">Custom</strong>
+                      <small id="tgl-medium-cplx-desc">Proprietary logic</small>
                     </button>
                     <button class="qc-toggle" data-cplx="high" type="button" aria-label="Complexity: Enterprise, complex or hybrid" aria-pressed="false">
-                      <strong>Enterprise</strong>
-                      <small>Complex / hybrid</small>
+                      <strong id="tgl-high-cplx">Enterprise</strong>
+                      <small id="tgl-high-cplx-desc">Complex / hybrid</small>
                     </button>
                   </div>
                 </div>
@@ -1279,16 +1278,16 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
               </div>
               <div class="qc-toggle-group">
                 <button class="qc-toggle active" data-tbox="black" type="button" aria-label="Testing type: Black-box, no prior access" aria-pressed="true">
-                  <strong>Black-box</strong>
-                  <small>No prior access</small>
+                  <strong id="tgl-black-tbox">Black-box</strong>
+                  <small id="tgl-black-tbox-desc">No prior access</small>
                 </button>
                 <button class="qc-toggle" data-tbox="grey" type="button" aria-label="Testing type: Grey-box, partial credentials" aria-pressed="false">
-                  <strong>Grey-box</strong>
-                  <small>Partial credentials</small>
+                  <strong id="tgl-grey-tbox">Grey-box</strong>
+                  <small id="tgl-grey-tbox-desc">Partial credentials</small>
                 </button>
                 <button class="qc-toggle" data-tbox="white" type="button" aria-label="Testing type: White-box, full access and code" aria-pressed="false">
-                  <strong>White-box</strong>
-                  <small>Full access + code</small>
+                  <strong id="tgl-white-tbox">White-box</strong>
+                  <small id="tgl-white-tbox-desc">Full access + code</small>
                 </button>
               </div>
             </div>
@@ -1297,13 +1296,13 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             <div class="qc-block">
               <div class="qc-block-header">
                 <span class="qc-num">04</span>
-                <p class="qc-block-title" id="ql-addons">Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span></p>
+                <p class="qc-block-title" id="ql-addons" data-html="1">Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span></p>
               </div>
               <div class="qc-chip-grid">
                 <button class="qc-chip" data-addon="urgent" type="button" aria-label="Add-on: Rush delivery, under 2 weeks, plus 25%" aria-pressed="false">
                   <span class="qc-chip-left">
                     <span class="qc-chip-icon">&#9889;</span>
-                    <span class="qc-chip-label">Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span></span>
+                    <span class="qc-chip-label" id="addon-urgent-label" data-html="1">Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span></span>
                   </span>
                   <span class="qc-chip-pct">+25%</span>
                 </button>
@@ -1565,7 +1564,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
   
 
-  <script src="script.js?v=20260418" defer></script>
+  <script src="script.js?v=20260419" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="https://wa.me/573136459299?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20pentesting%20services." target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
