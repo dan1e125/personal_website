@@ -1,7 +1,7 @@
-var CACHE = 'danieloa-v41';
+var CACHE = 'danieloa-v42';
 var ASSETS = [
   '/',
-  '/script.js?v=20260415',
+  '/script.js?v=20260416',
   '/daniel_profile.webp',
   '/daniel_profile.jpg',
   '/manifest.json',
@@ -10,6 +10,7 @@ var ASSETS = [
   '/icon-192.png',
   '/icon-512.png',
   '/og-image.png',
+  '/apple-touch-icon.png',
   '/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2',
   '/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2',
   '/fonts/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx7cwhsk.woff2',
