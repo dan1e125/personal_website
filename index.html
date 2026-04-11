@@ -290,6 +290,8 @@ main > section + section {
 }
 
 .site-footer {
+.footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
+.footer-socials a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; }
   border-top: 1px solid var(--line);
   padding: 28px 0 32px;
   color: var(--muted);
@@ -449,6 +451,8 @@ body { line-height: 1.65; }
 
   
   .site-footer { font-size: .78rem; }
+.footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
+.footer-socials a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; }
 
   
 
@@ -1546,11 +1550,12 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
     <footer class="site-footer">
       <div class="container">
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/danie125/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/dan1e125" target="_blank" rel="noopener">GitHub</a>
+        </div>
         <span>© <span id="cy"></span> Daniel Ordonez Arango</span>
-        <span>danieloa.com</span>
-
       </div>
-    </footer>
 
     <button class="back-to-top" aria-label="Back to top" type="button">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
