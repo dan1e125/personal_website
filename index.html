@@ -663,7 +663,7 @@ body { line-height: 1.65; }
 
 .contact-card-phone-title { font-size: 1rem; font-weight: 600; color: var(--text); }
 
-.contact-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.contact-two-col { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
 
 .contact-intro { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 4px 0 20px; }
 
@@ -768,7 +768,7 @@ body { line-height: 1.65; }
 }
 
 @media(max-width:767px){
-  .spec-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
+  .spec-row { display: grid !important; grid-template-columns: 1fr !important; gap: 6px !important; }
   
   .spec-item:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: start; }
 }
@@ -1483,6 +1483,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
 
           <article class="card contact-form-card">
+<style>.contact-two-col { display: block !important; }</style>
             <p class="section-tag">[ SEND A MESSAGE ]</p>
             <h3 class="cf-heading">Direct message</h3>
             <form id="contact-form" class="cf-form" action="https://formspree.io/f/xpqykjpa" method="POST" novalidate>
