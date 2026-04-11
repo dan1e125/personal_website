@@ -22,10 +22,10 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#svc3-del3':'Safe for production environments',
     '#svc3-del4':'Fast turnaround: 3–5 days',
     '#svc3-del5':'Free re-test after fixes',
-    '#svc4-del1':'Prompt injection testing',
-    '#svc4-del2':'Data leakage & model manipulation',
-    '#svc4-del3':'Written findings report',
-    '#svc4-del4':'Recommendations per risk',
+    '#svc4-del1':'External & internal recon',
+    '#svc4-del2':'Vulnerability exploitation & PoC',
+    '#svc4-del3':'Lateral movement & segmentation check',
+    '#svc4-del4':'Written findings report',
     '#svc4-del5':'Free re-test after fixes',
     // ── QC service card labels ──
     '#qcs-name-pentest_web':'Web App Pentest',
@@ -35,7 +35,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-name-vuln_assessment':'Vulnerability Assessment',
     '#qcs-price-vuln_assessment':'From $1,000',
     '#qcs-name-pentest_ai':'Network Pentest',
-    '#qcs-price-pentest_ai':'From $2,000','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $1,000 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#addon-urgent-label':'Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span>','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about article:nth-child(1) .section-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps & Active Directory.','.service-cta':'Get a quote →'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},
+    '#qcs-price-pentest_ai':'From $3,500','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $1,000 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#addon-urgent-label':'Rush delivery<br><span style="font-size:.7rem;color:var(--muted)">Under 2 weeks</span>','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about article:nth-child(1) .section-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps & Active Directory.','.service-cta':'Get a quote →'},placeholders:{'#cf-name':'Your name','#cf-email':'your@email.com','#cf-message':'Describe the engagement or project...'},
   formMessages:{
     requiredFields:'Please fill in all fields.',
     invalidEmail:'Please enter a valid email address.',
@@ -44,7 +44,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     networkError:'Network error. Please try again or use the email channel.'
   },terminalLines:['> Scanning operator profile...','> [✓] Services: Web · AD · Net Pentest · VA','> [✓] Mode: REMOTE · Available','> [✓] Report: EN / ES · Actionable','> HTB paths completed: 12','> Targets compromised: 658'],},es:{
   documentTitle:'Daniel Ordonez Arango | Pentester',
-  metaDescription:'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory e IA/LLM. HTB Top 1%, 658 objetivos. Trabajo remoto, reportes claros.',
+  metaDescription:'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory y redes. HTB Top 1%, 658 objetivos. Trabajo remoto, reportes claros.',
   ogTitle:'Daniel Ordonez Arango | Pentester',
   ogDescription:'Portafolio de seguridad ofensiva enfocado en penetration testing, análisis defensivo, calidad de reportes y superficies de ataque modernas.',
   selectors:{
@@ -176,10 +176,10 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#svc3-del3':'Seguro para entornos de producción',
     '#svc3-del4':'Entrega rápida: 3–5 días',
     '#svc3-del5':'Re-test gratuito tras correcciones',
-    '#svc4-del1':'Testing de inyección de prompts',
-    '#svc4-del2':'Fuga de datos y manipulación del modelo',
-    '#svc4-del3':'Informe de hallazgos escrito',
-    '#svc4-del4':'Recomendaciones por nivel de riesgo',
+    '#svc4-del1':'Reconocimiento externo e interno',
+    '#svc4-del2':'Explotación de vulnerabilidades y PoC',
+    '#svc4-del3':'Verificación de movimiento lateral y segmentación',
+    '#svc4-del4':'Informe de hallazgos escrito',
     '#svc4-del5':'Re-test gratuito tras correcciones',
     // ── Etiquetas del servicio QC ──
     '#qcs-name-pentest_web':'Pentest de Aplicación Web',
@@ -189,7 +189,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-name-vuln_assessment':'Evaluación de Vulnerabilidades',
     '#qcs-price-vuln_assessment':'Desde $1,000',
     '#qcs-name-pentest_ai':'Pentest de Redes',
-    '#qcs-price-pentest_ai':'Desde $2,000','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#terminal-panel-label':'[ PANEL DE ESTADO ]','#svc1-price':'Desde $3,000 USD','#svc2-price':'Desde $5,000 USD','#svc3-price':'Desde $1,000 USD','#svc4-price':'Desde $3,500 USD','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#addon-urgent-label':'Entrega urgente<br><span style="font-size:.7rem;color:var(--muted)">Menos de 2 semanas</span>','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
+    '#qcs-price-pentest_ai':'Desde $3,500','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#terminal-panel-label':'[ PANEL DE ESTADO ]','#svc1-price':'Desde $3,000 USD','#svc2-price':'Desde $5,000 USD','#svc3-price':'Desde $1,000 USD','#svc4-price':'Desde $3,500 USD','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#addon-urgent-label':'Entrega urgente<br><span style="font-size:.7rem;color:var(--muted)">Menos de 2 semanas</span>','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
     '#contact h3':'Contáctame',
     '#cg-profiles':'Perfiles online','.contact-intro':'Disponible para proyectos remotos en todo el mundo. Respondo en menos de 24h. La primera llamada es gratuita — definimos alcance, cronograma y compatibilidad antes de cualquier acuerdo.',
     
