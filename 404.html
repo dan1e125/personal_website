@@ -2,87 +2,301 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 — Page not found | Daniel Ordonez Arango</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found · danieloa.com</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2'); }
-    @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2') format('woff2'); }
-    :root { color-scheme: dark; }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Inter', sans-serif;
-      color: #e5f0ff;
-      background: radial-gradient(circle at top left, rgba(34,211,238,0.12), transparent 30%),
-                  radial-gradient(circle at bottom right, rgba(59,130,246,0.14), transparent 28%),
-                  linear-gradient(180deg, #030711 0%, #07111d 50%, #030711 100%);
-      padding: 24px;
-      text-align: center;
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
     }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx7cwhsk.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #06111a;
+      --line: rgba(70, 120, 180, 0.22);
+      --line-strong: rgba(84, 179, 255, 0.45);
+      --text: #e5f0ff;
+      --muted: #9bb5d6;
+      --primary: #3b82f6;
+      --accent: #22d3ee;
+      --shadow: 0 20px 40px rgba(0,0,0,0.35);
+      --radius: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left,  rgba(34,211,238,0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(59,130,246,0.16), transparent 28%),
+        linear-gradient(180deg, #030711 0%, #07111d 50%, #030711 100%);
+    }
+
     body::before {
-      content: "";
+      content: '';
       position: fixed;
       inset: 0;
-      background: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
       background-size: 64px 64px;
       pointer-events: none;
       opacity: .3;
     }
-    .wrap { position: relative; max-width: 480px; }
-    .code {
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .06;
+      background-image: radial-gradient(#fff .4px, transparent .4px);
+      background-size: 10px 10px;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+      opacity: .22;
+    }
+
+    /* ── Layout ── */
+    .shell {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      width: min(calc(100% - 32px), 1280px);
+      margin: 0 auto;
+      padding: 24px 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: 0 0 24px rgba(34,211,238,0.7);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(6rem, 22vw, 9rem);
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 80px;
+    }
+
+    .card-404 {
+      position: relative;
+      width: min(580px, 100%);
+      padding: 48px;
+      background: linear-gradient(180deg, rgba(10,23,36,0.88), rgba(6,15,25,0.92));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card-404::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.45), rgba(34,211,238,0.18), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .tag-404 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .num-404 {
+      font-size: clamp(5rem, 18vw, 8rem);
       font-weight: 700;
       line-height: 1;
-      background: linear-gradient(135deg, #e5f0ff 20%, #22d3ee 100%);
+      letter-spacing: -.04em;
+      background: linear-gradient(135deg, var(--text) 30%, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: -0.04em;
+      margin: 0;
     }
-    .label {
-      font-family: 'JetBrains Mono', monospace;
-      color: #22d3ee;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin: 16px 0 12px;
+
+    .title-404 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--text);
     }
-    p {
-      color: #9bb5d6;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 32px;
+
+    .desc-404 {
+      max-width: 38ch;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: .97rem;
+      margin: 0;
     }
-    a {
+
+    .actions-404 {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 13px 24px;
+      justify-content: center;
+      padding: 13px 22px;
       border-radius: 14px;
-      border: 1px solid rgba(84,179,255,0.45);
-      background: linear-gradient(135deg, rgba(59,130,246,0.9), rgba(34,211,238,0.65));
-      color: #e5f0ff;
+      border: 1px solid var(--line-strong);
+      color: var(--text);
       text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: transform 180ms ease, box-shadow 180ms ease;
-      box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+      font-size: .9rem;
+      font-family: 'Inter', sans-serif;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
-    a:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,130,246,0.38); }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(34,211,238,0.7));
+      box-shadow: 0 12px 32px rgba(59,130,246,0.28);
+      border-color: transparent;
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 16px rgba(34,211,238,0.12);
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+
+    .hint span { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .card-404 { padding: 32px 24px; }
+      .actions-404 { flex-direction: column; width: 100%; }
+      .btn { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="code">404</div>
-    <p class="label">[ TARGET NOT FOUND ]</p>
-    <p>This page does not exist or was moved.<br>The rest of the portfolio is intact.</p>
-    <a href="/">← Back to portfolio</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid"  aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <a href="/" class="brand-block" aria-label="danieloa.com — home">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span class="brand-name">danieloa</span>
+      </a>
+    </header>
+
+    <main>
+      <div class="card-404" role="main">
+        <p class="tag-404">[ target not found ]</p>
+        <p class="num-404" aria-label="Error 404">404</p>
+        <h1 class="title-404">Page not found</h1>
+        <p class="desc-404">
+          The path you're looking for doesn't exist or has been moved.
+          Head back to the portfolio or get in touch directly.
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="actions-404">
+          <a href="/" class="btn btn-primary">← Back to home</a>
+          <a href="/#contact" class="btn btn-ghost">Contact Daniel</a>
+        </div>
+
+        <p class="hint">
+          <span>daniel@portfolio</span>:~$ ./scan --target <span>$url</span> → STATUS <span>404</span>
+        </p>
+      </div>
+    </main>
   </div>
 </body>
 </html>
