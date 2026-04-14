@@ -899,17 +899,31 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 .qc-section-header{margin-bottom:1.25rem;}
 .transcript-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;}
 /* ── FAQ ── */
-.faq-list{display:grid;gap:10px;max-width:860px;}
-.faq-item{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(10,23,36,0.88),rgba(6,15,25,0.92));overflow:hidden;transition:border-color 220ms ease;}
+.faq-list{display:grid;gap:8px;max-width:860px;}
+.faq-group{display:grid;gap:8px;}
+.faq-group-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);opacity:.7;padding:4px 0 2px;margin-top:8px;}
+.faq-group:first-child .faq-group-label{margin-top:0;}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(10,23,36,0.88),rgba(6,15,25,0.92));overflow:hidden;transition:border-color 220ms ease;}
 .faq-item:has(.faq-q[aria-expanded="true"]){border-color:rgba(84,179,255,0.45);}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:none;color:var(--text);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;cursor:pointer;transition:color 180ms ease;}
+.faq-q{width:100%;display:flex;align-items:center;gap:14px;padding:18px 22px;background:none;border:none;color:var(--text);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;cursor:pointer;transition:color 180ms ease;}
 .faq-q:hover{color:var(--accent);}
 .faq-q[aria-expanded="true"]{color:var(--accent);}
+.faq-num{flex-shrink:0;font-family:'Courier New',monospace;font-size:.72rem;font-weight:700;color:var(--accent);opacity:.55;min-width:24px;transition:opacity 180ms ease;}
+.faq-q:hover .faq-num,.faq-q[aria-expanded="true"] .faq-num{opacity:1;}
+.faq-q span{flex:1;}
 .faq-icon{flex-shrink:0;color:var(--accent);transition:transform 280ms cubic-bezier(.34,1.56,.64,1);}
 .faq-q[aria-expanded="true"] .faq-icon{transform:rotate(180deg);}
-.faq-a{padding:0 24px 20px;color:var(--muted);line-height:1.8;font-size:.97rem;}
+/* Smooth expand using CSS grid trick */
+.faq-a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 300ms cubic-bezier(.4,0,.2,1);}
+.faq-a-wrap.faq-open{grid-template-rows:1fr;}
+.faq-a-inner{overflow:hidden;}
+.faq-a{padding:0 22px 18px 60px;color:var(--muted);line-height:1.8;font-size:.96rem;}
 .faq-a[hidden]{display:none;}
-@media(max-width:767px){.faq-q{padding:16px 18px;font-size:.95rem;}.faq-a{padding:0 18px 16px;}}
+@media(max-width:767px){
+  .faq-q{padding:14px 16px;gap:10px;font-size:.93rem;}
+  .faq-a{padding:0 16px 14px 16px;}
+  .faq-num{display:none;}
+}
 </style>
 
 <!-- Google Analytics GA4 -->
@@ -1504,84 +1518,132 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
         </div>
         <div class="faq-list" role="list">
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
-              <span id="faq-q1-text">What penetration testing services do you offer?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden>
-              <p id="faq-a1-text">Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and vulnerability assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.</p>
+          <!-- Group 1: Services -->
+          <div class="faq-group">
+            <p class="faq-group-label" id="faq-grp1-label">Services</p>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+                <span class="faq-num">01</span>
+                <span id="faq-q1-text">What penetration testing services do you offer?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a1-text">Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and vulnerability assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.</p></div>
+                </div>
+              </div>
             </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">
+                <span class="faq-num">02</span>
+                <span id="faq-q8-text">What is network penetration testing?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-8" role="region" aria-labelledby="faq-q-8">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a8-text">Network penetration testing is an offensive security assessment of your external and internal infrastructure — servers, firewalls, routers, and services — to identify misconfigurations, open ports, exploitable vulnerabilities, and lateral movement paths before a real attacker does.</p></div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
-              <span id="faq-q2-text">Are you certified as a penetration tester?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden>
-              <p id="faq-a2-text">I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 658 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates. You can verify all training via my HTB transcript.</p>
+          <!-- Group 2: Pricing -->
+          <div class="faq-group">
+            <p class="faq-group-label" id="faq-grp2-label">Pricing</p>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+                <span class="faq-num">03</span>
+                <span id="faq-q3-text">How much does a penetration test cost?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a3-text">Pricing depends on scope and complexity. A vulnerability assessment starts from $500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above to get an instant estimate, or book a free scoping call.</p></div>
+                </div>
+              </div>
             </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+                <span class="faq-num">04</span>
+                <span id="faq-q4-text">What does a pentest report include?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a4-text">Every report includes an executive summary for stakeholders, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations your dev team can act on immediately. A free re-test is included to verify fixes.</p></div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
-              <span id="faq-q3-text">How much does a penetration test cost?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3" hidden>
-              <p id="faq-a3-text">Pricing depends on scope and complexity. A vulnerability assessment starts from $500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above to get an instant estimate, or book a free scoping call.</p>
+          <!-- Group 3: Process -->
+          <div class="faq-group">
+            <p class="faq-group-label" id="faq-grp3-label">Process</p>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">
+                <span class="faq-num">05</span>
+                <span id="faq-q7-text">Is the first call free? What happens during it?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-7" role="region" aria-labelledby="faq-q-7">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a7-text">Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service for your needs. You will receive a written proposal with a fixed price afterwards.</p></div>
+                </div>
+              </div>
             </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">
+                <span class="faq-num">06</span>
+                <span id="faq-q6-text">How long does a penetration test take?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-6" role="region" aria-labelledby="faq-q-6">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a6-text">Most engagements complete in 1–2 weeks from the scoping call to the final report. A vulnerability assessment can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
+                <span class="faq-num">07</span>
+                <span id="faq-q5-text">Do you work remotely and with international clients?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a5-text">Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.</p></div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
-              <span id="faq-q4-text">What does a pentest report include?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden>
-              <p id="faq-a4-text">Every report includes an executive summary for stakeholders, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations your dev team can act on immediately. A free re-test is included to verify fixes.</p>
-            </div>
-          </div>
+          <!-- Group 4: Credentials -->
+          <div class="faq-group">
+            <p class="faq-group-label" id="faq-grp4-label">Credentials</p>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
-              <span id="faq-q5-text">Do you work remotely and with international clients?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" hidden>
-              <p id="faq-a5-text">Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.</p>
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+                <span class="faq-num">08</span>
+                <span id="faq-q2-text">Are you certified as a penetration tester?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-a-wrap" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+                <div class="faq-a-inner">
+                  <div class="faq-a"><p id="faq-a2-text">I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 658 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates. You can verify all training via my HTB transcript.</p></div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">
-              <span id="faq-q6-text">How long does a penetration test take?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6" hidden>
-              <p id="faq-a6-text">Most engagements complete in 1–2 weeks from the scoping call to the final report. A vulnerability assessment can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.</p>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">
-              <span id="faq-q7-text">Is the first call free? What happens during it?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-7" role="region" aria-labelledby="faq-q-7" hidden>
-              <p id="faq-a7-text">Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service for your needs. You will receive a written proposal with a fixed price afterwards.</p>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">
-              <span id="faq-q8-text">What is network penetration testing?</span>
-              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-a" id="faq-a-8" role="region" aria-labelledby="faq-q-8" hidden>
-              <p id="faq-a8-text">Network penetration testing is an offensive security assessment of your external and internal infrastructure — servers, firewalls, routers, and services — to identify misconfigurations, open ports, exploitable vulnerabilities, and lateral movement paths before a real attacker does.</p>
-            </div>
           </div>
 
         </div>

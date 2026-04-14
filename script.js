@@ -1063,7 +1063,8 @@ if ('serviceWorker' in navigator) {
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (btn.getAttribute('aria-expanded') === 'false') {
-          var qText = btn.querySelector('span') ? btn.querySelector('span').textContent.trim() : btn.id;
+          var textEl = btn.querySelector('span:not(.faq-num)');
+          var qText = textEl ? textEl.textContent.trim() : btn.id;
           gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
         }
       });
@@ -1081,6 +1082,8 @@ if ('serviceWorker' in navigator) {
       heading: 'Frequently asked questions',
       copy: 'Everything you need to know before booking a scoping call.',
       nav: 'FAQ',
+      groups: ['Services', 'Pricing', 'Process', 'Credentials'],
+      // items indexed 1-8 matching faq-q{n}-text / faq-a{n}-text IDs
       items: [
         { q: 'What penetration testing services do you offer?',
           a: 'Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and vulnerability assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.' },
@@ -1105,6 +1108,7 @@ if ('serviceWorker' in navigator) {
       heading: 'Preguntas frecuentes',
       copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
       nav: 'FAQ',
+      groups: ['Servicios', 'Precios', 'Proceso', 'Credenciales'],
       items: [
         { q: '¿Qué servicios de pentesting ofreces?',
           a: 'Pentest de aplicaciones web, evaluaciones de Active Directory, pentests de infraestructura de red y evaluaciones de vulnerabilidades. Todos los proyectos son remotos, incluyen un reporte PDF detallado y un re-test gratuito después de las correcciones.' },
@@ -1136,6 +1140,14 @@ if ('serviceWorker' in navigator) {
     if (heading) heading.textContent = t.heading;
     if (copy) copy.textContent = t.copy;
     if (navLink) navLink.textContent = t.nav;
+    // Group labels (4 groups)
+    if (t.groups) {
+      t.groups.forEach(function(label, i) {
+        var el = document.getElementById('faq-grp' + (i + 1) + '-label');
+        if (el) el.textContent = label;
+      });
+    }
+    // Question and answer text
     t.items.forEach(function(item, i) {
       var n = i + 1;
       var qEl = document.getElementById('faq-q' + n + '-text');
@@ -1150,20 +1162,26 @@ if ('serviceWorker' in navigator) {
       btn.addEventListener('click', function() {
         var expanded = btn.getAttribute('aria-expanded') === 'true';
         var answerId = btn.getAttribute('aria-controls');
-        var answer = document.getElementById(answerId);
+        var wrap = document.getElementById(answerId);
 
         // Close all others
         document.querySelectorAll('.faq-q').forEach(function(other) {
           if (other !== btn) {
             other.setAttribute('aria-expanded', 'false');
-            var otherAnswer = document.getElementById(other.getAttribute('aria-controls'));
-            if (otherAnswer) otherAnswer.hidden = true;
+            var otherWrap = document.getElementById(other.getAttribute('aria-controls'));
+            if (otherWrap) otherWrap.classList.remove('faq-open');
           }
         });
 
         // Toggle current
         btn.setAttribute('aria-expanded', String(!expanded));
-        if (answer) answer.hidden = expanded;
+        if (wrap) {
+          if (expanded) {
+            wrap.classList.remove('faq-open');
+          } else {
+            wrap.classList.add('faq-open');
+          }
+        }
       });
     });
   }
