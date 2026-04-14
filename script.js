@@ -289,10 +289,11 @@ function applyLocale(locale) {
   startTerminal(locale);
   var waFloat = document.querySelector('.wa-float');
   if (waFloat) {
+    var waNum = atob('NTczMTM2NDU5Mjk5');
     var waMsg = locale === 'es'
       ? 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.'
       : 'Hi Daniel, I\'m interested in learning more about your pentesting services.';
-    waFloat.href = 'https://wa.me/573136459299?text=' + encodeURIComponent(waMsg);
+    waFloat.href = 'https://wa.me/' + waNum + '?text=' + encodeURIComponent(waMsg);
   }
 
   // ── Dynamic aria-label updates ──
@@ -953,22 +954,30 @@ if ('serviceWorker' in navigator) {
       });
     });
 
-    // CTA button pre-fills the contact form
+    // CTA button opens WhatsApp with the selected service pre-filled
     var mainCta = document.getElementById('qc-main-cta');
     if (mainCta) {
-      mainCta.addEventListener('click', function() {
+      mainCta.addEventListener('click', function(e) {
+        e.preventDefault();
         var svcBtn = document.querySelector('.qc-svc-card.active');
         var minEl = document.getElementById('q-min');
         var maxEl = document.getElementById('q-max');
-        var msg = document.getElementById('cf-message');
-        if (msg && svcBtn && minEl && maxEl) {
-          var svcName = (function(p){return (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
-          if (typeof currentLocale!=='undefined' && currentLocale==='es') {
-            msg.value = 'Me interesa el servicio de ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Por favor envíame una propuesta detallada.';
-          } else {
-            msg.value = 'I\'m interested in ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Please send me a detailed proposal.';
-          }
+        var waNum = atob('NTczMTM2NDU5Mjk5');
+        var svcName = '';
+        if (svcBtn && minEl && maxEl) {
+          svcName = (function(p){return (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
         }
+        var waMsg;
+        if (typeof currentLocale !== 'undefined' && currentLocale === 'es') {
+          waMsg = svcName
+            ? 'Hola Daniel, me interesa el servicio de ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). ¿Podemos coordinar una llamada de alcance?'
+            : 'Hola Daniel, me interesa coordinar una llamada de alcance para un pentest.';
+        } else {
+          waMsg = svcName
+            ? 'Hi Daniel, I\'m interested in ' + svcName + ' (' + minEl.textContent + ' - ' + maxEl.textContent + ' USD). Can we schedule a scoping call?'
+            : 'Hi Daniel, I\'d like to schedule a free scoping call.';
+        }
+        window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
       });
     }
   });
