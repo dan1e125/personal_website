@@ -803,20 +803,42 @@ if ('serviceWorker' in navigator) {
   if (!dot || !ring) return;
 
   var mx = -200, my = -200, rx = -200, ry = -200;
+  var rafId = null;
+
+  function animateRing() {
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    // Keep looping only while ring hasn't converged (> 0.5px away from target)
+    if (Math.abs(mx - rx) > 0.5 || Math.abs(my - ry) > 0.5) {
+      rafId = requestAnimationFrame(animateRing);
+    } else {
+      rafId = null;
+    }
+  }
+
+  function startLoop() {
+    if (!rafId && !document.hidden) {
+      rafId = requestAnimationFrame(animateRing);
+    }
+  }
 
   document.addEventListener('mousemove', function(e) {
     mx = e.clientX; my = e.clientY;
     dot.style.left = mx + 'px';
     dot.style.top  = my + 'px';
+    startLoop();
   });
 
-  (function animateRing() {
-    rx += (mx - rx) * 0.14;
-    ry += (my - ry) * 0.14;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }());
+  // Pause when tab is hidden, resume on return
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    } else {
+      startLoop();
+    }
+  });
 
   var hoverTargets = 'a,button,[role="button"],input,textarea,select,label,.mini-card,.social-link,.lang-button';
   document.addEventListener('mouseover', function(e) {
