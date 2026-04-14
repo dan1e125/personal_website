@@ -992,6 +992,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
         <a href="#quote">Pricing</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
+        <a href="#case-studies">Reports</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1182,7 +1183,71 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
         </div>
       </section>
 
-<section id="case-studies" class="container" aria-labelledby="case-studies-heading">        <article class="card wide-card">          <p class="section-tag">[ CASE STUDIES ]</p>          <h3 id="case-studies-heading">Vulnerability Assessment Reports</h3>          <div class="mini-grid">            <div class="mini-card path-card">              <strong>Web App: SEO Injection</strong>              <span>Auditoría web revelando backdoors PHP, inyección de contenido y vulnerabilidades de SEO Cloaking.</span>              <a href="assets/reports/client_report_1.pdf" class="spec-item" style="margin-top:10px; display:inline-block; text-decoration:none;" target="_blank">View Report &rarr;</a>            </div>            <div class="mini-card path-card">              <strong>WP Intranet: Static Analysis</strong>              <span>Análisis estático de código revelando 20 vulnerabilidades críticas, incluyendo credenciales hardcodeadas.</span>              <a href="assets/reports/client_report.pdf" class="spec-item" style="margin-top:10px; display:inline-block; text-decoration:none;" target="_blank">View Report &rarr;</a>            </div>          </div>        </article>      </section>
+<style>
+  .cs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .cs-card { display: flex; flex-direction: column; gap: 14px; }
+  .cs-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .cs-type { font-family: 'JetBrains Mono', monospace; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .cs-sev { display: flex; gap: 6px; flex-wrap: wrap; }
+  .cs-sev-crit, .cs-sev-high, .cs-sev-total { font-family: 'JetBrains Mono', monospace; font-size: .67rem; padding: 2px 9px; border-radius: 999px; font-weight: 600; letter-spacing: .03em; }
+  .cs-sev-crit { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.28); color: #fca5a5; }
+  .cs-sev-high { background: rgba(251,146,60,.1); border: 1px solid rgba(251,146,60,.28); color: #fed7aa; }
+  .cs-sev-total { background: rgba(84,179,255,.07); border: 1px solid rgba(84,179,255,.2); color: var(--muted); }
+  .cs-card h4 { font-size: 1.08rem; }
+  .cs-desc { color: var(--muted); line-height: 1.75; font-size: .93rem; }
+  .cs-findings { margin: 0; padding: 14px 0 0; list-style: none; display: grid; gap: 9px; border-top: 1px solid rgba(84,179,255,.1); }
+  .cs-findings li { color: var(--muted); font-size: .87rem; line-height: 1.65; padding-left: 18px; position: relative; }
+  .cs-findings li::before { content: '—'; position: absolute; left: 0; color: var(--accent); opacity: .5; }
+  .cs-link { margin-top: auto; padding-top: 6px; align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: .82rem; color: var(--accent); text-decoration: none; letter-spacing: .04em; transition: opacity 180ms; }
+  .cs-link:hover { opacity: .65; }
+  @media (max-width: 767px) { .cs-grid { grid-template-columns: 1fr; } }
+</style>
+
+<section id="case-studies" class="container" aria-labelledby="case-studies-heading">
+  <div class="section-heading">
+    <p class="section-tag" id="cs-tag">[ CASE STUDIES ]</p>
+    <h3 id="case-studies-heading">Redacted Assessment Reports</h3>
+    <p class="section-copy" id="cs-sub">Real engagements — findings, methodology and remediation guidance, redacted for confidentiality.</p>
+  </div>
+  <div class="cs-grid">
+    <article class="card cs-card">
+      <div class="cs-meta">
+        <span class="cs-type" id="cs1-type">Web Application · Black-Box</span>
+        <div class="cs-sev">
+          <span class="cs-sev-crit" id="cs1-crit">1 Critical</span>
+          <span class="cs-sev-high" id="cs1-high">3 High</span>
+          <span class="cs-sev-total" id="cs1-total">10 findings</span>
+        </div>
+      </div>
+      <h4 id="cs1-title">SEO Injection &amp; Malware Discovery</h4>
+      <p class="cs-desc" id="cs1-desc">Production WordPress site silently compromised. Malicious PHP served gambling content exclusively to Google crawlers — invisible to human visitors — exploiting the client's domain authority to rank illegal content on Search.</p>
+      <ul class="cs-findings">
+        <li id="cs1-f1">PHP backdoor with Google FCrDNS verification serving casino content to Googlebot — active and undetected on production</li>
+        <li id="cs1-f2">Remote content injection via cURL from attacker-controlled Cloudflare Pages subdomain</li>
+        <li id="cs1-f3">Unrestricted file write on web root — persistent attacker-controlled server-side execution</li>
+      </ul>
+      <a href="assets/reports/client_report_1.pdf" class="cs-link" id="cs1-link" target="_blank" rel="noopener noreferrer">View redacted report →</a>
+    </article>
+    <article class="card cs-card">
+      <div class="cs-meta">
+        <span class="cs-type" id="cs2-type">WordPress · Static Analysis</span>
+        <div class="cs-sev">
+          <span class="cs-sev-crit" id="cs2-crit">5 Critical</span>
+          <span class="cs-sev-high" id="cs2-high">6 High</span>
+          <span class="cs-sev-total" id="cs2-total">20 findings</span>
+        </div>
+      </div>
+      <h4 id="cs2-title">WordPress Intranet — Static Code Analysis</h4>
+      <p class="cs-desc" id="cs2-desc">Full source code review of a private WordPress intranet. 20 vulnerabilities across the codebase, server configuration, and third-party integrations — including hardcoded credentials for external HR and payment systems.</p>
+      <ul class="cs-findings">
+        <li id="cs2-f1">Hardcoded API credentials for HR and payment systems in source code (CVSS 9.8)</li>
+        <li id="cs2-f2">JWT plugin active with secret key undefined — full authentication bypass vector (CVSS 9.3)</li>
+        <li id="cs2-f3">Stored XSS via unescaped third-party API output · Path traversal in file download handler</li>
+      </ul>
+      <a href="assets/reports/client_report.pdf" class="cs-link" id="cs2-link" target="_blank" rel="noopener noreferrer">View redacted report →</a>
+    </article>
+  </div>
+</section>
 
       <section id="about" class="container" aria-labelledby="about-heading">
         <article class="card">
