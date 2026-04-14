@@ -235,7 +235,7 @@ const ogDescription = document.querySelector('meta[property="og:description"]');
 const ogLocale = document.querySelector('meta[property="og:locale"]');
 
 let currentLocale = localStorage.getItem('portfolio-lang') || 'en';
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let terminalTimer = null;
 
 function setText(selector, value) {
@@ -565,8 +565,9 @@ window.addEventListener('DOMContentLoaded', function() {
   updateActiveNav();
 });
 
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function() {
-  location.reload();
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
+  prefersReducedMotion = e.matches;
+  if (prefersReducedMotion && typeof terminalTimer !== 'undefined') clearInterval(terminalTimer);
 });
 
 // Back to top
