@@ -984,3 +984,80 @@ if ('serviceWorker' in navigator) {
   window.recalc = recalc;
 })();
 
+// ── GA4 Event Tracking ──────────────────────────────────────────────────────
+(function() {
+  function gtagEvent(eventName, params) {
+    if (typeof gtag === 'function') gtag('event', eventName, params);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // CV download
+    var cvBtn = document.getElementById('hero-cv-btn');
+    if (cvBtn) cvBtn.addEventListener('click', function() {
+      gtagEvent('file_download', { file_name: 'daniel_cv_new.pdf', link_text: 'View original CV' });
+    });
+
+    // HTB transcript download
+    var htbBtn = document.getElementById('hero-htb-btn');
+    if (htbBtn) htbBtn.addEventListener('click', function() {
+      gtagEvent('file_download', { file_name: 'htb-academy-student-transcript.pdf', link_text: 'Verified by HTB Academy' });
+    });
+
+    // Case study report downloads
+    document.querySelectorAll('a[href*="assets/reports/"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        gtagEvent('file_download', { file_name: link.getAttribute('href'), link_text: link.textContent.trim() });
+      });
+    });
+
+    // WhatsApp float button
+    var waFloat = document.querySelector('.wa-float');
+    if (waFloat) waFloat.addEventListener('click', function() {
+      gtagEvent('contact', { method: 'whatsapp', link_id: 'wa-float' });
+    });
+
+    // Calculator CTA → WhatsApp
+    var calcCta = document.getElementById('qc-main-cta');
+    if (calcCta) calcCta.addEventListener('click', function() {
+      var svcBtn = document.querySelector('.qc-svc-card.active');
+      gtagEvent('generate_lead', {
+        method: 'whatsapp_calculator',
+        service: svcBtn ? svcBtn.dataset.svc : 'unknown'
+      });
+    });
+
+    // Hero scoping call CTA
+    var heroCta = document.querySelector('.hero-actions .button.primary');
+    if (heroCta) heroCta.addEventListener('click', function() {
+      gtagEvent('generate_lead', { method: 'hero_cta' });
+    });
+
+    // Contact form submit
+    var contactForm = document.querySelector('form[action*="formspree"]');
+    if (contactForm) contactForm.addEventListener('submit', function() {
+      gtagEvent('form_submit', { form_id: 'contact', method: 'formspree' });
+    });
+
+    // Language switch
+    document.querySelectorAll('.lang-button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        gtagEvent('language_switch', { language: btn.dataset.lang || btn.textContent.trim() });
+      });
+    });
+
+    // See pricing CTA
+    var pricingCta = document.getElementById('see-pricing-cta');
+    if (pricingCta) pricingCta.addEventListener('click', function() {
+      gtagEvent('select_content', { content_type: 'section', item_id: 'pricing' });
+    });
+
+    // LinkedIn / GitHub / HTB social clicks
+    document.querySelectorAll('.social-link, .footer-socials a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        gtagEvent('click', { link_url: link.href, link_id: link.getAttribute('aria-label') || link.href });
+      });
+    });
+
+  });
+})();
