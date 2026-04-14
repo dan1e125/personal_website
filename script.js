@@ -1140,13 +1140,6 @@ if ('serviceWorker' in navigator) {
     if (heading) heading.textContent = t.heading;
     if (copy) copy.textContent = t.copy;
     if (navLink) navLink.textContent = t.nav;
-    // Group labels (4 groups)
-    if (t.groups) {
-      t.groups.forEach(function(label, i) {
-        var el = document.getElementById('faq-grp' + (i + 1) + '-label');
-        if (el) el.textContent = label;
-      });
-    }
     // Question and answer text
     t.items.forEach(function(item, i) {
       var n = i + 1;
