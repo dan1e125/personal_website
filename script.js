@@ -1059,5 +1059,129 @@ if ('serviceWorker' in navigator) {
       });
     });
 
+    // FAQ expand tracking
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (btn.getAttribute('aria-expanded') === 'false') {
+          var qText = btn.querySelector('span') ? btn.querySelector('span').textContent.trim() : btn.id;
+          gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
+        }
+      });
+    });
+
   });
+})();
+
+// ── FAQ Accordion ─────────────────────────────────────────────────────────────
+(function() {
+  // Translations for FAQ section
+  var faqTranslations = {
+    en: {
+      tag: '[ FAQ ]',
+      heading: 'Frequently asked questions',
+      copy: 'Everything you need to know before booking a scoping call.',
+      nav: 'FAQ',
+      items: [
+        { q: 'What penetration testing services do you offer?',
+          a: 'Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and vulnerability assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.' },
+        { q: 'Are you certified as a penetration tester?',
+          a: 'I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 658 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates.' },
+        { q: 'How much does a penetration test cost?',
+          a: 'A vulnerability assessment starts from $500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above for an instant estimate.' },
+        { q: 'What does a pentest report include?',
+          a: 'Every report includes an executive summary, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations. A free re-test is included to verify fixes.' },
+        { q: 'Do you work remotely and with international clients?',
+          a: 'Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.' },
+        { q: 'How long does a penetration test take?',
+          a: 'Most engagements complete in 1–2 weeks from the scoping call to the final report. A vulnerability assessment can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.' },
+        { q: 'Is the first call free? What happens during it?',
+          a: 'Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service. You receive a written proposal with a fixed price afterwards.' },
+        { q: 'What is network penetration testing?',
+          a: 'Network penetration testing is an offensive security assessment of your external and internal infrastructure — servers, firewalls, routers, and services — to identify misconfigurations, open ports, exploitable vulnerabilities, and lateral movement paths before a real attacker does.' }
+      ]
+    },
+    es: {
+      tag: '[ FAQ ]',
+      heading: 'Preguntas frecuentes',
+      copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
+      nav: 'FAQ',
+      items: [
+        { q: '¿Qué servicios de pentesting ofreces?',
+          a: 'Pentest de aplicaciones web, evaluaciones de Active Directory, pentests de infraestructura de red y evaluaciones de vulnerabilidades. Todos los proyectos son remotos, incluyen un reporte PDF detallado y un re-test gratuito después de las correcciones.' },
+        { q: '¿Estás certificado como pentester?',
+          a: 'Completé los paths CPTS, CDSA, CJCA y CWEE en HTB Academy y estoy en el Top 1% global de Hack The Box con 658 objetivos comprometidos. También cuento con los certificados de IBM Cybersecurity Analyst y Google Cybersecurity Professional.' },
+        { q: '¿Cuánto cuesta un pentest?',
+          a: 'Una evaluación de vulnerabilidades parte desde $500 USD, un pentest de aplicación web desde $3,000, un pentest de red desde $3,500 y un pentest de Active Directory desde $5,000. Usa la calculadora de precios para obtener una estimación al instante.' },
+        { q: '¿Qué incluye un informe de pentest?',
+          a: 'Cada reporte incluye un resumen ejecutivo, hallazgos técnicos detallados con evidencia, clasificación de riesgos CVSS, pasos de explotación reproducibles y recomendaciones de remediación priorizadas. Se incluye un re-test gratuito para verificar las correcciones.' },
+        { q: '¿Trabajas de forma remota y con clientes internacionales?',
+          a: 'Sí. Estoy basado en Colombia y disponible para proyectos remotos en todo el mundo. Trabajo en inglés y español. La mayoría de los proyectos se realizan de forma remota sin interrupciones en tu entorno de producción.' },
+        { q: '¿Cuánto tiempo tarda un pentest?',
+          a: 'La mayoría de los proyectos se completan en 1–2 semanas desde la llamada de alcance hasta el informe final. Una evaluación de vulnerabilidades puede entregarse en 3–5 días. El cronograma se acuerda y fija por escrito antes de comenzar.' },
+        { q: '¿La primera llamada es gratuita? ¿Qué sucede en ella?',
+          a: 'Sí, la llamada de alcance es gratuita y sin compromiso. En 30 minutos definimos tu entorno, acordamos objetivos y reglas de engagement, y determinamos el servicio adecuado. Recibes una propuesta escrita con precio fijo después.' },
+        { q: '¿Qué es el pentesting de redes?',
+          a: 'Es una evaluación de seguridad ofensiva de tu infraestructura externa e interna — servidores, firewalls, routers y servicios — para identificar configuraciones incorrectas, puertos abiertos, vulnerabilidades explotables y rutas de movimiento lateral antes que un atacante real.' }
+      ]
+    }
+  };
+
+  function applyFaqLocale(locale) {
+    var t = faqTranslations[locale] || faqTranslations.en;
+    var tag = document.getElementById('faq-tag');
+    var heading = document.getElementById('faq-heading');
+    var copy = document.getElementById('faq-copy');
+    var navLink = document.querySelector('.topnav a[href="#faq"]');
+    if (tag) tag.textContent = t.tag;
+    if (heading) heading.textContent = t.heading;
+    if (copy) copy.textContent = t.copy;
+    if (navLink) navLink.textContent = t.nav;
+    t.items.forEach(function(item, i) {
+      var n = i + 1;
+      var qEl = document.getElementById('faq-q' + n + '-text');
+      var aEl = document.getElementById('faq-a' + n + '-text');
+      if (qEl) qEl.textContent = item.q;
+      if (aEl) aEl.textContent = item.a;
+    });
+  }
+
+  function initFaqAccordion() {
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answerId = btn.getAttribute('aria-controls');
+        var answer = document.getElementById(answerId);
+
+        // Close all others
+        document.querySelectorAll('.faq-q').forEach(function(other) {
+          if (other !== btn) {
+            other.setAttribute('aria-expanded', 'false');
+            var otherAnswer = document.getElementById(other.getAttribute('aria-controls'));
+            if (otherAnswer) otherAnswer.hidden = true;
+          }
+        });
+
+        // Toggle current
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (answer) answer.hidden = expanded;
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initFaqAccordion();
+    // Hook into language switcher
+    var locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
+    applyFaqLocale(locale);
+  });
+
+  // Re-apply when language changes (poll for currentLocale changes)
+  var lastLocale = null;
+  setInterval(function() {
+    var locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
+    if (locale !== lastLocale) {
+      lastLocale = locale;
+      applyFaqLocale(locale);
+    }
+  }, 300);
 })();
