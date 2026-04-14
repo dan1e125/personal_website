@@ -345,6 +345,18 @@ body { line-height: 1.65; }
   margin-top: 14px;
 }
 
+/* ── About expanded layout ── */
+.about-layout{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:start;margin-top:8px;}
+.about-narrative{display:grid;gap:16px;}
+.about-narrative p{color:var(--muted);line-height:1.82;margin:0;}
+.about-highlights{border:1px solid rgba(84,179,255,0.14);border-radius:18px;overflow:hidden;}
+.about-hl-item{display:grid;gap:3px;padding:16px 20px;border-bottom:1px solid rgba(84,179,255,0.1);}
+.about-hl-item:last-child{border-bottom:none;}
+.about-hl-title{font-size:.88rem;font-weight:700;color:var(--text);}
+.about-hl-desc{font-size:.83rem;color:var(--muted);line-height:1.5;}
+@media(max-width:1023px){.about-layout{grid-template-columns:1fr;gap:28px;}}
+
+
 .section-copy {
   line-height: 1.72;
   margin-top: 12px;
@@ -1174,9 +1186,37 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
       <section id="about" class="container" aria-labelledby="about-heading">
         <article class="card">
-          <p class="section-tag">[ ABOUT ]</p>
+          <p class="section-tag" id="about-tag">[ ABOUT ]</p>
           <h3 id="about-heading">Background</h3>
-          <p>I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know where developers leave gaps. I pair that with offensive security training across the full attack surface: web exploitation, Active Directory attacks, network pivoting and privilege escalation. Every engagement ends with a report your team can actually act on.</p>
+          <div class="about-layout">
+            <div class="about-narrative">
+              <p id="about-p1">I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know exactly where developers leave gaps.</p>
+              <p id="about-p2">My training covers the full offensive attack surface: web exploitation, Active Directory attacks, network pivoting, privilege escalation and incident response. I don't just find vulnerabilities — I explain why they exist, what a real attacker would do with them, and how to fix them correctly.</p>
+              <p id="about-p3">I work remotely with startups and SMBs across Latin America, the US and Europe. Fixed-price engagements, bilingual delivery, and a free re-test to confirm your fixes actually hold.</p>
+            </div>
+            <div class="about-highlights" role="list">
+              <div class="about-hl-item" role="listitem">
+                <span class="about-hl-title" id="about-hl1-title">Remote-first</span>
+                <span class="about-hl-desc" id="about-hl1-desc">Available for engagements worldwide — no travel overhead</span>
+              </div>
+              <div class="about-hl-item" role="listitem">
+                <span class="about-hl-title" id="about-hl2-title">Bilingual</span>
+                <span class="about-hl-desc" id="about-hl2-desc">Engagements and reports in English and Spanish</span>
+              </div>
+              <div class="about-hl-item" role="listitem">
+                <span class="about-hl-title" id="about-hl3-title">Fixed price</span>
+                <span class="about-hl-desc" id="about-hl3-desc">Agreed in writing before any work begins — no surprises</span>
+              </div>
+              <div class="about-hl-item" role="listitem">
+                <span class="about-hl-title" id="about-hl4-title">Free re-test</span>
+                <span class="about-hl-desc" id="about-hl4-desc">Included with every engagement to verify fixes hold</span>
+              </div>
+              <div class="about-hl-item" role="listitem">
+                <span class="about-hl-title" id="about-hl5-title">NDA before day one</span>
+                <span class="about-hl-desc" id="about-hl5-desc">Signed prior to any access, scope or technical discussion</span>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
 
