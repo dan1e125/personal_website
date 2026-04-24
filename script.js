@@ -1044,11 +1044,6 @@ if ('serviceWorker' in navigator) {
 
   document.addEventListener('DOMContentLoaded', function() {
 
-    // CV download
-    var cvBtn = document.getElementById('hero-cv-btn');
-    if (cvBtn) cvBtn.addEventListener('click', function() {
-      gtagEvent('file_download', { file_name: 'daniel_cv_new.pdf', link_text: 'View original CV' });
-    });
 
     // HTB transcript download
     var htbBtn = document.getElementById('hero-htb-btn');

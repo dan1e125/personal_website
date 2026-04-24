@@ -842,15 +842,15 @@ body { line-height: 1.65; }
 .qc-toggle strong{font-size:.88rem;color:#e2e8f0;display:block;transition:color 200ms;pointer-events:none}
 .qc-toggle.active strong{color:#22d3ee}
 .qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#94a3b8;pointer-events:none}
-.qc-chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.qc-chip{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.12);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all 200ms;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.qc-chip:hover{border-color:rgba(84,179,255,0.35);transform:translateY(-1px)}
-.qc-chip.active{border-color:rgba(34,211,238,0.45);background:rgba(34,211,238,0.05)}
-.qc-chip-left{display:flex;align-items:center;gap:10px;pointer-events:none}
-.qc-chip-icon{font-size:1.1rem;line-height:1;flex-shrink:0}
-.qc-chip-label{font-size:.82rem;color:#e2e8f0;transition:color 200ms;line-height:1.4}
-.qc-chip.active .qc-chip-label{color:#cbd5e1}
-.qc-chip-pct{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.1);border-radius:6px;padding:2px 7px;flex-shrink:0;white-space:nowrap;pointer-events:none}
+
+
+
+
+
+
+
+
+
 .qc-env-params{display:flex;flex-direction:column;gap:14px}
 .qc-env-row{display:flex;flex-direction:column;gap:8px}
 .qc-env-divider{height:1px;background:rgba(84,179,255,0.08);margin:4px -4px}
@@ -882,7 +882,7 @@ body { line-height: 1.65; }
 .qc-cta-btn:hover .qc-cta-arrow{transform:translateX(4px)}
 .qc-disclaimer-note{font-size:.7rem;color:#334155;text-align:center;line-height:1.6;border-top:1px solid rgba(84,179,255,0.07);padding-top:12px}
 @media(max-width:1023px){.qc-layout{grid-template-columns:1fr}.qc-result-panel{position:static}}
-@media(max-width:599px){.qc-svc-grid{grid-template-columns:1fr 1fr}.qc-chip-grid{grid-template-columns:1fr}.qc-price-from,.qc-price-to{font-size:1.8rem}}
+@media(max-width:599px){.qc-svc-grid{grid-template-columns:1fr 1fr}.qc-price-from,.qc-price-to{font-size:1.8rem}}
 
 .wa-float{position:fixed;bottom:32px;left:32px;z-index:999;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-strong);background:linear-gradient(135deg,rgba(37,211,102,0.75),rgba(34,211,238,0.55));display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,0.22);transition:transform 240ms ease,box-shadow 240ms ease;animation:wa-pop .4s cubic-bezier(.34,1.56,.64,1) both}.wa-float:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(37,211,102,0.32)}.wa-float svg{width:22px;height:22px}@keyframes wa-pop{from{opacity:0;transform:scale(.6) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}@media(max-width:767px){.wa-float{bottom:16px;left:16px}}
 /* ─ Cursor ─ */
@@ -1043,7 +1043,6 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
           <div class="hero-actions">
             <a class="button primary" href="#contact" aria-label="Request a free scoping call">Request a free scoping call</a>
-            <a class="button gold" href="daniel_cv_new.pdf" target="_blank" rel="noopener noreferrer" id="hero-cv-btn" aria-label="View original CV (opens PDF in new tab)">View original CV</a>
             <a class="button gold" href="htb-academy-student-transcript.pdf" target="_blank" rel="noopener noreferrer" id="hero-htb-btn" aria-label="Verified by HTB Academy (opens PDF in new tab)">Verified by HTB Academy</a>
           </div>
 
@@ -1742,7 +1741,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
   
 
-  <script src="script.js?v=20260444" defer></script>
+  <script src="script.js?v=20260445" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="#" id="wa-float-link" target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
