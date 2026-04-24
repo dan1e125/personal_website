@@ -830,7 +830,7 @@ body { line-height: 1.65; }
 .qc-svc-card.active{border-color:#22d3ee;background:rgba(34,211,238,0.05);box-shadow:0 0 0 1px rgba(34,211,238,0.25),0 12px 40px rgba(34,211,238,0.12)}
 .qc-svc-card.active .qc-svc-name{color:#e2e8f0}
 .qc-svc-card.active .qc-svc-price{color:#22d3ee}
-.qc-svc-emoji{font-size:1.7rem;line-height:1;margin-bottom:4px;pointer-events:none}
+.qc-svc-emoji{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;pointer-events:none}.qc-svc-emoji svg{width:20px;height:20px;flex-shrink:0}.qc-svc-card[data-svc="pentest_web"] .qc-svc-emoji{background:rgba(59,130,246,0.18);color:#93c5fd}.qc-svc-card[data-svc="pentest_ad"] .qc-svc-emoji{background:rgba(249,115,22,0.18);color:#fdba74}.qc-svc-card[data-svc="ai_llm"] .qc-svc-emoji{background:rgba(168,85,247,0.18);color:#d8b4fe}.qc-svc-card[data-svc="pentest_ai"] .qc-svc-emoji{background:rgba(34,197,94,0.18);color:#86efac}.qc-svc-card.active[data-svc="pentest_web"] .qc-svc-emoji{background:rgba(59,130,246,0.28)}.qc-svc-card.active[data-svc="pentest_ad"] .qc-svc-emoji{background:rgba(249,115,22,0.28)}.qc-svc-card.active[data-svc="ai_llm"] .qc-svc-emoji{background:rgba(168,85,247,0.28)}.qc-svc-card.active[data-svc="pentest_ai"] .qc-svc-emoji{background:rgba(34,197,94,0.28)}
 .qc-svc-name{font-size:.9rem;font-weight:700;color:#e2e8f0;transition:color 200ms;line-height:1.3;pointer-events:none}
 .qc-svc-price{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#94a3b8;letter-spacing:.04em;transition:color 200ms;pointer-events:none}
 .qc-check{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(84,179,255,0.25);display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all 200ms;pointer-events:none}
@@ -1333,26 +1333,26 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
               <div class="qc-svc-grid">
                 <button class="qc-svc-card active" data-svc="pentest_web" type="button" aria-label="Select Web App Pentest service, from $3,000" aria-pressed="true">
                   <span class="qc-check">&#10003;</span>
-                  <span class="qc-svc-emoji">&#127760;</span>
+                  <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_web">Web App Pentest</span>
                   <span class="qc-svc-price" id="qcs-price-pentest_web">From $3,000</span>
                 </button>
   
                 <button class="qc-svc-card" data-svc="pentest_ad" type="button" aria-label="Select Active Directory Pentest service, from $5,000" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
-                  <span class="qc-svc-emoji">&#127970;</span>
+                  <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_ad">Active Directory</span>
                   <span class="qc-svc-price" id="qcs-price-pentest_ad">From $5,000</span>
                 </button>
                 <button class="qc-svc-card" data-svc="ai_llm" type="button" aria-label="Select AI / LLM Security service, from $3,500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
-                  <span class="qc-svc-emoji">&#129504;</span>
+                  <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-ai_llm">AI / LLM</span>
                   <span class="qc-svc-price" id="qcs-price-ai_llm">From $3,500</span>
                 </button>
                 <button class="qc-svc-card" data-svc="pentest_ai" type="button" aria-label="Select Network Pentest service, from $3,500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
-                  <span class="qc-svc-emoji">&#128225;</span>
+                  <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M12 12v4"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_ai">Network Pentest</span>
                   <span class="qc-svc-price" id="qcs-price-pentest_ai">From $3,500</span>
                 </button>
@@ -1742,7 +1742,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
   
 
-  <script src="script.js?v=20260443" defer></script>
+  <script src="script.js?v=20260444" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="#" id="wa-float-link" target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
