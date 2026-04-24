@@ -1016,6 +1016,9 @@ if ('serviceWorker' in navigator) {
       mainCta.addEventListener('click', function(e) {
         e.preventDefault();
         var svcBtn = document.querySelector('.qc-svc-card.active');
+        var scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
+        var cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
+        var tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
         var minEl = document.getElementById('q-min');
         var maxEl = document.getElementById('q-max');
         var waNum = atob('NTczMTM2NDU5Mjk5');
