@@ -838,9 +838,9 @@ body { line-height: 1.65; }
 .qc-toggle-group{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .qc-toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.14);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all 200ms;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .qc-toggle:hover{border-color:rgba(84,179,255,0.38);transform:translateY(-1px)}
-.qc-toggle.active{border-color:#3b82f6;background:linear-gradient(160deg,rgba(59,130,246,0.1),rgba(34,211,238,0.04))}
+.qc-toggle.active{border-color:rgba(34,211,238,0.55);background:linear-gradient(160deg,rgba(59,130,246,0.18),rgba(34,211,238,0.09));box-shadow:0 0 0 1px rgba(34,211,238,0.12) inset,0 4px 16px rgba(34,211,238,0.08)}
 .qc-toggle strong{font-size:.88rem;color:#e2e8f0;display:block;transition:color 200ms;pointer-events:none}
-.qc-toggle.active strong{color:#e2e8f0}
+.qc-toggle.active strong{color:#22d3ee}
 .qc-toggle small{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#94a3b8;pointer-events:none}
 .qc-chip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .qc-chip{background:rgba(255,255,255,0.02);border:1px solid rgba(84,179,255,0.12);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all 200ms;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -868,8 +868,8 @@ body { line-height: 1.65; }
 .qc-price-from,.qc-price-to{font-size:2.4rem;font-weight:800;color:#f1f5f9;letter-spacing:-.03em;transition:all 350ms ease}
 .qc-price-sep{color:#334155;font-size:1.5rem;font-weight:300;align-self:center}
 .qc-price-curr{font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;align-self:flex-end;padding-bottom:6px;letter-spacing:.06em}
-.qc-gauge-wrap{height:6px;background:rgba(30,41,59,0.8);border-radius:4px;overflow:hidden;border:1px solid rgba(84,179,255,0.08)}
-.qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee,#38bdf8);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px}
+.qc-gauge-wrap{height:8px;background:rgba(8,18,34,0.95);border-radius:4px;overflow:hidden;border:1px solid rgba(84,179,255,0.15)}
+.qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px;box-shadow:0 0 10px rgba(34,211,238,0.55)}
 .qc-config-summary{display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.02);border-radius:12px;padding:16px}
 .qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
 .qc-config-key{color:#94a3b8;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
