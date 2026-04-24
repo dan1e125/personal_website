@@ -801,7 +801,7 @@ body { line-height: 1.65; }
 @media(max-width:767px){.cert-three-cols{grid-template-columns:1fr}.cert-cols{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr;gap:0}.process-step{flex-direction:row;text-align:left;align-items:flex-start;gap:18px;padding:0}.process-num{margin-bottom:0;flex-shrink:0}.process-arrow{width:auto;height:28px;padding-top:0;padding-left:28px;align-items:center;justify-content:center}.process-arrow::after{width:1px;height:28px;background:linear-gradient(180deg,rgba(84,179,255,0.45),rgba(84,179,255,0.15))}}
 
 .service-card{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,rgba(10,23,36,0.88),rgba(6,15,25,0.92));border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);overflow:hidden;transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.service-card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(59,130,246,0.45),rgba(34,211,238,0.18),transparent 70%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.service-card:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 20px 48px rgba(59,130,246,0.18)}
+.service-card:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 20px 48px rgba(59,130,246,0.18)}.service-card[data-svc="web"]:hover{border-color:rgba(59,130,246,0.6);box-shadow:0 20px 48px rgba(59,130,246,0.22)}.service-card[data-svc="web"] .service-icon{background:linear-gradient(135deg,rgba(59,130,246,0.28),rgba(34,211,238,0.14))}.service-card[data-svc="ad"]:hover{border-color:rgba(249,115,22,0.5);box-shadow:0 20px 48px rgba(249,115,22,0.14)}.service-card[data-svc="ad"] .service-icon{background:linear-gradient(135deg,rgba(249,115,22,0.22),rgba(239,68,68,0.12))}.service-card[data-svc="ai"]:hover{border-color:rgba(168,85,247,0.5);box-shadow:0 20px 48px rgba(168,85,247,0.14)}.service-card[data-svc="ai"] .service-icon{background:linear-gradient(135deg,rgba(168,85,247,0.22),rgba(99,102,241,0.12))}.service-card[data-svc="net"]:hover{border-color:rgba(34,197,94,0.5);box-shadow:0 20px 48px rgba(34,197,94,0.14)}.service-card[data-svc="net"] .service-icon{background:linear-gradient(135deg,rgba(34,197,94,0.22),rgba(16,185,129,0.12))}.service-icon svg{width:26px;height:26px;flex-shrink:0}.service-card[data-svc="web"] .service-icon svg{color:#93c5fd}.service-card[data-svc="ad"] .service-icon svg{color:#fdba74}.service-card[data-svc="ai"] .service-icon svg{color:#d8b4fe}.service-card[data-svc="net"] .service-icon svg{color:#86efac}
 
 .service-icon{font-size:1.6rem;line-height:1;width:52px;height:52px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,0.22),rgba(34,211,238,0.1));box-shadow:inset 0 0 0 1px rgba(84,179,255,0.18)}
 .service-card strong{font-size:1.1rem;color:var(--text);font-weight:700}
@@ -1111,8 +1111,8 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
         </div>
         <div class="services-grid">
 
-          <article class="service-card">
-            <span class="service-icon">&#127760;</span>
+          <article class="service-card" data-svc="web">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
             <strong id="svc-web-title">Web Application Pentest</strong>
             <span id="svc-web-desc">Find exploitable vulnerabilities in your app before a breach does. OWASP-aligned manual testing with a written report your team can act on immediately.</span>
             <ul class="service-deliverables">
@@ -1127,8 +1127,8 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             </div>
           </article>
 
-          <article class="service-card">
-            <span class="service-icon">&#127962;</span>
+          <article class="service-card" data-svc="ad">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></span>
             <strong id="svc-ad-title">Active Directory Pentest</strong>
             <span id="svc-ad-desc">Identify attack paths through your internal network before a threat actor does. BloodHound mapping, credential attacks, and a clear remediation roadmap.</span>
             <ul class="service-deliverables">
@@ -1143,8 +1143,8 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             </div>
           </article>
 
-          <article class="service-card">
-            <span class="service-icon">&#129504;</span>
+          <article class="service-card" data-svc="ai">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01"/></svg></span>
             <strong id="svc-va-title">AI / LLM Security Assessment</strong>
             <span id="svc-va-desc">Red-team your AI and LLM integrations against the OWASP LLM Top 10. Covers prompt injection, jailbreaks, model output attacks, data pipeline vulnerabilities and AI abuse vectors.</span>
             <ul class="service-deliverables">
@@ -1160,8 +1160,8 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
             </div>
           </article>
 
-          <article class="service-card">
-            <span class="service-icon">&#128225;</span>
+          <article class="service-card" data-svc="net">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M12 12v4"/></svg></span>
             <strong id="svc-net-title">Network Pentest</strong>
             <span id="svc-net-desc">Map your external and internal attack surface, exploit network vulnerabilities, and receive a prioritized remediation report before a real attacker does.</span>
             <ul class="service-deliverables">
@@ -1742,7 +1742,7 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 
   
 
-  <script src="script.js?v=20260442" defer></script>
+  <script src="script.js?v=20260443" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="#" id="wa-float-link" target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
