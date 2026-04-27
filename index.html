@@ -951,6 +951,276 @@ body.cursor-clicking .cursor-dot{transform:translate(-50%,-50%) scale(.6)}
 .qc-tbox-info-item span{font-size:.75rem;color:#94a3b8;line-height:1.55;display:block}
 .qc-tbox-info-item .qc-tbox-rec{display:inline-block;margin-top:8px;font-size:.65rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;letter-spacing:.06em;text-transform:uppercase}
 </style>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE FIXES — danieloa.com
+   Full audit: 320px · 375px · 390px · 414px · 768px · 1024px
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. GLOBAL ─────────────────────────────────────────────────── */
+
+/* Prevent horizontal overflow / scroll at all viewport widths.
+   Using max-width instead of overflow-x:hidden to preserve sticky. */
+body {
+  overflow-x: hidden;
+}
+
+/* All images must be contained */
+img, picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── 2. IOS AUTO-ZOOM PREVENTION ───────────────────────────────── */
+/* Any input/textarea with font-size < 16px triggers iOS auto-zoom.
+   .cf-input is currently 0.95rem (≈15.2px) — fix globally. */
+input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* ── 3. TOUCH TARGETS (44px minimum) ──────────────────────────── */
+
+/* Service card "Get a quote →" links are only ~36px tall */
+.service-cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Case study report links */
+.cs-link {
+  min-height: 44px;
+}
+
+/* ── 4. NAVIGATION ─────────────────────────────────────────────── */
+
+/* Logo: slightly smaller on mobile to keep topbar tight */
+@media (max-width: 767px) {
+  .brand-block a img {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  .brand-name-main {
+    font-size: .7rem !important;
+  }
+  .brand-name-sub {
+    font-size: .58rem !important;
+  }
+}
+
+/* Ensure hamburger nav link text is readable at 2-col layout */
+@media (max-width: 479px) {
+  .topnav a {
+    font-size: .73rem !important;
+    padding: 9px 8px !important;
+    letter-spacing: .04em !important;
+  }
+}
+
+/* ── 5. HERO ───────────────────────────────────────────────────── */
+
+/* Hero two-column → single column (override existing rule for clarity) */
+@media (max-width: 1023px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Status grid: 2-col on mobile is far better than the default 1-col
+   (6 items stacked in a single column is excessively tall) */
+@media (max-width: 767px) {
+  .status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+/* Ensure hero actions are full-width on mobile */
+@media (max-width: 767px) {
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+  .hero-actions .button {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+}
+
+/* ── 6. SERVICES ──────────────────────────────────────────────── */
+
+/* Service cards: full-width stacked on mobile */
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Reduce internal padding slightly */
+  .service-card {
+    padding: 20px !important;
+  }
+}
+
+/* ── 7. CASE STUDIES ──────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .cs-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 8. CERTIFICATIONS ────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .cert-three-cols {
+    grid-template-columns: 1fr !important;
+  }
+  .cert-cols {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 9. PROCESS SECTION ───────────────────────────────────────── */
+/* (already handled by existing CSS — no additional fix needed) */
+
+/* ── 10. PRICING / QUOTE CALCULATOR ──────────────────────────── */
+
+/* Layout: 2-col → single column at tablet (already exists in CSS,
+   included here for clarity and to ensure the panel isn't sticky) */
+@media (max-width: 1023px) {
+  .qc-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .qc-result-panel {
+    position: static !important;
+  }
+}
+
+/* Tighten block padding and toggle text on small phones */
+@media (max-width: 480px) {
+  .qc-block {
+    padding: 20px 16px 18px !important;
+  }
+  .qc-toggle {
+    padding: 12px 6px !important;
+  }
+  .qc-toggle strong {
+    font-size: .82rem !important;
+  }
+  .qc-toggle small {
+    font-size: .64rem !important;
+    line-height: 1.3 !important;
+  }
+  /* Result panel: smaller padding */
+  .qc-result-card {
+    padding: 24px 18px !important;
+  }
+}
+
+/* Very small screens (≤360px): stack toggles and service grid vertically */
+@media (max-width: 360px) {
+  /* Service cards: single column instead of 2×2 */
+  .qc-svc-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Environment parameter toggles: single column */
+  .qc-toggle-group {
+    grid-template-columns: 1fr !important;
+  }
+  /* Prevent price figures from overflowing */
+  .qc-price-from,
+  .qc-price-to {
+    font-size: 1.35rem !important;
+  }
+  /* Reduce result card padding further */
+  .qc-result-card {
+    padding: 18px 14px !important;
+  }
+  .qc-block {
+    padding: 16px 14px !important;
+  }
+}
+
+/* ── 11. FAQ ──────────────────────────────────────────────────── */
+
+/* FAQ already has mobile styles; these reinforce correct padding */
+@media (max-width: 767px) {
+  .faq-card {
+    padding: 20px 16px !important;
+  }
+  .faq-q {
+    font-size: .93rem !important;
+    padding: 15px 0 !important;
+  }
+  .faq-a {
+    padding-left: 0 !important;
+    padding-bottom: 14px !important;
+    font-size: .9rem !important;
+  }
+}
+
+/* ── 12. CONTACT SECTION ──────────────────────────────────────── */
+
+/* contact-two-col: stack to single column on mobile */
+@media (max-width: 767px) {
+  .contact-two-col {
+    grid-template-columns: 1fr !important;
+  }
+  /* Enforce 16px on form inputs (iOS zoom prevention) */
+  .cf-input {
+    font-size: 16px !important;
+  }
+  /* Social grid: 2-col is fine; ensure it wraps */
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* On very small screens, social grid goes single column */
+@media (max-width: 360px) {
+  .social-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 13. WHATSAPP BUTTON ──────────────────────────────────────── */
+
+/* Position: already handled by existing CSS (bottom:16px;left:16px at 767px).
+   Ensure it doesn't collide with back-to-top on very small screens. */
+@media (max-width: 479px) {
+  .wa-float {
+    width: 44px !important;
+    height: 44px !important;
+    bottom: 14px !important;
+    left: 14px !important;
+  }
+}
+
+/* ── 14. BACK-TO-TOP BUTTON ───────────────────────────────────── */
+
+@media (max-width: 479px) {
+  .back-to-top {
+    bottom: 14px !important;
+    right: 14px !important;
+  }
+}
+
+/* ── 15. SCROLL PADDING for sticky nav ───────────────────────── */
+
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-top: 72px !important;
+  }
+}
+
+</style>
 <body>
   <!-- Cache-buster: 2026-04-14 -->
   <noscript>
