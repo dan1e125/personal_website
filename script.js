@@ -16,6 +16,11 @@ function showToast(msg, duration) {
   setTimeout(function() { toast.classList.remove('show'); }, duration);
 }
 
+// ── Locale helper ──
+function isSpanish() {
+  return isSpanish();
+}
+
 // ── Timing constants ──
 var TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
 var TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
@@ -500,14 +505,14 @@ applyLocale(currentLocale);
       // Email: use clipboard — avoids OS mailto: / login redirects
       el.setAttribute('href', '#');
       el.setAttribute('role', 'button');
-      el.setAttribute('aria-label', (typeof currentLocale!=='undefined'&&currentLocale==='es')?'Copiar correo al portapapeles':'Copy email address to clipboard');
+      el.setAttribute('aria-label', (isSpanish())?'Copiar correo al portapapeles':'Copy email address to clipboard');
       var email = decoded.replace(/^mailto:/, '');
       el.addEventListener('click', function(e) {
         e.preventDefault();
         var toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
-            showToast((typeof currentLocale!=='undefined'&&currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
+            showToast((isSpanish()?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
           }).catch(function() {
             // Fallback: show email inline
             showToast(email, TOAST_FALLBACK_MS);
@@ -665,21 +670,31 @@ function updateScrollProgress() {
 }
 
 // Active nav highlight
-function updateActiveNav() {
-  safeExecute(function() {
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.topnav a');
-    if (!sections.length || !navLinks.length) return;
-    let current = '';
-    const pos = window.scrollY + 100;
-    sections.forEach(function(sec) {
-      if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) current = sec.id;
-    });
+function initActiveNav() {
+  var navLinks = document.querySelectorAll('.topnav a');
+  var sections = Array.from(document.querySelectorAll('main section[id]'));
+  if (!navLinks.length || !sections.length) return;
+  function setActive(id) {
     navLinks.forEach(function(link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
     });
-  }, null, 'Active Nav');
+  }
+  var visible = new Set();
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) visible.add(entry.target.id);
+      else visible.delete(entry.target.id);
+    });
+    // Highlight the topmost visible section that has a nav link
+    for (var i = 0; i < sections.length; i++) {
+      if (visible.has(sections[i].id) &&
+          document.querySelector('.topnav a[href="#' + sections[i].id + '"]')) {
+        setActive(sections[i].id);
+        return;
+      }
+    }
+  }, { rootMargin: '-60px 0px -30% 0px', threshold: 0 });
+  sections.forEach(function(sec) { io.observe(sec); });
 }
 
 // Smooth scroll for nav links
@@ -696,7 +711,6 @@ document.querySelectorAll('.topnav a').forEach(function(a) {
 
 window.addEventListener('scroll', throttle(function() {
   updateScrollProgress();
-  updateActiveNav();
 }, 16), { passive: true });
 
 
@@ -1037,10 +1051,10 @@ if ('serviceWorker' in navigator) {
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
-    var ADDONS = (typeof currentLocale!=='undefined'&&currentLocale==='es')?ADDONS_ES:ADDONS_EN;
-    var SCOPE_LABELS = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
-    var CPLX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
-    var TBOX_LABELS  = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
+    var ADDONS = (isSpanish())?ADDONS_ES:ADDONS_EN;
+    var SCOPE_LABELS = (isSpanish()) ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
+    var CPLX_LABELS  = (isSpanish()) ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
+    var TBOX_LABELS  = (isSpanish()) ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
     var svcBtn   = document.querySelector('.qc-svc-card.active');
     var scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
     var cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
@@ -1066,20 +1080,20 @@ if ('serviceWorker' in navigator) {
       var svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
       el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
     }
-    var ss = (typeof currentLocale!=='undefined'&&currentLocale==='es'?SCOPE_SETS_ES:SCOPE_SETS)[svc];
+    var ss = (isSpanish()?SCOPE_SETS_ES:SCOPE_SETS)[svc];
     if (ss) {
       (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach(function(btn) {
         var s = btn.dataset.scope, small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
-    if (el('qr-svc-name')) el('qr-svc-name').textContent = (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;
+    if (el('qr-svc-name')) el('qr-svc-name').textContent = (isSpanish()&&p.nameEs)?p.nameEs:p.name;
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
-    var durMap = (typeof currentLocale!=='undefined'&&currentLocale==='es'?DURATIONS_ES:DURATIONS)[svc];
+    var durMap = (isSpanish()?DURATIONS_ES:DURATIONS)[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
-    if (el('qr-duration-key')) el('qr-duration-key').textContent = (typeof currentLocale!=='undefined'&&currentLocale==='es') ? 'Duración' : 'Duration';
+    if (el('qr-duration-key')) el('qr-duration-key').textContent = (isSpanish()) ? 'Duración' : 'Duration';
     var row = el('qr-addons-row'), tags = el('qr-addons-tags');
     if (row && tags) {
       if (addonTags.length) {
@@ -1167,10 +1181,10 @@ if ('serviceWorker' in navigator) {
         var waNum = atob('NTczMTM2NDU5Mjk5');
         var svcName = '';
         if (svcBtn && minEl && maxEl) {
-          svcName = (function(p){return (typeof currentLocale!=='undefined'&&currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
+          svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
         }
         var waMsg;
-        if (typeof currentLocale !== 'undefined' && currentLocale === 'es') {
+        if (isSpanish()) {
           var scopeSummaryEs = scopeBtn ? (scopeBtn.querySelector('strong') ? scopeBtn.querySelector('strong').textContent : scope) : '';
           var cplxSummaryEs  = cplxBtn  ? (cplxBtn.querySelector('strong')  ? cplxBtn.querySelector('strong').textContent  : cplx)  : '';
           var tboxSummaryEs  = tboxBtn  ? (tboxBtn.querySelector('strong')  ? tboxBtn.querySelector('strong').textContent  : tbox)  : '';
@@ -1200,9 +1214,9 @@ if ('serviceWorker' in navigator) {
 
   document.addEventListener('DOMContentLoaded', function() {
 
-    // Initial scroll & nav state
+    // Initial scroll state
     updateScrollProgress();
-    updateActiveNav();
+    initActiveNav();
 
 
     // HTB transcript download

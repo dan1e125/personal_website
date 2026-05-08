@@ -1,4 +1,4 @@
-var CACHE = 'danieloa-v92';
+var CACHE = 'danieloa-v93';
 var ASSETS = [
   '/',
   '/style.css?v=20260508b',
@@ -36,16 +36,17 @@ self.addEventListener('fetch', function(e) {
     e.respondWith(fetch(e.request).catch(function() { return caches.match('/'); }));
     return;
   }
+  // Stale-while-revalidate: serve cache instantly, update in background
   e.respondWith(
-    caches.match(e.request).then(function(cached) {
-      return cached || fetch(e.request).then(function(res) {
-        if (res.ok) {
-          var clone = res.clone();
-          caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
-        }
-        return res;
-      }).catch(function() {
-        return new Response('Offline', {status:503,statusText:'Service Unavailable'});
+    caches.open(CACHE).then(function(cache) {
+      return cache.match(e.request).then(function(cached) {
+        var networkFetch = fetch(e.request).then(function(res) {
+          if (res.ok) cache.put(e.request, res.clone());
+          return res;
+        }).catch(function() {
+          return cached || new Response('Offline', {status:503,statusText:'Service Unavailable'});
+        });
+        return cached || networkFetch;
       });
     })
   );
