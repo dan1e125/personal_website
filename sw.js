@@ -1,10 +1,9 @@
-var CACHE = 'danieloa-v95';
+var CACHE = 'danieloa-v96';
 var ASSETS = [
   '/',
-  '/style.css?v=20260508d',
-  '/script.js?v=20260508d',
+  '/style.css?v=20260508e',
+  '/script.js?v=20260508e',
   '/daniel_profile.webp',
-  '/daniel_profile.jpg',
   '/manifest.json',
   '/favicon.svg',
   '/favicon.ico',
@@ -22,15 +21,12 @@ self.addEventListener('install', function(e) {
   e.waitUntil(caches.open(CACHE).then(function(c) { return c.addAll(ASSETS); }));
   self.skipWaiting();
 });
-
 self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(keys.filter(function(k) { return k !== CACHE; }).map(function(k) { return caches.delete(k); }));
     }).then(function() { return self.clients.claim(); })
   );
-});
-
 self.addEventListener('fetch', function(e) {
   if (e.request.mode === 'navigate') {
     e.respondWith(fetch(e.request).catch(function() { return caches.match('/'); }));
@@ -49,5 +45,3 @@ self.addEventListener('fetch', function(e) {
         return cached || networkFetch;
       });
     })
-  );
-});
