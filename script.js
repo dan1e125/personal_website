@@ -675,10 +675,7 @@ window.addEventListener('scroll', function() {
   updateActiveNav();
 }, { passive: true });
 
-window.addEventListener('DOMContentLoaded', function() {
-  updateScrollProgress();
-  updateActiveNav();
-});
+
 
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
   prefersReducedMotion = e.matches;
@@ -704,7 +701,7 @@ window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',
 // Service Worker registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').catch(function() {});
+    navigator.serviceWorker.register('/sw.js').catch(function(e) { console.warn('[SW] Registration failed:', e); });
   });
 }
 
@@ -1171,6 +1168,10 @@ if ('serviceWorker' in navigator) {
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+
+    // Initial scroll & nav state
+    updateScrollProgress();
+    updateActiveNav();
 
 
     // HTB transcript download
