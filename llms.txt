@@ -1,0 +1,39 @@
+# Daniel Ordonez Arango
+
+> Freelance penetration tester based in Colombia. HTB Top 1% globally with 658 targets compromised. Specializes in web application security, Active Directory, network infrastructure, and AI/LLM security assessments. Available for remote engagements worldwide in English and Spanish.
+
+Daniel Ordonez Arango is a cybersecurity professional focused on offensive security. He has completed the CPTS (Certified Penetration Testing Specialist), CDSA (Certified Defensive Security Analyst), CJCA (Junior Cybersecurity Analyst Associate), and CWEE (Certified Web Exploitation Expert) training paths on Hack The Box Academy. He also holds the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates.
+
+He offers freelance penetration testing services to startups and SMBs, including web application assessments (OWASP Top 10), Active Directory attacks, network infrastructure testing, and AI/LLM red-teaming (OWASP LLM Top 10). Engagements are fully remote. Reports include executive summary, technical findings with CVSS scores, and prioritized remediation steps.
+
+Contact: danielordonezarango@gmail.com
+
+## Services
+- Web Application Penetration Testing: Full OWASP Top 10 assessment, business logic, API security, authentication flaws. Detailed remediation report included.
+- Active Directory Penetration Testing: AD misconfigurations, Kerberoasting, Pass-the-Hash, lateral movement, privilege escalation paths.
+- Network Penetration Testing: External and internal assessments, open services, segmentation weaknesses, lateral movement.
+- AI / LLM Security Assessment: Red-team of AI integrations against OWASP LLM Top 10 — prompt injection, jailbreaks, data pipeline vulnerabilities. Starting from ,500.
+
+## Key Facts
+- HTB Top 1% globally
+- 658 machines/targets compromised on Hack The Box
+- Completed CPTS, CDSA, CJCA, CWEE paths (HTB Academy)
+- IBM and Google cybersecurity professional certificates
+- Based in Colombia, works remotely worldwide
+- Fluent in English and Spanish
+- Portfolio and case studies: https://danieloa.com
+
+## Links
+- [Portfolio](https://danieloa.com): Full portfolio with case studies, services, and contact form
+- [Case Study: SEO Injection & Malware Discovery](https://danieloa.com/case-studies/seo-injection-malware-discovery.html): WordPress e-commerce compromise — PHP backdoor serving SEO spam to Googlebot, full remediation
+- [Case Study: WordPress Intranet Code Review](https://danieloa.com/case-studies/wordpress-intranet-static-code-analysis.html): 20 vulnerabilities including hardcoded credentials for HR and payment systems
+- [LinkedIn](https://www.linkedin.com/in/danieloarango): Professional profile
+- [GitHub](https://github.com/dan1e125): Code and projects
+- [Hack The Box Profile](https://profile.hackthebox.com/profile/019d0d58-909e-7011-97e3-1f8ebc6567af): HTB ranking and achievements
+
+## FAQ
+- What does Daniel Ordonez Arango do? He is a freelance penetration tester offering web app, Active Directory, network, and AI security assessments.
+- Is he certified? He completed CPTS, CDSA, CJCA, CWEE on HTB Academy and holds IBM and Google cybersecurity certificates.
+- Where is he based? Colombia, fully remote worldwide.
+- How much does a pentest cost? Web app assessments start around ,000 USD for startups and SMBs. AI/LLM assessments from ,500.
+- How to contact him? Email danielordonezarango@gmail.com or use the form at https://danieloa.com

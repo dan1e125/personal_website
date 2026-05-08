@@ -3,11 +3,23 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://danieloa.com/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://danieloa.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://danieloa.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://danieloa.com/"/>
+  </url>
+  <url>
+    <loc>https://danieloa.com/case-studies/seo-injection-malware-discovery.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://danieloa.com/case-studies/wordpress-intranet-static-code-analysis.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

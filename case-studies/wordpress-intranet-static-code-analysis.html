@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: WordPress Intranet Static Code Analysis — Daniel Ordonez Arango</title>
+  <meta name="description" content="Penetration test case study: full source code review of a corporate WordPress intranet in Colombia. 20 vulnerabilities discovered including hardcoded credentials for HR and payment systems. By Daniel Ordonez Arango.">
+  <meta name="author" content="Daniel Ordonez Arango">
+  <link rel="canonical" href="https://danieloa.com/case-studies/wordpress-intranet-static-code-analysis.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"WordPress Intranet — Static Code Analysis & Security Review","description":"Full source code review of a private WordPress intranet. 20 vulnerabilities discovered including hardcoded credentials for external HR and payment systems.","author":{"@type":"Person","name":"Daniel Ordonez Arango","url":"https://danieloa.com"},"datePublished":"2025-03-01","dateModified":"2026-05-08","url":"https://danieloa.com/case-studies/wordpress-intranet-static-code-analysis.html","publisher":{"@type":"Person","name":"Daniel Ordonez Arango","url":"https://danieloa.com"}}</script>
+</head>
+<body>
+  <h1>Case Study: WordPress Intranet — Static Code Analysis</h1>
+  <p><strong>Client:</strong> Corporate intranet, Colombia, 2025</p>
+  <p><strong>Engagement type:</strong> White-box web application penetration test / source code review</p>
+
+  <h2>Executive Summary</h2>
+  <p>Full source code review of a private WordPress intranet used by a Colombian company. The assessment revealed 20 vulnerabilities across the codebase, server configuration, and third-party integrations — including hardcoded credentials for external HR and payment systems that could allow complete account takeover and financial data exposure.</p>
+
+  <h2>Findings (20 Total)</h2>
+  <ul>
+    <li><strong>Critical (3):</strong> Hardcoded plaintext API keys and credentials for external HR platform and payment processor embedded in custom plugin source code</li>
+    <li><strong>Critical (1):</strong> SQL injection in custom reporting module — unauthenticated, full database read access</li>
+    <li><strong>High (4):</strong> Insecure Direct Object Reference (IDOR) allowing any authenticated user to access any other employee's documents</li>
+    <li><strong>High (2):</strong> Stored XSS in employee profile fields, no output encoding</li>
+    <li><strong>Medium (6):</strong> Missing CSRF tokens on state-changing forms, outdated dependencies with known CVEs, overly permissive file uploads</li>
+    <li><strong>Low (4):</strong> Information disclosure, missing security headers, verbose error messages in production</li>
+  </ul>
+
+  <h2>Methodology</h2>
+  <p>Static code analysis using manual review and automated scanning. Dynamic testing against a staging environment. OWASP Testing Guide v4 methodology. Findings validated with proof-of-concept exploits for all critical and high issues.</p>
+
+  <h2>Outcome</h2>
+  <p>All 20 vulnerabilities documented with CVSS v3.1 scores, exploit steps, and specific remediation guidance. Client applied all remediations within 2 weeks. Re-test confirmed successful closure of all critical and high findings.</p>
+
+  <p><a href="https://danieloa.com">← Back to portfolio</a></p>
+</body>
+</html>
