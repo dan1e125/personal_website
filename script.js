@@ -383,12 +383,6 @@ let currentLocale = localStorage.getItem('portfolio-lang') || 'en';
 let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let terminalTimer = null;
 
-function setText(selector, value) {
-  document.querySelectorAll(selector).forEach(function(node) {
-    if (node.dataset.html) node.innerHTML = value; else node.textContent = value;
-  });
-}
-
 // Terminal animation — single implementation
 function startTerminal(locale) {
   const stream = document.querySelector('.terminal-stream');
@@ -413,7 +407,11 @@ function startTerminal(locale) {
 // Locale
 function applyLocale(locale) {
   const copy = translations[locale] || translations.en;
-  Object.entries(copy.selectors).forEach(function(entry) { setText(entry[0], entry[1]); });
+  Object.entries(copy.selectors).forEach(function(entry) {
+    document.querySelectorAll(entry[0]).forEach(function(node) {
+      if (node.dataset.html) node.innerHTML = entry[1]; else node.textContent = entry[1];
+    });
+  });
   if (copy.placeholders) {
     Object.entries(copy.placeholders).forEach(function(entry) {
       var node = document.querySelector(entry[0]);
@@ -653,20 +651,15 @@ applyLocale(currentLocale);
   });
 }());
 
-function safeExecute(fn, fallback, context) {
-  try { return fn(); }
-  catch (e) { console.error('[Error in ' + (context || '?') + ']:', e); if (fallback) fallback(); return null; }
-}
-
 // Scroll progress
 function updateScrollProgress() {
-  safeExecute(function() {
+  try {
     const bar = document.querySelector('.progress-bar');
     if (!bar) return;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const pct = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0;
     bar.style.width = pct + '%';
-  }, null, 'Scroll Progress');
+  } catch(e) { console.error('[Scroll Progress]:', e); }
 }
 
 // Active nav highlight
