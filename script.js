@@ -18,7 +18,7 @@ function showToast(msg, duration) {
 
 // ── Locale helper ──
 function isSpanish() {
-  return isSpanish();
+  return typeof currentLocale !== 'undefined' && currentLocale === 'es';
 }
 
 // ── Timing constants ──
