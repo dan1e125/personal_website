@@ -167,14 +167,14 @@ function initContactBindings() {
       // Email: use clipboard — avoids OS mailto: / login redirects
       el.setAttribute('href', '#');
       el.setAttribute('role', 'button');
-      el.setAttribute('aria-label', (isSpanish())?'Copiar correo al portapapeles':'Copy email address to clipboard');
+      el.setAttribute('aria-label', (currentLocale==='es')?'Copiar correo al portapapeles':'Copy email address to clipboard');
       let email = decoded.replace(/^mailto:/, '');
       el.addEventListener('click', function(e) {
         e.preventDefault();
         let toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
-            showToast((isSpanish()?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
+            showToast((currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
           }).catch(function() {
             // Fallback: show email inline
             showToast(email, TOAST_FALLBACK_MS);
@@ -459,7 +459,7 @@ initTerminalToggle();
 
 
 /* ── Konami Code + Matrix Rain Easter Egg ── */
-(function () {
+function initKonamiEasterEgg() {
   let KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
   let idx = 0;
 
@@ -560,7 +560,9 @@ initTerminalToggle();
     // Auto-close after 15s
     setTimeout(close, FAQ_AUTO_CLOSE_MS);
   }
-}());
+}
+initKonamiEasterEgg();
+
 
 // 3D Tilt effect on cards
 function initMotionObserver() {
@@ -680,7 +682,7 @@ initCursorEffect();
 
 
 /* ── Quote Calculator v4 ─────────────────────────────────── */
-(function () {
+function initQuoteCalculator() {
   'use strict';
 
   const PRICES = {
@@ -800,18 +802,17 @@ initCursorEffect();
     _qcScopeToggles = document.querySelectorAll('.qc-toggle[data-scope]');
     _qcCplxToggles  = document.querySelectorAll('.qc-toggle[data-cplx]');
     _qcTboxToggles  = document.querySelectorAll('.qc-toggle[data-tbox]');
-    _qcSvcCards.forEach((btn) => {
-      btn.addEventListener('click', function() { activate('.qc-svc-card', btn); });
-    });
-    _qcScopeToggles.forEach((btn) => {
-      btn.addEventListener('click', function() { activate('.qc-toggle[data-scope]', btn); });
-    });
-    _qcCplxToggles.forEach((btn) => {
-      btn.addEventListener('click', function() { activate('.qc-toggle[data-cplx]', btn); });
-    });
-    _qcTboxToggles.forEach((btn) => {
-      btn.addEventListener('click', function() { activate('.qc-toggle[data-tbox]', btn); });
-    });
+    // Event delegation: one listener for all calculator toggle buttons
+    const _qcContainer = document.getElementById('quote');
+    if (_qcContainer) {
+      _qcContainer.addEventListener('click', function(e) {
+        const btn = e.target.closest('.qc-svc-card, .qc-toggle[data-scope], .qc-toggle[data-cplx], .qc-toggle[data-tbox]');
+        if (btn.classList.contains('qc-svc-card'))          activate('.qc-svc-card', btn);
+        else if (btn.dataset.scope !== undefined)            activate('.qc-toggle[data-scope]', btn);
+        else if (btn.dataset.cplx  !== undefined)            activate('.qc-toggle[data-cplx]', btn);
+        else if (btn.dataset.tbox  !== undefined)            activate('.qc-toggle[data-tbox]', btn);
+      });
+    }
     document.querySelectorAll('.qc-chip').forEach((btn) => {
       btn.addEventListener('click', function() { btn.classList.toggle('active'); recalc(); });
     });
@@ -857,13 +858,13 @@ initCursorEffect();
         const waNum = WA_NUMBER;
         let svcName = '';
         if (svcBtn && minEl && maxEl) {
-          svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
+          svcName = (function(p){return (currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
         }
         let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
         let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
         let tboxStrong  = tboxBtn  && tboxBtn.querySelector('strong');
         let waMsg;
-        if (isSpanish()) {
+        if (currentLocale === 'es') {
           let scopeSummaryEs = scopeStrong ? scopeStrong.textContent : scope;
           let cplxSummaryEs  = cplxStrong  ? cplxStrong.textContent  : cplx;
           let tboxSummaryEs  = tboxStrong  ? tboxStrong.textContent  : tbox;
@@ -883,7 +884,9 @@ initCursorEffect();
     }
   });
   window.recalc = recalc;
-})();
+}
+initQuoteCalculator();
+
 
 // ── GA4 Event Tracking ──────────────────────────────────────────────────────
 function initGATracking() {
@@ -891,87 +894,87 @@ function initGATracking() {
     if (typeof gtag === 'function') gtag('event', eventName, params);
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-
-    // Initial scroll state
-    updateScrollProgress();
-    initActiveNav();
+  // DOM ready guaranteed by defer attribute
 
 
-    // HTB transcript download
-    let htbBtn = document.getElementById('hero-htb-btn');
-    if (htbBtn) htbBtn.addEventListener('click', function() {
-      gtagEvent('file_download', { file_name: 'htb-academy-student-transcript.pdf', link_text: 'Verified by HTB Academy' });
-    });
+  // Initial scroll state
+  updateScrollProgress();
+  initActiveNav();
 
-    // Case study report downloads
-    document.querySelectorAll('a[href*="assets/reports/"]').forEach((link) => {
-      link.addEventListener('click', function() {
-        gtagEvent('file_download', { file_name: link.getAttribute('href'), link_text: link.textContent.trim() });
-      });
-    });
 
-    // WhatsApp float button
-    const waFloat = waFloatEl; // cached at init
-    if (waFloat) waFloat.addEventListener('click', function() {
-      gtagEvent('contact', { method: 'whatsapp', link_id: 'wa-float' });
-    });
-
-    // Calculator CTA → WhatsApp
-    let calcCta = document.getElementById('qc-main-cta');
-    if (calcCta) calcCta.addEventListener('click', function() {
-      let svcBtn = document.querySelector('.qc-svc-card.active');
-      gtagEvent('generate_lead', {
-        method: 'whatsapp_calculator',
-        service: svcBtn ? svcBtn.dataset.svc : 'unknown'
-      });
-    });
-
-    // Hero scoping call CTA
-    let heroCta = document.querySelector('.hero-actions .button.primary');
-    if (heroCta) heroCta.addEventListener('click', function() {
-      gtagEvent('generate_lead', { method: 'hero_cta' });
-    });
-
-    // Contact form submit
-    let contactForm = document.querySelector('form[action*="formspree"]');
-    if (contactForm) contactForm.addEventListener('submit', function() {
-      gtagEvent('form_submit', { form_id: 'contact', method: 'formspree' });
-    });
-
-    // Language switch
-    document.querySelectorAll('.lang-button').forEach((btn) => {
-      btn.addEventListener('click', function() {
-        gtagEvent('language_switch', { language: btn.dataset.lang || btn.textContent.trim() });
-      });
-    });
-
-    // See pricing CTA
-    let pricingCta = document.getElementById('see-pricing-cta');
-    if (pricingCta) pricingCta.addEventListener('click', function() {
-      gtagEvent('select_content', { content_type: 'section', item_id: 'pricing' });
-    });
-
-    // LinkedIn / GitHub / HTB social clicks
-    document.querySelectorAll('.social-link, .footer-socials a').forEach((link) => {
-      link.addEventListener('click', function() {
-        gtagEvent('click', { link_url: link.href, link_id: link.getAttribute('aria-label') || link.href });
-      });
-    });
-
-    // FAQ expand tracking
-    document.querySelectorAll('.faq-q').forEach((btn) => {
-      btn.addEventListener('click', function() {
-        if (btn.getAttribute('aria-expanded') === 'false') {
-          let textEl = btn.querySelector('span:not(.faq-num)');
-          let qText = textEl ? textEl.textContent.trim() : btn.id;
-          gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
-        }
-      });
-    });
-
+  // HTB transcript download
+  let htbBtn = document.getElementById('hero-htb-btn');
+  if (htbBtn) htbBtn.addEventListener('click', function() {
+    gtagEvent('file_download', { file_name: 'htb-academy-student-transcript.pdf', link_text: 'Verified by HTB Academy' });
   });
-}
+
+  // Case study report downloads
+  document.querySelectorAll('a[href*="assets/reports/"]').forEach((link) => {
+    link.addEventListener('click', function() {
+      gtagEvent('file_download', { file_name: link.getAttribute('href'), link_text: link.textContent.trim() });
+    });
+  });
+
+  // WhatsApp float button
+  const waFloat = waFloatEl; // cached at init
+  if (waFloat) waFloat.addEventListener('click', function() {
+    gtagEvent('contact', { method: 'whatsapp', link_id: 'wa-float' });
+  });
+
+  // Calculator CTA → WhatsApp
+  let calcCta = document.getElementById('qc-main-cta');
+  if (calcCta) calcCta.addEventListener('click', function() {
+    let svcBtn = document.querySelector('.qc-svc-card.active');
+    gtagEvent('generate_lead', {
+      method: 'whatsapp_calculator',
+      service: svcBtn ? svcBtn.dataset.svc : 'unknown'
+    });
+  });
+
+  // Hero scoping call CTA
+  let heroCta = document.querySelector('.hero-actions .button.primary');
+  if (heroCta) heroCta.addEventListener('click', function() {
+    gtagEvent('generate_lead', { method: 'hero_cta' });
+  });
+
+  // Contact form submit
+  let contactForm = document.querySelector('form[action*="formspree"]');
+  if (contactForm) contactForm.addEventListener('submit', function() {
+    gtagEvent('form_submit', { form_id: 'contact', method: 'formspree' });
+  });
+
+  // Language switch
+  document.querySelectorAll('.lang-button').forEach((btn) => {
+    btn.addEventListener('click', function() {
+      gtagEvent('language_switch', { language: btn.dataset.lang || btn.textContent.trim() });
+    });
+  });
+
+  // See pricing CTA
+  let pricingCta = document.getElementById('see-pricing-cta');
+  if (pricingCta) pricingCta.addEventListener('click', function() {
+    gtagEvent('select_content', { content_type: 'section', item_id: 'pricing' });
+  });
+
+  // LinkedIn / GitHub / HTB social clicks
+  document.querySelectorAll('.social-link, .footer-socials a').forEach((link) => {
+    link.addEventListener('click', function() {
+      gtagEvent('click', { link_url: link.href, link_id: link.getAttribute('aria-label') || link.href });
+    });
+  });
+
+  // FAQ expand tracking
+  document.querySelectorAll('.faq-q').forEach((btn) => {
+    btn.addEventListener('click', function() {
+      if (btn.getAttribute('aria-expanded') === 'false') {
+        let textEl = btn.querySelector('span:not(.faq-num)');
+        let qText = textEl ? textEl.textContent.trim() : btn.id;
+        gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
+      }
+    });
+  });
+
+  }
 initGATracking();
 
 
@@ -1087,13 +1090,13 @@ function initFAQAccordion() {
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    initFaqAccordion();
-    // Hook into language switcher
-    let locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
-    applyFaqLocale(locale);
-  });
+  // DOM ready guaranteed by defer attribute
 
+  initFaqAccordion();
+  // Hook into language switcher
+  let locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
+  applyFaqLocale(locale);
+  
   // Re-apply when language changes
   window.addEventListener('localechange', function(e) {
     applyFaqLocale(e.detail.locale);
