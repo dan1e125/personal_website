@@ -1,8 +1,8 @@
-var CACHE = 'danieloa-v97';
+var CACHE = 'danieloa-v98';
 var ASSETS = [
   '/',
-  '/style.css?v=20260508f',
-  '/script.js?v=20260508f',
+  '/style.css?v=20260508g',
+  '/script.js?v=20260508g',
   '/daniel_profile.webp',
   '/manifest.json',
   '/favicon.svg',

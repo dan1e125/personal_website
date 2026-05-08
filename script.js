@@ -25,9 +25,10 @@ function isSpanish() {
 const TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
 const TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
 const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
-const TERMINAL_ROTATE_MS = 3000;  // terminal line rotation interval
+const TERMINAL_ROTATE_MS = 3000;
+const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth  // terminal line rotation interval
 
-const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'AI / LLM Security','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
+const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking',
     // ── Quote result panel labels ──
     '#qr-svc-label':'Selected service',
     '#qr-label':'Estimated range',
@@ -63,7 +64,7 @@ const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Teste
     '#qcs-name-ai_llm':'AI / LLM',
     '#qcs-price-ai_llm':'From $3,500',
     '#qcs-name-pentest_ai':'Network Pentest',
-    '#qcs-price-pentest_ai':'From $3,500','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $3,500 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about article:nth-child(1) .section-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#tbox-info-black-title':'Black-box','#tbox-info-black-desc':'No prior knowledge of the target. Simulates a real external attacker. Ideal for testing your defenses from an adversarial perspective.','#tbox-info-black-rec':'✓ Most common','#tbox-info-grey-title':'Grey-box','#tbox-info-grey-desc':'Partial credentials or context provided. Simulates a compromised account or insider threat. Best coverage-to-cost ratio.','#tbox-info-grey-rec':'✓ Recommended','#tbox-info-white-title':'White-box','#tbox-info-white-desc':'Full access + source code provided. Maximum depth and coverage. Best for thorough audits or when regulations require it.','#tbox-info-white-rec':'✓ Most thorough','#qc-tbox-help-btn':'?',
+    '#qcs-price-pentest_ai':'From $3,500','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $3,500 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#tbox-info-black-title':'Black-box','#tbox-info-black-desc':'No prior knowledge of the target. Simulates a real external attacker. Ideal for testing your defenses from an adversarial perspective.','#tbox-info-black-rec':'✓ Most common','#tbox-info-grey-title':'Grey-box','#tbox-info-grey-desc':'Partial credentials or context provided. Simulates a compromised account or insider threat. Best coverage-to-cost ratio.','#tbox-info-grey-rec':'✓ Recommended','#tbox-info-white-title':'White-box','#tbox-info-white-desc':'Full access + source code provided. Maximum depth and coverage. Best for thorough audits or when regulations require it.','#tbox-info-white-rec':'✓ Most thorough','#qc-tbox-help-btn':'?',
     '#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps, AI / LLM & Active Directory.','.service-cta':'Get a quote →',
     // ── Nav ──
     '.topnav a[href="#services"]':'Services',
@@ -73,18 +74,18 @@ const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Teste
     '.avail-text':'Available for engagements',
     // ── Terminal / Status ──
     '.terminal-label':'daniel@portfolio:~$ ./profile_scan',
-    '.status-grid div:nth-child(1) span':'Status',
-    '.status-grid div:nth-child(1) strong':'ACTIVE',
-    '.status-grid div:nth-child(2) span':'Mode',
-    '.status-grid div:nth-child(2) strong':'PENTEST',
-    '.status-grid div:nth-child(3) span':'Location',
-    '.status-grid div:nth-child(3) strong':'REMOTE',
-    '.status-grid div:nth-child(4) span':'Scope',
-    '.status-grid div:nth-child(4) strong':'WEB / NET / SYS',
-    '.status-grid div:nth-child(5) span':'Availability',
-    '.status-grid div:nth-child(5) strong':'OPEN',
-    '.status-grid div:nth-child(6) span':'Languages',
-    '.status-grid div:nth-child(6) strong':'EN / ES',
+    '#sg-status-lbl':'Status',
+    '#sg-status-val':'ACTIVE',
+    '#sg-mode-lbl':'Mode',
+    '#sg-mode-val':'PENTEST',
+    '#sg-loc-lbl':'Location',
+    '#sg-loc-val':'REMOTE',
+    '#sg-scope-lbl':'Scope',
+    '#sg-scope-val':'WEB / NET / SYS',
+    '#sg-avail-lbl':'Availability',
+    '#sg-avail-val':'OPEN',
+    '#sg-lang-lbl':'Languages',
+    '#sg-lang-val':'EN / ES',
     // ── Services ──
     '#services-tag':'[ SERVICES ]',
     '#services-heading':'Services',
@@ -195,7 +196,7 @@ const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Teste
     
     '.topnav a[href="#services"]':'Servicios',
     '.topnav a[href="#about"]':'Sobre mí',
-    '#about article:nth-child(1) .section-tag':'[ SOBRE MÍ ]','#about-heading':'Sobre mí',
+    '#about-tag':'[ SOBRE MÍ ]','#about-heading':'Sobre mí',
     '.topnav a[href="#process"]':'Proceso',
     '.topnav a[href="#quote"]':'Precios',
     
@@ -207,31 +208,31 @@ const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Teste
     
     '.hero-copy h2':'Pentester especializado en aplicaciones web, AI / LLM y Active Directory.',
     '.hero-copy .lead':'Ayudo a startups y pymes a encontrar vulnerabilidades explotables antes de que los atacantes lo hagan. Del primer contacto al informe final — me encargo de todo. Obtienes hallazgos claros, clasificación de riesgo real y un reporte que tu equipo puede empezar a corregir el mismo día.',
-    '.hero-copy .spec-item:nth-child(1) span':'Pentest Web',
-    '.hero-copy .spec-item:nth-child(2) span':'AI / LLM Security',
-    '.hero-copy .spec-item:nth-child(3) span':'Active Directory',
+    '#spec-web':'Pentest Web',
+    '#spec-ai':'AI / LLM Security',
+    '#spec-ad':'Active Directory',
     
-    '.hero-copy .spec-item:nth-child(4) span':'Pentest de Redes',
+    '#spec-net':'Pentest de Redes',
     '#process-heading':'Del primer contacto al informe final','#process .section-heading .section-tag':'[ CÓMO FUNCIONA ]','#process-copy':'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados concretos y aplicables. La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final.','#process-step1-title':'Llamada de alcance','#process-step1-desc':'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.','#process-step2-title':'Propuesta y NDA','#process-step2-desc':'Recibirás una propuesta escrita con alcance, cronograma, metodología y precio fijo. El NDA se firma antes de iniciar.','#process-step3-title':'Engagement','#process-step3-desc':'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos notificados de inmediato.','#process-step4-title':'Reporte y re-test','#process-step4-desc':'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.','.hero-actions .button.primary':'Solicitar una llamada de alcance gratuita',
     '.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'Ver CV original',
     '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Descargar transcript',
-    '.quick-stats li:nth-child(1) span':'Paths HTB completados',
-    '.quick-stats li:nth-child(2) span':'Objetivos comprometidos',
-    '.quick-stats li:nth-child(3) span':'Ranking HTB',
+    '#stat-paths':'Paths HTB completados',
+    '#stat-targets':'Objetivos comprometidos',
+    '#stat-ranking':'Ranking HTB',
     
     
     '.avail-text':'Disponible para proyectos',
 
     // ── Terminal ──
     '.terminal-label':'daniel@portfolio:~$ ./escaneo_perfil',
-    '.status-grid div:nth-child(1) span':'Estado',
-    '.status-grid div:nth-child(1) strong':'ACTIVO',
-    '.status-grid div:nth-child(2) span':'Enfoque',
-    '.status-grid div:nth-child(2) strong':'PENTEST',
-    '.status-grid div:nth-child(3) span':'Modo',
-    '.status-grid div:nth-child(3) strong':'REMOTO',
-    '.status-grid div:nth-child(4) span':'Cobertura',
-    '.status-grid div:nth-child(4) strong':'WEB / RED / SIS','.status-grid div:nth-child(5) span':'Disponibilidad','.status-grid div:nth-child(5) strong':'ABIERTO','.status-grid div:nth-child(6) span':'Idiomas','.status-grid div:nth-child(6) strong':'ES / EN',
+    '#sg-status-lbl':'Estado',
+    '#sg-status-val':'ACTIVO',
+    '#sg-mode-lbl':'Enfoque',
+    '#sg-mode-val':'PENTEST',
+    '#sg-loc-lbl':'Modo',
+    '#sg-loc-val':'REMOTO',
+    '#sg-scope-lbl':'Cobertura',
+    '#sg-scope-val':'WEB / RED / SIS','#sg-avail-lbl':'Disponibilidad','#sg-avail-val':'ABIERTO','#sg-lang-lbl':'Idiomas','#sg-lang-val':'ES / EN',
 
     // ── Experience ──
     
@@ -244,7 +245,7 @@ const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Teste
     
     
     
-    '#experience .timeline-item:nth-child(2) .detail-list li:nth-child(3)':'Entrenamiento en monitoreo SIEM, DFIR y respuesta a incidentes con Splunk, Elastic Stack y Suricata (path CDSA).','#experience .timeline-item:nth-child(2) .detail-list li:nth-child(4)':'Entrenamiento en informes profesionales — traducción de hallazgos técnicos en impacto empresarial concreto.',
+    
     
     
     
@@ -433,7 +434,7 @@ function applyLocale(locale) {
   startTerminal(locale);
   let waFloat = document.querySelector('.wa-float');
   if (waFloat) {
-    let waNum = atob('NTczMTM2NDU5Mjk5');
+    const waNum = WA_NUMBER;
     let waMsg = locale === 'es'
       ? 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.'
       : 'Hi Daniel, I\'m interested in learning more about your pentesting services.';
@@ -1172,7 +1173,7 @@ if ('serviceWorker' in navigator) {
         let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
         let minEl = document.getElementById('q-min');
         let maxEl = document.getElementById('q-max');
-        let waNum = atob('NTczMTM2NDU5Mjk5');
+        const waNum = WA_NUMBER;
         let svcName = '';
         if (svcBtn && minEl && maxEl) {
           svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
