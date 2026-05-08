@@ -787,7 +787,7 @@ h1.identity-name{margin:0;padding:0;font-size:1.5rem;font-weight:800;letter-spac
 .qc-price-sep{color:#334155;font-size:1.5rem;font-weight:300;align-self:center}
 .qc-price-curr{font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#22d3ee;align-self:flex-end;padding-bottom:6px;letter-spacing:.06em}
 .qc-gauge-wrap{height:8px;background:rgba(8,18,34,0.95);border-radius:4px;overflow:hidden;border:1px solid rgba(84,179,255,0.15)}
-.qc-gauge{height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px;box-shadow:0 0 10px rgba(34,211,238,0.55)}
+.qc-gauge{height:100%;width:18%;background:linear-gradient(90deg,#3b82f6,#22d3ee);border-radius:4px;transition:width 450ms cubic-bezier(.4,0,.2,1);min-width:4px;box-shadow:0 0 10px rgba(34,211,238,0.55)}#qr-addons-row{display:none}
 .qc-config-summary{display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.02);border-radius:12px;padding:16px}
 .qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
 .qc-config-key{color:#94a3b8;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
