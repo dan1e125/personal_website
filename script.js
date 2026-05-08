@@ -26,6 +26,8 @@ const TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
 const TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
 const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
 const TERMINAL_ROTATE_MS = 3000;
+const COUNTER_LONG_MS  = 1400; // counter animation for numbers > 100
+const COUNTER_SHORT_MS = 900;  // counter animation for numbers ≤ 100
 const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth  // terminal line rotation interval
 
 const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking',
@@ -638,7 +640,7 @@ applyLocale(currentLocale);
         done = true;
         io.unobserve(e.target);
         let start = null;
-        let duration = num > 100 ? 1400 : 900;
+        let duration = num > 100 ? COUNTER_LONG_MS : COUNTER_SHORT_MS;
         function step(ts) {
           if (!start) start = ts;
           let p = Math.min((ts - start) / duration, 1);
@@ -1003,7 +1005,7 @@ if ('serviceWorker' in navigator) {
 (function () {
   'use strict';
 
-  let PRICES = {
+  const PRICES = {
     pentest_web: { name:'Web App Pentest',nameEs:'Pentest de Aplicación Web',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
     pentest_ad:     { name:'Active Directory',nameEs:'Directorio Activo',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
     ai_llm:          { name:'AI / LLM Security',nameEs:'Seguridad AI / LLM',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
@@ -1046,10 +1048,11 @@ if ('serviceWorker' in navigator) {
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
-    let ADDONS = (isSpanish())?ADDONS_ES:ADDONS_EN;
-    let SCOPE_LABELS = (isSpanish()) ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
-    let CPLX_LABELS  = (isSpanish()) ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
-    let TBOX_LABELS  = (isSpanish()) ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
+    const isSp = isSpanish(); // cached — avoids 7 separate calls
+    let ADDONS = isSp ? ADDONS_ES : ADDONS_EN;
+    let SCOPE_LABELS = isSp ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
+    let CPLX_LABELS  = isSp ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
+    let TBOX_LABELS  = isSp ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
     let svcBtn   = document.querySelector('.qc-svc-card.active');
     let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
     let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
@@ -1075,20 +1078,20 @@ if ('serviceWorker' in navigator) {
       let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
       el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
     }
-    let ss = (isSpanish()?SCOPE_SETS_ES:SCOPE_SETS)[svc];
+    let ss = (isSp?SCOPE_SETS_ES:SCOPE_SETS)[svc];
     if (ss) {
       (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach(function(btn) {
         let s = btn.dataset.scope, small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
-    if (el('qr-svc-name')) el('qr-svc-name').textContent = (isSpanish()&&p.nameEs)?p.nameEs:p.name;
+    if (el('qr-svc-name')) el('qr-svc-name').textContent = (isSp&&p.nameEs)?p.nameEs:p.name;
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
-    let durMap = (isSpanish()?DURATIONS_ES:DURATIONS)[svc];
+    let durMap = (isSp?DURATIONS_ES:DURATIONS)[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
-    if (el('qr-duration-key')) el('qr-duration-key').textContent = (isSpanish()) ? 'Duración' : 'Duration';
+    if (el('qr-duration-key')) el('qr-duration-key').textContent = isSp ? 'Duración' : 'Duration';
     let row = el('qr-addons-row'), tags = el('qr-addons-tags');
     if (row && tags) {
       if (addonTags.length) {
@@ -1295,7 +1298,7 @@ if ('serviceWorker' in navigator) {
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
 (function() {
   // Translations for FAQ section
-  let faqTranslations = {
+  const faqTranslations = {
     en: {
       tag: '[ FAQ ]',
       heading: 'Frequently asked questions',
@@ -1354,6 +1357,7 @@ if ('serviceWorker' in navigator) {
   };
 
   function applyFaqLocale(locale) {
+    // faqTranslations is a standalone const — can be moved into translations.faq in a future refactor
     let t = faqTranslations[locale] || faqTranslations.en;
     let tag = document.getElementById('faq-tag');
     let heading = document.getElementById('faq-heading');
