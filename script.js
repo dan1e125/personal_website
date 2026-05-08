@@ -1,3 +1,26 @@
+// ── Scroll throttle helper (16ms ≈ 60fps cap) ──
+function throttle(fn, ms) {
+  var last = 0;
+  return function() {
+    var now = Date.now();
+    if (now - last >= ms) { last = now; fn.apply(this, arguments); }
+  };
+}
+
+// ── Toast helper ──
+function showToast(msg, duration) {
+  var toast = document.getElementById('copy-toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(function() { toast.classList.remove('show'); }, duration);
+}
+
+// ── Timing constants ──
+var TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
+var TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
+var FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
+
 var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'AI / LLM Security','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
     // ── Quote result panel labels ──
     '#qr-svc-label':'Selected service',
@@ -484,13 +507,13 @@ applyLocale(currentLocale);
         var toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
-            if (toast) { toast.textContent = (typeof currentLocale!=='undefined'&&currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 3000); }
+            showToast((typeof currentLocale!=='undefined'&&currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
           }).catch(function() {
             // Fallback: show email inline
-            if (toast) { toast.textContent = email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 5000); }
+            showToast(email, TOAST_FALLBACK_MS);
           });
         } else {
-          if (toast) { toast.textContent = email; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 5000); }
+          showToast(email, TOAST_FALLBACK_MS);
         }
       });
     }
@@ -671,10 +694,10 @@ document.querySelectorAll('.topnav a').forEach(function(a) {
   });
 });
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', throttle(function() {
   updateScrollProgress();
   updateActiveNav();
-}, { passive: true });
+}, 16), { passive: true });
 
 
 
@@ -687,9 +710,9 @@ window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',
 (function() {
   const btn = document.querySelector('.back-to-top');
   if (!btn) return;
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', throttle(function() {
     btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
+  }, 16), { passive: true });
   btn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
@@ -850,7 +873,7 @@ if ('serviceWorker' in navigator) {
     });
 
     // Auto-close after 15s
-    setTimeout(close, 15000);
+    setTimeout(close, FAQ_AUTO_CLOSE_MS);
   }
 }());
 
