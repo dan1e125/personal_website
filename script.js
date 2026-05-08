@@ -1,15 +1,15 @@
 // ── Scroll throttle helper (16ms ≈ 60fps cap) ──
 function throttle(fn, ms) {
-  var last = 0;
+  let last = 0;
   return function() {
-    var now = Date.now();
+    let now = Date.now();
     if (now - last >= ms) { last = now; fn.apply(this, arguments); }
   };
 }
 
 // ── Toast helper ──
 function showToast(msg, duration) {
-  var toast = document.getElementById('copy-toast');
+  let toast = document.getElementById('copy-toast');
   if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
@@ -22,11 +22,12 @@ function isSpanish() {
 }
 
 // ── Timing constants ──
-var TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
-var TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
-var FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
+const TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
+const TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
+const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
+const TERMINAL_ROTATE_MS = 3000;  // terminal line rotation interval
 
-var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'AI / LLM Security','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
+const translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','.hero-copy .spec-item:nth-child(1) span':'Web Pentest','.hero-copy .spec-item:nth-child(2) span':'AI / LLM Security','.hero-copy .spec-item:nth-child(3) span':'Active Directory','.hero-copy .spec-item:nth-child(4) span':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','.quick-stats li:nth-child(1) span':'HTB paths completed','.quick-stats li:nth-child(2) span':'Targets compromised','.quick-stats li:nth-child(3) span':'HTB ranking',
     // ── Quote result panel labels ──
     '#qr-svc-label':'Selected service',
     '#qr-label':'Estimated range',
@@ -394,14 +395,14 @@ function startTerminal(locale) {
   function render() {
     stream.replaceChildren();
     for (let i = 0; i < 4; i++) {
-      var pre = document.createElement('pre');
+      let pre = document.createElement('pre');
       pre.textContent = lines[(index + i) % lines.length];
       stream.appendChild(pre);
     }
     index = (index + 1) % lines.length;
   }
   render();
-  if (!prefersReducedMotion) terminalTimer = setInterval(render, 3000);
+  if (!prefersReducedMotion) terminalTimer = setInterval(render, TERMINAL_ROTATE_MS);
 }
 
 // Locale
@@ -414,7 +415,7 @@ function applyLocale(locale) {
   });
   if (copy.placeholders) {
     Object.entries(copy.placeholders).forEach(function(entry) {
-      var node = document.querySelector(entry[0]);
+      let node = document.querySelector(entry[0]);
       if (node) node.placeholder = entry[1];
     });
   }
@@ -425,54 +426,54 @@ function applyLocale(locale) {
   if (ogDescription) ogDescription.setAttribute('content', copy.ogDescription);
   if (ogLocale) ogLocale.setAttribute('content', locale === 'es' ? 'es_CO' : 'en_US');
   langButtons.forEach(function(btn) {
-    var active = btn.dataset.langToggle === locale;
+    let active = btn.dataset.langToggle === locale;
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
   startTerminal(locale);
-  var waFloat = document.querySelector('.wa-float');
+  let waFloat = document.querySelector('.wa-float');
   if (waFloat) {
-    var waNum = atob('NTczMTM2NDU5Mjk5');
-    var waMsg = locale === 'es'
+    let waNum = atob('NTczMTM2NDU5Mjk5');
+    let waMsg = locale === 'es'
       ? 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.'
       : 'Hi Daniel, I\'m interested in learning more about your pentesting services.';
     waFloat.href = 'https://wa.me/' + waNum + '?text=' + encodeURIComponent(waMsg);
   }
 
   // ── Dynamic aria-label updates ──
-  var svcAriaEN = {
+  let svcAriaEN = {
     pentest_web:'Select Web App Pentest, from $3,000',
     pentest_ad:'Select Active Directory Pentest, from $5,000',
     ai_llm:'Select AI / LLM Security, from $3,500',
     pentest_ai:'Select Network Pentest, from $3,500'
   };
-  var svcAriaES = {
+  let svcAriaES = {
     pentest_web:'Seleccionar Pentest Web App, desde $3,000',
     pentest_ad:'Seleccionar Pentest Active Directory, desde $5,000',
     ai_llm:'Seleccionar Seguridad AI / LLM, desde $3,500',
     pentest_ai:'Seleccionar Pentest de Redes, desde $3,500'
   };
-  var svcAriaMap = locale==='es' ? svcAriaES : svcAriaEN;
+  let svcAriaMap = locale==='es' ? svcAriaES : svcAriaEN;
   document.querySelectorAll('.qc-svc-card[data-svc]').forEach(function(btn) {
-    var lbl = svcAriaMap[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
+    let lbl = svcAriaMap[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
   });
-  var tglAriaEN = {
+  let tglAriaEN = {
     'small':'Scope: Small, 1 to 5 targets','medium':'Scope: Medium, 6 to 15 targets','large':'Scope: Large, 15 or more targets',
     'low':'Complexity: Standard, common tech stack','medium-cplx':'Complexity: Custom, proprietary logic','high':'Complexity: Enterprise, complex or hybrid',
     'black':'Testing type: Black-box, no prior access','grey':'Testing type: Grey-box, partial credentials','white':'Testing type: White-box, full access and code'
   };
-  var tglAriaES = {
+  let tglAriaES = {
     'small':'Alcance: Peque\u00f1o, 1 a 5 objetivos','medium':'Alcance: Mediano, 6 a 15 objetivos','large':'Alcance: Grande, 15 o m\u00e1s objetivos',
     'low':'Complejidad: Est\u00e1ndar, stack com\u00fan','medium-cplx':'Complejidad: Personalizado, l\u00f3gica propietaria','high':'Complejidad: Empresarial, complejo o h\u00edbrido',
     'black':'Modalidad: Caja negra, sin acceso previo','grey':'Modalidad: Caja gris, credenciales parciales','white':'Modalidad: Caja blanca, acceso completo y c\u00f3digo'
   };
-  var tglMap = locale==='es' ? tglAriaES : tglAriaEN;
-  document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(b){var k=tglMap[b.dataset.scope];if(k)b.setAttribute('aria-label',k);});
-  document.querySelectorAll('.qc-toggle[data-cplx]').forEach(function(b){var k=b.dataset.cplx==='medium'?tglMap['medium-cplx']:tglMap[b.dataset.cplx];if(k)b.setAttribute('aria-label',k);});
-  document.querySelectorAll('.qc-toggle[data-tbox]').forEach(function(b){var k=tglMap[b.dataset.tbox];if(k)b.setAttribute('aria-label',k);});
-  var termBtn = document.getElementById('terminal-toggle-btn');
+  let tglMap = locale==='es' ? tglAriaES : tglAriaEN;
+  document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(b){let k=tglMap[b.dataset.scope];if(k)b.setAttribute('aria-label',k);});
+  document.querySelectorAll('.qc-toggle[data-cplx]').forEach(function(b){let k=b.dataset.cplx==='medium'?tglMap['medium-cplx']:tglMap[b.dataset.cplx];if(k)b.setAttribute('aria-label',k);});
+  document.querySelectorAll('.qc-toggle[data-tbox]').forEach(function(b){let k=tglMap[b.dataset.tbox];if(k)b.setAttribute('aria-label',k);});
+  let termBtn = document.getElementById('terminal-toggle-btn');
   if (termBtn) termBtn.setAttribute('aria-label', locale==='es'?'Alternar panel de estado':'Toggle status panel');
-  var emailLink = document.querySelector('[data-contact]');
+  let emailLink = document.querySelector('[data-contact]');
   if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', locale==='es'?'Copiar correo al portapapeles':'Copy email address to clipboard');
     localStorage.setItem('portfolio-lang', locale);
   if(typeof window.recalc==='function')window.recalc();
@@ -489,12 +490,12 @@ langButtons.forEach(function(btn) {
 applyLocale(currentLocale);
 
 // Auto-update copyright year
-(function() { var el = document.getElementById('cy'); if (el) el.textContent = new Date().getFullYear(); }());
+(function() { let el = document.getElementById('cy'); if (el) el.textContent = new Date().getFullYear(); }());
 
 // Restore obfuscated contact links from data attributes
 (function() {
   document.querySelectorAll('[data-contact]').forEach(function(el) {
-    var decoded = '';
+    let decoded = '';
     try { decoded = atob(el.dataset.contact || ''); } catch(e) { return; }
     if (decoded.startsWith('tel:')) {
       // Phone: native dialer is correct on mobile
@@ -504,10 +505,10 @@ applyLocale(currentLocale);
       el.setAttribute('href', '#');
       el.setAttribute('role', 'button');
       el.setAttribute('aria-label', (isSpanish())?'Copiar correo al portapapeles':'Copy email address to clipboard');
-      var email = decoded.replace(/^mailto:/, '');
+      let email = decoded.replace(/^mailto:/, '');
       el.addEventListener('click', function(e) {
         e.preventDefault();
-        var toast = document.getElementById('copy-toast');
+        let toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
             showToast((isSpanish()?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
@@ -524,9 +525,9 @@ applyLocale(currentLocale);
 }());
 // Contact form — Formspree AJAX handler
 (function() {
-  var form = document.getElementById('contact-form');
-  var btn  = document.getElementById('cf-submit');
-  var status = document.getElementById('cf-status');
+  let form = document.getElementById('contact-form');
+  let btn  = document.getElementById('cf-submit');
+  let status = document.getElementById('cf-status');
   if (!form || !btn || !status) return;
 
   form.addEventListener('submit', function(e) {
@@ -534,12 +535,12 @@ applyLocale(currentLocale);
     if (btn.disabled) return;
 
     // Client-side validation
-    var name    = form.querySelector('#cf-name').value.trim();
-    var email   = form.querySelector('#cf-email').value.trim();
-    var message = form.querySelector('#cf-message').value.trim();
-    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let name    = form.querySelector('#cf-name').value.trim();
+    let email   = form.querySelector('#cf-email').value.trim();
+    let message = form.querySelector('#cf-message').value.trim();
+    let emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    var msgs = (translations[currentLocale] || translations.en).formMessages || {};
+    let msgs = (translations[currentLocale] || translations.en).formMessages || {};
     if (!name || !email || !message) {
       status.textContent = msgs.requiredFields || 'Please fill in all fields.';
       status.className = 'cf-status error';
@@ -557,7 +558,7 @@ applyLocale(currentLocale);
     status.textContent = '';
     status.className = 'cf-status';
 
-    var data = new FormData(form);
+    let data = new FormData(form);
     fetch(form.action, {
       method: 'POST',
       body: data,
@@ -572,8 +573,8 @@ applyLocale(currentLocale);
         form.reset();
       } else {
         return res.json().then(function(data) {
-          var msgs2=(translations[currentLocale]||translations.en).formMessages||{};
-          var msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs2.submitFailed||'Submission failed.');
+          let msgs2=(translations[currentLocale]||translations.en).formMessages||{};
+          let msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs2.submitFailed||'Submission failed.');
           status.textContent = msg;
           status.className = 'cf-status error';
         });
@@ -591,19 +592,19 @@ applyLocale(currentLocale);
 // Scroll reveal — fade+slide cards and elements into view
 (function() {
   if (!window.IntersectionObserver || prefersReducedMotion) return;
-  var els = [];
+  let els = [];
   document.querySelectorAll('.card, .mini-card, .social-link').forEach(function(el) {
     if (!el.closest('.hero')) {
       el.classList.add('reveal');
       els.push(el);
     }
   });
-  var io = new IntersectionObserver(function(entries) {
+  let io = new IntersectionObserver(function(entries) {
     // Group by parent to stagger siblings
-    var groups = new Map();
+    let groups = new Map();
     entries.forEach(function(e) {
       if (!e.isIntersecting) return;
-      var p = e.target.parentElement || document.body;
+      let p = e.target.parentElement || document.body;
       if (!groups.has(p)) groups.set(p, []);
       groups.get(p).push(e.target);
     });
@@ -612,7 +613,7 @@ applyLocale(currentLocale);
         if (i > 0 && i <= 3) el.setAttribute('data-delay', i);
         el.classList.add('is-visible');
         // Also trigger section-tag scan animation
-        var tag = el.querySelector('.section-tag');
+        let tag = el.querySelector('.section-tag');
         if (tag) tag.classList.add('tag-animate');
         io.unobserve(el);
       });
@@ -625,22 +626,22 @@ applyLocale(currentLocale);
 (function() {
   if (!window.IntersectionObserver || prefersReducedMotion) return;
   document.querySelectorAll('.quick-stats strong').forEach(function(el) {
-    var raw = el.textContent.trim();
-    var num = parseInt(raw, 10);
+    let raw = el.textContent.trim();
+    let num = parseInt(raw, 10);
     if (isNaN(num)) return; // Skip "Top 1%" etc.
     el.textContent = '0';
-    var done = false;
-    var io = new IntersectionObserver(function(entries) {
+    let done = false;
+    let io = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (!e.isIntersecting || done) return;
         done = true;
         io.unobserve(e.target);
-        var start = null;
-        var duration = num > 100 ? 1400 : 900;
+        let start = null;
+        let duration = num > 100 ? 1400 : 900;
         function step(ts) {
           if (!start) start = ts;
-          var p = Math.min((ts - start) / duration, 1);
-          var v = Math.round((1 - Math.pow(1 - p, 3)) * num);
+          let p = Math.min((ts - start) / duration, 1);
+          let v = Math.round((1 - Math.pow(1 - p, 3)) * num);
           e.target.textContent = v;
           if (p < 1) requestAnimationFrame(step);
         }
@@ -664,22 +665,22 @@ function updateScrollProgress() {
 
 // Active nav highlight
 function initActiveNav() {
-  var navLinks = document.querySelectorAll('.topnav a');
-  var sections = Array.from(document.querySelectorAll('main section[id]'));
+  let navLinks = document.querySelectorAll('.topnav a');
+  let sections = Array.from(document.querySelectorAll('main section[id]'));
   if (!navLinks.length || !sections.length) return;
   function setActive(id) {
     navLinks.forEach(function(link) {
       link.classList.toggle('active', link.getAttribute('href') === '#' + id);
     });
   }
-  var visible = new Set();
-  var io = new IntersectionObserver(function(entries) {
+  let visible = new Set();
+  let io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) visible.add(entry.target.id);
       else visible.delete(entry.target.id);
     });
     // Highlight the topmost visible section that has a nav link
-    for (var i = 0; i < sections.length; i++) {
+    for (let i = 0; i < sections.length; i++) {
       if (visible.has(sections[i].id) &&
           document.querySelector('.topnav a[href="#' + sections[i].id + '"]')) {
         setActive(sections[i].id);
@@ -739,17 +740,17 @@ if ('serviceWorker' in navigator) {
 
 // ── HAMBURGER MENU ────────────────────────────
 (function() {
-  var topbar = document.getElementById('topbar');
-  var btn = topbar && topbar.querySelector('.nav-toggle');
+  let topbar = document.getElementById('topbar');
+  let btn = topbar && topbar.querySelector('.nav-toggle');
   if (!topbar || !btn) return;
-  var links = topbar.querySelectorAll('.topnav a');
+  let links = topbar.querySelectorAll('.topnav a');
 
   function close() {
     topbar.classList.remove('nav-open');
     btn.setAttribute('aria-expanded', 'false');
   }
   btn.addEventListener('click', function() {
-    var open = topbar.classList.toggle('nav-open');
+    let open = topbar.classList.toggle('nav-open');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   links.forEach(function(a) { a.addEventListener('click', close); });
@@ -763,8 +764,8 @@ if ('serviceWorker' in navigator) {
 
 // ── TERMINAL TOGGLE (mobile) ──────────────────
 (function() {
-  var terminal = document.querySelector('.hero-panel.terminal');
-  var btn = terminal && terminal.querySelector('.terminal-toggle');
+  let terminal = document.querySelector('.hero-panel.terminal');
+  let btn = terminal && terminal.querySelector('.terminal-toggle');
   if (!terminal || !btn) return;
 
   function setOpen(open) {
@@ -782,11 +783,11 @@ if ('serviceWorker' in navigator) {
 
 /* ── Konami Code + Matrix Rain Easter Egg ── */
 (function () {
-  var KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-  var idx = 0;
+  let KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let idx = 0;
 
   document.addEventListener('keydown', function(e) {
-    var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    let k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     if (k === KONAMI[idx]) {
       idx++;
       if (idx === KONAMI.length) { idx = 0; triggerMatrix(); }
@@ -797,7 +798,7 @@ if ('serviceWorker' in navigator) {
 
   function triggerMatrix() {
     // Overlay
-    var overlay = document.createElement('div');
+    let overlay = document.createElement('div');
     overlay.id = 'matrix-overlay';
     overlay.style.cssText = [
       'position:fixed','inset:0','z-index:9999',
@@ -807,12 +808,12 @@ if ('serviceWorker' in navigator) {
     ].join(';');
 
     // Canvas
-    var canvas = document.createElement('canvas');
+    let canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
     overlay.appendChild(canvas);
 
     // Access Granted message
-    var msg = document.createElement('div');
+    let msg = document.createElement('div');
     msg.style.cssText = [
       'position:relative','z-index:2','text-align:center',
       'font-family:"JetBrains Mono",monospace','color:#00ff41',
@@ -828,7 +829,7 @@ if ('serviceWorker' in navigator) {
 
     // Add glitch keyframes once
     if (!document.getElementById('matrix-style')) {
-      var st = document.createElement('style');
+      let st = document.createElement('style');
       st.id = 'matrix-style';
       st.textContent = '@keyframes glitch{0%{text-shadow:0 0 20px #00ff41,0 0 40px #00ff41;transform:translate(0)}50%{text-shadow:-2px 0 #ff0000,2px 0 #0000ff,0 0 30px #00ff41;transform:translate(-1px,1px)}100%{text-shadow:2px 0 #ff0000,-2px 0 #0000ff,0 0 20px #00ff41;transform:translate(1px,-1px)}}';
       document.head.appendChild(st);
@@ -838,7 +839,7 @@ if ('serviceWorker' in navigator) {
     document.body.style.overflow = 'hidden';
 
     // Matrix rain
-    var ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d');
     function resize() {
       canvas.width  = overlay.offsetWidth;
       canvas.height = overlay.offsetHeight;
@@ -846,18 +847,18 @@ if ('serviceWorker' in navigator) {
     resize();
     window.addEventListener('resize', resize);
 
-    var cols   = Math.floor(canvas.width / 16);
-    var drops  = Array.from({length: cols}, function() { return Math.random() * -50 | 0; });
-    var CHARS  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>/\\|[]{}アイウエオカキクケコサシスセソタチツテトナニヌネノ';
+    let cols   = Math.floor(canvas.width / 16);
+    let drops  = Array.from({length: cols}, function() { return Math.random() * -50 | 0; });
+    let CHARS  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>/\\|[]{}アイウエオカキクケコサシスセソタチツテトナニヌネノ';
 
-    var raf;
+    let raf;
     function draw() {
       ctx.fillStyle = 'rgba(0,0,0,0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = '14px "JetBrains Mono", monospace';
-      for (var i = 0; i < drops.length; i++) {
-        var ch = CHARS[Math.random() * CHARS.length | 0];
-        var bright = Math.random() > 0.95;
+      for (let i = 0; i < drops.length; i++) {
+        let ch = CHARS[Math.random() * CHARS.length | 0];
+        let bright = Math.random() > 0.95;
         ctx.fillStyle = bright ? '#ffffff' : '#00ff41';
         ctx.fillText(ch, i * 16, drops[i] * 16);
         if (drops[i] * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
@@ -889,10 +890,10 @@ if ('serviceWorker' in navigator) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if ('ontouchstart' in window) return;
 
-  var STRENGTH = 7;
+  let STRENGTH = 7;
 
   function initTilt(card) {
-    var glare = document.createElement('div');
+    let glare = document.createElement('div');
     glare.style.cssText = 'position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity 200ms ease;z-index:1';
     card.appendChild(glare);
 
@@ -901,14 +902,14 @@ if ('serviceWorker' in navigator) {
     card.style.willChange = 'transform';
 
     function onMove(e) {
-      var rect = card.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width  - 0.5;
-      var y = (e.clientY - rect.top)  / rect.height - 0.5;
-      var rotY =  x * STRENGTH * 2;
-      var rotX = -y * STRENGTH * 2;
+      let rect = card.getBoundingClientRect();
+      let x = (e.clientX - rect.left) / rect.width  - 0.5;
+      let y = (e.clientY - rect.top)  / rect.height - 0.5;
+      let rotY =  x * STRENGTH * 2;
+      let rotX = -y * STRENGTH * 2;
       card.style.transform = 'perspective(900px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) scale3d(1.012,1.012,1.012)';
-      var gx = Math.round((x + 0.5) * 100);
-      var gy = Math.round((y + 0.5) * 100);
+      let gx = Math.round((x + 0.5) * 100);
+      let gy = Math.round((y + 0.5) * 100);
       glare.style.background = 'radial-gradient(circle at '+gx+'% '+gy+'%, rgba(255,255,255,0.035), transparent 65%)';
       glare.style.opacity = '1';
     }
@@ -942,12 +943,12 @@ if ('serviceWorker' in navigator) {
 /* ── Custom Crosshair Cursor ── */
 (function() {
   if (!window.matchMedia('(pointer: fine)').matches) return;
-  var dot  = document.querySelector('.cursor-dot');
-  var ring = document.querySelector('.cursor-ring');
+  let dot  = document.querySelector('.cursor-dot');
+  let ring = document.querySelector('.cursor-ring');
   if (!dot || !ring) return;
 
-  var mx = -200, my = -200, rx = -200, ry = -200;
-  var rafId = null;
+  let mx = -200, my = -200, rx = -200, ry = -200;
+  let rafId = null;
 
   function animateRing() {
     rx += (mx - rx) * 0.14;
@@ -984,7 +985,7 @@ if ('serviceWorker' in navigator) {
     }
   });
 
-  var hoverTargets = 'a,button,[role="button"],input,textarea,select,label,.mini-card,.social-link,.lang-button';
+  let hoverTargets = 'a,button,[role="button"],input,textarea,select,label,.mini-card,.social-link,.lang-button';
   document.addEventListener('mouseover', function(e) {
     if (e.target.closest(hoverTargets)) document.body.classList.add('cursor-hovering');
   });
@@ -1001,40 +1002,40 @@ if ('serviceWorker' in navigator) {
 (function () {
   'use strict';
 
-  var PRICES = {
+  let PRICES = {
     pentest_web: { name:'Web App Pentest',nameEs:'Pentest de Aplicación Web',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
     pentest_ad:     { name:'Active Directory',nameEs:'Directorio Activo',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
     ai_llm:          { name:'AI / LLM Security',nameEs:'Seguridad AI / LLM',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
     pentest_ai:      { name:'Network Pentest',nameEs:'Pentest de Redes', base:[3500,8000],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} }
   };
-  var ADDONS_EN = {};
-  var ADDONS_ES = {};
-  var SCOPE_LABELS_EN = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
-  var SCOPE_LABELS_ES = { small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' };
-  var CPLX_LABELS_EN  = { low:'Standard', medium:'Custom', high:'Enterprise' };
-  var CPLX_LABELS_ES  = { low:'Estándar', medium:'Personalizado', high:'Empresarial' };
-  var TBOX_LABELS_EN  = { black:'Black-box', grey:'Grey-box', white:'White-box' };
-  var TBOX_LABELS_ES  = { black:'Caja negra', grey:'Caja gris', white:'Caja blanca' };
-  var SCOPE_SETS = {
+  let ADDONS_EN = {};
+  let ADDONS_ES = {};
+  let SCOPE_LABELS_EN = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
+  let SCOPE_LABELS_ES = { small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' };
+  let CPLX_LABELS_EN  = { low:'Standard', medium:'Custom', high:'Enterprise' };
+  let CPLX_LABELS_ES  = { low:'Estándar', medium:'Personalizado', high:'Empresarial' };
+  let TBOX_LABELS_EN  = { black:'Black-box', grey:'Grey-box', white:'White-box' };
+  let TBOX_LABELS_ES  = { black:'Caja negra', grey:'Caja gris', white:'Caja blanca' };
+  let SCOPE_SETS = {
     pentest_web:      { small:'1–5 pages/endpoints', medium:'6–15 pages/endpoints', large:'15+ pages/endpoints' },
     pentest_ad:       { small:'1–3 hosts',           medium:'4–10 hosts',           large:'10+ hosts'           },
     ai_llm:          { small:'1–3 AI integrations', medium:'4–8 AI integrations', large:'Full AI system'       },
     pentest_ai:       { small:'1–10 IPs/hosts',    medium:'11–50 IPs/hosts',       large:'50+ IPs/hosts'         }
   };
-  var SCOPE_SETS_ES = {
+  let SCOPE_SETS_ES = {
     pentest_web:     { small:'1–5 páginas/endpoints', medium:'6–15 páginas/endpoints', large:'15+ páginas/endpoints' },
     pentest_ad:      { small:'1–3 hosts', medium:'4–10 hosts', large:'10+ hosts' },
     ai_llm:          { small:'1–3 integ. IA',    medium:'4–8 integ. IA',    large:'Sistema IA completo' },
     pentest_ai:      { small:'1–10 IPs/hosts',    medium:'11–50 IPs/hosts',       large:'50+ IPs/hosts'         }
   };
 
-  var DURATIONS = {
+  let DURATIONS = {
     pentest_web:     { small:'3–5 days',  medium:'1–2 weeks', large:'2–3 weeks' },
     pentest_ad:      { small:'1 week',         medium:'1–2 weeks', large:'2–3 weeks' },
     ai_llm:          { small:'3–5 days',  medium:'1 week',         large:'2 weeks'        },
     pentest_ai:      { small:'3–5 days',  medium:'1–2 weeks', large:'2–3 weeks' }
   };
-  var DURATIONS_ES = {
+  let DURATIONS_ES = {
     pentest_web:     { small:'3–5 días',  medium:'1–2 semanas', large:'2–3 semanas' },
     pentest_ad:      { small:'1 semana',              medium:'1–2 semanas', large:'2–3 semanas' },
     ai_llm:          { small:'3–5 días',  medium:'1 semana',           large:'2 semanas'     },
@@ -1044,39 +1045,39 @@ if ('serviceWorker' in navigator) {
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
-    var ADDONS = (isSpanish())?ADDONS_ES:ADDONS_EN;
-    var SCOPE_LABELS = (isSpanish()) ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
-    var CPLX_LABELS  = (isSpanish()) ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
-    var TBOX_LABELS  = (isSpanish()) ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
-    var svcBtn   = document.querySelector('.qc-svc-card.active');
-    var scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
-    var cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
-    var tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
+    let ADDONS = (isSpanish())?ADDONS_ES:ADDONS_EN;
+    let SCOPE_LABELS = (isSpanish()) ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
+    let CPLX_LABELS  = (isSpanish()) ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
+    let TBOX_LABELS  = (isSpanish()) ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
+    let svcBtn   = document.querySelector('.qc-svc-card.active');
+    let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
+    let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
+    let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
     if (!svcBtn || !scopeBtn || !cplxBtn) return;
 
-    var svc = svcBtn.dataset.svc, scope = scopeBtn.dataset.scope, cplx = cplxBtn.dataset.cplx, tbox = tboxBtn ? tboxBtn.dataset.tbox : 'black';
-    var p = PRICES[svc]; if (!p) return;
-    var mn = p.base[0] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
-    var mx = p.base[1] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
+    let svc = svcBtn.dataset.svc, scope = scopeBtn.dataset.scope, cplx = cplxBtn.dataset.cplx, tbox = tboxBtn ? tboxBtn.dataset.tbox : 'black';
+    let p = PRICES[svc]; if (!p) return;
+    let mn = p.base[0] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
+    let mx = p.base[1] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
 
-    var addonMult = 1, addonTags = [];
+    let addonMult = 1, addonTags = [];
     document.querySelectorAll('.qc-chip.active').forEach(function(btn) {
-      var a = ADDONS[btn.dataset.addon]; if (a) { addonMult += a.pct; addonTags.push(a.label); }
+      let a = ADDONS[btn.dataset.addon]; if (a) { addonMult += a.pct; addonTags.push(a.label); }
     });
     mn *= addonMult; mx *= addonMult;
 
-    var el = function(id) { return document.getElementById(id); };
+    let el = function(id) { return document.getElementById(id); };
     if (el('q-min')) el('q-min').textContent = fmt(mn);
     if (el('q-max')) el('q-max').textContent = fmt(mx);
     if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit||'');
     if (el('qc-bar')) {
-      var svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
+      let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
       el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
     }
-    var ss = (isSpanish()?SCOPE_SETS_ES:SCOPE_SETS)[svc];
+    let ss = (isSpanish()?SCOPE_SETS_ES:SCOPE_SETS)[svc];
     if (ss) {
       (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach(function(btn) {
-        var s = btn.dataset.scope, small2 = btn.querySelector('small');
+        let s = btn.dataset.scope, small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
@@ -1084,10 +1085,10 @@ if ('serviceWorker' in navigator) {
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
-    var durMap = (isSpanish()?DURATIONS_ES:DURATIONS)[svc];
+    let durMap = (isSpanish()?DURATIONS_ES:DURATIONS)[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
     if (el('qr-duration-key')) el('qr-duration-key').textContent = (isSpanish()) ? 'Duración' : 'Duration';
-    var row = el('qr-addons-row'), tags = el('qr-addons-tags');
+    let row = el('qr-addons-row'), tags = el('qr-addons-tags');
     if (row && tags) {
       if (addonTags.length) {
         tags.innerHTML = addonTags.map(function(t){return '<span class="qc-addon-tag">'+t+'</span>';}).join('');
@@ -1110,7 +1111,7 @@ if ('serviceWorker' in navigator) {
   }
 
   // Cached NodeLists for static QC toggle buttons (assigned once on ready)
-  var _qcSvcCards, _qcScopeToggles, _qcCplxToggles, _qcTboxToggles;
+  let _qcSvcCards, _qcScopeToggles, _qcCplxToggles, _qcTboxToggles;
 
   ready(function() {
     _qcSvcCards     = document.querySelectorAll('.qc-svc-card');
@@ -1135,11 +1136,11 @@ if ('serviceWorker' in navigator) {
     recalc();
 
     // Testing type help button toggle
-    var helpBtn = document.getElementById('qc-tbox-help-btn');
-    var helpPanel = document.getElementById('qc-tbox-info');
+    let helpBtn = document.getElementById('qc-tbox-help-btn');
+    let helpPanel = document.getElementById('qc-tbox-info');
     if (helpBtn && helpPanel) {
       helpBtn.addEventListener('click', function() {
-        var isOpen = helpPanel.classList.toggle('open');
+        let isOpen = helpPanel.classList.toggle('open');
         helpBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
       // Close panel when user selects a testing type
@@ -1154,40 +1155,43 @@ if ('serviceWorker' in navigator) {
     // service-cta cards on the services section pre-select calc
     document.querySelectorAll('.service-cta[data-select]').forEach(function(link) {
       link.addEventListener('click', function() {
-        var svc = link.dataset.select;
-        var card = document.querySelector('.qc-svc-card[data-svc="'+svc+'"]');
+        let svc = link.dataset.select;
+        let card = document.querySelector('.qc-svc-card[data-svc="'+svc+'"]');
         if (card) { activate('.qc-svc-card', card); }
       });
     });
 
     // CTA button opens WhatsApp with the selected service pre-filled
-    var mainCta = document.getElementById('qc-main-cta');
+    let mainCta = document.getElementById('qc-main-cta');
     if (mainCta) {
       mainCta.addEventListener('click', function(e) {
         e.preventDefault();
-        var svcBtn = document.querySelector('.qc-svc-card.active');
-        var scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
-        var cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
-        var tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
-        var minEl = document.getElementById('q-min');
-        var maxEl = document.getElementById('q-max');
-        var waNum = atob('NTczMTM2NDU5Mjk5');
-        var svcName = '';
+        let svcBtn = document.querySelector('.qc-svc-card.active');
+        let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
+        let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
+        let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
+        let minEl = document.getElementById('q-min');
+        let maxEl = document.getElementById('q-max');
+        let waNum = atob('NTczMTM2NDU5Mjk5');
+        let svcName = '';
         if (svcBtn && minEl && maxEl) {
           svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
         }
-        var waMsg;
+        let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
+        let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
+        let tboxStrong  = tboxBtn  && tboxBtn.querySelector('strong');
+        let waMsg;
         if (isSpanish()) {
-          var scopeSummaryEs = scopeBtn ? (scopeBtn.querySelector('strong') ? scopeBtn.querySelector('strong').textContent : scope) : '';
-          var cplxSummaryEs  = cplxBtn  ? (cplxBtn.querySelector('strong')  ? cplxBtn.querySelector('strong').textContent  : cplx)  : '';
-          var tboxSummaryEs  = tboxBtn  ? (tboxBtn.querySelector('strong')  ? tboxBtn.querySelector('strong').textContent  : tbox)  : '';
+          let scopeSummaryEs = scopeStrong ? scopeStrong.textContent : scope;
+          let cplxSummaryEs  = cplxStrong  ? cplxStrong.textContent  : cplx;
+          let tboxSummaryEs  = tboxStrong  ? tboxStrong.textContent  : tbox;
           waMsg = svcName
             ? 'Hola Daniel, me interesa el servicio de ' + svcName + ' — alcance ' + scopeSummaryEs + ', complejidad ' + cplxSummaryEs + ', tipo ' + tboxSummaryEs + ' (' + minEl.textContent + ' – ' + maxEl.textContent + ' USD). ¿Podemos coordinar una llamada de alcance?'
             : 'Hola Daniel, me interesa coordinar una llamada de alcance para un pentest.';
         } else {
-          var scopeSummaryEn = scopeBtn ? (scopeBtn.querySelector('strong') ? scopeBtn.querySelector('strong').textContent : scope) : '';
-          var cplxSummaryEn  = cplxBtn  ? (cplxBtn.querySelector('strong')  ? cplxBtn.querySelector('strong').textContent  : cplx)  : '';
-          var tboxSummaryEn  = tboxBtn  ? (tboxBtn.querySelector('strong')  ? tboxBtn.querySelector('strong').textContent  : tbox)  : '';
+          let scopeSummaryEn = scopeStrong ? scopeStrong.textContent : scope;
+          let cplxSummaryEn  = cplxStrong  ? cplxStrong.textContent  : cplx;
+          let tboxSummaryEn  = tboxStrong  ? tboxStrong.textContent  : tbox;
           waMsg = svcName
             ? 'Hi Daniel, I\'m interested in ' + svcName + ' — ' + scopeSummaryEn + ' scope, ' + cplxSummaryEn + ' complexity, ' + tboxSummaryEn + '-box (' + minEl.textContent + ' – ' + maxEl.textContent + ' USD). Can we schedule a scoping call?'
             : 'Hi Daniel, I\'d like to schedule a free scoping call.';
@@ -1213,7 +1217,7 @@ if ('serviceWorker' in navigator) {
 
 
     // HTB transcript download
-    var htbBtn = document.getElementById('hero-htb-btn');
+    let htbBtn = document.getElementById('hero-htb-btn');
     if (htbBtn) htbBtn.addEventListener('click', function() {
       gtagEvent('file_download', { file_name: 'htb-academy-student-transcript.pdf', link_text: 'Verified by HTB Academy' });
     });
@@ -1226,15 +1230,15 @@ if ('serviceWorker' in navigator) {
     });
 
     // WhatsApp float button
-    var waFloat = document.querySelector('.wa-float');
+    let waFloat = document.querySelector('.wa-float');
     if (waFloat) waFloat.addEventListener('click', function() {
       gtagEvent('contact', { method: 'whatsapp', link_id: 'wa-float' });
     });
 
     // Calculator CTA → WhatsApp
-    var calcCta = document.getElementById('qc-main-cta');
+    let calcCta = document.getElementById('qc-main-cta');
     if (calcCta) calcCta.addEventListener('click', function() {
-      var svcBtn = document.querySelector('.qc-svc-card.active');
+      let svcBtn = document.querySelector('.qc-svc-card.active');
       gtagEvent('generate_lead', {
         method: 'whatsapp_calculator',
         service: svcBtn ? svcBtn.dataset.svc : 'unknown'
@@ -1242,13 +1246,13 @@ if ('serviceWorker' in navigator) {
     });
 
     // Hero scoping call CTA
-    var heroCta = document.querySelector('.hero-actions .button.primary');
+    let heroCta = document.querySelector('.hero-actions .button.primary');
     if (heroCta) heroCta.addEventListener('click', function() {
       gtagEvent('generate_lead', { method: 'hero_cta' });
     });
 
     // Contact form submit
-    var contactForm = document.querySelector('form[action*="formspree"]');
+    let contactForm = document.querySelector('form[action*="formspree"]');
     if (contactForm) contactForm.addEventListener('submit', function() {
       gtagEvent('form_submit', { form_id: 'contact', method: 'formspree' });
     });
@@ -1261,7 +1265,7 @@ if ('serviceWorker' in navigator) {
     });
 
     // See pricing CTA
-    var pricingCta = document.getElementById('see-pricing-cta');
+    let pricingCta = document.getElementById('see-pricing-cta');
     if (pricingCta) pricingCta.addEventListener('click', function() {
       gtagEvent('select_content', { content_type: 'section', item_id: 'pricing' });
     });
@@ -1277,8 +1281,8 @@ if ('serviceWorker' in navigator) {
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (btn.getAttribute('aria-expanded') === 'false') {
-          var textEl = btn.querySelector('span:not(.faq-num)');
-          var qText = textEl ? textEl.textContent.trim() : btn.id;
+          let textEl = btn.querySelector('span:not(.faq-num)');
+          let qText = textEl ? textEl.textContent.trim() : btn.id;
           gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
         }
       });
@@ -1290,7 +1294,7 @@ if ('serviceWorker' in navigator) {
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
 (function() {
   // Translations for FAQ section
-  var faqTranslations = {
+  let faqTranslations = {
     en: {
       tag: '[ FAQ ]',
       heading: 'Frequently asked questions',
@@ -1349,38 +1353,38 @@ if ('serviceWorker' in navigator) {
   };
 
   function applyFaqLocale(locale) {
-    var t = faqTranslations[locale] || faqTranslations.en;
-    var tag = document.getElementById('faq-tag');
-    var heading = document.getElementById('faq-heading');
-    var copy = document.getElementById('faq-copy');
-    var navLink = document.querySelector('.topnav a[href="#faq"]');
+    let t = faqTranslations[locale] || faqTranslations.en;
+    let tag = document.getElementById('faq-tag');
+    let heading = document.getElementById('faq-heading');
+    let copy = document.getElementById('faq-copy');
+    let navLink = document.querySelector('.topnav a[href="#faq"]');
     if (tag) tag.textContent = t.tag;
     if (heading) heading.textContent = t.heading;
     if (copy) copy.textContent = t.copy;
     if (navLink) navLink.textContent = t.nav;
     // Question and answer text
     t.items.forEach(function(item, i) {
-      var n = i + 1;
-      var qEl = document.getElementById('faq-q' + n + '-text');
-      var aEl = document.getElementById('faq-a' + n + '-text');
+      let n = i + 1;
+      let qEl = document.getElementById('faq-q' + n + '-text');
+      let aEl = document.getElementById('faq-a' + n + '-text');
       if (qEl) qEl.textContent = item.q;
       if (aEl) aEl.textContent = item.a;
     });
   }
 
   function initFaqAccordion() {
-    var faqBtns = document.querySelectorAll('.faq-q');
+    let faqBtns = document.querySelectorAll('.faq-q');
     faqBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
-        var expanded = btn.getAttribute('aria-expanded') === 'true';
-        var answerId = btn.getAttribute('aria-controls');
-        var wrap = document.getElementById(answerId);
+        let expanded = btn.getAttribute('aria-expanded') === 'true';
+        let answerId = btn.getAttribute('aria-controls');
+        let wrap = document.getElementById(answerId);
 
         // Close all others
         faqBtns.forEach(function(other) {
           if (other !== btn) {
             other.setAttribute('aria-expanded', 'false');
-            var otherWrap = document.getElementById(other.getAttribute('aria-controls'));
+            let otherWrap = document.getElementById(other.getAttribute('aria-controls'));
             if (otherWrap) otherWrap.classList.remove('faq-open');
           }
         });
@@ -1401,7 +1405,7 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('DOMContentLoaded', function() {
     initFaqAccordion();
     // Hook into language switcher
-    var locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
+    let locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
     applyFaqLocale(locale);
   });
 
