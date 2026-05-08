@@ -456,6 +456,7 @@ langButtons.forEach(function(btn) {
   btn.addEventListener('click', function() {
     currentLocale = btn.dataset.langToggle || 'en';
     applyLocale(currentLocale);
+    window.dispatchEvent(new CustomEvent('localechange', { detail: { locale: currentLocale } }));
   });
 });
 
@@ -1044,7 +1045,7 @@ if ('serviceWorker' in navigator) {
     }
     var ss = (typeof currentLocale!=='undefined'&&currentLocale==='es'?SCOPE_SETS_ES:SCOPE_SETS)[svc];
     if (ss) {
-      document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(btn) {
+      (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach(function(btn) {
         var s = btn.dataset.scope, small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
@@ -1078,17 +1079,24 @@ if ('serviceWorker' in navigator) {
     else { document.addEventListener('DOMContentLoaded', fn); }
   }
 
+  // Cached NodeLists for static QC toggle buttons (assigned once on ready)
+  var _qcSvcCards, _qcScopeToggles, _qcCplxToggles, _qcTboxToggles;
+
   ready(function() {
-    document.querySelectorAll('.qc-svc-card').forEach(function(btn) {
+    _qcSvcCards     = document.querySelectorAll('.qc-svc-card');
+    _qcScopeToggles = document.querySelectorAll('.qc-toggle[data-scope]');
+    _qcCplxToggles  = document.querySelectorAll('.qc-toggle[data-cplx]');
+    _qcTboxToggles  = document.querySelectorAll('.qc-toggle[data-tbox]');
+    _qcSvcCards.forEach(function(btn) {
       btn.addEventListener('click', function() { activate('.qc-svc-card', btn); });
     });
-    document.querySelectorAll('.qc-toggle[data-scope]').forEach(function(btn) {
+    _qcScopeToggles.forEach(function(btn) {
       btn.addEventListener('click', function() { activate('.qc-toggle[data-scope]', btn); });
     });
-    document.querySelectorAll('.qc-toggle[data-cplx]').forEach(function(btn) {
+    _qcCplxToggles.forEach(function(btn) {
       btn.addEventListener('click', function() { activate('.qc-toggle[data-cplx]', btn); });
     });
-    document.querySelectorAll('.qc-toggle[data-tbox]').forEach(function(btn) {
+    _qcTboxToggles.forEach(function(btn) {
       btn.addEventListener('click', function() { activate('.qc-toggle[data-tbox]', btn); });
     });
     document.querySelectorAll('.qc-chip').forEach(function(btn) {
@@ -1331,14 +1339,15 @@ if ('serviceWorker' in navigator) {
   }
 
   function initFaqAccordion() {
-    document.querySelectorAll('.faq-q').forEach(function(btn) {
+    var faqBtns = document.querySelectorAll('.faq-q');
+    faqBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var expanded = btn.getAttribute('aria-expanded') === 'true';
         var answerId = btn.getAttribute('aria-controls');
         var wrap = document.getElementById(answerId);
 
         // Close all others
-        document.querySelectorAll('.faq-q').forEach(function(other) {
+        faqBtns.forEach(function(other) {
           if (other !== btn) {
             other.setAttribute('aria-expanded', 'false');
             var otherWrap = document.getElementById(other.getAttribute('aria-controls'));
@@ -1366,13 +1375,8 @@ if ('serviceWorker' in navigator) {
     applyFaqLocale(locale);
   });
 
-  // Re-apply when language changes (poll for currentLocale changes)
-  var lastLocale = null;
-  setInterval(function() {
-    var locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
-    if (locale !== lastLocale) {
-      lastLocale = locale;
-      applyFaqLocale(locale);
-    }
-  }, 300);
+  // Re-apply when language changes
+  window.addEventListener('localechange', function(e) {
+    applyFaqLocale(e.detail.locale);
+  });
 })();

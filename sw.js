@@ -1,4 +1,4 @@
-var CACHE = 'danieloa-v87';
+var CACHE = 'danieloa-v88';
 var ASSETS = [
   '/',
   '/style.css?v=20260508',
