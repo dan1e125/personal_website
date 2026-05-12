@@ -15,6 +15,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qr-scope-key':'Scope',
     '#qr-cplx-key':'Complexity',
     '#qr-tbox-key':'Testing',
+    '#qr-duration-key':'Duration',
     '#qr-addons-key':'Add-ons',
     '#qc-disclaimer':'Automated estimate only — not a binding quote.<br>A signed authorization agreement is required before any engagement begins.',
     // ── Service deliverables ──
@@ -106,7 +107,6 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#cert-cjca-title':'Junior Cybersecurity Analyst',
     '#cert-transcript-link':'View HTB Transcript →',
     // ── About ──
-    '#about-tag':'[ ABOUT ]',
     '#about-p1':'I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know exactly where developers leave gaps.',
     '#about-p2':'My training covers the full offensive attack surface: web exploitation, Active Directory attacks, network pivoting, privilege escalation and post-exploitation techniques. I don\'t just find vulnerabilities — I explain why they exist, what a real attacker would do with them, and how to fix them correctly.',
     '#about-p3':'I work remotely with startups and SMBs across Latin America, the US and Europe. Fixed-price engagements, bilingual delivery, and a free re-test to confirm your fixes actually hold.',
@@ -281,28 +281,6 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#sg-scope-lbl':'Cobertura',
     '#sg-scope-val':'WEB / AD / RED / IA','#sg-avail-lbl':'Disponibilidad','#sg-avail-val':'ABIERTO','#sg-lang-lbl':'Idiomas','#sg-lang-val':'ES / EN',
 
-    // ── Experience ──
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    // ── Skills ──
-
-
-
-
 
 
 
@@ -318,7 +296,6 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     
 
     // ── About ──
-    '#about-tag':'[ SOBRE MÍ ]',
 
     // ── Certifications ──
     '#certifications-tag':'[ CERTIFICACIONES ]',
@@ -354,6 +331,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qr-scope-key':'Alcance',
     '#qr-cplx-key':'Complejidad',
     '#qr-tbox-key':'Modalidad',
+    '#qr-duration-key':'Duración',
     '#qr-addons-key':'Complementos',
     '#qc-disclaimer':'Estimación automatizada — no es una cotización vinculante.<br>Se requiere un acuerdo de autorización firmado antes de iniciar cualquier compromiso.',
     // ── Entregables del servicio ──
@@ -451,6 +429,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
       ai_llm:{ small:'1–3 integ. IA', medium:'4–8 integ. IA', large:'Sistema IA completo' },
       pentest_ai:{ small:'1–10 IPs/hosts', medium:'11–50 IPs/hosts', large:'50+ IPs/hosts' }
     },
+    svcNames:{ pentest_web:'Pentest de Aplicación Web', pentest_ad:'Directorio Activo', ai_llm:'Seguridad AI / LLM', pentest_ai:'Pentest de Redes' },
     durations:{
       pentest_web:{ small:'3–5 días', medium:'1–2 semanas', large:'2–3 semanas' },
       pentest_ad:{ small:'1 semana', medium:'1–2 semanas', large:'2–3 semanas' },

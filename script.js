@@ -681,17 +681,17 @@ function initQuoteCalculator() {
   'use strict';
 
   const PRICES = {
-    pentest_web: { name:'Web App Pentest',nameEs:'Pentest de Aplicación Web',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    pentest_ad:     { name:'Active Directory',nameEs:'Directorio Activo',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    ai_llm:          { name:'AI / LLM Security',nameEs:'Seguridad AI / LLM',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
-    pentest_ai:      { name:'Network Pentest',nameEs:'Pentest de Redes', base:[3500,8000],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} }
+    pentest_web: { name:'Web App Pentest',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
+    pentest_ad:     { name:'Active Directory',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
+    ai_llm:          { name:'AI / LLM Security',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
+    pentest_ai:      { name:'Network Pentest', base:[3500,8000],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} }
   };
-  const _lbl = getTrans(isSpanish() ? 'es' : 'en').labels;
-
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function el(id) { return document.getElementById(id); }
 
   function recalc() {
     const isSp = isSpanish(); // cached — avoids 7 separate calls
+    const _lbl = getTrans(isSp ? 'es' : 'en').labels; // re-read each call — stays in sync with locale
     let ADDONS = {};
     let SCOPE_LABELS = _lbl.scope;
     let CPLX_LABELS  = _lbl.cplx;
@@ -713,7 +713,6 @@ function initQuoteCalculator() {
     });
     mn *= addonMult; mx *= addonMult;
 
-    let el = function(id) { return document.getElementById(id); };
     if (el('q-min')) el('q-min').textContent = fmt(mn);
     if (el('q-max')) el('q-max').textContent = fmt(mx);
     if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit||'');
@@ -728,13 +727,12 @@ function initQuoteCalculator() {
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
-    if (el('qr-svc-name')) el('qr-svc-name').textContent = (isSp&&p.nameEs)?p.nameEs:p.name;
+    if (el('qr-svc-name')) el('qr-svc-name').textContent = isSp ? (_lbl.svcNames?.[svc] ?? p.name) : p.name;
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
     let durMap = _lbl.durations[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
-    if (el('qr-duration-key')) el('qr-duration-key').textContent = isSp ? 'Duración' : 'Duration';
     let row = el('qr-addons-row'), tags = el('qr-addons-tags');
     if (row && tags) {
       if (addonTags.length) {
@@ -770,6 +768,7 @@ function initQuoteCalculator() {
     if (_qcContainer) {
       _qcContainer.addEventListener('click', function(e) {
         const btn = e.target.closest('.qc-svc-card, .qc-toggle[data-scope], .qc-toggle[data-cplx], .qc-toggle[data-tbox]');
+        if (!btn) return;
         if (btn.classList.contains('qc-svc-card'))          activate('.qc-svc-card', btn);
         else if (btn.dataset.scope !== undefined)            activate('.qc-toggle[data-scope]', btn);
         else if (btn.dataset.cplx  !== undefined)            activate('.qc-toggle[data-cplx]', btn);
@@ -821,7 +820,7 @@ function initQuoteCalculator() {
         const waNum = WA_NUMBER;
         let svcName = '';
         if (svcBtn && minEl && maxEl) {
-          svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
+          svcName = (() => { let p=PRICES[svcBtn.dataset.svc]||{}; return isSpanish() ? (getTrans('es').labels.svcNames?.[svcBtn.dataset.svc] ?? p.name) : p.name; })() || svcBtn.dataset.svc;
         }
         let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
         let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
@@ -857,12 +856,6 @@ function initGATracking() {
   }
 
   // DOM ready guaranteed by defer attribute
-
-
-  // Initial scroll state
-  updateScrollProgress();
-  initActiveNav();
-
 
   // HTB transcript download
   let htbBtn = document.getElementById('hero-htb-btn');
@@ -908,7 +901,7 @@ function initGATracking() {
   // Language switch
   document.querySelectorAll('.lang-button').forEach((btn) => {
     btn.addEventListener('click', function() {
-      gtagEvent('language_switch', { language: btn.dataset.lang || btn.textContent.trim() });
+      gtagEvent('language_switch', { language: btn.dataset.langToggle || btn.textContent.trim() });
     });
   });
 
@@ -938,14 +931,14 @@ function initGATracking() {
 
   }
 initGATracking();
-
+updateScrollProgress();
+initActiveNav();
 
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
 function initFAQAccordion() {
   // Translations for FAQ section
 
   function applyFaqLocale(locale) {
-    // faqTranslations moved to translations.js
     let t = getTrans(locale).faq;
     let tag = document.getElementById('faq-tag');
     let heading = document.getElementById('faq-heading');
@@ -955,13 +948,12 @@ function initFAQAccordion() {
     if (heading) heading.textContent = t.heading;
     if (copy) copy.textContent = t.copy;
     if (navLink) navLink.textContent = t.nav;
-    // Question and answer text
-    t.items.forEach((item, i) => {
-      let n = i + 1;
-      let qEl = document.getElementById('faq-q' + n + '-text');
-      let aEl = document.getElementById('faq-a' + n + '-text');
-      if (qEl) qEl.textContent = item.q;
-      if (aEl) aEl.textContent = item.a;
+    // Use DOM order — avoids ID/index mismatch from non-sequential HTML IDs
+    let qEls = document.querySelectorAll('.faq-q span[id^="faq-q"]');
+    let aEls = document.querySelectorAll('.faq-a-wrap p[id^="faq-a"]');
+    t.items.forEach(function(item, i) {
+      if (qEls[i]) qEls[i].textContent = item.q;
+      if (aEls[i]) aEls[i].textContent = item.a;
     });
   }
 

@@ -1298,3 +1298,5 @@ html{scroll-behavior:auto}
 @media (pointer: fine) {
 body,body *{cursor:none}
 }
+
+.label-optional { text-transform: none; letter-spacing: 0; font-size: .68rem; color: var(--muted); }
