@@ -21,6 +21,10 @@ function isSpanish() {
   return typeof currentLocale !== 'undefined' && currentLocale === 'es';
 }
 
+function getTrans(locale) {
+  return translations[locale] || translations.en;
+}
+
 // ── Timing constants ──
 const TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
 const TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
@@ -28,7 +32,7 @@ const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
 const TERMINAL_ROTATE_MS = 3000;
 const COUNTER_LONG_MS  = 1400; // counter animation for numbers > 100
 const COUNTER_SHORT_MS = 900;  // counter animation for numbers ≤ 100
-const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth  // terminal line rotation interval
+const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth
 
 // translations object → translations.js (loaded before this file)
 
@@ -49,7 +53,7 @@ let terminalTimer = null;
 function startTerminal(locale) {
   const stream = document.querySelector('.terminal-stream');
   if (!stream) return;
-  const lines = translations[locale] && translations[locale].terminalLines;
+  const lines = getTrans(locale).terminalLines;
   if (!lines) return;
   if (terminalTimer) { clearInterval(terminalTimer); terminalTimer = null; }
   let index = 0;
@@ -68,7 +72,7 @@ function startTerminal(locale) {
 
 // Locale
 function applyLocale(locale) {
-  const copy = translations[locale] || translations.en;
+  const copy = getTrans(locale);
   Object.entries(copy.selectors).forEach((entry) => {
     document.querySelectorAll(entry[0]).forEach((node) => {
       if (node.dataset.html) node.innerHTML = entry[1]; else node.textContent = entry[1];
@@ -95,47 +99,22 @@ function applyLocale(locale) {
   const waFloat = waFloatEl; // cached at init
   if (waFloat) {
     const waNum = WA_NUMBER;
-    let waMsg = locale === 'es'
-      ? 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.'
-      : 'Hi Daniel, I\'m interested in learning more about your pentesting services.';
+    let waMsg = getTrans(locale).waMsg;
     waFloat.href = 'https://wa.me/' + waNum + '?text=' + encodeURIComponent(waMsg);
   }
 
   // ── Dynamic aria-label updates ──
-  let svcAriaEN = {
-    pentest_web:'Select Web App Pentest, from $3,000',
-    pentest_ad:'Select Active Directory Pentest, from $5,000',
-    ai_llm:'Select AI / LLM Security, from $3,500',
-    pentest_ai:'Select Network Pentest, from $3,500'
-  };
-  let svcAriaES = {
-    pentest_web:'Seleccionar Pentest Web App, desde $3,000',
-    pentest_ad:'Seleccionar Pentest Active Directory, desde $5,000',
-    ai_llm:'Seleccionar Seguridad AI / LLM, desde $3,500',
-    pentest_ai:'Seleccionar Pentest de Redes, desde $3,500'
-  };
-  let svcAriaMap = locale==='es' ? svcAriaES : svcAriaEN;
+  const _aria = getTrans(locale).aria;
   document.querySelectorAll('.qc-svc-card[data-svc]').forEach((btn) => {
-    let lbl = svcAriaMap[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
+    let lbl = _aria.svc[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
   });
-  let tglAriaEN = {
-    'small':'Scope: Small, 1 to 5 targets','medium':'Scope: Medium, 6 to 15 targets','large':'Scope: Large, 15 or more targets',
-    'low':'Complexity: Standard, common tech stack','medium-cplx':'Complexity: Custom, proprietary logic','high':'Complexity: Enterprise, complex or hybrid',
-    'black':'Testing type: Black-box, no prior access','grey':'Testing type: Grey-box, partial credentials','white':'Testing type: White-box, full access and code'
-  };
-  let tglAriaES = {
-    'small':'Alcance: Peque\u00f1o, 1 a 5 objetivos','medium':'Alcance: Mediano, 6 a 15 objetivos','large':'Alcance: Grande, 15 o m\u00e1s objetivos',
-    'low':'Complejidad: Est\u00e1ndar, stack com\u00fan','medium-cplx':'Complejidad: Personalizado, l\u00f3gica propietaria','high':'Complejidad: Empresarial, complejo o h\u00edbrido',
-    'black':'Modalidad: Caja negra, sin acceso previo','grey':'Modalidad: Caja gris, credenciales parciales','white':'Modalidad: Caja blanca, acceso completo y c\u00f3digo'
-  };
-  let tglMap = locale==='es' ? tglAriaES : tglAriaEN;
-  document.querySelectorAll('.qc-toggle[data-scope]').forEach((b) => {let k=tglMap[b.dataset.scope];if(k)b.setAttribute('aria-label',k);});
-  document.querySelectorAll('.qc-toggle[data-cplx]').forEach((b) => {let k=b.dataset.cplx==='medium'?tglMap['medium-cplx']:tglMap[b.dataset.cplx];if(k)b.setAttribute('aria-label',k);});
-  document.querySelectorAll('.qc-toggle[data-tbox]').forEach((b) => {let k=tglMap[b.dataset.tbox];if(k)b.setAttribute('aria-label',k);});
+  document.querySelectorAll('.qc-toggle[data-scope]').forEach((b) => { let k=_aria.tgl[b.dataset.scope]; if(k) b.setAttribute('aria-label',k); });
+  document.querySelectorAll('.qc-toggle[data-cplx]').forEach((b) => { let k=b.dataset.cplx==='medium'?_aria.tgl['medium-cplx']:_aria.tgl[b.dataset.cplx]; if(k) b.setAttribute('aria-label',k); });
+  document.querySelectorAll('.qc-toggle[data-tbox]').forEach((b) => { let k=_aria.tgl[b.dataset.tbox]; if(k) b.setAttribute('aria-label',k); });
   let termBtn = document.getElementById('terminal-toggle-btn');
-  if (termBtn) termBtn.setAttribute('aria-label', locale==='es'?'Alternar panel de estado':'Toggle status panel');
+  if (termBtn) termBtn.setAttribute('aria-label', _aria.termToggle);
   let emailLink = document.querySelector('[data-contact]');
-  if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', locale==='es'?'Copiar correo al portapapeles':'Copy email address to clipboard');
+  if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', _aria.emailCopy);
     localStorage.setItem('portfolio-lang', locale);
   if(typeof window.recalc==='function')window.recalc();
 }
@@ -148,11 +127,28 @@ langButtons.forEach((btn) => {
   });
 });
 
+initQuoteCalculator();
 applyLocale(currentLocale);
 
 // Auto-update copyright year
 function initCopyrightYear() { let el = document.getElementById('cy'); if (el) el.textContent = new Date().getFullYear(); }
 initCopyrightYear();
+
+function initStats() {
+  [
+    ['stat-targets', SITE_STATS.targets],
+    ['stat-paths',   SITE_STATS.paths],
+    ['stat-ranking', SITE_STATS.ranking],
+    ['stat-modules', SITE_STATS.modules]
+  ].forEach(function(pair) {
+    var span = document.getElementById(pair[0]);
+    if (span && span.parentElement) {
+      var strong = span.parentElement.querySelector('strong');
+      if (strong) strong.textContent = pair[1];
+    }
+  });
+}
+initStats();
 
 
 // Restore obfuscated contact links from data attributes
@@ -167,14 +163,14 @@ function initContactBindings() {
       // Email: use clipboard — avoids OS mailto: / login redirects
       el.setAttribute('href', '#');
       el.setAttribute('role', 'button');
-      el.setAttribute('aria-label', (currentLocale==='es')?'Copiar correo al portapapeles':'Copy email address to clipboard');
+      el.setAttribute('aria-label', isSpanish() ? 'Copiar correo al portapapeles' : 'Copy email address to clipboard');
       let email = decoded.replace(/^mailto:/, '');
       el.addEventListener('click', function(e) {
         e.preventDefault();
         let toast = document.getElementById('copy-toast');
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(email).then(function() {
-            showToast((currentLocale==='es'?'✓ Correo copiado: ':'✓ Email copied: ') + email, TOAST_OK_MS);
+            showToast((isSpanish() ? '✓ Correo copiado: ' : '✓ Email copied: ') + email, TOAST_OK_MS);
           }).catch(function() {
             // Fallback: show email inline
             showToast(email, TOAST_FALLBACK_MS);
@@ -205,7 +201,7 @@ function initContactForm() {
     let message = form.querySelector('#cf-message').value.trim();
     let emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    let msgs = (translations[currentLocale] || translations.en).formMessages || {};
+    let msgs = getTrans(currentLocale).formMessages || {};
     if (!name || !email || !message) {
       status.textContent = msgs.requiredFields || 'Please fill in all fields.';
       status.className = 'cf-status error';
@@ -233,13 +229,12 @@ function initContactForm() {
       btn.classList.remove('loading');
       btn.disabled = false;
       if (res.ok) {
-        status.textContent = ((translations[currentLocale]||translations.en).formMessages||{}).success||'✓ Message sent!';
+        status.textContent = msgs.success || '✓ Message sent!';
         status.className = 'cf-status success';
         form.reset();
       } else {
         return res.json().then(function(data) {
-          let msgs2=(translations[currentLocale]||translations.en).formMessages||{};
-          let msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs2.submitFailed||'Submission failed.');
+          let msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs.submitFailed||'Submission failed.');
           status.textContent = msg;
           status.className = 'cf-status error';
         });
@@ -248,7 +243,7 @@ function initContactForm() {
     .catch(function() {
       btn.classList.remove('loading');
       btn.disabled = false;
-      status.textContent=((translations[currentLocale]||translations.en).formMessages||{}).networkError||'Network error.';
+      status.textContent = msgs.networkError || 'Network error.';
       status.className = 'cf-status error';
     });
   });
@@ -691,48 +686,16 @@ function initQuoteCalculator() {
     ai_llm:          { name:'AI / LLM Security',nameEs:'Seguridad AI / LLM',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
     pentest_ai:      { name:'Network Pentest',nameEs:'Pentest de Redes', base:[3500,8000],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} }
   };
-  let ADDONS_EN = {};
-  let ADDONS_ES = {};
-  let SCOPE_LABELS_EN = { small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' };
-  let SCOPE_LABELS_ES = { small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' };
-  let CPLX_LABELS_EN  = { low:'Standard', medium:'Custom', high:'Enterprise' };
-  let CPLX_LABELS_ES  = { low:'Estándar', medium:'Personalizado', high:'Empresarial' };
-  let TBOX_LABELS_EN  = { black:'Black-box', grey:'Grey-box', white:'White-box' };
-  let TBOX_LABELS_ES  = { black:'Caja negra', grey:'Caja gris', white:'Caja blanca' };
-  let SCOPE_SETS = {
-    pentest_web:      { small:'1–5 pages/endpoints', medium:'6–15 pages/endpoints', large:'15+ pages/endpoints' },
-    pentest_ad:       { small:'1–3 hosts',           medium:'4–10 hosts',           large:'10+ hosts'           },
-    ai_llm:          { small:'1–3 AI integrations', medium:'4–8 AI integrations', large:'Full AI system'       },
-    pentest_ai:       { small:'1–10 IPs/hosts',    medium:'11–50 IPs/hosts',       large:'50+ IPs/hosts'         }
-  };
-  let SCOPE_SETS_ES = {
-    pentest_web:     { small:'1–5 páginas/endpoints', medium:'6–15 páginas/endpoints', large:'15+ páginas/endpoints' },
-    pentest_ad:      { small:'1–3 hosts', medium:'4–10 hosts', large:'10+ hosts' },
-    ai_llm:          { small:'1–3 integ. IA',    medium:'4–8 integ. IA',    large:'Sistema IA completo' },
-    pentest_ai:      { small:'1–10 IPs/hosts',    medium:'11–50 IPs/hosts',       large:'50+ IPs/hosts'         }
-  };
-
-  let DURATIONS = {
-    pentest_web:     { small:'3–5 days',  medium:'1–2 weeks', large:'2–3 weeks' },
-    pentest_ad:      { small:'1 week',         medium:'1–2 weeks', large:'2–3 weeks' },
-    ai_llm:          { small:'3–5 days',  medium:'1 week',         large:'2 weeks'        },
-    pentest_ai:      { small:'3–5 days',  medium:'1–2 weeks', large:'2–3 weeks' }
-  };
-  let DURATIONS_ES = {
-    pentest_web:     { small:'3–5 días',  medium:'1–2 semanas', large:'2–3 semanas' },
-    pentest_ad:      { small:'1 semana',              medium:'1–2 semanas', large:'2–3 semanas' },
-    ai_llm:          { small:'3–5 días',  medium:'1 semana',           large:'2 semanas'     },
-    pentest_ai:      { small:'3–5 días',  medium:'1–2 semanas', large:'2–3 semanas' }
-  };
+  const _lbl = getTrans(isSpanish() ? 'es' : 'en').labels;
 
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function recalc() {
     const isSp = isSpanish(); // cached — avoids 7 separate calls
-    let ADDONS = isSp ? ADDONS_ES : ADDONS_EN;
-    let SCOPE_LABELS = isSp ? SCOPE_LABELS_ES : SCOPE_LABELS_EN;
-    let CPLX_LABELS  = isSp ? CPLX_LABELS_ES  : CPLX_LABELS_EN;
-    let TBOX_LABELS  = isSp ? TBOX_LABELS_ES  : TBOX_LABELS_EN;
+    let ADDONS = {};
+    let SCOPE_LABELS = _lbl.scope;
+    let CPLX_LABELS  = _lbl.cplx;
+    let TBOX_LABELS  = _lbl.tbox;
     let svcBtn   = document.querySelector('.qc-svc-card.active');
     let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
     let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
@@ -758,7 +721,7 @@ function initQuoteCalculator() {
       let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
       el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
     }
-    let ss = (isSp?SCOPE_SETS_ES:SCOPE_SETS)[svc];
+    let ss = _lbl.scopeSets[svc];
     if (ss) {
       (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach((btn) => {
         let s = btn.dataset.scope, small2 = btn.querySelector('small');
@@ -769,7 +732,7 @@ function initQuoteCalculator() {
     if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
     if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
-    let durMap = (isSp?DURATIONS_ES:DURATIONS)[svc];
+    let durMap = _lbl.durations[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
     if (el('qr-duration-key')) el('qr-duration-key').textContent = isSp ? 'Duración' : 'Duration';
     let row = el('qr-addons-row'), tags = el('qr-addons-tags');
@@ -858,13 +821,13 @@ function initQuoteCalculator() {
         const waNum = WA_NUMBER;
         let svcName = '';
         if (svcBtn && minEl && maxEl) {
-          svcName = (function(p){return (currentLocale==='es'&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
+          svcName = (function(p){return (isSpanish()&&p.nameEs)?p.nameEs:p.name;})(PRICES[svcBtn.dataset.svc]||{}) || svcBtn.dataset.svc;
         }
         let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
         let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
         let tboxStrong  = tboxBtn  && tboxBtn.querySelector('strong');
         let waMsg;
-        if (currentLocale === 'es') {
+        if (isSpanish()) {
           let scopeSummaryEs = scopeStrong ? scopeStrong.textContent : scope;
           let cplxSummaryEs  = cplxStrong  ? cplxStrong.textContent  : cplx;
           let tboxSummaryEs  = tboxStrong  ? tboxStrong.textContent  : tbox;
@@ -885,7 +848,6 @@ function initQuoteCalculator() {
   });
   window.recalc = recalc;
 }
-initQuoteCalculator();
 
 
 // ── GA4 Event Tracking ──────────────────────────────────────────────────────
@@ -981,67 +943,10 @@ initGATracking();
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
 function initFAQAccordion() {
   // Translations for FAQ section
-  const faqTranslations = {
-    en: {
-      tag: '[ FAQ ]',
-      heading: 'Frequently asked questions',
-      copy: 'Everything you need to know before booking a scoping call.',
-      nav: 'FAQ',
-      groups: ['Services', 'Pricing', 'Process', 'Credentials'],
-      // items indexed 1-8 matching faq-q{n}-text / faq-a{n}-text IDs
-      items: [
-        { q: 'What penetration testing services do you offer?',
-          a: 'Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and AI / LLM security assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.' },
-        { q: 'Are you certified as a penetration tester?',
-          a: 'I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 658 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates.' },
-        { q: 'How much does a penetration test cost?',
-          a: 'An AI / LLM Security Assessment starts from $3,500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above for an instant estimate.' },
-        { q: 'What does a pentest report include?',
-          a: 'Every report includes an executive summary, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations. A free re-test is included to verify fixes.' },
-        { q: 'Do you work remotely and with international clients?',
-          a: 'Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.' },
-        { q: 'How long does a penetration test take?',
-          a: 'Most engagements complete in 1–3 weeks from the scoping call to the final report. An AI / LLM security assessment for focused integrations can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.' },
-        { q: 'Is the first call free? What happens during it?',
-          a: 'Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service. You receive a written proposal with a fixed price afterwards.' },
-        { q: 'What is network penetration testing?',
-          a: 'Network penetration testing is an offensive security assessment of your external and internal infrastructure — servers, firewalls, routers, and services — to identify misconfigurations, open ports, exploitable vulnerabilities, and lateral movement paths before a real attacker does.' },
-        { q: 'What happens if you find a critical vulnerability during the engagement?',
-          a: 'I report it immediately — you don\'t wait for the final report. Critical and high-severity findings are communicated as soon as they are confirmed, so your team can begin remediation while the engagement is still active. Everything is documented in the final report regardless.' }
-      ]
-    },
-    es: {
-      tag: '[ FAQ ]',
-      heading: 'Preguntas frecuentes',
-      copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
-      nav: 'FAQ',
-      groups: ['Servicios', 'Precios', 'Proceso', 'Credenciales'],
-      items: [
-        { q: '¿Qué servicios de pentesting ofreces?',
-          a: 'Pentest de aplicaciones web, evaluaciones de Active Directory, pentests de infraestructura de red y evaluaciones de seguridad AI / LLM. Todos los proyectos son remotos, incluyen un reporte PDF detallado y un re-test gratuito después de las correcciones.' },
-        { q: '¿Estás certificado como pentester?',
-          a: 'Completé los paths CPTS, CDSA, CJCA y CWEE en HTB Academy y estoy en el Top 1% global de Hack The Box con 658 objetivos comprometidos. También cuento con los certificados de IBM Cybersecurity Analyst y Google Cybersecurity Professional.' },
-        { q: '¿Cuánto cuesta un pentest?',
-          a: 'Una evaluación de seguridad AI / LLM parte desde $3,500 USD, un pentest de aplicación web desde $3,000, un pentest de red desde $3,500 y un pentest de Active Directory desde $5,000. Usa la calculadora de precios para obtener una estimación al instante.' },
-        { q: '¿Qué incluye un informe de pentest?',
-          a: 'Cada reporte incluye un resumen ejecutivo, hallazgos técnicos detallados con evidencia, clasificación de riesgos CVSS, pasos de explotación reproducibles y recomendaciones de remediación priorizadas. Se incluye un re-test gratuito para verificar las correcciones.' },
-        { q: '¿Trabajas de forma remota y con clientes internacionales?',
-          a: 'Sí. Estoy basado en Colombia y disponible para proyectos remotos en todo el mundo. Trabajo en inglés y español. La mayoría de los proyectos se realizan de forma remota sin interrupciones en tu entorno de producción.' },
-        { q: '¿Cuánto tiempo tarda un pentest?',
-          a: 'La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final. Una evaluación de seguridad AI / LLM para integraciones puntuales puede entregarse en 3–5 días. El cronograma se acuerda y fija por escrito antes de comenzar.' },
-        { q: '¿La primera llamada es gratuita? ¿Qué sucede en ella?',
-          a: 'Sí, la llamada de alcance es gratuita y sin compromiso. En 30 minutos definimos tu entorno, acordamos objetivos y reglas de engagement, y determinamos el servicio adecuado. Recibes una propuesta escrita con precio fijo después.' },
-        { q: '¿Qué es el pentesting de redes?',
-          a: 'Es una evaluación de seguridad ofensiva de tu infraestructura externa e interna — servidores, firewalls, routers y servicios — para identificar configuraciones incorrectas, puertos abiertos, vulnerabilidades explotables y rutas de movimiento lateral antes de que lo haga un atacante real.' },
-        { q: '¿Qué pasa si encuentras una vulnerabilidad crítica durante el pentest?',
-          a: 'La reporto de inmediato — no tienes que esperar al informe final. Los hallazgos críticos y de alta severidad se comunican en cuanto se confirman, para que tu equipo pueda comenzar la remediación mientras el proyecto sigue activo. Todo queda documentado en el informe final.' }
-      ]
-    }
-  };
 
   function applyFaqLocale(locale) {
-    // faqTranslations is a standalone const — can be moved into translations.faq in a future refactor
-    let t = faqTranslations[locale] || faqTranslations.en;
+    // faqTranslations moved to translations.js
+    let t = getTrans(locale).faq;
     let tag = document.getElementById('faq-tag');
     let heading = document.getElementById('faq-heading');
     let copy = document.getElementById('faq-copy');

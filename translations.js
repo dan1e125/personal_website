@@ -1,7 +1,14 @@
 // ── i18n — EN & ES translations ─────────────────────────────────────
 // Edit text here to update all visible copy on the site.
 // Loaded before script.js; exposes global `translations` object.
-var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 658 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 658 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking',
+var SITE_STATS = {
+  targets:  702,
+  paths:    12,
+  ranking:  'Top 1%',
+  modules:  102
+};
+
+var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 702 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 702 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking','#stat-modules':'Modules completed',
     // ── Quote result panel labels ──
     '#qr-svc-label':'Selected service',
     '#qr-label':'Estimated range',
@@ -37,7 +44,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-name-ai_llm':'AI / LLM',
     '#qcs-price-ai_llm':'From $3,500',
     '#qcs-name-pentest_ai':'Network Pentest',
-    '#qcs-price-pentest_ai':'From $3,500','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $3,500 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(optional)</span>','#about-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#tbox-info-black-title':'Black-box','#tbox-info-black-desc':'No prior knowledge of the target. Simulates a real external attacker. Ideal for testing your defenses from an adversarial perspective.','#tbox-info-black-rec':'✓ Most common','#tbox-info-grey-title':'Grey-box','#tbox-info-grey-desc':'Partial credentials or context provided. Simulates a compromised account or insider threat. Best coverage-to-cost ratio.','#tbox-info-grey-rec':'✓ Recommended','#tbox-info-white-title':'White-box','#tbox-info-white-desc':'Full access + source code provided. Maximum depth and coverage. Best for thorough audits or when regulations require it.','#tbox-info-white-rec':'✓ Most thorough','#qc-tbox-help-btn':'?',
+    '#qcs-price-pentest_ai':'From $3,500','#quote-heading':'Price your engagement in 60 seconds','#quote-copy':'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.','#ql-service':'Service','#terminal-panel-label':'[ STATUS PANEL ]','#svc1-price':'From $3,000 USD','#svc2-price':'From $5,000 USD','#svc3-price':'From $3,500 USD','#svc4-price':'From $3,500 USD','#ql-env-params':'Environment parameters','#tgl-small-label':'Small','#tgl-small-desc':'1–5 targets','#tgl-medium-label':'Medium','#tgl-medium-desc':'6–15 targets','#tgl-large-label':'Large','#tgl-large-desc':'15+ targets','#tgl-low-cplx':'Standard','#tgl-low-cplx-desc':'Common stack','#tgl-medium-cplx':'Custom','#tgl-medium-cplx-desc':'Proprietary logic','#tgl-high-cplx':'Enterprise','#tgl-high-cplx-desc':'Complex / hybrid','#tgl-black-tbox':'Black-box','#tgl-black-tbox-desc':'No prior access','#tgl-grey-tbox':'Grey-box','#tgl-grey-tbox-desc':'Partial credentials','#tgl-white-tbox':'White-box','#tgl-white-tbox-desc':'Full access + code','#ql-scope':'Scope size','#ql-complexity':'Complexity','#ql-tbox':'Testing type','#ql-addons':'Add-ons <span class="label-optional">(optional)</span>','#about-tag':'[ ABOUT ]','#about-heading':'Background','#contact .section-tag':'[ CONTACT ]','#tbox-info-black-title':'Black-box','#tbox-info-black-desc':'No prior knowledge of the target. Simulates a real external attacker. Ideal for testing your defenses from an adversarial perspective.','#tbox-info-black-rec':'✓ Most common','#tbox-info-grey-title':'Grey-box','#tbox-info-grey-desc':'Partial credentials or context provided. Simulates a compromised account or insider threat. Best coverage-to-cost ratio.','#tbox-info-grey-rec':'✓ Recommended','#tbox-info-white-title':'White-box','#tbox-info-white-desc':'Full access + source code provided. Maximum depth and coverage. Best for thorough audits or when regulations require it.','#tbox-info-white-rec':'✓ Most thorough','#qc-tbox-help-btn':'?',
     '#qc-main-cta':'Book a free scoping call <span class="qc-cta-arrow">→</span>','.hero-copy h2':'Penetration tester specialized in web apps, AI / LLM & Active Directory.','.service-cta':'Get a quote →',
     // ── Nav ──
     '.topnav a[href="#services"]':'Services',
@@ -49,12 +56,12 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '.terminal-label':'daniel@portfolio:~$ ./profile_scan',
     '#sg-status-lbl':'Status',
     '#sg-status-val':'ACTIVE',
-    '#sg-mode-lbl':'Mode',
-    '#sg-mode-val':'PENTEST',
+    '#sg-mode-lbl':'Response',
+    '#sg-mode-val':'< 24h',
     '#sg-loc-lbl':'Location',
     '#sg-loc-val':'REMOTE',
     '#sg-scope-lbl':'Scope',
-    '#sg-scope-val':'WEB / NET / SYS',
+    '#sg-scope-val':'WEB / AD / NET / AI',
     '#sg-avail-lbl':'Availability',
     '#sg-avail-val':'OPEN',
     '#sg-lang-lbl':'Languages',
@@ -159,9 +166,76 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     success:'✓ Message sent! I will get back to you within 24 hours.',
     submitFailed:'Submission failed. Please try again.',
     networkError:'Network error. Please try again or use the email channel.'
-  },terminalLines:['> Scanning operator profile...','> [✓] Services: Web · AD · Net Pentest · VA','> [✓] Mode: REMOTE · Available','> [✓] Report: EN / ES · Actionable','> HTB paths completed: 12','> Targets compromised: 658'],},es:{
+  },terminalLines:['> Scanning operator profile...','> [✓] Services: Web · AD · Net · AI/LLM','> [✓] Mode: REMOTE · Available','> [✓] Report: EN / ES · Actionable','> [✓] Ranking: Top 1% globally','> [!] Slots open: 2','> HTB paths: 12 · Modules: 102','> Targets compromised: 702'],
+  waMsg:'Hi Daniel, I\'m interested in learning more about your pentesting services.',
+  aria:{
+    svc:{
+      pentest_web:'Select Web App Pentest, from $3,000',
+      pentest_ad:'Select Active Directory Pentest, from $5,000',
+      ai_llm:'Select AI / LLM Security, from $3,500',
+      pentest_ai:'Select Network Pentest, from $3,500'
+    },
+    tgl:{
+      small:'Scope: Small, 1 to 5 targets',
+      medium:'Scope: Medium, 6 to 15 targets',
+      large:'Scope: Large, 15 or more targets',
+      low:'Complexity: Standard, common tech stack',
+      'medium-cplx':'Complexity: Custom, proprietary logic',
+      high:'Complexity: Enterprise, complex or hybrid',
+      black:'Testing type: Black-box, no prior access',
+      grey:'Testing type: Grey-box, partial credentials',
+      white:'Testing type: White-box, full access and code'
+    },
+    termToggle:'Toggle status panel',
+    emailCopy:'Copy email address to clipboard'
+  },
+  labels:{
+    scope:{ small:'Small · 1–5', medium:'Medium · 6–15', large:'Large · 15+' },
+    cplx:{ low:'Standard', medium:'Custom', high:'Enterprise' },
+    tbox:{ black:'Black-box', grey:'Grey-box', white:'White-box' },
+    scopeSets:{
+      pentest_web:{ small:'1–5 pages/endpoints', medium:'6–15 pages/endpoints', large:'15+ pages/endpoints' },
+      pentest_ad:{ small:'1–3 hosts', medium:'4–10 hosts', large:'10+ hosts' },
+      ai_llm:{ small:'1–3 AI integrations', medium:'4–8 AI integrations', large:'Full AI system' },
+      pentest_ai:{ small:'1–10 IPs/hosts', medium:'11–50 IPs/hosts', large:'50+ IPs/hosts' }
+    },
+    durations:{
+      pentest_web:{ small:'3–5 days', medium:'1–2 weeks', large:'2–3 weeks' },
+      pentest_ad:{ small:'1 week', medium:'1–2 weeks', large:'2–3 weeks' },
+      ai_llm:{ small:'3–5 days', medium:'1 week', large:'2 weeks' },
+      pentest_ai:{ small:'3–5 days', medium:'1–2 weeks', large:'2–3 weeks' }
+    }
+  },
+  faq:{
+    tag:'[ FAQ ]',
+    heading:'Frequently asked questions',
+    copy:'Everything you need to know before booking a scoping call.',
+    nav:'FAQ',
+    groups:['Services', 'Pricing', 'Process', 'Credentials'],
+    items:[
+      { q:'What penetration testing services do you offer?',
+        a:'Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and AI / LLM security assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.' },
+      { q:'Are you certified as a penetration tester?',
+        a:'I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 702 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates.' },
+      { q:'How much does a penetration test cost?',
+        a:'An AI / LLM Security Assessment starts from $3,500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above for an instant estimate.' },
+      { q:'What does a pentest report include?',
+        a:'Every report includes an executive summary, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations. A free re-test is included to verify fixes.' },
+      { q:'Do you work remotely and with international clients?',
+        a:'Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.' },
+      { q:'How long does a penetration test take?',
+        a:'Most engagements complete in 1–3 weeks from the scoping call to the final report. An AI / LLM security assessment for focused integrations can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.' },
+      { q:'Is the first call free? What happens during it?',
+        a:'Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service. You receive a written proposal with a fixed price afterwards.' },
+      { q:'What is network penetration testing?',
+        a:'Network penetration testing is an offensive security assessment of your external and internal infrastructure — servers, firewalls, routers, and services — to identify misconfigurations, open ports, exploitable vulnerabilities, and lateral movement paths before a real attacker does.' },
+      { q:'What happens if you find a critical vulnerability during the engagement?',
+        a:'I report it immediately — you don\'t wait for the final report. Critical and high-severity findings are communicated as soon as they are confirmed, so your team can begin remediation while the engagement is still active. Everything is documented in the final report regardless.' }
+    ]
+  }
+},es:{
   documentTitle:'Daniel Ordonez Arango | Pentester',
-  metaDescription:'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory y redes. HTB Top 1%, 658 objetivos. Trabajo remoto, reportes claros.',
+  metaDescription:'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory y redes. HTB Top 1%, 702 objetivos. Trabajo remoto, reportes claros.',
   ogTitle:'Daniel Ordonez Arango | Pentester',
   ogDescription:'Portafolio de seguridad ofensiva enfocado en penetration testing, análisis defensivo, reportes detallados y superficies de ataque modernas.',
   selectors:{
@@ -191,7 +265,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Descargar transcript',
     '#stat-paths':'Paths HTB completados',
     '#stat-targets':'Objetivos comprometidos',
-    '#stat-ranking':'Ranking HTB',
+    '#stat-ranking':'Ranking HTB','#stat-modules':'Módulos completados',
     
     
     '.avail-text':'Disponible para proyectos',
@@ -200,12 +274,12 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '.terminal-label':'daniel@portfolio:~$ ./escaneo_perfil',
     '#sg-status-lbl':'Estado',
     '#sg-status-val':'ACTIVO',
-    '#sg-mode-lbl':'Enfoque',
-    '#sg-mode-val':'PENTEST',
+    '#sg-mode-lbl':'Respuesta',
+    '#sg-mode-val':'< 24h',
     '#sg-loc-lbl':'Modo',
     '#sg-loc-val':'REMOTO',
     '#sg-scope-lbl':'Cobertura',
-    '#sg-scope-val':'WEB / RED / SIS','#sg-avail-lbl':'Disponibilidad','#sg-avail-val':'ABIERTO','#sg-lang-lbl':'Idiomas','#sg-lang-val':'ES / EN',
+    '#sg-scope-val':'WEB / AD / RED / IA','#sg-avail-lbl':'Disponibilidad','#sg-avail-val':'ABIERTO','#sg-lang-lbl':'Idiomas','#sg-lang-val':'ES / EN',
 
     // ── Experience ──
     
@@ -309,7 +383,7 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     '#qcs-name-ai_llm':'AI / LLM',
     '#qcs-price-ai_llm':'Desde $3,500',
     '#qcs-name-pentest_ai':'Pentest de Redes',
-    '#qcs-price-pentest_ai':'Desde $3,500','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#terminal-panel-label':'[ PANEL DE ESTADO ]','#svc1-price':'Desde $3,000 USD','#svc2-price':'Desde $5,000 USD','#svc3-price':'Desde $3,500 USD','#svc4-price':'Desde $3,500 USD','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span style="text-transform:none;letter-spacing:0;font-size:.68rem;color:var(--muted)">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
+    '#qcs-price-pentest_ai':'Desde $3,500','#quote-heading':'Conoce el precio en 60 segundos','#quote-copy':'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.','#ql-service':'Servicio','#terminal-panel-label':'[ PANEL DE ESTADO ]','#svc1-price':'Desde $3,000 USD','#svc2-price':'Desde $5,000 USD','#svc3-price':'Desde $3,500 USD','#svc4-price':'Desde $3,500 USD','#ql-env-params':'Parámetros del entorno','#tgl-small-label':'Pequeño','#tgl-small-desc':'1–5 objetivos','#tgl-medium-label':'Mediano','#tgl-medium-desc':'6–15 objetivos','#tgl-large-label':'Grande','#tgl-large-desc':'15+ objetivos','#tgl-low-cplx':'Estándar','#tgl-low-cplx-desc':'Stack común','#tgl-medium-cplx':'Personalizado','#tgl-medium-cplx-desc':'Lógica propietaria','#tgl-high-cplx':'Empresarial','#tgl-high-cplx-desc':'Complejo / híbrido','#tgl-black-tbox':'Caja negra','#tgl-black-tbox-desc':'Sin acceso previo','#tgl-grey-tbox':'Caja gris','#tgl-grey-tbox-desc':'Credenciales parciales','#tgl-white-tbox':'Caja blanca','#tgl-white-tbox-desc':'Acceso completo + código','#ql-scope':'Tamaño del alcance','#ql-complexity':'Complejidad','#ql-tbox':'Tipo de testing','#ql-addons':'Complementos <span class="label-optional">(opcional)</span>','#contact .section-tag':'[ CONTACTO ]',
     '#contact h3':'Contáctame',
     '#cg-profiles':'Perfiles online','.contact-intro':'Disponible para proyectos remotos en todo el mundo. Respondo en menos de 24h. La primera llamada es gratuita — definimos alcance, cronograma y compatibilidad antes de cualquier acuerdo.',
     
@@ -343,6 +417,72 @@ var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester'
     networkError:'Error de red. Inténtalo de nuevo o usa el canal de correo electrónico.'
   },
   terminalLines:[
-    '> Enumerando módulos de experiencia...','> Paths HTB completados: 12','> Objetivos comprometidos: 658','> Ranking: Top 1%','> Enfoque: seguridad web, de red y empresarial','> Objetivo: reducir riesgo explotable'
-  ]
+    '> Escaneando perfil del operador...','> [✓] Servicios: Web · AD · Red · IA/LLM','> [✓] Modo: REMOTO · Disponible','> [✓] Reporte: EN / ES · Accionable','> [✓] Ranking: Top 1% global','> [!] Slots disponibles: 2','> Paths HTB: 12 · Módulos: 102','> Objetivos comprometidos: 702'
+  ],
+  waMsg:'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.',
+  aria:{
+    svc:{
+      pentest_web:'Seleccionar Pentest Web App, desde $3,000',
+      pentest_ad:'Seleccionar Pentest Active Directory, desde $5,000',
+      ai_llm:'Seleccionar Seguridad AI / LLM, desde $3,500',
+      pentest_ai:'Seleccionar Pentest de Redes, desde $3,500'
+    },
+    tgl:{
+      small:'Alcance: Pequeño, 1 a 5 objetivos',
+      medium:'Alcance: Mediano, 6 a 15 objetivos',
+      large:'Alcance: Grande, 15 o más objetivos',
+      low:'Complejidad: Estándar, stack común',
+      'medium-cplx':'Complejidad: Personalizado, lógica propietaria',
+      high:'Complejidad: Empresarial, complejo o híbrido',
+      black:'Modalidad: Caja negra, sin acceso previo',
+      grey:'Modalidad: Caja gris, credenciales parciales',
+      white:'Modalidad: Caja blanca, acceso completo y código'
+    },
+    termToggle:'Alternar panel de estado',
+    emailCopy:'Copiar correo al portapapeles'
+  },
+  labels:{
+    scope:{ small:'Pequeño · 1–5', medium:'Mediano · 6–15', large:'Grande · 15+' },
+    cplx:{ low:'Estándar', medium:'Personalizado', high:'Empresarial' },
+    tbox:{ black:'Caja negra', grey:'Caja gris', white:'Caja blanca' },
+    scopeSets:{
+      pentest_web:{ small:'1–5 páginas/endpoints', medium:'6–15 páginas/endpoints', large:'15+ páginas/endpoints' },
+      pentest_ad:{ small:'1–3 hosts', medium:'4–10 hosts', large:'10+ hosts' },
+      ai_llm:{ small:'1–3 integ. IA', medium:'4–8 integ. IA', large:'Sistema IA completo' },
+      pentest_ai:{ small:'1–10 IPs/hosts', medium:'11–50 IPs/hosts', large:'50+ IPs/hosts' }
+    },
+    durations:{
+      pentest_web:{ small:'3–5 días', medium:'1–2 semanas', large:'2–3 semanas' },
+      pentest_ad:{ small:'1 semana', medium:'1–2 semanas', large:'2–3 semanas' },
+      ai_llm:{ small:'3–5 días', medium:'1 semana', large:'2 semanas' },
+      pentest_ai:{ small:'3–5 días', medium:'1–2 semanas', large:'2–3 semanas' }
+    }
+  },
+  faq:{
+    tag:'[ FAQ ]',
+    heading:'Preguntas frecuentes',
+    copy:'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
+    nav:'FAQ',
+    groups:['Servicios', 'Precios', 'Proceso', 'Credenciales'],
+    items:[
+      { q:'¿Qué servicios de pentesting ofreces?',
+        a:'Pentest de aplicaciones web, evaluaciones de Active Directory, pentests de infraestructura de red y evaluaciones de seguridad AI / LLM. Todos los proyectos son remotos, incluyen un reporte PDF detallado y un re-test gratuito después de las correcciones.' },
+      { q:'¿Estás certificado como pentester?',
+        a:'Completé los paths CPTS, CDSA, CJCA y CWEE en HTB Academy y estoy en el Top 1% global de Hack The Box con 702 objetivos comprometidos. También cuento con los certificados de IBM Cybersecurity Analyst y Google Cybersecurity Professional.' },
+      { q:'¿Cuánto cuesta un pentest?',
+        a:'Una evaluación de seguridad AI / LLM parte desde $3,500 USD, un pentest de aplicación web desde $3,000, un pentest de red desde $3,500 y un pentest de Active Directory desde $5,000. Usa la calculadora de precios para obtener una estimación al instante.' },
+      { q:'¿Qué incluye un informe de pentest?',
+        a:'Cada reporte incluye un resumen ejecutivo, hallazgos técnicos detallados con evidencia, clasificación de riesgos CVSS, pasos de explotación reproducibles y recomendaciones de remediación priorizadas. Se incluye un re-test gratuito para verificar las correcciones.' },
+      { q:'¿Trabajas de forma remota y con clientes internacionales?',
+        a:'Sí. Estoy basado en Colombia y disponible para proyectos remotos en todo el mundo. Trabajo en inglés y español. La mayoría de los proyectos se realizan de forma remota sin interrupciones en tu entorno de producción.' },
+      { q:'¿Cuánto tiempo tarda un pentest?',
+        a:'La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final. Una evaluación de seguridad AI / LLM para integraciones puntuales puede entregarse en 3–5 días. El cronograma se acuerda y fija por escrito antes de comenzar.' },
+      { q:'¿La primera llamada es gratuita? ¿Qué sucede en ella?',
+        a:'Sí, la llamada de alcance es gratuita y sin compromiso. En 30 minutos definimos tu entorno, acordamos objetivos y reglas de engagement, y determinamos el servicio adecuado. Recibes una propuesta escrita con precio fijo después.' },
+      { q:'¿Qué es el pentesting de redes?',
+        a:'Es una evaluación de seguridad ofensiva de tu infraestructura externa e interna — servidores, firewalls, routers y servicios — para identificar configuraciones incorrectas, puertos abiertos, vulnerabilidades explotables y rutas de movimiento lateral antes de que lo haga un atacante real.' },
+      { q:'¿Qué pasa si encuentras una vulnerabilidad crítica durante el pentest?',
+        a:'La reporto de inmediato — no tienes que esperar al informe final. Los hallazgos críticos y de alta severidad se comunican en cuanto se confirman, para que tu equipo pueda comenzar la remediación mientras el proyecto sigue activo. Todo queda documentado en el informe final.' }
+    ]
+  }
 }}
