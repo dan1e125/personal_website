@@ -733,8 +733,6 @@ h1.identity-name{margin:0;padding:0;font-size:1.5rem;font-weight:800;letter-spac
 .qc-config-row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
 .qc-config-key{color:var(--muted-alt);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;font-size:.68rem}
 .qc-config-val{color:var(--text-hi);font-weight:600}
-.qc-addons-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
-.qc-addon-tag{font-size:.66rem;font-family:'JetBrains Mono',monospace;background:var(--accent-08);border:1px solid var(--accent-20);border-radius:6px;padding:2px 7px;color:var(--accent)}
 .qc-cta-btn{background:linear-gradient(135deg,#2563eb,#0891b2);border:none;border-radius:14px;padding:18px 24px;color:#fff;font-size:.95rem;font-weight:800;cursor:pointer;transition:all 220ms;letter-spacing:.02em;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;box-shadow:0 0 0 1px var(--accent-25),0 8px 32px rgba(37,99,235,0.35)}
 .qc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,0.4);filter:brightness(1.1)}
 .qc-cta-arrow{font-size:1.1rem;transition:transform 200ms;pointer-events:none}

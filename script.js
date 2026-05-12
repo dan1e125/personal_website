@@ -762,9 +762,6 @@ function initQuoteCalculator() {
         else if (btn.dataset.tbox  !== undefined)            activate('.qc-toggle[data-tbox]', btn);
       });
     }
-    document.querySelectorAll('.qc-chip').forEach((btn) => {
-      btn.addEventListener('click', function() { btn.classList.toggle('active'); recalc(); });
-    });
     recalc();
 
     // Testing type help button toggle
