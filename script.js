@@ -692,7 +692,6 @@ function initQuoteCalculator() {
   function recalc() {
     const isSp = isSpanish(); // cached — avoids 7 separate calls
     const _lbl = getTrans(isSp ? 'es' : 'en').labels; // re-read each call — stays in sync with locale
-    let ADDONS = {};
     let SCOPE_LABELS = _lbl.scope;
     let CPLX_LABELS  = _lbl.cplx;
     let TBOX_LABELS  = _lbl.tbox;
@@ -707,11 +706,6 @@ function initQuoteCalculator() {
     let mn = p.base[0] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
     let mx = p.base[1] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
 
-    let addonMult = 1, addonTags = [];
-    document.querySelectorAll('.qc-chip.active').forEach((btn) => {
-      let a = ADDONS[btn.dataset.addon]; if (a) { addonMult += a.pct; addonTags.push(a.label); }
-    });
-    mn *= addonMult; mx *= addonMult;
 
     if (el('q-min')) el('q-min').textContent = fmt(mn);
     if (el('q-max')) el('q-max').textContent = fmt(mx);
@@ -733,13 +727,6 @@ function initQuoteCalculator() {
     if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
     let durMap = _lbl.durations[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
-    let row = el('qr-addons-row'), tags = el('qr-addons-tags');
-    if (row && tags) {
-      if (addonTags.length) {
-        tags.innerHTML = addonTags.map(function(t){return '<span class="qc-addon-tag">'+t+'</span>';}).join('');
-        row.style.display = 'flex';
-      } else { row.style.display = 'none'; }
-    }
   }
 
   function activate(group, clicked) {
