@@ -1,14 +1,14 @@
 // ── i18n — EN & ES translations ─────────────────────────────────────
 // Edit text here to update all visible copy on the site.
 // Loaded before script.js; exposes global `translations` object.
-var SITE_STATS = {
+const SITE_STATS = {
   targets:  702,
   paths:    12,
   ranking:  'Top 1%',
   modules:  102
 };
 
-var translations={en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 702 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 702 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking','#stat-modules':'Modules completed',
+const translations = {en:{documentTitle:'Daniel Ordonez Arango | Penetration Tester',metaDescription:'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 702 targets. Remote-first, clear deliverables.',ogTitle:'Daniel Ordonez Arango | Penetration Tester',ogDescription:'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 702 targets. Remote engagements, clear reporting.',selectors:{'.topnav a[href="#about"]':'About','.topnav a[href="#certifications"]':'Credentials','.topnav a[href="#contact"]':'Contact','.hero-copy .lead':'I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.','#spec-web':'Web Pentest','#spec-ai':'AI / LLM Security','#spec-ad':'Active Directory','#spec-net':'Network Pentest','.hero-actions .button.primary':'Request a free scoping call','.hero-actions .button.gold[href="daniel_cv_new.pdf"]':'View original CV','.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Verified by HTB Academy','#stat-paths':'HTB paths completed','#stat-targets':'Targets compromised','#stat-ranking':'HTB ranking','#stat-modules':'Modules completed',
     // ── Quote result panel labels ──
     '#qr-svc-label':'Selected service',
     '#qr-label':'Estimated range',

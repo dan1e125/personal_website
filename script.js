@@ -34,6 +34,15 @@ const COUNTER_LONG_MS  = 1400; // counter animation for numbers > 100
 const COUNTER_SHORT_MS = 900;  // counter animation for numbers ≤ 100
 const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth
 
+// ── Layout / interaction constants ──
+const BACK_TO_TOP_THRESHOLD = 400;   // px scrollY to show back-to-top button
+const MOBILE_BREAKPOINT     = 767;   // px – matches CSS @media (max-width: 767px)
+const CURSOR_RING_LERP      = 0.14;  // lerp factor for cursor ring follow speed
+const TILT_PERSPECTIVE      = 900;   // px perspective for card 3-D tilt effect
+const QC_BAR_MAX_MULT       = 1.7;   // gauge bar – scale factor vs. max-complexity service
+const QC_BAR_MAX_PCT        = 92;    // gauge bar upper clamp (%)
+const QC_BAR_MIN_PCT        = 8;     // gauge bar lower clamp (%)
+
 // translations object → translations.js (loaded before this file)
 
 
@@ -116,7 +125,6 @@ function applyLocale(locale) {
   let emailLink = document.querySelector('[data-contact]');
   if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', _aria.emailCopy);
     localStorage.setItem('portfolio-lang', locale);
-  if(typeof window.recalc==='function')window.recalc();
 }
 
 langButtons.forEach((btn) => {
@@ -252,7 +260,7 @@ initContactForm();
 
 
 // Scroll reveal — fade+slide cards and elements into view
-function initCounterAnimation() {
+function initScrollReveal() {
   if (!window.IntersectionObserver || prefersReducedMotion) return;
   let els = [];
   document.querySelectorAll('.card, .mini-card, .social-link').forEach((el) => {
@@ -287,7 +295,7 @@ initCounterAnimation();
 
 
 // Animated stat counters for quick-stats numbers
-function initScrollReveal() {
+function initCounterAnimation() {
   if (!window.IntersectionObserver || prefersReducedMotion) return;
   document.querySelectorAll('.quick-stats strong').forEach((el) => {
     let raw = el.textContent.trim();
@@ -385,7 +393,7 @@ function initBackToTop() {
   const btn = document.querySelector('.back-to-top');
   if (!btn) return;
   window.addEventListener('scroll', throttle(function() {
-    btn.classList.toggle('visible', window.scrollY > 400);
+    btn.classList.toggle('visible', window.scrollY > BACK_TO_TOP_THRESHOLD);
   }, 16), { passive: true });
   btn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
@@ -443,7 +451,7 @@ function initTerminalToggle() {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
   // Collapsed by default on mobile
-  setOpen(window.innerWidth > 767);
+  setOpen(window.innerWidth > MOBILE_BREAKPOINT);
   btn.addEventListener('click', function() {
     setOpen(!terminal.classList.contains('is-open'));
   });
@@ -581,7 +589,7 @@ function initMotionObserver() {
       let y = (e.clientY - rect.top)  / rect.height - 0.5;
       let rotY =  x * STRENGTH * 2;
       let rotX = -y * STRENGTH * 2;
-      card.style.transform = 'perspective(900px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) scale3d(1.012,1.012,1.012)';
+      card.style.transform = `perspective(${TILT_PERSPECTIVE}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.012,1.012,1.012)`;
       let gx = Math.round((x + 0.5) * 100);
       let gy = Math.round((y + 0.5) * 100);
       glare.style.background = 'radial-gradient(circle at '+gx+'% '+gy+'%, rgba(255,255,255,0.035), transparent 65%)';
@@ -590,7 +598,7 @@ function initMotionObserver() {
 
     function onLeave() {
       card.style.transition = 'transform 500ms ease';
-      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+      card.style.transform = `perspective(${TILT_PERSPECTIVE}px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
       glare.style.opacity = '0';
     }
 
@@ -627,8 +635,8 @@ function initCursorEffect() {
   let rafId = null;
 
   function animateRing() {
-    rx += (mx - rx) * 0.14;
-    ry += (my - ry) * 0.14;
+    rx += (mx - rx) * CURSOR_RING_LERP;
+    ry += (my - ry) * CURSOR_RING_LERP;
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
     // Keep looping only while ring hasn't converged (> 0.5px away from target)
@@ -677,15 +685,16 @@ initCursorEffect();
 
 
 /* ── Quote Calculator v4 ─────────────────────────────────── */
+// ── Quote Calculator pricing config (edit here to update estimates) ──
+const PRICES = {
+  pentest_web: { name: 'Web App Pentest',  base: [3000, 6000], scope: {small:1.0, medium:1.55, large:2.3},  cplx: {low:1.0, medium:1.45, high:2.0},  tbox: {black:1.0, grey:1.2,  white:1.45} },
+  pentest_ad:  { name: 'Active Directory', base: [5000, 9500], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} },
+  ai_llm:      { name: 'AI / LLM Security',base: [3500, 8000], scope: {small:1.0, medium:1.3,  large:1.8},  cplx: {low:1.0, medium:1.25, high:1.6},  tbox: {black:1.0, grey:1.15, white:1.35} },
+  pentest_ai:  { name: 'Network Pentest',  base: [3500, 8000], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} }
+};
+
 function initQuoteCalculator() {
   'use strict';
-
-  const PRICES = {
-    pentest_web: { name:'Web App Pentest',  base:[3000,6000], scope:{small:1.0,medium:1.55,large:2.3}, cplx:{low:1.0,medium:1.45,high:2.0}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    pentest_ad:     { name:'Active Directory',    base:[5000,9500], scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} },
-    ai_llm:          { name:'AI / LLM Security',               base:[3500,8000],   scope:{small:1.0,medium:1.3, large:1.8}, cplx:{low:1.0,medium:1.25,high:1.6},  tbox:{black:1.0,grey:1.15,white:1.35} },
-    pentest_ai:      { name:'Network Pentest', base:[3500,8000],  scope:{small:1.0,medium:1.4, large:2.0}, cplx:{low:1.0,medium:1.35,high:1.85}, tbox:{black:1.0,grey:1.2,white:1.45} }
-  };
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
   function el(id) { return document.getElementById(id); }
 
@@ -706,13 +715,12 @@ function initQuoteCalculator() {
     let mn = p.base[0] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
     let mx = p.base[1] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
 
-
     if (el('q-min')) el('q-min').textContent = fmt(mn);
     if (el('q-max')) el('q-max').textContent = fmt(mx);
     if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit||'');
     if (el('qc-bar')) {
-      let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * 1.7;
-      el('qc-bar').style.width = Math.min(92,Math.max(8,(mn / svcMax)*100)).toFixed(1)+'%';
+      let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * QC_BAR_MAX_MULT;
+      el('qc-bar').style.width = Math.min(QC_BAR_MAX_PCT,Math.max(QC_BAR_MIN_PCT,(mn / svcMax)*100)).toFixed(1)+'%';
     }
     let ss = _lbl.scopeSets[svc];
     if (ss) {
@@ -763,6 +771,7 @@ function initQuoteCalculator() {
       });
     }
     recalc();
+    window.addEventListener('localechange', recalc);
 
     // Testing type help button toggle
     let helpBtn = document.getElementById('qc-tbox-help-btn');
@@ -799,6 +808,9 @@ function initQuoteCalculator() {
         let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
         let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
         let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
+        let scope = scopeBtn ? scopeBtn.dataset.scope : '';
+        let cplx  = cplxBtn  ? cplxBtn.dataset.cplx  : '';
+        let tbox  = tboxBtn  ? tboxBtn.dataset.tbox  : 'black';
         let minEl = document.getElementById('q-min');
         let maxEl = document.getElementById('q-max');
         const waNum = WA_NUMBER;
@@ -829,7 +841,6 @@ function initQuoteCalculator() {
       });
     }
   });
-  window.recalc = recalc;
 }
 
 
@@ -970,8 +981,6 @@ function initFAQAccordion() {
       });
     });
   }
-
-  // DOM ready guaranteed by defer attribute
 
   initFaqAccordion();
   // Hook into language switcher
