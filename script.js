@@ -42,6 +42,8 @@ const TILT_PERSPECTIVE      = 900;   // px perspective for card 3-D tilt effect
 const QC_BAR_MAX_MULT       = 1.7;   // gauge bar – scale factor vs. max-complexity service
 const QC_BAR_MAX_PCT        = 92;    // gauge bar upper clamp (%)
 const QC_BAR_MIN_PCT        = 8;     // gauge bar lower clamp (%)
+const MATRIX_CHAR_SIZE      = 16;    // px cell size for Matrix rain columns
+const MATRIX_DROP_PROB      = 0.975; // probability a Matrix drop resets to top
 
 // translations object → translations.js (loaded before this file)
 
@@ -540,8 +542,8 @@ function initKonamiEasterEgg() {
         let ch = CHARS[Math.random() * CHARS.length | 0];
         let bright = Math.random() > 0.95;
         ctx.fillStyle = bright ? '#ffffff' : '#00ff41';
-        ctx.fillText(ch, i * 16, drops[i] * 16);
-        if (drops[i] * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        ctx.fillText(ch, i * MATRIX_CHAR_SIZE, drops[i] * MATRIX_CHAR_SIZE);
+        if (drops[i] * MATRIX_CHAR_SIZE > canvas.height && Math.random() > MATRIX_DROP_PROB) drops[i] = 0;
         drops[i]++;
       }
       raf = requestAnimationFrame(draw);
