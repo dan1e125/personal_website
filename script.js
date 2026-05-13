@@ -137,6 +137,14 @@ langButtons.forEach((btn) => {
   });
 });
 
+// ── Quote Calculator pricing config (edit here to update estimates) ──
+const PRICES = {
+  pentest_web: { name: 'Web App Pentest',  base: [3000, 6000], scope: {small:1.0, medium:1.55, large:2.3},  cplx: {low:1.0, medium:1.45, high:2.0},  tbox: {black:1.0, grey:1.2,  white:1.45} },
+  pentest_ad:  { name: 'Active Directory', base: [5000, 9500], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} },
+  ai_llm:      { name: 'AI / LLM Security',base: [3500, 8000], scope: {small:1.0, medium:1.3,  large:1.8},  cplx: {low:1.0, medium:1.25, high:1.6},  tbox: {black:1.0, grey:1.15, white:1.35} },
+  pentest_ai:  { name: 'Network Pentest',  base: [3500, 8000], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} }
+};
+
 initQuoteCalculator();
 applyLocale(currentLocale);
 
@@ -687,14 +695,6 @@ initCursorEffect();
 
 
 /* ── Quote Calculator v4 ─────────────────────────────────── */
-// ── Quote Calculator pricing config (edit here to update estimates) ──
-const PRICES = {
-  pentest_web: { name: 'Web App Pentest',  base: [3000, 6000], scope: {small:1.0, medium:1.55, large:2.3},  cplx: {low:1.0, medium:1.45, high:2.0},  tbox: {black:1.0, grey:1.2,  white:1.45} },
-  pentest_ad:  { name: 'Active Directory', base: [5000, 9500], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} },
-  ai_llm:      { name: 'AI / LLM Security',base: [3500, 8000], scope: {small:1.0, medium:1.3,  large:1.8},  cplx: {low:1.0, medium:1.25, high:1.6},  tbox: {black:1.0, grey:1.15, white:1.35} },
-  pentest_ai:  { name: 'Network Pentest',  base: [3500, 8000], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} }
-};
-
 function initQuoteCalculator() {
   'use strict';
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
