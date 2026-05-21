@@ -1068,7 +1068,7 @@ main>section+section {
   }
 
   .footer-copyright {
-    text-align: center;
+    text-align: left;
     font-size: 0.78rem;
     color: var(--muted);
     width: 100%;
@@ -1731,7 +1731,7 @@ h1.identity-name {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: left;
   padding: 0 18px
 }
 
@@ -2181,7 +2181,7 @@ h1.identity-name {
   padding: 14px 8px;
   cursor: pointer;
   transition: all 200ms;
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2413,7 +2413,7 @@ h1.identity-name {
   cursor: pointer;
   transition: all 220ms;
   letter-spacing: .02em;
-  text-align: center;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2441,7 +2441,7 @@ h1.identity-name {
 .qc-disclaimer-note {
   font-size: .7rem;
   color: var(--muted);
-  text-align: center;
+  text-align: left;
   line-height: 1.6;
   border-top: 1px solid rgba(84, 179, 255, 0.07);
   padding-top: 12px
@@ -2931,7 +2931,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   padding: 24px;
 }
 
@@ -3024,7 +3024,7 @@ select {
     align-items: center;
     justify-content: center;
     padding: 10px 12px;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba(84, 179, 255, 0.16);
     border-radius: 12px;
     background: var(--bg-glass)
@@ -3753,7 +3753,7 @@ select {
   }
   .hero-copy .hero-right .identity-text {
     align-items: center;
-    text-align: center;
+    text-align: left;
   }
   .hero-copy .hero-right .quick-stats {
     grid-template-columns: repeat(3, 1fr);
@@ -3767,7 +3767,7 @@ select {
   grid-template-columns: repeat(3, 1fr);
 }
 .hero-stats li {
-  text-align: center;
+  text-align: left;
   background: transparent;
   border-color: var(--line);
 }
@@ -3825,6 +3825,6 @@ select {
   pointer-events: none;
 }
 .proof-bar .section-tag {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 }
