@@ -405,7 +405,7 @@ p {
 .hero {
   padding: 92px 0 64px;
   display: grid;
-  grid-template-columns: 1.3fr .9fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: stretch
 }
