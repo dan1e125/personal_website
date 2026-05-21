@@ -3882,3 +3882,22 @@ select {
   align-self: center;
 }
 
+/* ══ HERO-RIGHT: full-bleed photo with name overlay ══ */
+.hero-copy {
+}
+.hero-copy .hero-right {
+  min-height: 320px;
+}
+.hero-copy .hero-right .identity-header {
+}
+.hero-copy .hero-right .hex-wrap {
+}
+.hero-copy .hero-right .hex-inner {
+}
+.hero-copy .hero-right .identity-text {
+}
+.hero-copy .hero-right h1.identity-name {
+}
+.hero-copy .hero-right .availability-badge {
+}
+
