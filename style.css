@@ -3842,55 +3842,16 @@ select {
   }
 }
 
-/* ══ PROOF BAR (between hero and services) ══ */
+/* ══ PROOF BAR ══ */
 .proof-bar {
   padding: 0;
 }
-.proof-stats {
-  display: grid;
+.proof-bar .quick-stats {
   grid-template-columns: repeat(3, 1fr);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.proof-stats li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 16px;
-  gap: 4px;
-  background: var(--card);
-  border-right: 1px solid var(--border);
-}
-.proof-stats li:last-child {
-  border-right: none;
-}
-.proof-stats strong {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-}
-.proof-stats span {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: .04em;
 }
 @media (max-width: 600px) {
-  .proof-stats {
+  .proof-bar .quick-stats {
     grid-template-columns: 1fr;
-  }
-  .proof-stats li {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-  .proof-stats li:last-child {
-    border-bottom: none;
   }
 }
 
