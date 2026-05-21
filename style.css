@@ -3831,3 +3831,14 @@ select {
   gap: 28px;
 }
 
+/* ══ MOBILE PHOTO FIX: force photo to fill hex frame ══ */
+@media (max-width: 900px) {
+  .hero-copy .hero-right .hex-wrap {
+  }
+  .hero-copy .hero-right .hex-inner {
+  }
+  .hero-copy .hero-right .hex-inner .profile-photo,
+  .hero-copy .hero-right .profile-photo {
+  }
+}
+
