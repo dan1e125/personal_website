@@ -435,20 +435,31 @@ p {
 }
 
 .hero-copy {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center
+}
+
+.hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 24px
 }
 
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start
+}
+
 .hero h2 {
-  max-width: 20ch;
   font-size: clamp(3rem, 6vw, 4.8rem);
   line-height: 1.05
 }
 
 .lead {
-  max-width: 75ch;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.8
@@ -861,8 +872,7 @@ section {
   display: flex;
   align-items: center;
   gap: 22px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line)
+  padding-bottom: 0
 }
 
 .profile-photo {
@@ -3715,4 +3725,21 @@ select {
   letter-spacing: 0;
   font-size: .68rem;
   color: var(--muted);
+}
+/* ── Hero two-column responsive ── */
+@media (max-width: 900px) {
+  .hero-copy {
+    grid-template-columns: 1fr;
+  }
+  .hero-right {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
