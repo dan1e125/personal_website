@@ -3757,3 +3757,20 @@ select {
   background: transparent;
   border-color: var(--line);
 }
+
+/* ── Stats inside hero-right: single column ── */
+.hero-right .quick-stats {
+  grid-template-columns: 1fr;
+  margin-top: 8px;
+  width: 100%;
+}
+.hero-right .quick-stats li {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-right .quick-stats strong {
+  font-size: 1.5rem;
+  min-width: 60px;
+}
