@@ -3907,3 +3907,10 @@ select {
 .hero-copy .hero-right .hex-wrap {
   border-radius: 12px !important;
 }
+
+/* ══ HERO-RIGHT: hex-wrap fills full column height ══ */
+.hero-copy .hero-right .identity-header {
+}
+.hero-copy .hero-right .hex-wrap {
+}
+
