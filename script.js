@@ -3,7 +3,10 @@ function throttle(fn, ms) {
   let last = 0;
   return function() {
     let now = Date.now();
-    if (now - last >= ms) { last = now; fn.apply(this, arguments); }
+    if (now - last >= ms) {
+      last = now;
+      fn.apply(this, arguments);
+    }
   };
 }
 
@@ -13,7 +16,9 @@ function showToast(msg, duration) {
   if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(function() { toast.classList.remove('show'); }, duration);
+  setTimeout(function() {
+    toast.classList.remove('show');
+  }, duration);
 }
 
 // ── Locale helper ──
@@ -26,24 +31,24 @@ function getTrans(locale) {
 }
 
 // ── Timing constants ──
-const TOAST_OK_MS      = 3000;  // toast after successful clipboard copy
+const TOAST_OK_MS = 3000; // toast after successful clipboard copy
 const TOAST_FALLBACK_MS = 5000; // toast when clipboard unavailable
 const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
 const TERMINAL_ROTATE_MS = 3000;
-const COUNTER_LONG_MS  = 1400; // counter animation for numbers > 100
-const COUNTER_SHORT_MS = 900;  // counter animation for numbers ≤ 100
+const COUNTER_LONG_MS = 1400; // counter animation for numbers > 100
+const COUNTER_SHORT_MS = 900; // counter animation for numbers ≤ 100
 const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth
 
 // ── Layout / interaction constants ──
-const BACK_TO_TOP_THRESHOLD = 400;   // px scrollY to show back-to-top button
-const MOBILE_BREAKPOINT     = 767;   // px – matches CSS @media (max-width: 767px)
-const CURSOR_RING_LERP      = 0.14;  // lerp factor for cursor ring follow speed
-const TILT_PERSPECTIVE      = 900;   // px perspective for card 3-D tilt effect
-const QC_BAR_MAX_MULT       = 1.15;   // gauge bar – scale factor vs. max-complexity service
-const QC_BAR_MAX_PCT        = 92;    // gauge bar upper clamp (%)
-const QC_BAR_MIN_PCT        = 8;     // gauge bar lower clamp (%)
-const MATRIX_CHAR_SIZE      = 16;    // px cell size for Matrix rain columns
-const MATRIX_DROP_PROB      = 0.975; // probability a Matrix drop resets to top
+const BACK_TO_TOP_THRESHOLD = 400; // px scrollY to show back-to-top button
+const MOBILE_BREAKPOINT = 767; // px – matches CSS @media (max-width: 767px)
+const CURSOR_RING_LERP = 0.14; // lerp factor for cursor ring follow speed
+const TILT_PERSPECTIVE = 900; // px perspective for card 3-D tilt effect
+const QC_BAR_MAX_MULT = 1.15; // gauge bar – scale factor vs. max-complexity service
+const QC_BAR_MAX_PCT = 92; // gauge bar upper clamp (%)
+const QC_BAR_MIN_PCT = 8; // gauge bar lower clamp (%)
+const MATRIX_CHAR_SIZE = 16; // px cell size for Matrix rain columns
+const MATRIX_DROP_PROB = 0.975; // probability a Matrix drop resets to top
 
 // translations object → translations.js (loaded before this file)
 
@@ -68,15 +73,22 @@ function startTerminal(locale) {
   if (!stream || !label) return;
   const sessions = getTrans(locale).terminalSessions;
   if (!sessions || !sessions.length) return;
-  if (terminalTimer) { clearTimeout(terminalTimer); terminalTimer = null; }
+  if (terminalTimer) {
+    clearTimeout(terminalTimer);
+    terminalTimer = null;
+  }
   const gen = ++terminalGen;
   const PROMPT = 'daniel@kali:~$ ';
   const TYPE_MS = 65;
   const LINE_MS = 750;
   const PAUSE_MS = 4500;
+
   function schedule(fn, ms) {
-    terminalTimer = setTimeout(function() { if (terminalGen === gen) fn(); }, ms);
+    terminalTimer = setTimeout(function() {
+      if (terminalGen === gen) fn();
+    }, ms);
   }
+
   function runSession(sIdx) {
     const session = sessions[sIdx % sessions.length];
     const container = stream.closest('.terminal');
@@ -87,24 +99,32 @@ function startTerminal(locale) {
       if (container) container.classList.remove('terminal--typing');
       label.textContent = PROMPT + session.cmd;
       showLines(session, 0, function() {
-        schedule(function() { runSession(sIdx + 1); }, PAUSE_MS);
+        schedule(function() {
+          runSession(sIdx + 1);
+        }, PAUSE_MS);
       });
     });
   }
+
   function typeCmd(session, i, done) {
     label.innerHTML = PROMPT + session.cmd.slice(0, i) + '<span class="t-cursor">█</span>';
     if (i < session.cmd.length) {
-      schedule(function() { typeCmd(session, i + 1, done); }, TYPE_MS);
+      schedule(function() {
+        typeCmd(session, i + 1, done);
+      }, TYPE_MS);
     } else {
       schedule(done, 180);
     }
   }
+
   function showLines(session, i, done) {
     if (i < session.lines.length) {
       const pre = document.createElement('pre');
       pre.textContent = session.lines[i];
       stream.appendChild(pre);
-      schedule(function() { showLines(session, i + 1, done); }, LINE_MS);
+      schedule(function() {
+        showLines(session, i + 1, done);
+      }, LINE_MS);
     } else {
       done();
     }
@@ -128,7 +148,8 @@ function applyLocale(locale) {
   const copy = getTrans(locale);
   Object.entries(copy.selectors).forEach((entry) => {
     document.querySelectorAll(entry[0]).forEach((node) => {
-      if (node.dataset.html) node.innerHTML = entry[1]; else node.textContent = entry[1];
+      if (node.dataset.html) node.innerHTML = entry[1];
+      else node.textContent = entry[1];
     });
   });
   if (copy.placeholders) {
@@ -159,45 +180,134 @@ function applyLocale(locale) {
   // ── Dynamic aria-label updates ──
   const _aria = getTrans(locale).aria;
   document.querySelectorAll('.qc-svc-card[data-svc]').forEach((btn) => {
-    let lbl = _aria.svc[btn.dataset.svc]; if (lbl) btn.setAttribute('aria-label', lbl);
+    let lbl = _aria.svc[btn.dataset.svc];
+    if (lbl) btn.setAttribute('aria-label', lbl);
   });
-  document.querySelectorAll('.qc-toggle[data-scope]').forEach((b) => { let k=_aria.tgl[b.dataset.scope]; if(k) b.setAttribute('aria-label',k); });
-  document.querySelectorAll('.qc-toggle[data-cplx]').forEach((b) => { let k=b.dataset.cplx==='medium'?_aria.tgl['medium-cplx']:_aria.tgl[b.dataset.cplx]; if(k) b.setAttribute('aria-label',k); });
-  document.querySelectorAll('.qc-toggle[data-tbox]').forEach((b) => { let k=_aria.tgl[b.dataset.tbox]; if(k) b.setAttribute('aria-label',k); });
+  document.querySelectorAll('.qc-toggle[data-scope]').forEach((b) => {
+    let k = _aria.tgl[b.dataset.scope];
+    if (k) b.setAttribute('aria-label', k);
+  });
+  document.querySelectorAll('.qc-toggle[data-cplx]').forEach((b) => {
+    let k = b.dataset.cplx === 'medium' ? _aria.tgl['medium-cplx'] : _aria.tgl[b.dataset.cplx];
+    if (k) b.setAttribute('aria-label', k);
+  });
+  document.querySelectorAll('.qc-toggle[data-tbox]').forEach((b) => {
+    let k = _aria.tgl[b.dataset.tbox];
+    if (k) b.setAttribute('aria-label', k);
+  });
   let termBtn = document.getElementById('terminal-toggle-btn');
   if (termBtn) termBtn.setAttribute('aria-label', _aria.termToggle);
   let emailLink = document.querySelector('[data-contact]');
-  if (emailLink && emailLink.getAttribute('role')==='button') emailLink.setAttribute('aria-label', _aria.emailCopy);
-    localStorage.setItem('portfolio-lang', locale);
+  if (emailLink && emailLink.getAttribute('role') === 'button') emailLink.setAttribute('aria-label', _aria.emailCopy);
+  localStorage.setItem('portfolio-lang', locale);
 }
 
 langButtons.forEach((btn) => {
   btn.addEventListener('click', function() {
     currentLocale = btn.dataset.langToggle || 'en';
     applyLocale(currentLocale);
-    window.dispatchEvent(new CustomEvent('localechange', { detail: { locale: currentLocale } }));
+    window.dispatchEvent(new CustomEvent('localechange', {
+      detail: {
+        locale: currentLocale
+      }
+    }));
   });
 });
 
 // ── Quote Calculator pricing config (edit here to update estimates) ──
 const PRICES = {
-  pentest_web: { name: "Web App Pentest",  base: [2000, 5000], scope: {small:1.0, medium:1.9,  large:3.5},  cplx: {low:1.0, medium:1.45, high:2.1},  tbox: {black:1.0, grey:1.2,  white:1.7}  },
-  pentest_ad:  { name: 'Active Directory', base: [3000, 7000], scope: {small:1.0, medium:1.6,  large:2.8},  cplx: {low:1.0, medium:1.4,  high:2.1},  tbox: {black:1.0, grey:1.15, white:1.6}  },
-  ai_llm:      { name: 'AI / LLM Security',base: [4000, 9000], scope: {small:1.0, medium:1.8,  large:3.2},  cplx: {low:1.0, medium:1.5,  high:2.2},  tbox: {black:1.0, grey:1.15, white:1.7}  },
-  pentest_ai:  { name: 'Network Pentest',  base: [2000, 5000], scope: {small:1.0, medium:1.7,  large:3.0},  cplx: {low:1.0, medium:1.4,  high:2.1},  tbox: {black:1.0, grey:1.15, white:1.6}  }
+  pentest_web: {
+    name: "Web App Pentest",
+    base: [2000, 5000],
+    scope: {
+      small: 1.0,
+      medium: 1.9,
+      large: 3.5
+    },
+    cplx: {
+      low: 1.0,
+      medium: 1.45,
+      high: 2.1
+    },
+    tbox: {
+      black: 1.0,
+      grey: 1.2,
+      white: 1.7
+    }
+  },
+  pentest_ad: {
+    name: 'Active Directory',
+    base: [3000, 7000],
+    scope: {
+      small: 1.0,
+      medium: 1.6,
+      large: 2.8
+    },
+    cplx: {
+      low: 1.0,
+      medium: 1.4,
+      high: 2.1
+    },
+    tbox: {
+      black: 1.0,
+      grey: 1.15,
+      white: 1.6
+    }
+  },
+  ai_llm: {
+    name: 'AI / LLM Security',
+    base: [4000, 9000],
+    scope: {
+      small: 1.0,
+      medium: 1.8,
+      large: 3.2
+    },
+    cplx: {
+      low: 1.0,
+      medium: 1.5,
+      high: 2.2
+    },
+    tbox: {
+      black: 1.0,
+      grey: 1.15,
+      white: 1.7
+    }
+  },
+  pentest_ai: {
+    name: 'Network Pentest',
+    base: [2000, 5000],
+    scope: {
+      small: 1.0,
+      medium: 1.7,
+      large: 3.0
+    },
+    cplx: {
+      low: 1.0,
+      medium: 1.4,
+      high: 2.1
+    },
+    tbox: {
+      black: 1.0,
+      grey: 1.15,
+      white: 1.6
+    }
+  }
 };
 
 initQuoteCalculator();
 applyLocale(currentLocale);
 
 // Auto-update copyright year
-function initCopyrightYear() { let el = document.getElementById('cy'); if (el) el.textContent = new Date().getFullYear(); }
+function initCopyrightYear() {
+  let el = document.getElementById('cy');
+  if (el) el.textContent = new Date().getFullYear();
+}
 initCopyrightYear();
 
 function initStats() {
   [
     ['stat-targets', SITE_STATS.targets],
-    ['stat-paths',   SITE_STATS.paths],
+    ['stat-paths', SITE_STATS.paths],
     ['stat-ranking', SITE_STATS.ranking],
     ['stat-modules', SITE_STATS.modules]
   ].forEach(function(pair) {
@@ -215,7 +325,11 @@ initStats();
 function initContactBindings() {
   document.querySelectorAll('[data-contact]').forEach((el) => {
     let decoded = '';
-    try { decoded = atob(el.dataset.contact || ''); } catch(e) { return; }
+    try {
+      decoded = atob(el.dataset.contact || '');
+    } catch (e) {
+      return;
+    }
     if (decoded.startsWith('tel:')) {
       // Phone: native dialer is correct on mobile
       el.href = decoded;
@@ -247,7 +361,7 @@ initContactBindings();
 // Contact form — Formspree AJAX handler
 function initContactForm() {
   let form = document.getElementById('contact-form');
-  let btn  = document.getElementById('cf-submit');
+  let btn = document.getElementById('cf-submit');
   let status = document.getElementById('cf-status');
   if (!form || !btn || !status) return;
 
@@ -256,8 +370,8 @@ function initContactForm() {
     if (btn.disabled) return;
 
     // Client-side validation
-    let name    = form.querySelector('#cf-name').value.trim();
-    let email   = form.querySelector('#cf-email').value.trim();
+    let name = form.querySelector('#cf-name').value.trim();
+    let email = form.querySelector('#cf-email').value.trim();
     let message = form.querySelector('#cf-message').value.trim();
     let emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -281,31 +395,35 @@ function initContactForm() {
 
     let data = new FormData(form);
     fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(res) {
-      btn.classList.remove('loading');
-      btn.disabled = false;
-      if (res.ok) {
-        status.textContent = msgs.success || '✓ Message sent!';
-        status.className = 'cf-status success';
-        form.reset();
-      } else {
-        return res.json().then(function(data) {
-          let msg = (data&&data.errors)?data.errors.map(function(e){return e.message;}).join(', '):(msgs.submitFailed||'Submission failed.');
-          status.textContent = msg;
-          status.className = 'cf-status error';
-        });
-      }
-    })
-    .catch(function() {
-      btn.classList.remove('loading');
-      btn.disabled = false;
-      status.textContent = msgs.networkError || 'Network error.';
-      status.className = 'cf-status error';
-    });
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(function(res) {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        if (res.ok) {
+          status.textContent = msgs.success || '✓ Message sent!';
+          status.className = 'cf-status success';
+          form.reset();
+        } else {
+          return res.json().then(function(data) {
+            let msg = (data && data.errors) ? data.errors.map(function(e) {
+              return e.message;
+            }).join(', ') : (msgs.submitFailed || 'Submission failed.');
+            status.textContent = msg;
+            status.className = 'cf-status error';
+          });
+        }
+      })
+      .catch(function() {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        status.textContent = msgs.networkError || 'Network error.';
+        status.className = 'cf-status error';
+      });
   });
 }
 initContactForm();
@@ -340,8 +458,13 @@ function initScrollReveal() {
         io.unobserve(el);
       });
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-  els.forEach((el) => { io.observe(el); });
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px 0px -20px 0px'
+  });
+  els.forEach((el) => {
+    io.observe(el);
+  });
 }
 initCounterAnimation();
 
@@ -362,6 +485,7 @@ function initCounterAnimation() {
         io.unobserve(e.target);
         let start = null;
         let duration = num > 100 ? COUNTER_LONG_MS : COUNTER_SHORT_MS;
+
         function step(ts) {
           if (!start) start = ts;
           let p = Math.min((ts - start) / duration, 1);
@@ -371,7 +495,9 @@ function initCounterAnimation() {
         }
         requestAnimationFrame(step);
       });
-    }, { threshold: 0.6 });
+    }, {
+      threshold: 0.6
+    });
     io.observe(el);
   });
 }
@@ -383,6 +509,7 @@ function initActiveNav() {
   let navLinks = document.querySelectorAll('.topnav a');
   let sections = Array.from(document.querySelectorAll('main section[id]'));
   if (!navLinks.length || !sections.length) return;
+
   function setActive(id) {
     navLinks.forEach((link) => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + id);
@@ -397,13 +524,18 @@ function initActiveNav() {
     // Highlight the topmost visible section that has a nav link
     for (let i = 0; i < sections.length; i++) {
       if (visible.has(sections[i].id) &&
-          document.querySelector('.topnav a[href="#' + sections[i].id + '"]')) {
+        document.querySelector('.topnav a[href="#' + sections[i].id + '"]')) {
         setActive(sections[i].id);
         return;
       }
     }
-  }, { rootMargin: '-60px 0px -30% 0px', threshold: 0 });
-  sections.forEach((sec) => { io.observe(sec); });
+  }, {
+    rootMargin: '-60px 0px -30% 0px',
+    threshold: 0
+  });
+  sections.forEach((sec) => {
+    io.observe(sec);
+  });
 }
 
 // Smooth scroll for nav links
@@ -413,13 +545,17 @@ document.querySelectorAll('.topnav a').forEach((a) => {
     if (href && href.startsWith('#')) {
       e.preventDefault();
       const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      if (target) target.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'start'
+      });
     }
   });
 });
 
-window.addEventListener('scroll', throttle(function() {
-}, 16), { passive: true });
+window.addEventListener('scroll', throttle(function() {}, 16), {
+  passive: true
+});
 
 
 
@@ -434,9 +570,14 @@ function initBackToTop() {
   if (!btn) return;
   window.addEventListener('scroll', throttle(function() {
     btn.classList.toggle('visible', window.scrollY > BACK_TO_TOP_THRESHOLD);
-  }, 16), { passive: true });
+  }, 16), {
+    passive: true
+  });
   btn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
   });
 }
 initBackToTop();
@@ -449,7 +590,9 @@ initBackToTop();
 // Service Worker registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').catch(function(e) { console.warn('[SW] Registration failed:', e); });
+    navigator.serviceWorker.register('/sw.js').catch(function(e) {
+      console.warn('[SW] Registration failed:', e);
+    });
   });
 }
 
@@ -469,7 +612,9 @@ function initHamburgerMenu() {
     let open = topbar.classList.toggle('nav-open');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  links.forEach((a) => { a.addEventListener('click', close); });
+  links.forEach((a) => {
+    a.addEventListener('click', close);
+  });
   document.addEventListener('click', function(e) {
     if (!topbar.contains(e.target)) close();
   });
@@ -503,14 +648,17 @@ initTerminalToggle();
 
 /* ── Konami Code + Matrix Rain Easter Egg ── */
 function initKonamiEasterEgg() {
-  let KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
   let idx = 0;
 
   document.addEventListener('keydown', function(e) {
     let k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     if (k === KONAMI[idx]) {
       idx++;
-      if (idx === KONAMI.length) { idx = 0; triggerMatrix(); }
+      if (idx === KONAMI.length) {
+        idx = 0;
+        triggerMatrix();
+      }
     } else {
       idx = k === KONAMI[0] ? 1 : 0;
     }
@@ -521,10 +669,10 @@ function initKonamiEasterEgg() {
     let overlay = document.createElement('div');
     overlay.id = 'matrix-overlay';
     overlay.style.cssText = [
-      'position:fixed','inset:0','z-index:9999',
-      'background:#000','display:flex',
-      'flex-direction:column','align-items:center',
-      'justify-content:center','cursor:pointer'
+      'position:fixed', 'inset:0', 'z-index:9999',
+      'background:#000', 'display:flex',
+      'flex-direction:column', 'align-items:center',
+      'justify-content:center', 'cursor:pointer'
     ].join(';');
 
     // Canvas
@@ -535,14 +683,14 @@ function initKonamiEasterEgg() {
     // Access Granted message
     let msg = document.createElement('div');
     msg.style.cssText = [
-      'position:relative','z-index:2','text-align:center',
-      'font-family:"JetBrains Mono",monospace','color:#00ff41',
+      'position:relative', 'z-index:2', 'text-align:center',
+      'font-family:"JetBrains Mono",monospace', 'color:#00ff41',
       'text-shadow:0 0 20px #00ff41,0 0 40px #00ff41',
       'animation:glitch 0.4s infinite alternate'
     ].join(';');
     msg.innerHTML = [
       '<div style="font-size:clamp(2rem,8vw,4rem);font-weight:700;letter-spacing:0.15em;">ACCESS GRANTED</div>',
-      '<div style="font-size:clamp(0.8rem,2vw,1.1rem);margin-top:16px;opacity:0.8;">Welcome, ' + ((navigator.userAgentData&&navigator.userAgentData.platform||navigator.platform||'Unknown') || 'Unknown') + ' operator</div>',
+      '<div style="font-size:clamp(0.8rem,2vw,1.1rem);margin-top:16px;opacity:0.8;">Welcome, ' + ((navigator.userAgentData && navigator.userAgentData.platform || navigator.platform || 'Unknown') || 'Unknown') + ' operator</div>',
       '<div style="font-size:clamp(0.7rem,1.5vw,0.9rem);margin-top:8px;opacity:0.6;">[ click or press ESC to exit ]</div>'
     ].join('');
     overlay.appendChild(msg);
@@ -560,18 +708,24 @@ function initKonamiEasterEgg() {
 
     // Matrix rain
     let ctx = canvas.getContext('2d');
+
     function resize() {
-      canvas.width  = overlay.offsetWidth;
+      canvas.width = overlay.offsetWidth;
       canvas.height = overlay.offsetHeight;
     }
     resize();
     window.addEventListener('resize', resize);
 
-    let cols   = Math.floor(canvas.width / 16);
-    let drops  = Array.from({length: cols}, function() { return Math.random() * -50 | 0; });
-    let CHARS  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>/\\|[]{}アイウエオカキクケコサシスセソタチツテトナニヌネノ';
+    let cols = Math.floor(canvas.width / 16);
+    let drops = Array.from({
+      length: cols
+    }, function() {
+      return Math.random() * -50 | 0;
+    });
+    let CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>/\\|[]{}アイウエオカキクケコサシスセソタチツテトナニヌネノ';
 
     let raf;
+
     function draw() {
       ctx.fillStyle = 'rgba(0,0,0,0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -597,7 +751,10 @@ function initKonamiEasterEgg() {
 
     overlay.addEventListener('click', close);
     document.addEventListener('keydown', function esc(e) {
-      if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+      if (e.key === 'Escape') {
+        close();
+        document.removeEventListener('keydown', esc);
+      }
     });
 
     // Auto-close after 15s
@@ -625,14 +782,14 @@ function initMotionObserver() {
 
     function onMove(e) {
       let rect = card.getBoundingClientRect();
-      let x = (e.clientX - rect.left) / rect.width  - 0.5;
-      let y = (e.clientY - rect.top)  / rect.height - 0.5;
-      let rotY =  x * STRENGTH * 2;
+      let x = (e.clientX - rect.left) / rect.width - 0.5;
+      let y = (e.clientY - rect.top) / rect.height - 0.5;
+      let rotY = x * STRENGTH * 2;
       let rotX = -y * STRENGTH * 2;
       card.style.transform = `perspective(${TILT_PERSPECTIVE}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.012,1.012,1.012)`;
       let gx = Math.round((x + 0.5) * 100);
       let gy = Math.round((y + 0.5) * 100);
-      glare.style.background = 'radial-gradient(circle at '+gx+'% '+gy+'%, rgba(255,255,255,0.035), transparent 65%)';
+      glare.style.background = 'radial-gradient(circle at ' + gx + '% ' + gy + '%, rgba(255,255,255,0.035), transparent 65%)';
       glare.style.opacity = '1';
     }
 
@@ -667,18 +824,21 @@ initMotionObserver();
 /* ── Custom Crosshair Cursor ── */
 function initCursorEffect() {
   if (!window.matchMedia('(pointer: fine)').matches) return;
-  let dot  = document.querySelector('.cursor-dot');
+  let dot = document.querySelector('.cursor-dot');
   let ring = document.querySelector('.cursor-ring');
   if (!dot || !ring) return;
 
-  let mx = -200, my = -200, rx = -200, ry = -200;
+  let mx = -200,
+    my = -200,
+    rx = -200,
+    ry = -200;
   let rafId = null;
 
   function animateRing() {
     rx += (mx - rx) * CURSOR_RING_LERP;
     ry += (my - ry) * CURSOR_RING_LERP;
     ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    ring.style.top = ry + 'px';
     // Keep looping only while ring hasn't converged (> 0.5px away from target)
     if (Math.abs(mx - rx) > 0.5 || Math.abs(my - ry) > 0.5) {
       rafId = requestAnimationFrame(animateRing);
@@ -694,16 +854,20 @@ function initCursorEffect() {
   }
 
   document.addEventListener('mousemove', function(e) {
-    mx = e.clientX; my = e.clientY;
+    mx = e.clientX;
+    my = e.clientY;
     dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
+    dot.style.top = my + 'px';
     startLoop();
   });
 
   // Pause when tab is hidden, resume on return
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
     } else {
       startLoop();
     }
@@ -716,10 +880,20 @@ function initCursorEffect() {
   document.addEventListener('mouseout', function(e) {
     if (e.target.closest(hoverTargets)) document.body.classList.remove('cursor-hovering');
   });
-  document.addEventListener('mousedown', function() { document.body.classList.add('cursor-clicking'); });
-  document.addEventListener('mouseup',   function() { document.body.classList.remove('cursor-clicking'); });
-  document.addEventListener('mouseleave', function() { dot.style.opacity='0'; ring.style.opacity='0'; });
-  document.addEventListener('mouseenter', function() { dot.style.opacity='1'; ring.style.opacity='1'; });
+  document.addEventListener('mousedown', function() {
+    document.body.classList.add('cursor-clicking');
+  });
+  document.addEventListener('mouseup', function() {
+    document.body.classList.remove('cursor-clicking');
+  });
+  document.addEventListener('mouseleave', function() {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', function() {
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+  });
 }
 initCursorEffect();
 
@@ -727,79 +901,97 @@ initCursorEffect();
 /* ── Quote Calculator v4 ─────────────────────────────────── */
 function initQuoteCalculator() {
   'use strict';
-  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
-  function el(id) { return document.getElementById(id); }
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function el(id) {
+    return document.getElementById(id);
+  }
 
   function recalc() {
     const isSp = isSpanish(); // cached — avoids 7 separate calls
     const _lbl = getTrans(isSp ? 'es' : 'en').labels; // re-read each call — stays in sync with locale
     let SCOPE_LABELS = _lbl.scope;
-    let CPLX_LABELS  = _lbl.cplx;
-    let TBOX_LABELS  = _lbl.tbox;
-    let svcBtn   = document.querySelector('.qc-svc-card.active');
+    let CPLX_LABELS = _lbl.cplx;
+    let TBOX_LABELS = _lbl.tbox;
+    let svcBtn = document.querySelector('.qc-svc-card.active');
     let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
-    let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
-    let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
+    let cplxBtn = document.querySelector('.qc-toggle[data-cplx].active');
+    let tboxBtn = document.querySelector('.qc-toggle[data-tbox].active');
     if (!svcBtn || !scopeBtn || !cplxBtn) return;
 
-    let svc = svcBtn.dataset.svc, scope = scopeBtn.dataset.scope, cplx = cplxBtn.dataset.cplx, tbox = tboxBtn ? tboxBtn.dataset.tbox : 'black';
-    let p = PRICES[svc]; if (!p) return;
-    let mn = p.base[0] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
-    let mx = p.base[1] * (p.scope[scope]||1) * (p.cplx[cplx]||1) * (p.tbox[tbox]||1);
+    let svc = svcBtn.dataset.svc,
+      scope = scopeBtn.dataset.scope,
+      cplx = cplxBtn.dataset.cplx,
+      tbox = tboxBtn ? tboxBtn.dataset.tbox : 'black';
+    let p = PRICES[svc];
+    if (!p) return;
+    let mn = p.base[0] * (p.scope[scope] || 1) * (p.cplx[cplx] || 1) * (p.tbox[tbox] || 1);
+    let mx = p.base[1] * (p.scope[scope] || 1) * (p.cplx[cplx] || 1) * (p.tbox[tbox] || 1);
 
     if (el('q-min')) el('q-min').textContent = fmt(mn);
     if (el('q-max')) el('q-max').textContent = fmt(mx);
-    if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit||'');
+    if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit || '');
     if (el('qc-bar')) {
-      let svcMax = p.base[0] * (p.scope['large']||1) * (p.cplx['high']||1) * (p.tbox['white']||1) * QC_BAR_MAX_MULT;
-      el('qc-bar').style.width = Math.min(QC_BAR_MAX_PCT,Math.max(QC_BAR_MIN_PCT,(mn / svcMax)*100)).toFixed(1)+'%';
+      let svcMax = p.base[0] * (p.scope['large'] || 1) * (p.cplx['high'] || 1) * (p.tbox['white'] || 1) * QC_BAR_MAX_MULT;
+      el('qc-bar').style.width = Math.min(QC_BAR_MAX_PCT, Math.max(QC_BAR_MIN_PCT, (mn / svcMax) * 100)).toFixed(1) + '%';
     }
     let ss = _lbl.scopeSets[svc];
     if (ss) {
       (_qcScopeToggles || document.querySelectorAll('.qc-toggle[data-scope]')).forEach((btn) => {
-        let s = btn.dataset.scope, small2 = btn.querySelector('small');
+        let s = btn.dataset.scope,
+          small2 = btn.querySelector('small');
         if (small2 && ss[s]) small2.textContent = ss[s];
       });
     }
     if (el('qr-svc-name')) el('qr-svc-name').textContent = isSp ? (_lbl.svcNames?.[svc] ?? p.name) : p.name;
-    if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope]||scope;
-    if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx]||cplx;
-    if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox]||tbox;
+    if (el('qr-scope')) el('qr-scope').textContent = SCOPE_LABELS[scope] || scope;
+    if (el('qr-cplx')) el('qr-cplx').textContent = CPLX_LABELS[cplx] || cplx;
+    if (el('qr-tbox')) el('qr-tbox').textContent = TBOX_LABELS[tbox] || tbox;
     let durMap = _lbl.durations[svc];
     if (durMap && el('qr-duration')) el('qr-duration').textContent = durMap[scope] || '1–2 weeks';
   }
 
   function activate(group, clicked) {
-    document.querySelectorAll(group).forEach((b) => { b.classList.remove('active'); });
+    document.querySelectorAll(group).forEach((b) => {
+      b.classList.remove('active');
+    });
     clicked.classList.add('active');
-    document.querySelectorAll(group).forEach((b) => {b.setAttribute('aria-pressed',b===clicked?'true':'false');});
-    
+    document.querySelectorAll(group).forEach((b) => {
+      b.setAttribute('aria-pressed', b === clicked ? 'true' : 'false');
+    });
+
     recalc();
   }
 
   function ready(fn) {
-    if (document.readyState !== 'loading') { fn(); }
-    else { document.addEventListener('DOMContentLoaded', fn); }
+    if (document.readyState !== 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
   }
 
   // Cached NodeLists for static QC toggle buttons (assigned once on ready)
   let _qcSvcCards, _qcScopeToggles, _qcCplxToggles, _qcTboxToggles;
 
   ready(function() {
-    _qcSvcCards     = document.querySelectorAll('.qc-svc-card');
+    _qcSvcCards = document.querySelectorAll('.qc-svc-card');
     _qcScopeToggles = document.querySelectorAll('.qc-toggle[data-scope]');
-    _qcCplxToggles  = document.querySelectorAll('.qc-toggle[data-cplx]');
-    _qcTboxToggles  = document.querySelectorAll('.qc-toggle[data-tbox]');
+    _qcCplxToggles = document.querySelectorAll('.qc-toggle[data-cplx]');
+    _qcTboxToggles = document.querySelectorAll('.qc-toggle[data-tbox]');
     // Event delegation: one listener for all calculator toggle buttons
     const _qcContainer = document.getElementById('quote');
     if (_qcContainer) {
       _qcContainer.addEventListener('click', function(e) {
         const btn = e.target.closest('.qc-svc-card, .qc-toggle[data-scope], .qc-toggle[data-cplx], .qc-toggle[data-tbox]');
         if (!btn) return;
-        if (btn.classList.contains('qc-svc-card'))          activate('.qc-svc-card', btn);
-        else if (btn.dataset.scope !== undefined)            activate('.qc-toggle[data-scope]', btn);
-        else if (btn.dataset.cplx  !== undefined)            activate('.qc-toggle[data-cplx]', btn);
-        else if (btn.dataset.tbox  !== undefined)            activate('.qc-toggle[data-tbox]', btn);
+        if (btn.classList.contains('qc-svc-card')) activate('.qc-svc-card', btn);
+        else if (btn.dataset.scope !== undefined) activate('.qc-toggle[data-scope]', btn);
+        else if (btn.dataset.cplx !== undefined) activate('.qc-toggle[data-cplx]', btn);
+        else if (btn.dataset.tbox !== undefined) activate('.qc-toggle[data-tbox]', btn);
       });
     }
     recalc();
@@ -826,8 +1018,10 @@ function initQuoteCalculator() {
     document.querySelectorAll('.service-cta[data-select]').forEach((link) => {
       link.addEventListener('click', function() {
         let svc = link.dataset.select;
-        let card = document.querySelector('.qc-svc-card[data-svc="'+svc+'"]');
-        if (card) { activate('.qc-svc-card', card); }
+        let card = document.querySelector('.qc-svc-card[data-svc="' + svc + '"]');
+        if (card) {
+          activate('.qc-svc-card', card);
+        }
       });
     });
 
@@ -838,52 +1032,62 @@ function initQuoteCalculator() {
         e.preventDefault();
         let svcBtn = document.querySelector('.qc-svc-card.active');
         let scopeBtn = document.querySelector('.qc-toggle[data-scope].active');
-        let cplxBtn  = document.querySelector('.qc-toggle[data-cplx].active');
-        let tboxBtn  = document.querySelector('.qc-toggle[data-tbox].active');
+        let cplxBtn = document.querySelector('.qc-toggle[data-cplx].active');
+        let tboxBtn = document.querySelector('.qc-toggle[data-tbox].active');
         let scope = scopeBtn ? scopeBtn.dataset.scope : '';
-        let cplx  = cplxBtn  ? cplxBtn.dataset.cplx  : '';
-        let tbox  = tboxBtn  ? tboxBtn.dataset.tbox  : 'black';
+        let cplx = cplxBtn ? cplxBtn.dataset.cplx : '';
+        let tbox = tboxBtn ? tboxBtn.dataset.tbox : 'black';
         let minEl = document.getElementById('q-min');
         let maxEl = document.getElementById('q-max');
         const waNum = WA_NUMBER;
         let svcName = '';
         if (svcBtn && minEl && maxEl) {
-          svcName = (() => { let p=PRICES[svcBtn.dataset.svc]||{}; return isSpanish() ? (getTrans('es').labels.svcNames?.[svcBtn.dataset.svc] ?? p.name) : p.name; })() || svcBtn.dataset.svc;
+          svcName = (() => {
+            let p = PRICES[svcBtn.dataset.svc] || {};
+            return isSpanish() ? (getTrans('es').labels.svcNames?.[svcBtn.dataset.svc] ?? p.name) : p.name;
+          })() || svcBtn.dataset.svc;
         }
         let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
-        let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
-        let tboxStrong  = tboxBtn  && tboxBtn.querySelector('strong');
+        let cplxStrong = cplxBtn && cplxBtn.querySelector('strong');
+        let tboxStrong = tboxBtn && tboxBtn.querySelector('strong');
         // Prefill contact form with calculator selections
-        let scopeDesc  = scopeBtn ? scopeBtn.querySelector('small') : null;
-        let scopeLine  = (scopeStrong ? scopeStrong.textContent : scope) + (scopeDesc ? ' · ' + scopeDesc.textContent : '');
-        let cplxLine   = cplxStrong ? cplxStrong.textContent : cplx;
-        let tboxLine   = tboxStrong ? tboxStrong.textContent : tbox;
-        let priceLine  = (minEl && maxEl) ? minEl.textContent + ' – ' + maxEl.textContent + ' USD' : '';
+        let scopeDesc = scopeBtn ? scopeBtn.querySelector('small') : null;
+        let scopeLine = (scopeStrong ? scopeStrong.textContent : scope) + (scopeDesc ? ' · ' + scopeDesc.textContent : '');
+        let cplxLine = cplxStrong ? cplxStrong.textContent : cplx;
+        let tboxLine = tboxStrong ? tboxStrong.textContent : tbox;
+        let priceLine = (minEl && maxEl) ? minEl.textContent + ' – ' + maxEl.textContent + ' USD' : '';
         let cfMsg = document.getElementById('cf-message');
         if (cfMsg) {
           if (isSpanish()) {
-            cfMsg.value = (svcName ? 'Servicio: ' + svcName + '\n' : '')
-              + 'Alcance: ' + scopeLine + '\n'
-              + 'Complejidad: ' + cplxLine + '\n'
-              + 'Tipo de prueba: ' + tboxLine + '\n'
-              + (priceLine ? 'Estimado: ' + priceLine + '\n' : '')
-              + '\n';
+            cfMsg.value = (svcName ? 'Servicio: ' + svcName + '\n' : '') +
+              'Alcance: ' + scopeLine + '\n' +
+              'Complejidad: ' + cplxLine + '\n' +
+              'Tipo de prueba: ' + tboxLine + '\n' +
+              (priceLine ? 'Estimado: ' + priceLine + '\n' : '') +
+              '\n';
           } else {
-            cfMsg.value = (svcName ? 'Service: ' + svcName + '\n' : '')
-              + 'Scope: ' + scopeLine + '\n'
-              + 'Complexity: ' + cplxLine + '\n'
-              + 'Testing type: ' + tboxLine + '\n'
-              + (priceLine ? 'Estimated range: ' + priceLine + '\n' : '')
-              + '\n';
+            cfMsg.value = (svcName ? 'Service: ' + svcName + '\n' : '') +
+              'Scope: ' + scopeLine + '\n' +
+              'Complexity: ' + cplxLine + '\n' +
+              'Testing type: ' + tboxLine + '\n' +
+              (priceLine ? 'Estimated range: ' + priceLine + '\n' : '') +
+              '\n';
           }
         }
         // Scroll to contact form and focus first empty field
         let contactSection = document.getElementById('contact');
-        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (contactSection) contactSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
         setTimeout(function() {
           let cfName = document.getElementById('cf-name');
-          if (cfName && !cfName.value.trim()) { cfName.focus(); }
-          else if (cfMsg) { cfMsg.focus(); cfMsg.setSelectionRange(cfMsg.value.length, cfMsg.value.length); }
+          if (cfName && !cfName.value.trim()) {
+            cfName.focus();
+          } else if (cfMsg) {
+            cfMsg.focus();
+            cfMsg.setSelectionRange(cfMsg.value.length, cfMsg.value.length);
+          }
         }, 600);
       });
     }
@@ -902,20 +1106,29 @@ function initGATracking() {
   // HTB transcript download
   let htbBtn = document.getElementById('hero-htb-btn');
   if (htbBtn) htbBtn.addEventListener('click', function() {
-    gtagEvent('file_download', { file_name: 'htb-academy-student-transcript.pdf', link_text: 'Verified by HTB Academy' });
+    gtagEvent('file_download', {
+      file_name: 'htb-academy-student-transcript.pdf',
+      link_text: 'Verified by HTB Academy'
+    });
   });
 
   // Case study report downloads
   document.querySelectorAll('a[href*="assets/reports/"]').forEach((link) => {
     link.addEventListener('click', function() {
-      gtagEvent('file_download', { file_name: link.getAttribute('href'), link_text: link.textContent.trim() });
+      gtagEvent('file_download', {
+        file_name: link.getAttribute('href'),
+        link_text: link.textContent.trim()
+      });
     });
   });
 
   // WhatsApp float button
   const waFloat = waFloatEl; // cached at init
   if (waFloat) waFloat.addEventListener('click', function() {
-    gtagEvent('contact', { method: 'whatsapp', link_id: 'wa-float' });
+    gtagEvent('contact', {
+      method: 'whatsapp',
+      link_id: 'wa-float'
+    });
   });
 
   // Calculator CTA → WhatsApp
@@ -931,32 +1144,45 @@ function initGATracking() {
   // Hero scoping call CTA
   let heroCta = document.querySelector('.hero-actions .button.primary');
   if (heroCta) heroCta.addEventListener('click', function() {
-    gtagEvent('generate_lead', { method: 'hero_cta' });
+    gtagEvent('generate_lead', {
+      method: 'hero_cta'
+    });
   });
 
   // Contact form submit
   let contactForm = document.querySelector('form[action*="formspree"]');
   if (contactForm) contactForm.addEventListener('submit', function() {
-    gtagEvent('form_submit', { form_id: 'contact', method: 'formspree' });
+    gtagEvent('form_submit', {
+      form_id: 'contact',
+      method: 'formspree'
+    });
   });
 
   // Language switch
   document.querySelectorAll('.lang-button').forEach((btn) => {
     btn.addEventListener('click', function() {
-      gtagEvent('language_switch', { language: btn.dataset.langToggle || btn.textContent.trim() });
+      gtagEvent('language_switch', {
+        language: btn.dataset.langToggle || btn.textContent.trim()
+      });
     });
   });
 
   // See pricing CTA
   let pricingCta = document.getElementById('see-pricing-cta');
   if (pricingCta) pricingCta.addEventListener('click', function() {
-    gtagEvent('select_content', { content_type: 'section', item_id: 'pricing' });
+    gtagEvent('select_content', {
+      content_type: 'section',
+      item_id: 'pricing'
+    });
   });
 
   // LinkedIn / GitHub / HTB social clicks
   document.querySelectorAll('.social-link, .footer-socials a').forEach((link) => {
     link.addEventListener('click', function() {
-      gtagEvent('click', { link_url: link.href, link_id: link.getAttribute('aria-label') || link.href });
+      gtagEvent('click', {
+        link_url: link.href,
+        link_id: link.getAttribute('aria-label') || link.href
+      });
     });
   });
 
@@ -966,12 +1192,15 @@ function initGATracking() {
       if (btn.getAttribute('aria-expanded') === 'false') {
         let textEl = btn.querySelector('span:not(.faq-num)');
         let qText = textEl ? textEl.textContent.trim() : btn.id;
-        gtagEvent('select_content', { content_type: 'faq', item_id: qText.substring(0, 60) });
+        gtagEvent('select_content', {
+          content_type: 'faq',
+          item_id: qText.substring(0, 60)
+        });
       }
     });
   });
 
-  }
+}
 initGATracking();
 initActiveNav();
 
@@ -1032,11 +1261,10 @@ function initFAQAccordion() {
   // Hook into language switcher
   let locale = (typeof currentLocale !== 'undefined') ? currentLocale : 'en';
   applyFaqLocale(locale);
-  
+
   // Re-apply when language changes
   window.addEventListener('localechange', function(e) {
     applyFaqLocale(e.detail.locale);
   });
 }
 initFAQAccordion();
-
