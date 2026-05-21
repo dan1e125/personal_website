@@ -3805,3 +3805,26 @@ select {
   }
 }
 
+
+/* ── proof-bar: match service-card background ── */
+.proof-bar .quick-stats li {
+  background: linear-gradient(180deg, var(--bg-overlay-88), var(--bg-overlay-92));
+  border: 1px solid var(--line);
+  position: relative;
+}
+.proof-bar .quick-stats li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--primary-45), var(--accent-18), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.proof-bar .section-tag {
+  text-align: center;
+  margin-bottom: 20px;
+}

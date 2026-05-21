@@ -37,13 +37,14 @@ const translations = {
       '#spec-ad': 'Active Directory',
       '#spec-net': 'Network Pentest',
       '.hero-actions .button.primary': 'Start with a free call',
-      '#stat-paths': 'HTB paths completed',
-      '#stat-targets': 'HTB machines pwned',
-      '#stat-ranking': 'HTB ranking',
+      '#stat-paths': 'Structured training paths on HTB Academy',
+      '#stat-targets': 'Vulnerable lab machines exploited',
+      '#stat-ranking': 'World ranking among 2M+ security professionals',
 
       // ── Terminal ──
 
       // ── Services ──
+      '#htb-stats-tag': '[ HACK THE BOX PROFILE ]',
       '#services-tag': '[ SERVICES ]',
       '#services-heading': 'What I do',
       '#svc-web-title': 'Web Application Pentest',
@@ -391,14 +392,15 @@ const translations = {
       '#spec-ad': 'Active Directory',
       '#spec-net': 'Pentest de Redes',
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
-      '#stat-paths': 'Paths HTB completados',
-      '#stat-targets': 'Máquinas HTB comprometidas',
-      '#stat-ranking': 'Ranking HTB',
+      '#stat-paths': 'Paths de entrenamiento completados en HTB Academy',
+      '#stat-targets': 'Máquinas de laboratorio comprometidas',
+      '#stat-ranking': 'Ranking mundial entre 2M+ profesionales de seguridad',
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
 
       // ── Terminal ──
 
       // ── Services ──
+      '#htb-stats-tag': '[ PERFIL HACK THE BOX ]',
       '#services-tag': '[ SERVICIOS ]',
       '#services-heading': 'Lo que hago',
       '#svc-web-title': 'Pentest de Aplicación Web',
