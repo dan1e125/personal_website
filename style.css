@@ -3798,3 +3798,11 @@ select {
   width: 100%;
 }
 
+/* ── Hero-right identity: centered overrides (high specificity) ── */
+.hero-copy .hero-right .identity-header {
+}
+.hero-copy .hero-right .identity-text {
+}
+.hero-copy .hero-right .availability-badge {
+}
+
