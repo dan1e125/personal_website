@@ -438,7 +438,7 @@ p {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 48px;
-  align-items: center
+  align-items: start
 }
 
 .hero-left {
@@ -450,9 +450,10 @@ p {
 .hero-right {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  align-items: center;
-  justify-content: center
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 8px
 }
 
 .hero h2 {
@@ -1556,8 +1557,9 @@ main>section+section {
 }
 
 .spec-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
   gap: 8px;
 }
 
