@@ -63,85 +63,7 @@ const waFloatEl = document.querySelector('.wa-float');
 
 let currentLocale = localStorage.getItem('portfolio-lang') || 'en';
 let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-let terminalTimer = null;
-let terminalGen = 0;
 
-// Terminal animation — typewriter engine
-function startTerminal(locale) {
-  const label = document.querySelector('.terminal-label');
-  const stream = document.querySelector('.terminal-stream');
-  if (!stream || !label) return;
-  const sessions = getTrans(locale).terminalSessions;
-  if (!sessions || !sessions.length) return;
-  if (terminalTimer) {
-    clearTimeout(terminalTimer);
-    terminalTimer = null;
-  }
-  const gen = ++terminalGen;
-  const PROMPT = 'daniel@kali:~$ ';
-  const TYPE_MS = 65;
-  const LINE_MS = 750;
-  const PAUSE_MS = 4500;
-
-  function schedule(fn, ms) {
-    terminalTimer = setTimeout(function() {
-      if (terminalGen === gen) fn();
-    }, ms);
-  }
-
-  function runSession(sIdx) {
-    const session = sessions[sIdx % sessions.length];
-    const container = stream.closest('.terminal');
-    label.innerHTML = PROMPT + '<span class="t-cursor">█</span>';
-    stream.replaceChildren();
-    if (container) container.classList.add('terminal--typing');
-    typeCmd(session, 0, function() {
-      if (container) container.classList.remove('terminal--typing');
-      label.textContent = PROMPT + session.cmd;
-      showLines(session, 0, function() {
-        schedule(function() {
-          runSession(sIdx + 1);
-        }, PAUSE_MS);
-      });
-    });
-  }
-
-  function typeCmd(session, i, done) {
-    label.innerHTML = PROMPT + session.cmd.slice(0, i) + '<span class="t-cursor">█</span>';
-    if (i < session.cmd.length) {
-      schedule(function() {
-        typeCmd(session, i + 1, done);
-      }, TYPE_MS);
-    } else {
-      schedule(done, 180);
-    }
-  }
-
-  function showLines(session, i, done) {
-    if (i < session.lines.length) {
-      const pre = document.createElement('pre');
-      pre.textContent = session.lines[i];
-      stream.appendChild(pre);
-      schedule(function() {
-        showLines(session, i + 1, done);
-      }, LINE_MS);
-    } else {
-      done();
-    }
-  }
-  if (prefersReducedMotion) {
-    const session = sessions[0];
-    label.textContent = PROMPT + session.cmd;
-    stream.replaceChildren();
-    session.lines.forEach(function(line) {
-      const pre = document.createElement('pre');
-      pre.textContent = line;
-      stream.appendChild(pre);
-    });
-  } else {
-    runSession(0);
-  }
-}
 
 // Locale
 function applyLocale(locale) {
@@ -169,7 +91,6 @@ function applyLocale(locale) {
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
-  startTerminal(locale);
   const waFloat = waFloatEl; // cached at init
   if (waFloat) {
     const waNum = WA_NUMBER;
@@ -195,8 +116,6 @@ function applyLocale(locale) {
     let k = _aria.tgl[b.dataset.tbox];
     if (k) b.setAttribute('aria-label', k);
   });
-  let termBtn = document.getElementById('terminal-toggle-btn');
-  if (termBtn) termBtn.setAttribute('aria-label', _aria.termToggle);
   let emailLink = document.querySelector('[data-contact]');
   if (emailLink && emailLink.getAttribute('role') === 'button') emailLink.setAttribute('aria-label', _aria.emailCopy);
   localStorage.setItem('portfolio-lang', locale);
@@ -561,7 +480,6 @@ window.addEventListener('scroll', throttle(function() {}, 16), {
 
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
   prefersReducedMotion = e.matches;
-  if (prefersReducedMotion && typeof terminalTimer !== 'undefined') clearTimeout(terminalTimer);
 });
 
 // Back to top
@@ -625,23 +543,6 @@ function initHamburgerMenu() {
 initHamburgerMenu();
 
 
-// ── TERMINAL TOGGLE (mobile) ──────────────────
-function initTerminalToggle() {
-  let terminal = document.querySelector('.hero-panel.terminal');
-  let btn = terminal && terminal.querySelector('.terminal-toggle');
-  if (!terminal || !btn) return;
-
-  function setOpen(open) {
-    terminal.classList.toggle('is-open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  // Collapsed by default on mobile
-  setOpen(window.innerWidth > MOBILE_BREAKPOINT);
-  btn.addEventListener('click', function() {
-    setOpen(!terminal.classList.contains('is-open'));
-  });
-}
-initTerminalToggle();
 
 
 
@@ -805,7 +706,7 @@ function initMotionObserver() {
 
   function attachAll() {
     document.querySelectorAll('.card').forEach((c) => {
-      if (c.closest('.hero') || c.classList.contains('terminal')) return;
+      if (c.closest('.hero')) return;
       initTilt(c);
     });
   }

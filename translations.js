@@ -42,8 +42,6 @@ const translations = {
       '#stat-ranking': 'HTB ranking',
 
       // ── Terminal ──
-      '#terminal-panel-label': '[ STATUS PANEL ]',
-      '.terminal-label': 'daniel@portfolio:~$ ./profile_scan',
 
       // ── Services ──
       '#services-tag': '[ SERVICES ]',
@@ -226,21 +224,6 @@ const translations = {
       '.cf-heading': 'Direct message'
     },
 
-    // ── Terminal ──
-    terminalSessions: [{
-      cmd: 'gobuster dir -u https://target.tld -w raft-medium.txt',
-      lines: ['/admin        (301)  [→ /admin/login]', '/backup       (200)  [Size: 4.8 KB]  ← exposed!', '/api/v1       (200)  [Size: 1.3 KB]', '[+] Sensitive path found → data exposure risk']
-    }, {
-      cmd: 'nmap -sV -p 22,443,3389 10.10.14.0/24',
-      lines: ['PORT      STATE  SERVICE        VERSION', '22/tcp    open   OpenSSH 7.6', '3389/tcp  open   ms-wbt-server  ← RDP exposed', '[+] Attack surface mapped: RDP + SSH on subnet']
-    }, {
-      cmd: 'crackmapexec smb 10.10.10.0/24 -u users.txt -p pass.txt',
-      lines: ['SMB  10.10.10.5  [*] Windows 10 (domain: CORP)', 'SMB  10.10.10.5  [+] CORP\\svc_backup:Password123!', 'SMB  10.10.10.5  [+] Pwn3d!  ← admin share access', '[+] Domain Admin obtained → pivoting...']
-    }, {
-      cmd: 'python3 llm_probe.py --model gpt-4o --test all',
-      lines: ['[→] Testing: prompt injection...', '[+] System prompt leaked (45 tokens)', '[→] Testing: jailbreak via role-play...', '[+] Safety bypass confirmed (CVSS 8.1)']
-    }],
-
     // ── FAQ ──
     faq: {
       tag: '[ FAQ ]',
@@ -314,7 +297,6 @@ const translations = {
         grey: 'Testing type: Grey-box, partial credentials',
         white: 'Testing type: White-box, full access and code'
       },
-      termToggle: 'Toggle status panel',
       emailCopy: 'Copy email address to clipboard'
     },
 
@@ -415,8 +397,6 @@ const translations = {
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
 
       // ── Terminal ──
-      '#terminal-panel-label': '[ PANEL DE ESTADO ]',
-      '.terminal-label': 'daniel@portfolio:~$ ./escaneo_perfil',
 
       // ── Services ──
       '#services-tag': '[ SERVICIOS ]',
@@ -609,21 +589,6 @@ const translations = {
       '.cf-heading': 'Mensaje directo'
     },
 
-    // ── Terminal ──
-    terminalSessions: [{
-      cmd: 'gobuster dir -u https://target.tld -w raft-medium.txt',
-      lines: ['/admin        (301)  [→ /admin/login]', '/backup       (200)  [Size: 4.8 KB]  ← expuesto!', '/api/v1       (200)  [Size: 1.3 KB]', '[+] Ruta sensible encontrada → riesgo de exposición']
-    }, {
-      cmd: 'nmap -sV -p 22,443,3389 10.10.14.0/24',
-      lines: ['PORT      STATE  SERVICE        VERSION', '22/tcp    open   OpenSSH 7.6', '3389/tcp  open   ms-wbt-server  ← RDP expuesto', '[+] Superficie de ataque: RDP + SSH en subred']
-    }, {
-      cmd: 'crackmapexec smb 10.10.10.0/24 -u users.txt -p pass.txt',
-      lines: ['SMB  10.10.10.5  [*] Windows 10 (dominio: CORP)', 'SMB  10.10.10.5  [+] CORP\\svc_backup:Password123!', 'SMB  10.10.10.5  [+] Pwn3d!  ← acceso admin', '[+] Domain Admin obtenido → pivotando...']
-    }, {
-      cmd: 'python3 llm_probe.py --model gpt-4o --test all',
-      lines: ['[→] Probando: prompt injection...', '[+] System prompt filtrado (45 tokens)', '[→] Probando: jailbreak via role-play...', '[+] Bypass de seguridad confirmado (CVSS 8.1)']
-    }],
-
     // ── FAQ ──
     faq: {
       tag: '[ FAQ ]',
@@ -697,7 +662,6 @@ const translations = {
         grey: 'Modalidad: Caja gris, credenciales parciales',
         white: 'Modalidad: Caja blanca, acceso completo y código'
       },
-      termToggle: 'Alternar panel de estado',
       emailCopy: 'Copiar correo al portapapeles'
     },
 
