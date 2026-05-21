@@ -3806,3 +3806,26 @@ select {
 .hero-copy .hero-right .availability-badge {
 }
 
+/* ══ HERO-RIGHT COLUMN: centered identity layout ══ */
+.hero-copy .hero-right {
+}
+.hero-copy .hero-right .identity-header {
+}
+.hero-copy .hero-right .hex-wrap {
+}
+.hero-copy .hero-right .identity-text {
+}
+.hero-copy .hero-right h1.identity-name {
+}
+.hero-copy .hero-right .availability-badge {
+}
+/* Stats: compact 3-column mini grid */
+.hero-copy .hero-right .quick-stats {
+}
+.hero-copy .hero-right .quick-stats li {
+}
+.hero-copy .hero-right .quick-stats strong {
+}
+.hero-copy .hero-right .quick-stats span {
+}
+
