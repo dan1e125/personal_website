@@ -30,8 +30,8 @@ const translations = {
       // ── Hero ──
       '#hero-role': 'Penetration Tester',
       '.avail-text': 'Available for engagements',
-      '.hero-copy h2': 'Find the gap before it becomes a breach.',
-      '.hero-copy .lead': 'I help startups and SMBs find exploitable vulnerabilities before attackers do. Simple, end-to-end process — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.',
+      '.hero-copy h2': 'A breach costs more than a pentest.',
+      '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
       '#spec-web': 'Web Pentest',
       '#spec-ai': 'AI / LLM Security',
       '#spec-ad': 'Active Directory',
@@ -384,8 +384,8 @@ const translations = {
       // ── Hero ──
       '#hero-role': 'Penetration Tester',
       '.avail-text': 'Disponible para proyectos',
-      '.hero-copy h2': 'Detecta el fallo antes de que sea un problema.',
-      '.hero-copy .lead': 'Ayudo a startups y pymes a encontrar vulnerabilidades explotables antes de que los atacantes lo hagan. Un proceso simple de principio a fin — me encargo de todo. Obtienes hallazgos claros, clasificación de riesgo real y un reporte que tu equipo puede empezar a corregir el mismo día.',
+      '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
+      '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
       '#spec-web': 'Pentest Web',
       '#spec-ai': 'AI / LLM Security',
       '#spec-ad': 'Active Directory',
