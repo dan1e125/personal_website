@@ -436,7 +436,7 @@ p {
 
 .hero-copy {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 48px;
   align-items: start
 }
@@ -3776,3 +3776,46 @@ select {
   font-size: 1.5rem;
   min-width: 60px;
 }
+
+/* ══ HERO C: asymmetric layout — narrow identity left, wide text right ══ */
+.hero-copy .hero-right {
+  align-items: center;
+  gap: 20px;
+}
+.hero-copy .hero-right .identity-header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  width: 100%;
+}
+.hero-copy .hero-right .hex-wrap {
+  width: 190px;
+  height: 190px;
+}
+.hero-copy .hero-right .identity-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+.hero-copy .hero-right h1.identity-name {
+  text-align: center;
+  font-size: 1.15rem;
+}
+.hero-copy .hero-right .availability-badge {
+  align-self: center;
+}
+.hero-copy .hero-right .quick-stats {
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 8px;
+}
+.hero-copy .hero-right .quick-stats li {
+  padding: 10px 16px;
+}
+.hero-copy .hero-left {
+  gap: 28px;
+}
+
