@@ -3900,4 +3900,10 @@ select {
 }
 .hero-copy .hero-right .availability-badge {
 }
-
+/* ══ HERO-RIGHT: clean photo no overlay ══ */
+.hero-copy .hero-right .identity-text {
+  display: none !important;
+}
+.hero-copy .hero-right .hex-wrap {
+  border-radius: 12px !important;
+}
