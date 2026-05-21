@@ -39,7 +39,7 @@ const BACK_TO_TOP_THRESHOLD = 400;   // px scrollY to show back-to-top button
 const MOBILE_BREAKPOINT     = 767;   // px – matches CSS @media (max-width: 767px)
 const CURSOR_RING_LERP      = 0.14;  // lerp factor for cursor ring follow speed
 const TILT_PERSPECTIVE      = 900;   // px perspective for card 3-D tilt effect
-const QC_BAR_MAX_MULT       = 1.7;   // gauge bar – scale factor vs. max-complexity service
+const QC_BAR_MAX_MULT       = 1.15;   // gauge bar – scale factor vs. max-complexity service
 const QC_BAR_MAX_PCT        = 92;    // gauge bar upper clamp (%)
 const QC_BAR_MIN_PCT        = 8;     // gauge bar lower clamp (%)
 const MATRIX_CHAR_SIZE      = 16;    // px cell size for Matrix rain columns
@@ -59,26 +59,68 @@ const waFloatEl = document.querySelector('.wa-float');
 let currentLocale = localStorage.getItem('portfolio-lang') || 'en';
 let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let terminalTimer = null;
+let terminalGen = 0;
 
-// Terminal animation — single implementation
+// Terminal animation — typewriter engine
 function startTerminal(locale) {
+  const label = document.querySelector('.terminal-label');
   const stream = document.querySelector('.terminal-stream');
-  if (!stream) return;
-  const lines = getTrans(locale).terminalLines;
-  if (!lines) return;
-  if (terminalTimer) { clearInterval(terminalTimer); terminalTimer = null; }
-  let index = 0;
-  function render() {
-    stream.replaceChildren();
-    for (let i = 0; i < 4; i++) {
-      let pre = document.createElement('pre');
-      pre.textContent = lines[(index + i) % lines.length];
-      stream.appendChild(pre);
-    }
-    index = (index + 1) % lines.length;
+  if (!stream || !label) return;
+  const sessions = getTrans(locale).terminalSessions;
+  if (!sessions || !sessions.length) return;
+  if (terminalTimer) { clearTimeout(terminalTimer); terminalTimer = null; }
+  const gen = ++terminalGen;
+  const PROMPT = 'daniel@kali:~$ ';
+  const TYPE_MS = 65;
+  const LINE_MS = 750;
+  const PAUSE_MS = 4500;
+  function schedule(fn, ms) {
+    terminalTimer = setTimeout(function() { if (terminalGen === gen) fn(); }, ms);
   }
-  render();
-  if (!prefersReducedMotion) terminalTimer = setInterval(render, TERMINAL_ROTATE_MS);
+  function runSession(sIdx) {
+    const session = sessions[sIdx % sessions.length];
+    const container = stream.closest('.terminal');
+    label.innerHTML = PROMPT + '<span class="t-cursor">█</span>';
+    stream.replaceChildren();
+    if (container) container.classList.add('terminal--typing');
+    typeCmd(session, 0, function() {
+      if (container) container.classList.remove('terminal--typing');
+      label.textContent = PROMPT + session.cmd;
+      showLines(session, 0, function() {
+        schedule(function() { runSession(sIdx + 1); }, PAUSE_MS);
+      });
+    });
+  }
+  function typeCmd(session, i, done) {
+    label.innerHTML = PROMPT + session.cmd.slice(0, i) + '<span class="t-cursor">█</span>';
+    if (i < session.cmd.length) {
+      schedule(function() { typeCmd(session, i + 1, done); }, TYPE_MS);
+    } else {
+      schedule(done, 180);
+    }
+  }
+  function showLines(session, i, done) {
+    if (i < session.lines.length) {
+      const pre = document.createElement('pre');
+      pre.textContent = session.lines[i];
+      stream.appendChild(pre);
+      schedule(function() { showLines(session, i + 1, done); }, LINE_MS);
+    } else {
+      done();
+    }
+  }
+  if (prefersReducedMotion) {
+    const session = sessions[0];
+    label.textContent = PROMPT + session.cmd;
+    stream.replaceChildren();
+    session.lines.forEach(function(line) {
+      const pre = document.createElement('pre');
+      pre.textContent = line;
+      stream.appendChild(pre);
+    });
+  } else {
+    runSession(0);
+  }
 }
 
 // Locale
@@ -139,10 +181,10 @@ langButtons.forEach((btn) => {
 
 // ── Quote Calculator pricing config (edit here to update estimates) ──
 const PRICES = {
-  pentest_web: { name: 'Web App Pentest',  base: [3000, 6000], scope: {small:1.0, medium:1.55, large:2.3},  cplx: {low:1.0, medium:1.45, high:2.0},  tbox: {black:1.0, grey:1.2,  white:1.45} },
-  pentest_ad:  { name: 'Active Directory', base: [5000, 9500], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} },
-  ai_llm:      { name: 'AI / LLM Security',base: [3500, 8000], scope: {small:1.0, medium:1.3,  large:1.8},  cplx: {low:1.0, medium:1.25, high:1.6},  tbox: {black:1.0, grey:1.15, white:1.35} },
-  pentest_ai:  { name: 'Network Pentest',  base: [3500, 8000], scope: {small:1.0, medium:1.4,  large:2.0},  cplx: {low:1.0, medium:1.35, high:1.85}, tbox: {black:1.0, grey:1.2,  white:1.45} }
+  pentest_web: { name: "Web App Pentest",  base: [2000, 5000], scope: {small:1.0, medium:1.9,  large:3.5},  cplx: {low:1.0, medium:1.45, high:2.1},  tbox: {black:1.0, grey:1.2,  white:1.7}  },
+  pentest_ad:  { name: 'Active Directory', base: [3000, 7000], scope: {small:1.0, medium:1.6,  large:2.8},  cplx: {low:1.0, medium:1.4,  high:2.1},  tbox: {black:1.0, grey:1.15, white:1.6}  },
+  ai_llm:      { name: 'AI / LLM Security',base: [4000, 9000], scope: {small:1.0, medium:1.8,  large:3.2},  cplx: {low:1.0, medium:1.5,  high:2.2},  tbox: {black:1.0, grey:1.15, white:1.7}  },
+  pentest_ai:  { name: 'Network Pentest',  base: [2000, 5000], scope: {small:1.0, medium:1.7,  large:3.0},  cplx: {low:1.0, medium:1.4,  high:2.1},  tbox: {black:1.0, grey:1.15, white:1.6}  }
 };
 
 initQuoteCalculator();
@@ -395,7 +437,7 @@ window.addEventListener('scroll', throttle(function() {
 
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
   prefersReducedMotion = e.matches;
-  if (prefersReducedMotion && typeof terminalTimer !== 'undefined') clearInterval(terminalTimer);
+  if (prefersReducedMotion && typeof terminalTimer !== 'undefined') clearTimeout(terminalTimer);
 });
 
 // Back to top
@@ -721,7 +763,7 @@ function initQuoteCalculator() {
     if (el('q-max')) el('q-max').textContent = fmt(mx);
     if (el('q-unit')) el('q-unit').textContent = 'USD' + (p.unit||'');
     if (el('qc-bar')) {
-      let svcMax = p.base[1] * (p.scope['large']||1) * (p.cplx['high']||1) * QC_BAR_MAX_MULT;
+      let svcMax = p.base[0] * (p.scope['large']||1) * (p.cplx['high']||1) * (p.tbox['white']||1) * QC_BAR_MAX_MULT;
       el('qc-bar').style.width = Math.min(QC_BAR_MAX_PCT,Math.max(QC_BAR_MIN_PCT,(mn / svcMax)*100)).toFixed(1)+'%';
     }
     let ss = _lbl.scopeSets[svc];

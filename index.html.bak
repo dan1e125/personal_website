@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css?v=20260521-69bd967">
+  <link rel="stylesheet" href="style.css?v=20260515">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://formspree.io">
   <link rel="dns-prefetch" href="https://www.linkedin.com">
   <link rel="dns-prefetch" href="https://github.com">
-  <meta name="description" content="Freelance penetration tester for startups and SMBs. Web app, Active Directory &amp; Network security. HTB Top 1%, 702 lab targets. Remote-first, clear deliverables.">
+  <meta name="description" content="Freelance penetration tester for startups and SMBs. Web app, Active Directory &amp; Network security. HTB Top 1%, 702 targets. Remote-first, clear deliverables.">
   <link rel="author" href="https://danieloa.com">
 
   <meta name="author" content="Daniel Ordonez Arango">
@@ -34,7 +34,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://danieloa.com/">
   <meta property="og:title" content="Daniel Ordonez Arango | Penetration Tester">
-  <meta property="og:description" content="Freelance pentester for startups and SMBs. Web app, AD &amp; Network security testing. HTB Top 1%, 702 lab targets. Remote engagements, clear reporting.">
+  <meta property="og:description" content="Freelance pentester for startups and SMBs. Web app, AD &amp; Network security testing. HTB Top 1%, 702 targets. Remote engagements, clear reporting.">
   <meta property="og:image" content="https://danieloa.com/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
@@ -49,7 +49,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Daniel Ordonez Arango | Penetration Tester">
-  <meta name="twitter:description" content="Freelance pentester for startups and SMBs. Web app, AD &amp; Network security testing. HTB Top 1%, 702 lab targets. Remote engagements, clear reporting.">
+  <meta name="twitter:description" content="Freelance pentester for startups and SMBs. Web app, AD &amp; Network security testing. HTB Top 1%, 702 targets. Remote engagements, clear reporting.">
   <meta name="twitter:image" content="https://danieloa.com/og-image.png">
   <meta name="twitter:image:alt" content="Daniel Ordonez Arango — Penetration Tester portfolio">
 
@@ -77,7 +77,7 @@
       "@id": "https://danieloa.com#person",
       "name": "Daniel Ordonez Arango",
       "jobTitle": "Penetration Tester",
-      "description": "Freelance penetration tester based in Colombia. HTB Top 1% globally with 702 lab targets compromised on Hack The Box. Completed CPTS, CDSA, CJCA and CWEE training paths (HTB Academy). Specializes in web application security (OWASP Top 10), Active Directory attacks, network infrastructure, and AI/LLM security assessments (OWASP LLM Top 10). Available for remote engagements worldwide in English and Spanish.",
+      "description": "Freelance penetration tester based in Colombia. HTB Top 1% globally with 702 targets compromised on Hack The Box. Completed CPTS, CDSA, CJCA and CWEE training paths (HTB Academy). Specializes in web application security (OWASP Top 10), Active Directory attacks, network infrastructure, and AI/LLM security assessments (OWASP LLM Top 10). Available for remote engagements worldwide in English and Spanish.",
       "url": "https://danieloa.com",
       "image": "https://danieloa.com/og-image.png",
       "knowsLanguage": [
@@ -129,6 +129,24 @@
           "recognizedBy": {
             "@type": "Organization",
             "name": "Hack The Box"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "IBM Cybersecurity Analyst Professional Certificate",
+          "credentialCategory": "Professional Certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "IBM"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Google Cybersecurity Professional Certificate",
+          "credentialCategory": "Professional Certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Google"
           }
         }
       ],
@@ -197,6 +215,16 @@
         "@type": "ListItem",
         "position": 4,
         "name": "CWEE — Certified Web Exploitation Expert (training completed — exam pending)"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "IBM Cybersecurity Analyst Professional Certificate"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Google Cybersecurity Professional Certificate"
       }
     ]
   },
@@ -221,7 +249,7 @@
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Penetration Testing What I do",
+      "name": "Penetration Testing Services",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -252,7 +280,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "AI / LLM Security Assessment",
-            "description": "Red-team of AI and LLM integrations against the OWASP LLM Top 10. Covers prompt injection, jailbreaks, model output attacks, data pipeline vulnerabilities and AI abuse vectors. Starting from $4,000."
+            "description": "Red-team of AI and LLM integrations against the OWASP LLM Top 10. Covers prompt injection, jailbreaks, model output attacks, data pipeline vulnerabilities and AI abuse vectors. Starting from $3,500."
           }
         }
       ]
@@ -266,7 +294,7 @@
         "Spanish"
       ]
     },
-    "priceRange": "$2,000 - $9,000",
+    "priceRange": "$3,000 - $15,000",
     "telephone": "+573136459299"
   },
   {
@@ -286,7 +314,7 @@
         "name": "Is Daniel Ordonez Arango certified as a penetration tester?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Daniel Ordonez Arango has completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. He ranks in the Top 1% globally on Hack The Box with 702 machines pwned."
+          "text": "Daniel Ordonez Arango has completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy. He ranks in the Top 1% globally on Hack The Box with 702 targets compromised. He also holds the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates."
         }
       },
       {
@@ -318,7 +346,7 @@
         "name": "¿Hay pentester freelance en Colombia?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Daniel Ordonez Arango es un pentester freelance basado en Colombia, disponible para proyectos remotos en toda Latinoamérica y el mundo. Habla inglés y español. Top 1% global en Hack The Box con más de 702 máquinas pwned en laboratorios."
+          "text": "Sí. Daniel Ordonez Arango es un pentester freelance basado en Colombia, disponible para proyectos remotos en toda Latinoamérica y el mundo. Habla inglés y español. Top 1% global en Hack The Box con más de 702 objetivos comprometidos."
         }
       },
       {
@@ -342,7 +370,7 @@
         "name": "How much does a freelance penetration test cost for a startup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Freelance pentest costs for startups typically range from $2,000 to $5,000 depending on scope. Daniel Ordonez Arango offers flexible pricing for early-stage companies and SMBs, with clear deliverables and no enterprise overhead. Contact via danieloa.com for a custom quote."
+          "text": "Freelance pentest costs for startups typically range from $3,000 to $6,000 depending on scope. Daniel Ordonez Arango offers flexible pricing for early-stage companies and SMBs, with clear deliverables and no enterprise overhead. Contact via danieloa.com for a custom quote."
         }
       },
       {
@@ -423,7 +451,7 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topnav"><svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
       </div>
       <nav class="topnav" id="topnav">
-        <a href="#services">What I do</a>
+        <a href="#services">Services</a>
         <a href="#case-studies">Case Studies</a>
         <a href="#certifications">Credentials</a>
         <a href="#process">Process</a>
@@ -449,16 +477,15 @@
             </div>
             <div class="identity-text">
               <h1 class="identity-name">Daniel Ordonez Arango</h1>
-              <p class="role" id="hero-role">Penetration Tester</p>
               <span class="availability-badge">
                 <span class="avail-dot" aria-hidden="true"></span>
                 <span class="avail-text">Available for engagements</span>
               </span>
             </div>
           </div>
-          <h2>Find the gap before it becomes a breach.</h2>
+          <h2>Penetration tester specialized in web apps, AI​/​LLM &amp; Active Directory.</h2>
           <p class="lead">
-            I help startups and SMBs find exploitable vulnerabilities before attackers do. Simple, end-to-end process — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.
+            I help startups and SMBs find exploitable vulnerabilities before attackers do. From first contact to final report — I handle everything. You get clear findings, real risk ratings, and a report your team can start fixing the same day.
           </p>
 
           <div class="spec-row">
@@ -481,7 +508,9 @@
           </div>
 
           <div class="hero-actions">
-            <a class="button primary" href="#contact" aria-label="Request a free scoping call">Start with a free call</a>
+            <a class="button primary" href="#contact" aria-label="Request a free scoping call">Request a free scoping call</a>
+            <a class="button" href="daniel_cv_new.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV (opens PDF in new tab)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV</a>
+            <a class="button gold" href="htb-academy-student-transcript.pdf" target="_blank" rel="noopener noreferrer" id="hero-htb-btn" aria-label="Verified by HTB Academy (opens PDF in new tab)">Verified by HTB Academy</a>
           </div>
 
           <ul class="quick-stats">
@@ -491,32 +520,64 @@
             </li>
             <li>
               <strong>702</strong>
-              <span id="stat-targets">HTB machines pwned</span>
+              <span id="stat-targets">Targets compromised</span>
             </li>
             <li>
               <strong>Top 1%</strong>
               <span id="stat-ranking">HTB ranking</span>
+            </li>
+            <li>
+              <strong>102</strong>
+              <span id="stat-modules">Modules completed</span>
             </li>
           </ul>
         </div>
 
         <aside class="hero-panel card terminal" aria-label="Operator Status Panel">
           <button class="terminal-toggle" id="terminal-toggle-btn" aria-label="Toggle status panel" aria-expanded="false"><span id="terminal-panel-label">[ STATUS PANEL ]</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="terminal-top"><span></span><span></span>
+          </div>
           <p class="terminal-label">daniel@portfolio:~$ ./profile_scan</p>
           <div class="terminal-stream" id="terminal-stream" aria-hidden="true">
             <p>> Scanning operator profile...</p>
-            <p>> [✓] What I do: Web · AD · Net · VA</p>
+            <p>> [✓] Services: Web · AD · Net · VA</p>
             <p>> [✓] Mode: REMOTE · Available</p>
             <p>> [✓] Report: EN / ES · Actionable</p>
           </div>
-
+          <div class="status-grid">
+            <div>
+              <span id="sg-status-lbl">Status</span>
+              <strong id="sg-status-val">ACTIVE</strong>
+            </div>
+            <div>
+              <span id="sg-mode-lbl">Response</span>
+              <strong id="sg-mode-val">&lt; 24h</strong>
+            </div>
+            <div>
+              <span id="sg-loc-lbl">Location</span>
+              <strong id="sg-loc-val">REMOTE</strong>
+            </div>
+            <div>
+              <span id="sg-scope-lbl">Scope</span>
+              <strong id="sg-scope-val">WEB / AD / NET / AI</strong>
+            </div>
+            <div>
+              <span id="sg-avail-lbl">Availability</span>
+              <strong id="sg-avail-val">OPEN</strong>
+            </div>
+            <div>
+              <span id="sg-lang-lbl">Languages</span>
+              <strong id="sg-lang-val">EN / ES</strong>
+            </div>
+          </div>
         </aside>
       </section>
 
       <section id="services" class="container" aria-labelledby="services-heading">
         <div class="section-heading">
           <p class="section-tag" id="services-tag">[ SERVICES ]</p>
-          <h3 id="services-heading">What I do</h3>
+          <h3 id="services-heading">Services</h3>
+          <p class="section-copy" id="services-copy">Remote engagements, clear deliverables, and findings your team can act on.</p>
         </div>
         <div class="services-grid">
 
@@ -531,7 +592,7 @@
               <li id="svc1-del4">Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
-              <span class="service-price" id="svc1-price">From $2,000 USD</span>
+              <span class="service-price" id="svc1-price">From $3,000 USD</span>
               <a class="service-cta" href="#quote" data-select="pentest_web">Get a quote &rarr;</a>
             </div>
           </article>
@@ -547,7 +608,7 @@
               <li id="svc2-del4">Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
-              <span class="service-price" id="svc2-price">From $3,000 USD</span>
+              <span class="service-price" id="svc2-price">From $5,000 USD</span>
               <a class="service-cta" href="#quote" data-select="pentest_ad">Get a quote &rarr;</a>
             </div>
           </article>
@@ -564,7 +625,7 @@
               <li id="svc3-del5">Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
-              <span class="service-price" id="svc3-price">From $4,000 USD</span>
+              <span class="service-price" id="svc3-price">From $3,500 USD</span>
               <a class="service-cta" href="#quote" data-select="ai_llm">Get a quote &rarr;</a>
             </div>
           </article>
@@ -581,7 +642,7 @@
               <li id="svc4-del5">Free re-test after fixes</li>
             </ul>
             <div class="service-footer">
-              <span class="service-price" id="svc4-price">From $2,000 USD</span>
+              <span class="service-price" id="svc4-price">From $3,500 USD</span>
               <a class="service-cta" href="#quote" data-select="pentest_ai">Get a quote &rarr;</a>
             </div>
           </article>
@@ -592,7 +653,8 @@
 <section id="case-studies" class="container" aria-labelledby="case-studies-heading">
   <div class="section-heading">
     <p class="section-tag" id="cs-tag">[ CASE STUDIES ]</p>
-    <h3 id="case-studies-heading">Real engagements, real findings</h3>
+    <h3 id="case-studies-heading">Redacted Assessment Reports</h3>
+    <p class="section-copy" id="cs-sub">Real engagements — findings, methodology and remediation guidance, redacted for confidentiality.</p>
   </div>
   <div class="cs-grid">
     <article class="card cs-card">
@@ -659,64 +721,77 @@
 </section>
 
       <section id="about" class="container" aria-labelledby="about-heading">
-        <div class="section-heading">
+        <article class="card">
           <p class="section-tag" id="about-tag">[ ABOUT ]</p>
           <h3 id="about-heading">Background</h3>
-        </div>
-        <article class="card">
           <div class="about-layout">
             <div class="about-narrative">
               <p id="about-p1">I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know exactly where developers leave gaps.</p>
               <p id="about-p2">My training covers the full offensive attack surface: web exploitation, Active Directory attacks, network pivoting, privilege escalation and post-exploitation techniques. I don't just find vulnerabilities — I explain why they exist, what a real attacker would do with them, and how to fix them correctly.</p>
               <p id="about-p3">I work remotely with startups and SMBs across Latin America, the US and Europe. Fixed-price engagements, bilingual delivery, and a free re-test to confirm your fixes actually hold.</p>
             </div>
-
-
           </div>
         </article>
       </section>
 
       <section id="certifications" class="container" aria-labelledby="certifications-heading">
-        <div class="section-heading">
-          <p class="section-tag" id="certifications-tag">[ CERTIFICATIONS ]</p>
-          <h3 id="certifications-heading">Training &amp; Experience</h3>
-        </div>
         <article class="card wide-card">
+
+          <div class="section-heading">
+            <p class="section-tag" id="certifications-tag">[ CERTIFICATIONS ]</p>
+            <h3 id="certifications-heading">Training, Certifications &amp; Experience</h3>
+          </div>
+          <!-- cert-three-cols: Experience | Certifications | HTB -->
           <div class="cert-three-cols">
 
-            <!-- Col 1: Completed -->
+            <!-- Col 1: Professional Experience -->
             <div class="cert-three-col">
-              <p class="subsection-label" id="cert-completed-label">Completed</p>
+              <p class="subsection-label" id="cert-exp-label">Professional Experience</p>
               <div class="cert-path-list">
-                <div class="cert-path-item"><strong id="cert-htb-web">Web Penetration Tester</strong></div>
-                <div class="cert-path-item"><strong id="cert-htb-pt">Penetration Tester</strong></div>
-                <div class="cert-path-item"><strong id="cert-htb-soc">SOC Analyst</strong></div>
-                <div class="cert-path-item"><strong id="cert-cjca-title">Junior Cybersecurity Analyst</strong></div>
-              </div>
-              <p class="cert-note" id="cert-exams-note">Exams pending</p>
-              <a href="htb-academy-student-transcript.pdf" class="spec-item cert-verify-link" id="cert-transcript-link" target="_blank" rel="noopener">View HTB Transcript &#x2192;</a>
-            </div>
+                <div class="cert-path-item">
+                  <strong id="cert-exp-role">Full-Stack Developer &amp; Security Specialist &middot; Ongoing</strong>
 
-            <!-- Col 2: In Progress -->
-            <div class="cert-three-col">
-              <p class="subsection-label" id="cert-progress-label">In Progress</p>
-              <div class="cert-path-list">
-                <div class="cert-path-item"><strong id="cert-htb-ad">Active Directory Pentesting Expert</strong></div>
-                <div class="cert-path-item"><strong id="cert-htb-ai">Offensive AI Expert</strong></div>
-                <div class="cert-path-item"><strong id="cert-htb-wifi">Wi-Fi Pentesting Expert</strong></div>
-              </div>
-            </div>
-
-            <!-- Col 3: Background -->
-            <div class="cert-three-col">
-              <p class="subsection-label" id="cert-bg-label">Background</p>
-              <div class="cert-path-list">
-                <div class="cert-path-item"><strong id="cert-exp-role">Full-Stack Developer · Cybersecurity</strong></div>
+                </div>
               </div>
               <a href="https://www.linkedin.com/in/danieloarango" class="spec-item cert-verify-link" id="cert-exp-link" target="_blank" rel="noopener">Verify on LinkedIn &#x2192;</a>
             </div>
 
+            <!-- Col 2: Professional Certifications -->
+            <div class="cert-three-col">
+              <p class="subsection-label" id="cert-external-label">Professional Certifications</p>
+              <div class="cert-path-list">
+                <div class="cert-path-item">
+                  <strong id="cert-ibm-title">IBM Cybersecurity Analyst Professional Certificate</strong>
+                </div>
+                <div class="cert-path-item">
+                  <strong id="cert-google-title">Google Cybersecurity Professional Certificate</strong>
+                </div>
+              </div>
+              <a href="https://www.credly.com/users/daniel-ordonez-arango" class="spec-item cert-verify-link" id="cert-credly-link" target="_blank" rel="noopener">Verify on Credly &#x2192;</a>
+            </div>
+
+            <!-- Col 3: HTB Paths -->
+            <div class="cert-three-col">
+              <p class="subsection-label" id="cert-htb-tag">HTB Paths Completed</p>
+              <div class="cert-path-list">
+                <div class="cert-path-item">
+                  <strong>Web Penetration Tester</strong>
+                </div>
+                <div class="cert-path-item">
+                  <strong>Penetration Tester</strong>
+                </div>
+                <div class="cert-path-item">
+                  <strong>SOC Analyst</strong>
+                </div>
+                <div class="cert-path-item">
+                  <strong id="cert-cjca-title">Junior Cybersecurity Analyst</strong>
+                </div>
+              </div>
+              <a href="htb-academy-student-transcript.pdf" class="spec-item cert-verify-link" id="cert-transcript-link" target="_blank" rel="noopener">View HTB Transcript &#x2192;</a>
+            </div>
+
           </div>
+
         </article>
       </section>
 
@@ -724,7 +799,8 @@
       <section id="process" class="container" aria-labelledby="process-heading">
         <div class="section-heading">
           <p class="section-tag">[ HOW IT WORKS ]</p>
-          <h3 id="process-heading">Simple, end-to-end process</h3>
+          <h3 id="process-heading">From first contact to final report</h3>
+          <p class="section-copy" id="process-copy">A straightforward engagement cycle designed to minimize disruption and maximize actionable output. Most engagements complete in 1–3 weeks from scoping call to final report.</p>
         </div>
         <div class="process-grid">
 
@@ -772,7 +848,8 @@
       <section id="quote" class="container" aria-labelledby="quote-heading">
         <div class="section-heading qc-section-header">
           <p class="section-tag" id="quote-tag">[ PRICING ]</p>
-          <h3 id="quote-heading">Get an instant estimate</h3>
+          <h3 id="quote-heading">Price your engagement in 60 seconds</h3>
+          <p class="section-copy" id="quote-copy">Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.</p>
         </div>
         <div class="qc-layout">
 
@@ -786,30 +863,30 @@
                 <p class="qc-block-title" id="ql-service">Choose your service</p>
               </div>
               <div class="qc-svc-grid">
-                <button class="qc-svc-card active" data-svc="pentest_web" type="button" aria-label="Select Web App Pentest service, from $2,000" aria-pressed="true">
+                <button class="qc-svc-card active" data-svc="pentest_web" type="button" aria-label="Select Web App Pentest service, from $3,000" aria-pressed="true">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_web">Web App Pentest</span>
-                  <span class="qc-svc-price" id="qcs-price-pentest_web">From $2,000</span>
+                  <span class="qc-svc-price" id="qcs-price-pentest_web">From $3,000</span>
                 </button>
 
-                <button class="qc-svc-card" data-svc="pentest_ad" type="button" aria-label="Select Active Directory Pentest service, from $3,000" aria-pressed="false">
+                <button class="qc-svc-card" data-svc="pentest_ad" type="button" aria-label="Select Active Directory Pentest service, from $5,000" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_ad">Active Directory</span>
-                  <span class="qc-svc-price" id="qcs-price-pentest_ad">From $3,000</span>
+                  <span class="qc-svc-price" id="qcs-price-pentest_ad">From $5,000</span>
                 </button>
-                <button class="qc-svc-card" data-svc="ai_llm" type="button" aria-label="Select AI / LLM Security service, from $4,000" aria-pressed="false">
+                <button class="qc-svc-card" data-svc="ai_llm" type="button" aria-label="Select AI / LLM Security service, from $3,500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-ai_llm">AI / LLM</span>
-                  <span class="qc-svc-price" id="qcs-price-ai_llm">From $4,000</span>
+                  <span class="qc-svc-price" id="qcs-price-ai_llm">From $3,500</span>
                 </button>
-                <button class="qc-svc-card" data-svc="pentest_ai" type="button" aria-label="Select Network Pentest service, from $2,000" aria-pressed="false">
+                <button class="qc-svc-card" data-svc="pentest_ai" type="button" aria-label="Select Network Pentest service, from $3,500" aria-pressed="false">
                   <span class="qc-check">&#10003;</span>
                   <span class="qc-svc-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M12 12v4"/></svg></span>
                   <span class="qc-svc-name" id="qcs-name-pentest_ai">Network Pentest</span>
-                  <span class="qc-svc-price" id="qcs-price-pentest_ai">From $2,000</span>
+                  <span class="qc-svc-price" id="qcs-price-pentest_ai">From $3,500</span>
                 </button>
 
               </div>
@@ -915,9 +992,9 @@
               <div class="qc-price-block">
                 <p class="qc-price-label" id="qr-label">Estimated range</p>
                 <div class="qc-price-range">
-                  <span class="qc-price-from" id="q-min">$2,000</span>
+                  <span class="qc-price-from" id="q-min">$3,000</span>
                   <span class="qc-price-sep">&#8212;</span>
-                  <span class="qc-price-to" id="q-max">$5,000</span>
+                  <span class="qc-price-to" id="q-max">$6,000</span>
                   <span class="qc-price-curr" id="q-unit">USD</span>
                 </div>
                 <div class="qc-gauge-wrap"><div class="qc-gauge" id="qc-bar"></div></div>
@@ -953,7 +1030,8 @@
       <section id="faq" class="container" aria-labelledby="faq-heading">
         <div class="section-heading">
           <p class="section-tag" id="faq-tag">[ FAQ ]</p>
-          <h3 id="faq-heading">Common questions</h3>
+          <h3 id="faq-heading">Frequently asked questions</h3>
+          <p class="section-copy" id="faq-copy">Everything you need to know before booking a scoping call.</p>
         </div>
         <article class="card faq-card" aria-label="FAQ accordion">
           <div class="faq-list" role="list">
@@ -976,7 +1054,7 @@
                 <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="faq-a-wrap" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
-                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a2-text">I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 702 machines pwned. You can verify all training via my HTB profile.</p></div></div>
+                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a2-text">I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 702 targets compromised. I also hold the IBM Cybersecurity Analyst and Google Cybersecurity Professional certificates. You can verify all training via my HTB transcript.</p></div></div>
               </div>
             </div>
 
@@ -987,7 +1065,7 @@
                 <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="faq-a-wrap" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
-                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a3-text">Pricing depends on scope and complexity. An AI / LLM Security Assessment starts from $4,000 USD, a web app pentest from $2,000, a network pentest from $2,000, and an Active Directory pentest from $3,000. Use the pricing calculator above to get an instant estimate, or book a free scoping call.</p></div></div>
+                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a3-text">Pricing depends on scope and complexity. An AI​/​LLM Security Assessment starts from $3,500 USD, a web app pentest from $3,000, a network pentest from $3,500, and an Active Directory pentest from $5,000. Use the pricing calculator above to get an instant estimate, or book a free scoping call.</p></div></div>
               </div>
             </div>
 
@@ -1038,33 +1116,11 @@
 <div class="faq-item" role="listitem">
               <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
                 <span class="faq-num">08</span>
-                <span id="faq-q5-text">Is an NDA signed before work begins?</span>
+                <span id="faq-q5-text">Do you work remotely and with international clients?</span>
                 <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="faq-a-wrap" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
-                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a5-text">Yes. A mutual Non-Disclosure Agreement is signed before any scoping call or work begins. All findings, system details and client information are kept strictly confidential. No data or results are ever shared with third parties.</p></div></div>
-              </div>
-            </div>
-
-<div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-10" id="faq-q-10">
-                <span class="faq-num">09</span>
-                <span id="faq-q10-text">Why hire you instead of a larger security firm?</span>
-                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-a-wrap" id="faq-a-10" role="region" aria-labelledby="faq-q-10">
-                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a10-text">Three reasons: cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US or EU firms — without sacrificing methodology or report quality. You work directly with the person doing the testing, not a project manager. Every engagement is handled by me personally from scoping to final report.</p></div></div>
-              </div>
-            </div>
-
-<div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-11" id="faq-q-11">
-                <span class="faq-num">10</span>
-                <span id="faq-q11-text">What if no vulnerabilities are found?</span>
-                <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-a-wrap" id="faq-a-11" role="region" aria-labelledby="faq-q-11">
-                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a11-text">A clean report is still a valuable result. It provides documented evidence that your controls are working and your attack surface is hardened — useful for compliance, investor due diligence, or internal audits. You still receive a full technical report detailing what was tested, how, and what was confirmed secure.</p></div></div>
+                <div class="faq-a-inner"><div class="faq-a"><p id="faq-a5-text">Yes. I am based in Colombia and fully available for remote engagements worldwide. I work in both English and Spanish. Most engagements are conducted remotely with no disruption to your production environment.</p></div></div>
               </div>
             </div>
 
@@ -1073,14 +1129,12 @@
       </section>
 
       <section id="contact" class="container contact-wrap" aria-labelledby="contact-heading">
-        <div class="section-heading">
-          <p class="section-tag" id="contact-tag">[ SEND A MESSAGE ]</p>
-          <h3 id="contact-heading">Direct message</h3>
-        </div>
         <div class="contact-two-col">
 
           <article class="card contact-form-card">
 
+            <p class="section-tag">[ SEND A MESSAGE ]</p>
+            <h3 class="cf-heading">Direct message</h3>
             <form id="contact-form" class="cf-form" action="https://formspree.io/f/xpqykjpa" method="POST" novalidate>
               <div class="cf-group">
                 <label class="cf-label" for="cf-name">Name</label>
@@ -1120,7 +1174,10 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           </a>
           <a href="https://profile.hackthebox.com/profile/019d0d58-909e-7011-97e3-1f8ebc6567af" target="_blank" rel="noopener" aria-label="Hack The Box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="m22.5106 6.4566.0008-.0123a.888.888 0 0 0-.2717-.6384c-.0084-.0084-.018-.0155-.0267-.0235-.0186-.0166-.0371-.0333-.0572-.0484-.0193-.0147-.04-.0276-.0607-.0406-.0096-.006-.0182-.0131-.0281-.0188L12.4576.1266a.891.891 0 0 0-.9223.0043L1.933 5.6744c-.0107.0062-.0203.014-.0307.0205-.0073.0047-.015.008-.0223.0128-.007.0047-.013.0106-.02.0155a.8769.8769 0 0 0-.147.1333l-.0026.003a.8872.8872 0 0 0-.2218.5847l.0009.014c-.0002.0088-.0015.0176-.0015.0264v11.0708c0 .3277.1802.6288.469.7836l9.5986 5.5417c.0076.0044.0158.0075.0236.0117a.8754.8754 0 0 0 .166.0687c.0134.004.0266.0083.0401.0117a.8793.8793 0 0 0 .072.0142c.0117.0019.0232.0045.0349.006a.835.835 0 0 0 .2157 0c.0117-.0015.0232-.0041.0348-.006a.9.9 0 0 0 .072-.0142c.0135-.0034.0267-.0077.04-.0117a.895.895 0 0 0 .0646-.0217.9134.9134 0 0 0 .1015-.047c.0078-.0042.016-.0072.0236-.0117l9.5986-5.5417a.8888.8888 0 0 0 .469-.7836V6.4779c0-.0071-.0012-.0142-.0014-.0213zM5.2543 6.0822l6.5367-3.774a.4182.4182 0 0 1 .4182 0l6.5366 3.774a.4182.4182 0 0 1 0 .7243l-6.5367 3.774a.4182.4182 0 0 1-.4182 0l-6.5366-3.774a.4182.4182 0 0 1 0-.7243zm5.6134 14.3449a.4172.4172 0 0 1-.626.3613L3.718 17.0218a.4173.4173 0 0 1-.2086-.3613V9.1279a.4172.4172 0 0 1 .6258-.3613l6.524 3.7666a.4172.4172 0 0 1 .2086.3614v7.5325zm9.623-3.7666a.4173.4173 0 0 1-.2086.3613l-6.5239 3.7666a.4172.4172 0 0 1-.6259-.3613v-7.5325c0-.149.0796-.2868.2087-.3614l6.5239-3.7666a.4172.4172 0 0 1 .6258.3613v7.5326z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l-12 6.5v11L12 24l12-6.5v-11L12 0zm0 2.25L21.5 7.5 12 12.75 2.5 7.5 12 2.25zm-9.5 6.5L12 14.25v7.5l-9.5-5.25v-7.5zm19 0v7.5L12 21.75v-7.5l9.5-5.5z"/></svg>
+          </a>
+          <a href="https://www.credly.com/users/daniel-ordonez-arango" target="_blank" rel="noopener" aria-label="Credly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L2 6v12l10 6 10-6V6L12 0zm7 16.5l-7 4-7-4V7.5l7-4 7 4v9z"/></svg>
           </a>
         </div>
         <div class="footer-copyright">
@@ -1134,8 +1191,8 @@
       </svg>
     </button>
 
-  <script src="translations.js?v=20260521-69bd967" defer></script>
-  <script src="script.js?v=20260521-69bd967" defer></script>
+  <script src="translations.js?v=20260515" defer></script>
+  <script src="script.js?v=20260515" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="https://wa.me/573136459299?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20a%20penetration%20test" id="wa-float-link" target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
