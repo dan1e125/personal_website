@@ -3855,3 +3855,30 @@ select {
   }
 }
 
+/* ══ HERO-RIGHT: photo fills full column width ══ */
+.hero-copy .hero-right {
+  align-items: stretch;
+}
+.hero-copy .hero-right .identity-header {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  flex: 1;
+}
+.hero-copy .hero-right .hex-wrap {
+}
+.hero-copy .hero-right .hex-inner {
+}
+.hero-copy .hero-right .identity-text {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.hero-copy .hero-right h1.identity-name {
+  text-align: center;
+}
+.hero-copy .hero-right .availability-badge {
+  align-self: center;
+}
+
