@@ -74,7 +74,7 @@ const translations = {en:{documentTitle:'Daniel Ordonez Arango | Penetration Tes
     '#process-step1-desc':'Free 30-minute call to understand your environment, define targets and agree on rules of engagement. No commitment required.',
     '#process-step2-title':'Proposal & NDA',
     '#process-step2-desc':'You receive a written proposal with scope, timeline, methodology and fixed price. NDA signed before any work begins.',
-    '#process-step3-title':'Engagement',
+    '#process-step3-title':'Active Testing',
     '#process-step3-desc':'Active testing phase. You get progress updates throughout. Any critical findings are reported immediately — no waiting for the final report.',
     '#process-step4-title':'Report & Re-test',
     '#process-step4-desc':'Detailed PDF report with risk ratings, proof-of-concept and remediation steps. Free re-test included to verify fixes were applied correctly.',
@@ -263,7 +263,7 @@ const translations = {en:{documentTitle:'Daniel Ordonez Arango | Penetration Tes
     '#spec-ad':'Active Directory',
     
     '#spec-net':'Pentest de Redes',
-    '#process-heading':'Un proceso simple de principio a fin','#process .section-heading .section-tag':'[ CÓMO FUNCIONA ]','#process-copy':'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados concretos y aplicables. La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final.','#process-step1-title':'Llamada de alcance','#process-step1-desc':'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.','#process-step2-title':'Propuesta y NDA','#process-step2-desc':'Recibirás una propuesta escrita con alcance, cronograma, metodología y precio fijo. El NDA se firma antes de iniciar.','#process-step3-title':'Engagement','#process-step3-desc':'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos notificados de inmediato.','#process-step4-title':'Reporte y re-test','#process-step4-desc':'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.','.hero-actions .button.primary':'Empezar con una llamada gratuita',
+    '#process-heading':'Un proceso simple de principio a fin','#process .section-heading .section-tag':'[ CÓMO FUNCIONA ]','#process-copy':'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados concretos y aplicables. La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final.','#process-step1-title':'Llamada de alcance','#process-step1-desc':'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.','#process-step2-title':'Propuesta y NDA','#process-step2-desc':'Recibirás una propuesta escrita con alcance, cronograma, metodología y precio fijo. El NDA se firma antes de iniciar.','#process-step3-title':'Prueba Activa','#process-step3-desc':'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos notificados de inmediato.','#process-step4-title':'Reporte y re-test','#process-step4-desc':'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.','.hero-actions .button.primary':'Empezar con una llamada gratuita',
     
     '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]':'Descargar transcript',
     '#stat-paths':'Paths HTB completados',

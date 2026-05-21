@@ -957,22 +957,7 @@ button:focus-visible {
   outline-offset: 2px
 }
 
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: rgba(59, 130, 246, 0.2);
-  z-index: var(--z-elevated);
-}
 
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  width: 0;
-  transition: width 100ms ease-out
-}
 
 .topnav a.active {
   color: var(--accent);
@@ -1216,7 +1201,6 @@ main>section+section {
 
   .noise,
   .grid,
-  .scroll-progress,
   .back-to-top,
   .site-footer,
   .topbar,
@@ -3769,10 +3753,7 @@ select {
     scroll-behavior: auto
   }
 
-  .progress-bar {
-    transition: none
-  }
-
+  
   html {
     scroll-behavior: auto
   }

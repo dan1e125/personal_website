@@ -378,17 +378,6 @@ function initCounterAnimation() {
 initScrollReveal();
 
 
-// Scroll progress
-function updateScrollProgress() {
-  try {
-    const bar = document.querySelector('.progress-bar');
-    if (!bar) return;
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0;
-    bar.style.width = pct + '%';
-  } catch(e) { console.error('[Scroll Progress]:', e); }
-}
-
 // Active nav highlight
 function initActiveNav() {
   let navLinks = document.querySelectorAll('.topnav a');
@@ -430,7 +419,6 @@ document.querySelectorAll('.topnav a').forEach((a) => {
 });
 
 window.addEventListener('scroll', throttle(function() {
-  updateScrollProgress();
 }, 16), { passive: true });
 
 
@@ -865,23 +853,38 @@ function initQuoteCalculator() {
         let scopeStrong = scopeBtn && scopeBtn.querySelector('strong');
         let cplxStrong  = cplxBtn  && cplxBtn.querySelector('strong');
         let tboxStrong  = tboxBtn  && tboxBtn.querySelector('strong');
-        let waMsg;
-        if (isSpanish()) {
-          let scopeSummaryEs = scopeStrong ? scopeStrong.textContent : scope;
-          let cplxSummaryEs  = cplxStrong  ? cplxStrong.textContent  : cplx;
-          let tboxSummaryEs  = tboxStrong  ? tboxStrong.textContent  : tbox;
-          waMsg = svcName
-            ? 'Hola Daniel, me interesa el servicio de ' + svcName + ' — alcance ' + scopeSummaryEs + ', complejidad ' + cplxSummaryEs + ', tipo ' + tboxSummaryEs + ' (' + minEl.textContent + ' – ' + maxEl.textContent + ' USD). ¿Podemos coordinar una llamada de alcance?'
-            : 'Hola Daniel, me interesa coordinar una llamada de alcance para un pentest.';
-        } else {
-          let scopeSummaryEn = scopeStrong ? scopeStrong.textContent : scope;
-          let cplxSummaryEn  = cplxStrong  ? cplxStrong.textContent  : cplx;
-          let tboxSummaryEn  = tboxStrong  ? tboxStrong.textContent  : tbox;
-          waMsg = svcName
-            ? 'Hi Daniel, I\'m interested in ' + svcName + ' — ' + scopeSummaryEn + ' scope, ' + cplxSummaryEn + ' complexity, ' + tboxSummaryEn + '-box (' + minEl.textContent + ' – ' + maxEl.textContent + ' USD). Can we schedule a scoping call?'
-            : 'Hi Daniel, I\'d like to schedule a free scoping call.';
+        // Prefill contact form with calculator selections
+        let scopeDesc  = scopeBtn ? scopeBtn.querySelector('small') : null;
+        let scopeLine  = (scopeStrong ? scopeStrong.textContent : scope) + (scopeDesc ? ' · ' + scopeDesc.textContent : '');
+        let cplxLine   = cplxStrong ? cplxStrong.textContent : cplx;
+        let tboxLine   = tboxStrong ? tboxStrong.textContent : tbox;
+        let priceLine  = (minEl && maxEl) ? minEl.textContent + ' – ' + maxEl.textContent + ' USD' : '';
+        let cfMsg = document.getElementById('cf-message');
+        if (cfMsg) {
+          if (isSpanish()) {
+            cfMsg.value = (svcName ? 'Servicio: ' + svcName + '\n' : '')
+              + 'Alcance: ' + scopeLine + '\n'
+              + 'Complejidad: ' + cplxLine + '\n'
+              + 'Tipo de prueba: ' + tboxLine + '\n'
+              + (priceLine ? 'Estimado: ' + priceLine + '\n' : '')
+              + '\n';
+          } else {
+            cfMsg.value = (svcName ? 'Service: ' + svcName + '\n' : '')
+              + 'Scope: ' + scopeLine + '\n'
+              + 'Complexity: ' + cplxLine + '\n'
+              + 'Testing type: ' + tboxLine + '\n'
+              + (priceLine ? 'Estimated range: ' + priceLine + '\n' : '')
+              + '\n';
+          }
         }
-        window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
+        // Scroll to contact form and focus first empty field
+        let contactSection = document.getElementById('contact');
+        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function() {
+          let cfName = document.getElementById('cf-name');
+          if (cfName && !cfName.value.trim()) { cfName.focus(); }
+          else if (cfMsg) { cfMsg.focus(); cfMsg.setSelectionRange(cfMsg.value.length, cfMsg.value.length); }
+        }, 600);
       });
     }
   });
@@ -970,7 +973,6 @@ function initGATracking() {
 
   }
 initGATracking();
-updateScrollProgress();
 initActiveNav();
 
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
