@@ -39,7 +39,7 @@ const translations = {
       '.hero-actions .button.primary': 'Start with a free call',
       '#stat-paths': 'Structured training paths on HTB Academy',
       '#stat-targets': 'Vulnerable lab machines exploited',
-      '#stat-ranking': 'World ranking among 2M+ security professionals',
+      '#stat-ranking': 'Ranked in the top 1% globally on HTB',
 
       // ── Terminal ──
 
