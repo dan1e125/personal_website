@@ -3828,3 +3828,30 @@ select {
   text-align: left;
   margin-bottom: 20px;
 }
+
+/* ── cs-pills (option D compact findings) ── */
+.cs-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+.cs-pill {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 22px;
+}
+.cs-pill::before {
+  content: '▸';
+  position: absolute;
+  left: 8px;
+  color: var(--accent);
+  font-size: 0.7rem;
+}
