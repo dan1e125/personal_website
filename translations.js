@@ -232,37 +232,27 @@ const translations = {
       nav: 'FAQ',
       groups: ['What I do', 'Pricing', 'Process', 'Credentials'],
       items: [{
-        q: 'What penetration testing services do you offer?',
-        a: 'Web application penetration testing, Active Directory security assessments, network infrastructure pentests, and AI / LLM security assessments. All engagements are remote-first, include a detailed PDF report and a free re-test after fixes.'
-      }, {
-        q: 'Are you certified as a penetration tester?',
-        a: 'I have completed the CPTS, CDSA, CJCA and CWEE paths on HTB Academy and rank in the Top 1% globally on Hack The Box with 702 machines pwned. You can verify all training via my HTB profile.'
-      }, {
         q: 'How much does a penetration test cost?',
-        a: 'An AI / LLM Security Assessment starts from $4,000 USD, a web app pentest from $2,000, a network pentest from $2,000, and an Active Directory pentest from $3,000. Use the pricing calculator above for an instant estimate.'
+        a: 'Web app from $2,000 · Active Directory from $3,000 · Network from $2,000 · AI/LLM from $4,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
       }, {
         q: 'How long does a penetration test take?',
-        a: 'Most engagements complete in 1–3 weeks from the scoping call to the final report. An AI / LLM security assessment for focused integrations can be delivered in 3–5 days. Timeline is agreed and fixed in the written proposal before any work begins.'
-      }, {
-        q: 'What does a pentest report include?',
-        a: 'Every report includes an executive summary, detailed technical findings with evidence, CVSS risk ratings, reproducible proof-of-concept steps, and prioritized remediation recommendations. A free re-test is included to verify fixes.'
-      }, {
-        q: 'Is the first call free? What happens during it?',
-        a: 'Yes, the scoping call is free and carries no commitment. In 30 minutes we define your environment, agree on targets and rules of engagement, and determine the right service. You receive a written proposal with a fixed price afterwards.'
-      }, {
-        q: 'What happens if you find a critical vulnerability during the engagement?',
-        a: 'I report it immediately — you don\'t wait for the final report. Critical and high-severity findings are communicated as soon as they are confirmed, so your team can begin remediation while the engagement is still active. Everything is documented in the final report regardless.'
+        a: '1–3 weeks from scoping call to final report. AI/LLM focused assessments can be delivered in 3–5 days. Timeline is fixed in the written proposal before any work begins.'
       }, {
         q: 'Is an NDA signed before work begins?',
-        a: 'Yes. A mutual Non-Disclosure Agreement is signed before any scoping call or work begins. All findings, system details and client information are kept strictly confidential. No data or results are ever shared with third parties.'
+        a: 'Yes. A mutual NDA is signed before any scoping call or work begins. All findings and client data are kept strictly confidential and never shared with third parties.'
       }, {
         q: 'Why hire you instead of a larger security firm?',
-        a: 'Three reasons: cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US or EU firms — without sacrificing methodology or report quality. You work directly with the person doing the testing, not a project manager. Every engagement is handled by me personally from scoping to final report.'
+        a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing — from scoping to final report.'
       }, {
-        q: 'What if no vulnerabilities are found?',
-        a: 'A clean report is still a valuable result. It provides documented evidence that your controls are working and your attack surface is hardened — useful for compliance, investor due diligence, or internal audits. You still receive a full technical report detailing what was tested, how, and what was confirmed secure.'
-      }]
-    },
+        q: 'What happens if you find a critical vulnerability?',
+        a: 'I report it immediately — you don't wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
+      }, {
+        q: 'Is the first call free?',
+        a: 'Yes, free and no commitment. In 30 minutes we define your environment and agree on targets and rules of engagement. You receive a written proposal with a fixed price afterwards.'
+      }, {
+        q: 'Are you certified as a penetration tester?',
+        a: 'I hold CPTS, CDSA, CJCA and CWEE certifications from HTB Academy and rank in the Top 1% on Hack The Box with 702 machines pwned. All credentials are verifiable via my HTB profile.'
+      }]    },
 
     // ── Contact ──
     placeholders: {
@@ -597,35 +587,26 @@ const translations = {
       nav: 'FAQ',
       groups: ['Lo que hago', 'Precios', 'Proceso', 'Credenciales'],
       items: [{
-        q: '¿Qué servicios de pentesting ofreces?',
-        a: 'Pentest de aplicaciones web, evaluaciones de Active Directory, pentests de infraestructura de red y evaluaciones de seguridad AI / LLM. Todos los proyectos son remotos, incluyen un reporte PDF detallado y un re-test gratuito después de las correcciones.'
-      }, {
-        q: '¿Estás certificado como pentester?',
-        a: 'Completé los paths CPTS, CDSA, CJCA y CWEE en HTB Academy y estoy en el Top 1% global de Hack The Box con 702 máquinas pwned. Puedes verificar toda la formación a través de mi perfil HTB.'
-      }, {
         q: '¿Cuánto cuesta un pentest?',
-        a: 'Una evaluación de seguridad AI / LLM parte desde $4,000 USD, un pentest de aplicación web desde $2,000, un pentest de red desde $2,000 y un pentest de Active Directory desde $3,000. Usa la calculadora de precios para obtener una estimación al instante.'
+        a: 'App web desde $2,000 · Active Directory desde $3,000 · Red desde $2,000 · AI/LLM desde $4,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
       }, {
         q: '¿Cuánto tiempo tarda un pentest?',
-        a: 'La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final. Una evaluación de seguridad AI / LLM para integraciones puntuales puede entregarse en 3–5 días. El cronograma se acuerda y fija por escrito antes de comenzar.'
-      }, {
-        q: '¿Qué incluye un informe de pentest?',
-        a: 'Cada reporte incluye un resumen ejecutivo, hallazgos técnicos detallados con evidencia, clasificación de riesgos CVSS, pasos de explotación reproducibles y recomendaciones de remediación priorizadas. Se incluye un re-test gratuito para verificar las correcciones.'
-      }, {
-        q: '¿La primera llamada es gratuita? ¿Qué sucede en ella?',
-        a: 'Sí, la llamada de alcance es gratuita y sin compromiso. En 30 minutos definimos tu entorno, acordamos objetivos y reglas de engagement, y determinamos el servicio adecuado. Recibes una propuesta escrita con precio fijo después.'
-      }, {
-        q: '¿Qué pasa si encuentras una vulnerabilidad crítica durante el pentest?',
-        a: 'La reporto de inmediato — no tienes que esperar al informe final. Los hallazgos críticos y de alta severidad se comunican en cuanto se confirman, para que tu equipo pueda comenzar la remediación mientras el proyecto sigue activo. Todo queda documentado en el informe final.'
+        a: '1–3 semanas desde la llamada de alcance hasta el reporte final. Las evaluaciones AI/LLM pueden entregarse en 3–5 días. El cronograma se fija en la propuesta escrita antes de comenzar.'
       }, {
         q: '¿Se firma un NDA antes de comenzar el trabajo?',
-        a: 'Sí. Se firma un Acuerdo de No Divulgación (NDA) mutuo antes de cualquier llamada de alcance o inicio de trabajo. Todos los hallazgos, detalles del sistema e información del cliente se mantienen estrictamente confidenciales. Ningún dato ni resultado se comparte con terceros.'
+        a: 'Sí. Se firma un NDA mutuo antes de cualquier llamada o inicio de trabajo. Todos los hallazgos y datos del cliente se mantienen confidenciales y nunca se comparten con terceros.'
       }, {
         q: '¿Por qué contratarte a ti en lugar de una empresa de seguridad?',
-        a: 'Tres razones: costo, enfoque y acceso directo. Como tester independiente basado en LATAM, mis tarifas son significativamente más bajas que las firmas de EE.UU. o Europa — sin sacrificar metodología ni calidad del reporte. Tratas directamente con la persona que hace el trabajo, no con un project manager. Cada proyecto lo manejo yo personalmente desde el alcance hasta el informe final.'
+        a: 'Costo, enfoque y acceso directo. Como tester independiente en LATAM, mis tarifas son significativamente más bajas que firmas de EE.UU./Europa sin sacrificar metodología ni calidad. Trabajas directamente con quien realiza el testing, de inicio a fin.'
       }, {
-        q: '¿Qué pasa si no se encuentran vulnerabilidades?',
-        a: 'Un reporte limpio sigue siendo un resultado valioso. Proporciona evidencia documentada de que tus controles funcionan y tu superficie de ataque está protegida — útil para cumplimiento normativo, due diligence con inversores o auditorías internas. Igual recibes un reporte técnico completo detallando qué se probó, cómo y qué se confirmó como seguro.'
+        q: '¿Qué pasa si encuentras una vulnerabilidad crítica?',
+        a: 'La reporto de inmediato — no esperas al reporte final. Los hallazgos críticos y altos se comunican en cuanto se confirman para que tu equipo pueda iniciar la remediación mientras el proyecto sigue activo.'
+      }, {
+        q: '¿La primera llamada es gratuita?',
+        a: 'Sí, gratuita y sin compromiso. En 30 minutos definimos tu entorno y acordamos objetivos y reglas. Recibes una propuesta escrita con precio fijo después.'
+      }, {
+        q: '¿Estás certificado como pentester?',
+        a: 'Tengo las certificaciones CPTS, CDSA, CJCA y CWEE de HTB Academy y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Todas las credenciales son verificables en mi perfil HTB.'
       }]
     },
 
