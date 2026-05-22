@@ -1068,7 +1068,7 @@ main>section+section {
   }
 
   .footer-copyright {
-    text-align: left;
+    text-align: center;
     font-size: 0.78rem;
     color: var(--muted);
     width: 100%;
