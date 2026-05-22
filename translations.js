@@ -251,7 +251,7 @@ const translations = {
         a: 'Yes, free and no commitment. In 30 minutes we define your environment and agree on targets and rules of engagement. You receive a written proposal with a fixed price afterwards.'
       }, {
         q: 'Are you certified as a penetration tester?',
-        a: 'I hold CPTS, CDSA, CJCA and CWEE certifications from HTB Academy and rank in the Top 1% on Hack The Box with 702 machines pwned. All credentials are verifiable via my HTB profile.'
+        a: 'I have completed all CPTS, CDSA, CJCA and CWEE certification paths on HTB Academy and rank in the Top 1% on Hack The Box with 702 machines pwned. All credentials are verifiable via my HTB profile.'
       }]    },
 
     // ── Contact ──
@@ -606,7 +606,7 @@ const translations = {
         a: 'Sí, gratuita y sin compromiso. En 30 minutos definimos tu entorno y acordamos objetivos y reglas. Recibes una propuesta escrita con precio fijo después.'
       }, {
         q: '¿Estás certificado como pentester?',
-        a: 'Tengo las certificaciones CPTS, CDSA, CJCA y CWEE de HTB Academy y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Todas las credenciales son verificables en mi perfil HTB.'
+        a: 'He completado todos los caminos de certificación CPTS, CDSA, CJCA y CWEE de HTB Academy y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Todas las credenciales son verificables en mi perfil HTB.'
       }]
     },
 
