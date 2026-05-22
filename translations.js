@@ -39,7 +39,7 @@ const translations = {
       '.hero-actions .button.primary': 'Start with a free call',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
-      '#stat-ranking': 'Ranked in the top 1% globally',
+      '#stat-ranking': 'Ranked in the top 1% on HTB Academy',
 
       // ── Terminal ──
 
@@ -394,7 +394,7 @@ const translations = {
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
-      '#stat-ranking': 'En el top 1% global',
+      '#stat-ranking': 'En el top 1% de la Academia',
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
 
       // ── Terminal ──
