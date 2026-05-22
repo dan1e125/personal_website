@@ -37,9 +37,9 @@ const translations = {
       '#spec-ad': 'Active Directory',
       '#spec-net': 'Network Pentest',
       '.hero-actions .button.primary': 'Start with a free call',
-      '#stat-paths': 'Structured training paths on HTB Academy',
+      '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
-      '#stat-ranking': 'Ranked in the top 1% globally on HTB',
+      '#stat-ranking': 'Ranked in the top 1% globally',
 
       // ── Terminal ──
 
@@ -392,9 +392,9 @@ const translations = {
       '#spec-ad': 'Active Directory',
       '#spec-net': 'Pentest de Redes',
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
-      '#stat-paths': 'Paths de entrenamiento completados en HTB Academy',
+      '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
-      '#stat-ranking': 'En el top 1% global de HTB',
+      '#stat-ranking': 'En el top 1% global',
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
 
       // ── Terminal ──
