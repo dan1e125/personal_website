@@ -3855,3 +3855,15 @@ select {
   color: var(--accent);
   font-size: 0.7rem;
 }
+
+/* ── services global re-test note ── */
+.services-retest {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+.services-retest::before {
+  content: '✓ ';
+}
