@@ -394,7 +394,7 @@ const translations = {
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
       '#stat-paths': 'Paths de entrenamiento completados en HTB Academy',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
-      '#stat-ranking': 'Ranking mundial entre 2M+ profesionales de seguridad',
+      '#stat-ranking': 'En el top 1% global de HTB',
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
 
       // ── Terminal ──
