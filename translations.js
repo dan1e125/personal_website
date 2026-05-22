@@ -245,7 +245,7 @@ const translations = {
         a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing — from scoping to final report.'
       }, {
         q: 'What happens if you find a critical vulnerability?',
-        a: 'I report it immediately — you don't wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
+        a: 'I report it immediately — you don\'t wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
       }, {
         q: 'Is the first call free?',
         a: 'Yes, free and no commitment. In 30 minutes we define your environment and agree on targets and rules of engagement. You receive a written proposal with a fixed price afterwards.'
