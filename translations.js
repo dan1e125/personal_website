@@ -77,7 +77,6 @@ const translations = {
       '#svc4-del3': 'Lateral movement & segmentation check',
       '#svc4-del4': 'Exposed services inventory',
       '#services-retest-note': 'All services include a free re-test after fixes are applied.',
-      ,
       '#svc4-price': 'From $2,000 USD',
       '#services-copy': 'Remote engagements, clear deliverables, and findings your team can act on.',
 
@@ -434,7 +433,6 @@ const translations = {
       '#svc4-del3': 'Verificación de movimiento lateral y segmentación',
       '#svc4-del4': 'Inventario de servicios expuestos',
       '#services-retest-note': 'Todos los servicios incluyen un re-test gratuito tras aplicar las correcciones.',
-      '#svc4-del5': 'Re-test gratuito tras correcciones',
       '#svc4-price': 'Desde $2,000 USD',
       '#services-copy': 'Proyectos remotos, entregables claros, hallazgos que tu equipo puede corregir.',
 
