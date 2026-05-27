@@ -487,8 +487,8 @@ const translations = {
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
       '#about-heading': 'Sobre mí',
-      '#about-p1': 'Empecé como desarrollador full-stack. Ese contexto cambia cómo pruebo — entiendo cómo se construyen las aplicaciones y sé exactamente dónde los desarrolladores dejan brechas.',
-      '#about-p2': 'Mi entrenamiento cubre toda la superficie de ataque ofensivo: explotación web, ataques a Active Directory, pivoting en redes, escalada de privilegios y técnicas de post-explotación. No solo encuentro vulnerabilidades — explico por qué existen, qué haría un atacante real con ellas y cómo corregirlas correctamente.',
+      '#about-p1': 'Empecé como desarrollador full-stack. Ese contexto cambia cómo pruebo — entiendo cómo se construyen las aplicaciones, sé exactamente dónde los desarrolladores dejan brechas, y puedo rastrear cada vulnerabilidad hasta su causa raíz para que la corrección sea precisa y duradera.',
+      '#about-p2': 'Mi entrenamiento cubre toda la superficie de ataque ofensivo: explotación web, ataques a Active Directory, pivoting en redes, escalada de privilegios y post-explotación — complementado con análisis SOC, DFIR y respuesta a incidentes. Pensar como defensor me hace mejor atacante: sé qué detectan tus herramientas de monitoreo y qué no.',
       '#about-p3': 'Trabajo de forma remota con startups y PYMEs en Latinoamérica, EE.UU. y Europa. Proyectos a precio fijo, entregables en inglés y español, y un re-test gratuito para confirmar que las correcciones realmente funcionan.',
       '#about-hl5-title': 'NDA desde el primer día',
 
