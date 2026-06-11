@@ -59,7 +59,6 @@ const translations = {
       // ── Case Studies ──
       '#cs-tag': '[ CASE STUDIES ]',
       '#case-studies-heading': 'Real engagements, real findings',
-      '#cs-sub': 'Redacted real-world engagements — findings, methodology, and remediation. Client details anonymized.',
       '#cs1-client': 'E-commerce · Colombia · 2025',
       '#cs1-high': '3 High',
       '#cs1-title': 'SEO Injection & Malware Discovery',
@@ -338,7 +337,6 @@ const translations = {
       // ── Case Studies ──
       '#cs-tag': '[ CASOS DE ESTUDIO ]',
       '#case-studies-heading': 'Proyectos reales, hallazgos reales',
-      '#cs-sub': 'Proyectos reales anonimizados — hallazgos, metodología y remediación. Datos del cliente protegidos.',
       '#cs1-client': 'E-commerce · Colombia · 2025',
       '#cs1-high': '3 Altos',
       '#cs1-title': 'Inyección SEO y Descubrimiento de Malware',
