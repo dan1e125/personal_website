@@ -178,12 +178,6 @@ const PRICES = {
 initQuoteCalculator();
 applyLocale(currentLocale);
 
-// Auto-update copyright year
-function initCopyrightYear() {
-  let el = document.getElementById('cy');
-  if (el) el.textContent = new Date().getFullYear();
-}
-initCopyrightYear();
 
 function initStats() {
   [

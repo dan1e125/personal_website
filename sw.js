@@ -1,9 +1,9 @@
-var CACHE = 'danieloa-v101';
+var CACHE = 'danieloa-20260611-d94a38a';
 var ASSETS = [
   '/',
-  '/style.css?v=20260508j',
-  '/translations.js?v=20260508j',
-  '/script.js?v=20260508j',
+  '/style.css?v=20260611-d94a38a',
+  '/translations.js?v=20260611-d94a38a',
+  '/script.js?v=20260611-d94a38a',
   '/daniel_profile.webp',
   '/manifest.json',
   '/favicon.svg',
@@ -22,18 +22,20 @@ self.addEventListener('install', function(e) {
   e.waitUntil(caches.open(CACHE).then(function(c) { return c.addAll(ASSETS); }));
   self.skipWaiting();
 });
+
 self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(keys.filter(function(k) { return k !== CACHE; }).map(function(k) { return caches.delete(k); }));
     }).then(function() { return self.clients.claim(); })
   );
+});
+
 self.addEventListener('fetch', function(e) {
   if (e.request.mode === 'navigate') {
     e.respondWith(fetch(e.request).catch(function() { return caches.match('/'); }));
     return;
   }
-  // Stale-while-revalidate: serve cache instantly, update in background
   e.respondWith(
     caches.open(CACHE).then(function(cache) {
       return cache.match(e.request).then(function(cached) {
@@ -41,8 +43,10 @@ self.addEventListener('fetch', function(e) {
           if (res.ok) cache.put(e.request, res.clone());
           return res;
         }).catch(function() {
-          return cached || new Response('Offline', {status:503,statusText:'Service Unavailable'});
+          return cached || new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
         });
         return cached || networkFetch;
       });
     })
+  );
+});

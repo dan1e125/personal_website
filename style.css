@@ -1849,46 +1849,6 @@ h1.identity-name {
   background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(239, 68, 68, 0.12))
 }
 
-.service-card[data-svc="ai"]:hover {
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 20px 48px rgba(168, 85, 247, 0.14)
-}
-
-.service-card[data-svc="ai"] .service-icon {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(99, 102, 241, 0.12))
-}
-
-.service-card[data-svc="net"]:hover {
-  border-color: rgba(34, 197, 94, 0.5);
-  box-shadow: 0 20px 48px rgba(34, 197, 94, 0.14)
-}
-
-.service-card[data-svc="net"] .service-icon {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(16, 185, 129, 0.12))
-}
-
-.service-icon svg {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0
-}
-
-.service-card[data-svc="web"] .service-icon svg {
-  color: var(--sev-blue)
-}
-
-.service-card[data-svc="ad"] .service-icon svg {
-  color: var(--sev-orange)
-}
-
-.service-card[data-svc="ai"] .service-icon svg {
-  color: var(--sev-purple)
-}
-
-.service-card[data-svc="net"] .service-icon svg {
-  color: var(--sev-ok-text)
-}
-
 .service-icon {
   font-size: 1.6rem;
   line-height: 1;
@@ -2100,32 +2060,6 @@ h1.identity-name {
 .qc-svc-card[data-svc="pentest_ad"] .qc-svc-emoji {
   background: rgba(249, 115, 22, 0.18);
   color: var(--sev-orange)
-}
-
-.qc-svc-card[data-svc="ai_llm"] .qc-svc-emoji {
-  background: rgba(168, 85, 247, 0.18);
-  color: var(--sev-purple)
-}
-
-.qc-svc-card[data-svc="pentest_ai"] .qc-svc-emoji {
-  background: rgba(34, 197, 94, 0.18);
-  color: var(--sev-ok-text)
-}
-
-.qc-svc-card.active[data-svc="pentest_web"] .qc-svc-emoji {
-  background: var(--primary-28)
-}
-
-.qc-svc-card.active[data-svc="pentest_ad"] .qc-svc-emoji {
-  background: rgba(249, 115, 22, 0.28)
-}
-
-.qc-svc-card.active[data-svc="ai_llm"] .qc-svc-emoji {
-  background: rgba(168, 85, 247, 0.28)
-}
-
-.qc-svc-card.active[data-svc="pentest_ai"] .qc-svc-emoji {
-  background: rgba(34, 197, 94, 0.28)
 }
 
 .qc-svc-name {

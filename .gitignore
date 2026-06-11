@@ -1,0 +1,6 @@
+*.bak
+*.bak2
+*.orig
+*.tmp
+.DS_Store
+danieloa-*

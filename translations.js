@@ -28,17 +28,12 @@ const translations = {
       '.topnav a[href="#contact"]': 'Contact',
 
       // ── Hero ──
-      '#hero-role': 'Penetration Tester',
-      '.avail-text': 'Available for engagements',
       '.hero-copy h2': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
-      '#spec-web': 'Web Pentest',
-      '#spec-ad': 'Active Directory',
       '.hero-actions .button.primary': 'Start with a free call',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
       '#stat-ranking': 'Ranked in the top 1% on HTB Academy',
-
       // ── Terminal ──
 
       // ── Services ──
@@ -61,8 +56,6 @@ const translations = {
       '#svc2-del4': 'Written remediation roadmap',
       '#svc2-price': 'From $3,000 USD',
       '#services-retest-note': 'All services include a free re-test after fixes are applied.',
-      '#services-copy': 'Remote engagements, clear deliverables, and findings your team can act on.',
-
       // ── Case Studies ──
       '#cs-tag': '[ CASE STUDIES ]',
       '#case-studies-heading': 'Real engagements, real findings',
@@ -72,7 +65,6 @@ const translations = {
       '#cs1-high': '3 High',
       '#cs1-total': '10 findings',
       '#cs1-title': 'SEO Injection & Malware Discovery',
-      '#cs1-desc': 'Production WordPress site silently compromised. Malicious PHP served gambling content exclusively to Google crawlers — invisible to human visitors — exploiting the client\'s domain authority to rank illegal content on Search.',
       '#cs1-f1': 'PHP backdoor with Google FCrDNS verification serving casino content to Googlebot — active and undetected on production',
       '#cs1-f2': 'Remote content injection via cURL from attacker-controlled Cloudflare Pages subdomain',
       '#cs1-f3': 'Unrestricted file write on web root — persistent attacker-controlled server-side execution',
@@ -84,7 +76,6 @@ const translations = {
       '#cs2-high': '6 High',
       '#cs2-total': '20 findings',
       '#cs2-title': 'WordPress Intranet — Static Code Analysis',
-      '#cs2-desc': 'Full source code review of a private WordPress intranet. 20 vulnerabilities across the codebase, server configuration, and third-party integrations — including hardcoded credentials for external HR and payment systems.',
       '#cs2-f1': 'Hardcoded API credentials for HR and payment systems in source code (CVSS 9.8)',
       '#cs2-f2': 'JWT auth bypass via undefined secret key — CVSS 9.3',
       '#cs2-f3': 'Stored XSS + path traversal in file handler',
@@ -96,14 +87,11 @@ const translations = {
       '#cs3-high': '3 High',
       '#cs3-total': '9 findings',
       '#cs3-title': 'Active SEO Spam Injection & Full Remediation',
-      '#cs3-desc': 'Production WordPress e-commerce site actively compromised. Hidden SEO spam injected into the CMS database across three attack waves, exploiting domain authority to rank 51 illegal gambling domains on Google — invisible to all monitoring tools for over 2 months.',
       '#cs3-f1': '60 hidden divs — 51 gambling domains, undetected 2.5 months',
       '#cs3-f2': '3.8 GB backup publicly exposed — probable entry point',
       '#cs3-f3': 'Admin credentials hardcoded in 13 places across codebase',
       '#cs3-outcome': 'All 9 findings remediated in a single session. 8/8 automated verification checks passed.',
       '#cs3-link': 'View redacted report →',
-      '#cs-sub': 'Real engagements — findings, methodology and remediation guidance, redacted for confidentiality.',
-
       // ── Certifications ──
       '#certifications-tag': '[ CERTIFICATIONS ]',
       '#certifications-heading': 'Training & Experience',
@@ -113,7 +101,6 @@ const translations = {
       '#cert-htb-soc': 'SOC Analyst',
       '#cert-cjca-title': 'Junior Cybersecurity Analyst',
       '#cert-exams-note': 'Exams pending',
-      '#cert-transcript-link': 'View HTB Transcript →',
       '#cert-transcript-link': 'View HTB Transcript →',
       '#cert-progress-label': 'In Progress',
       '#cert-htb-ad': 'Active Directory Pentesting Expert',
@@ -140,9 +127,6 @@ const translations = {
       '#process-step3-desc': 'Active testing phase. You get progress updates throughout. Any critical findings are reported immediately — no waiting for the final report.',
       '#process-step4-title': 'Report & Re-test',
       '#process-step4-desc': 'Detailed PDF report with risk ratings, proof-of-concept and remediation steps. Free re-test included to verify fixes were applied correctly.',
-      '#process .section-heading .section-tag': '[ HOW IT WORKS ]',
-      '#process-copy': 'A straightforward engagement cycle designed to minimize disruption and maximize actionable output. Most engagements complete in 1–3 weeks from scoping call to final report.',
-
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRICING ]',
       '#quote-heading': 'Get an instant estimate',
@@ -191,17 +175,13 @@ const translations = {
       '#qr-duration-key': 'Duration',
       '#qc-main-cta': 'Book a free scoping call <span class="qc-cta-arrow">→</span>',
       '#qc-disclaimer': 'Automated estimate only — not a binding quote.<br>A signed authorization agreement is required before any engagement begins.',
-      '#quote-copy': 'Fill in the details below to get an instant price range. A formal proposal will be sent after a scoping call.',
-
       // ── Contact ──
-      '.contact-form-card .section-tag': '[ SEND A MESSAGE ]',
       'label[for="cf-name"]': 'Name',
       'label[for="cf-email"]': 'Email',
       'label[for="cf-message"]': 'Message',
       '.cf-btn-text': 'Send message',
       '#contact .section-tag': '[ CONTACT ]',
       '#contact h3': 'Direct message',
-      '.cf-heading': 'Direct message'
     },
 
     // ── FAQ ──
@@ -210,7 +190,6 @@ const translations = {
       heading: 'Common questions',
       copy: 'Everything you need to know before booking a scoping call.',
       nav: 'FAQ',
-      groups: ['What I do', 'Pricing', 'Process', 'Credentials'],
       items: [{
         q: 'How much does a penetration test cost?',
         a: 'Web app from $2,000 · Active Directory from $3,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
@@ -330,18 +309,13 @@ const translations = {
       '.topnav a[href="#contact"]': 'Contacto',
 
       // ── Hero ──
-      '#hero-role': 'Penetration Tester',
-      '.avail-text': 'Disponible para proyectos',
       '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
-      '#spec-web': 'Pentest Web',
-      '#spec-ad': 'Active Directory',
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
       '#stat-ranking': 'En el top 1% de la Academia',
       '.hero-actions .button.gold[href="htb-academy-student-transcript.pdf"]': 'Descargar transcript',
-
       // ── Terminal ──
 
       // ── Services ──
@@ -364,8 +338,6 @@ const translations = {
       '#svc2-del4': 'Hoja de ruta de remediación escrita',
       '#svc2-price': 'Desde $3,000 USD',
       '#services-retest-note': 'Todos los servicios incluyen un re-test gratuito tras aplicar las correcciones.',
-      '#services-copy': 'Proyectos remotos, entregables claros, hallazgos que tu equipo puede corregir.',
-
       // ── Case Studies ──
       '#cs-tag': '[ CASOS DE ESTUDIO ]',
       '#case-studies-heading': 'Proyectos reales, hallazgos reales',
@@ -375,7 +347,6 @@ const translations = {
       '#cs1-high': '3 Altos',
       '#cs1-total': '10 hallazgos',
       '#cs1-title': 'Inyección SEO y Descubrimiento de Malware',
-      '#cs1-desc': 'Sitio WordPress de producción comprometido silenciosamente. Código PHP malicioso servía contenido de apuestas exclusivamente a los crawlers de Google — invisible para visitantes humanos — explotando la autoridad del dominio del cliente para posicionar contenido ilegal en los resultados de búsqueda.',
       '#cs1-f1': 'Backdoor PHP con verificación FCrDNS de Google sirviendo contenido de casino a Googlebot — activo y sin detectar en producción',
       '#cs1-f2': 'Inyección de contenido remoto vía cURL desde subdominio Cloudflare Pages controlado por el atacante',
       '#cs1-f3': 'Escritura irrestricta de archivos en la raíz web — ejecución de código persistente del lado del servidor',
@@ -387,7 +358,6 @@ const translations = {
       '#cs2-high': '6 Altos',
       '#cs2-total': '20 hallazgos',
       '#cs2-title': 'Intranet WordPress — Análisis Estático de Código',
-      '#cs2-desc': 'Revisión completa del código fuente de una intranet WordPress privada. 20 vulnerabilidades en el código base, configuración del servidor e integraciones de terceros — incluyendo credenciales hardcodeadas para sistemas externos de RRHH y pagos.',
       '#cs2-f1': 'Credenciales de API hardcodeadas para sistemas de RRHH y pagos en código fuente (CVSS 9.8)',
       '#cs2-f2': 'Bypass de autenticación JWT vía clave secreta indefinida — CVSS 9.3',
       '#cs2-f3': 'XSS almacenado + path traversal en manejador de archivos',
@@ -399,14 +369,11 @@ const translations = {
       '#cs3-high': '3 Altos',
       '#cs3-total': '9 hallazgos',
       '#cs3-title': 'Inyección de Spam SEO Activo y Remediación Completa',
-      '#cs3-desc': 'Sitio WordPress de e-commerce comprometido activamente. Un actor inyectó spam SEO oculto en la base de datos CMS en tres oleadas de ataque, explotando la autoridad del dominio para posicionar 51 dominios ilegales de apuestas en Google — invisible para todas las herramientas de monitoreo por más de 2 meses.',
       '#cs3-f1': '60 divs ocultos — 51 dominios de apuestas, sin detección 2.5 meses',
       '#cs3-f2': 'Backup de 3.8 GB expuesto públicamente — probable vector de entrada',
       '#cs3-f3': 'Credenciales de admin hardcodeadas en 13 lugares del código',
       '#cs3-outcome': 'Los 9 hallazgos remediados en una sola sesión. 8/8 verificaciones automáticas aprobadas.',
       '#cs3-link': 'Ver reporte redactado →',
-      '#cs-sub': 'Proyectos reales — hallazgos, metodología y guía de remediación, anonimizados por confidencialidad.',
-
       // ── Certifications ──
       '#certifications-tag': '[ CERTIFICACIONES ]',
       '#certifications-heading': 'Formación y Experiencia',
@@ -416,7 +383,6 @@ const translations = {
       '#cert-htb-soc': 'SOC Analyst',
       '#cert-cjca-title': 'Analista Junior de Ciberseguridad',
       '#cert-exams-note': 'Exámenes pendientes',
-      '#cert-transcript-link': 'Ver transcript HTB →',
       '#cert-transcript-link': 'Ver transcript HTB →',
       '#cert-progress-label': 'En progreso',
       '#cert-htb-ad': 'Active Directory Pentesting Expert',
@@ -432,8 +398,6 @@ const translations = {
       '#about-p1': 'Empecé como desarrollador full-stack. Ese contexto cambia cómo pruebo — entiendo cómo se construyen las aplicaciones, sé exactamente dónde los desarrolladores dejan brechas, y puedo rastrear cada vulnerabilidad hasta su causa raíz para que la corrección sea precisa y duradera.',
       '#about-p2': 'Mi entrenamiento cubre toda la superficie de ataque ofensivo: explotación web, ataques a Active Directory, pivoting en redes, escalada de privilegios y post-explotación — complementado con análisis SOC, DFIR y respuesta a incidentes. Pensar como defensor me hace mejor atacante: sé qué detectan tus herramientas de monitoreo y qué no.',
       '#about-p3': 'Trabajo de forma remota con startups y PYMEs en Latinoamérica, EE.UU. y Europa. Proyectos a precio fijo, entregables en inglés y español, y un re-test gratuito para confirmar que las correcciones realmente funcionan.',
-      '#about-hl5-title': 'NDA desde el primer día',
-
       // ── Process ──
       '#process-heading': 'Un proceso simple de principio a fin',
       '#process-step1-title': 'Llamada de alcance',
@@ -444,9 +408,6 @@ const translations = {
       '#process-step3-desc': 'Fase de pruebas activas con actualizaciones de progreso. Hallazgos críticos notificados de inmediato.',
       '#process-step4-title': 'Reporte y re-test',
       '#process-step4-desc': 'Reporte PDF con clasificación de riesgos, PoC y pasos de remediación. Re-test gratuito incluido.',
-      '#process .section-heading .section-tag': '[ CÓMO FUNCIONA ]',
-      '#process-copy': 'Un ciclo de trabajo claro, diseñado para minimizar interrupciones y maximizar resultados concretos y aplicables. La mayoría de los proyectos se completan en 1–3 semanas desde la llamada de alcance hasta el informe final.',
-
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRECIOS ]',
       '#quote-heading': 'Obtén una estimación al instante',
@@ -495,26 +456,13 @@ const translations = {
       '#qr-duration-key': 'Duración',
       '#qc-main-cta': 'Reservar llamada de alcance gratis <span class="qc-cta-arrow">→</span>',
       '#qc-disclaimer': 'Estimación automatizada — no es una cotización vinculante.<br>Se requiere un acuerdo de autorización firmado antes de iniciar cualquier compromiso.',
-      '#see-pricing-cta': 'Ver precios →',
-      '#quote-copy': 'Completa los detalles para obtener un rango de precio al instante. Se enviará una propuesta formal después de la llamada de alcance.',
-
       // ── Contact ──
-      '.contact-form-card .section-tag': '[ ENVIAR MENSAJE ]',
       'label[for="cf-name"]': 'Nombre',
       'label[for="cf-email"]': 'Correo',
       'label[for="cf-message"]': 'Mensaje',
       '.cf-btn-text': 'Enviar mensaje',
       '#contact .section-tag': '[ CONTACTO ]',
       '#contact h3': 'Contáctame',
-      '#cg-profiles': 'Perfiles online',
-      '.contact-intro': 'Disponible para proyectos remotos en todo el mundo. Respondo en menos de 24h. La primera llamada es gratuita — definimos alcance, cronograma y compatibilidad antes de cualquier acuerdo.',
-      '.contact-card-phone-title': 'Teléfono',
-      '.contact-card-phone-copy': 'Llamada directa — respuesta inmediata',
-      '.cg-li-title': 'LinkedIn',
-      '.cg-li-desc': 'Perfil profesional y red de contactos',
-      '.cg-gh-title': 'GitHub',
-      '.cg-gh-desc': 'Código, proyectos y huella técnica',
-      '.cf-heading': 'Mensaje directo'
     },
 
     // ── FAQ ──
@@ -523,7 +471,6 @@ const translations = {
       heading: 'Preguntas comunes',
       copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
       nav: 'FAQ',
-      groups: ['Lo que hago', 'Precios', 'Proceso', 'Credenciales'],
       items: [{
         q: '¿Cuánto cuesta un pentest?',
         a: 'App web desde $2,000 · Active Directory desde $3,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
