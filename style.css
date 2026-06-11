@@ -785,7 +785,6 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
   padding: 10px 16px;
   border-radius: 12px;
   border: 1px solid rgba(84, 179, 255, 0.28);
@@ -2773,7 +2772,7 @@ select {
 /* ===== CASE STUDIES GRID (WIDE) ===== */
 .cs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -2781,6 +2780,41 @@ select {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+.cs-card-featured {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 20px 48px rgba(34, 211, 238, 0.08);
+}
+
+.section-copy {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: .95rem;
+}
+
+.cs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.cs-link-primary {
+  border-color: rgba(34, 211, 238, 0.45);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.cs-link-secondary {
+  border-color: rgba(84, 179, 255, 0.22);
+  background: rgba(59, 130, 246, 0.04);
+  color: var(--muted);
+}
+
+.cs-link-secondary:hover {
+  color: var(--accent);
 }
 
 .cs-meta {
@@ -3800,4 +3834,102 @@ select {
 }
 .services-retest::before {
   content: '✓ ';
+}
+
+/* ===== CASE STUDY PAGES ===== */
+.case-page-body {
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+
+.case-page {
+  padding: 48px 0 72px;
+}
+
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+
+.case-back:hover {
+  opacity: .8;
+}
+
+.case-article {
+  padding: 32px 36px;
+  display: grid;
+  gap: 18px;
+}
+
+.case-article h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.case-article h2 {
+  margin-top: 8px;
+  font-size: 1.05rem;
+  color: var(--accent);
+  letter-spacing: .02em;
+}
+
+.case-article p,
+.case-article li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.case-article ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 10px;
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: .9rem;
+  color: var(--muted-alt);
+}
+
+.case-meta strong {
+  color: var(--text-hi);
+}
+
+.case-report-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(84, 179, 255, 0.28);
+  background: rgba(59, 130, 246, 0.06);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: .82rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .04em;
+  width: fit-content;
+}
+
+.case-report-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-12);
+}
+
+@media (max-width: 767px) {
+  .case-article {
+    padding: 22px;
+  }
 }

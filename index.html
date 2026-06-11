@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css?v=20260611-d94a38a">
+  <link rel="stylesheet" href="style.css?v=20260611-8730433">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
@@ -540,28 +540,10 @@
         <div class="section-heading">
           <p class="section-tag" id="cs-tag">[ CASE STUDIES ]</p>
           <h3 id="case-studies-heading">Real engagements, real findings</h3>
+          <p class="section-copy" id="cs-sub">Redacted real-world engagements — findings, methodology, and remediation. Client details anonymized.</p>
         </div>
         <div class="cs-grid">
-          <article class="card cs-card">
-            <div class="cs-meta">
-              <span class="cs-type" id="cs1-type">Web Application · Black-Box</span>
-              <p class="cs-client" id="cs1-client">E-commerce · Colombia · 2025</p>
-              <div class="cs-sev">
-                <span class="cs-sev-crit" id="cs1-crit">1 Critical</span>
-                <span class="cs-sev-high" id="cs1-high">3 High</span>
-                <span class="cs-sev-total" id="cs1-total">10 findings</span>
-              </div>
-            </div>
-            <h4 id="cs1-title">SEO Injection &amp; Malware Discovery</h4>
-            <div class="cs-pills">
-              <span class="cs-pill" id="cs1-f1">PHP backdoor serving casino content to Googlebot</span>
-              <span class="cs-pill" id="cs1-f2">Remote injection via attacker-controlled Cloudflare subdomain</span>
-              <span class="cs-pill" id="cs1-f3">Unrestricted file write — persistent server-side execution</span>
-            </div>
-            <p class="cs-outcome" id="cs1-outcome">All critical and high findings remediated. Re-test passed.</p>
-            <a href="assets/reports/client_report_1.pdf" class="cs-link" id="cs1-link" target="_blank" rel="noopener noreferrer">View redacted report &#x2192;</a>
-          </article>
-          <article class="card cs-card">
+          <article class="card cs-card cs-card-featured">
             <div class="cs-meta">
               <span class="cs-type" id="cs2-type">WordPress · Static Analysis</span>
               <p class="cs-client" id="cs2-client">Corporate Intranet · Colombia · 2025</p>
@@ -578,7 +560,10 @@
               <span class="cs-pill" id="cs2-f3">Stored XSS + path traversal in file handler</span>
             </div>
             <p class="cs-outcome" id="cs2-outcome">20 vulnerabilities documented. Client applied all remediations within 2 weeks.</p>
-            <a href="assets/reports/client_report.pdf" class="cs-link" id="cs2-link" target="_blank" rel="noopener noreferrer">View redacted report &#x2192;</a>
+            <div class="cs-actions">
+              <a href="case-studies/wordpress-intranet-static-code-analysis.html" class="cs-link cs-link-primary" id="cs2-read-link">Read case study &#x2192;</a>
+              <a href="assets/reports/client_report.pdf" class="cs-link cs-link-secondary" id="cs2-report-link" target="_blank" rel="noopener noreferrer">View redacted report &#x2192;</a>
+            </div>
           </article>
           <article class="card cs-card">
             <div class="cs-meta">
@@ -597,7 +582,10 @@
               <span class="cs-pill" id="cs3-f3">Admin credentials hardcoded in 13 places across codebase</span>
             </div>
             <p class="cs-outcome" id="cs3-outcome">All 9 findings remediated in a single session. 8/8 automated verification checks passed.</p>
-            <a href="assets/reports/SecurityAssessment_Kenworth_DanielOa_May2026.pdf" class="cs-link" id="cs3-link" target="_blank" rel="noopener noreferrer">View redacted report &#x2192;</a>
+            <div class="cs-actions">
+              <a href="case-studies/active-seo-spam-injection-remediation.html" class="cs-link cs-link-primary" id="cs3-read-link">Read case study &#x2192;</a>
+              <a href="assets/reports/SecurityAssessment_Automotive_Redacted_May2026.pdf" class="cs-link cs-link-secondary" id="cs3-report-link" target="_blank" rel="noopener noreferrer">View redacted report &#x2192;</a>
+            </div>
           </article>
         </div>
       </section>
@@ -1037,8 +1025,8 @@
       </svg>
     </button>
 
-  <script src="translations.js?v=20260611-d94a38a" defer></script>
-  <script src="script.js?v=20260611-d94a38a" defer></script>
+  <script src="translations.js?v=20260611-8730433" defer></script>
+  <script src="script.js?v=20260611-8730433" defer></script>
   </div> <!-- Closing site-shell -->
 
   <a class="wa-float" href="https://wa.me/573136459299?text=Hi%20Daniel%2C%20I%27m%20interested%20in%20a%20penetration%20test" id="wa-float-link" target="_blank" rel="noopener noreferrer" aria-label="Contact Daniel via WhatsApp">
