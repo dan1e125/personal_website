@@ -1,18 +1,16 @@
 # Daniel Ordonez Arango
 
-> Freelance penetration tester based in Colombia. Specializes in web application security, Active Directory, network infrastructure, and AI/LLM security assessments. Available for remote engagements worldwide in English and Spanish.
+> Freelance penetration tester based in Colombia. Specializes in web application security and Active Directory attacks. Available for remote engagements worldwide in English and Spanish.
 
 Daniel Ordonez Arango is a cybersecurity professional focused on offensive security. He has completed the CPTS (Certified Penetration Testing Specialist), CDSA (Certified Defensive Security Analyst), CJCA (Junior Cybersecurity Analyst Associate), and CWEE (Certified Web Exploitation Expert) training paths on Hack The Box Academy — exams pending. Currently training: Active Directory Pentesting Expert, Offensive AI Expert, and Wi-Fi Pentesting Expert (all Hack The Box Academy).
 
-He offers freelance penetration testing services to startups and SMBs, including web application assessments (OWASP Top 10), Active Directory attacks, network infrastructure testing, and AI/LLM red-teaming (OWASP LLM Top 10). Engagements are fully remote. Reports include executive summary, technical findings with CVSS scores, and prioritized remediation steps.
+He offers freelance penetration testing services to startups and SMBs, including web application assessments (OWASP Top 10) and Active Directory attacks. Engagements are fully remote. Reports include executive summary, technical findings with CVSS scores, and prioritized remediation steps.
 
 Contact: danielordonezarango@gmail.com
 
 ## Services
 - Web Application Penetration Testing: Full OWASP Top 10 assessment, business logic, API security, authentication flaws. Detailed remediation report included. From $2,000 USD.
 - Active Directory Penetration Testing: AD misconfigurations, Kerberoasting, Pass-the-Hash, lateral movement, privilege escalation paths. From $3,000 USD.
-- Network Penetration Testing: External and internal assessments, open services, segmentation weaknesses, lateral movement. From $2,000 USD.
-- AI / LLM Security Assessment: Red-team of AI integrations against OWASP LLM Top 10 — prompt injection, jailbreaks, data pipeline vulnerabilities. From $4,000 USD.
 
 ## Training & Certifications
 - CPTS — Certified Penetration Testing Specialist (Hack The Box, training completed, exam pending)

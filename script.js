@@ -172,44 +172,6 @@ const PRICES = {
       grey: 1.15,
       white: 1.6
     }
-  },
-  ai_llm: {
-    name: 'AI / LLM Security',
-    base: [4000, 9000],
-    scope: {
-      small: 1.0,
-      medium: 1.8,
-      large: 3.2
-    },
-    cplx: {
-      low: 1.0,
-      medium: 1.5,
-      high: 2.2
-    },
-    tbox: {
-      black: 1.0,
-      grey: 1.15,
-      white: 1.7
-    }
-  },
-  pentest_ai: {
-    name: 'Network Pentest',
-    base: [2000, 5000],
-    scope: {
-      small: 1.0,
-      medium: 1.7,
-      large: 3.0
-    },
-    cplx: {
-      low: 1.0,
-      medium: 1.4,
-      high: 2.1
-    },
-    tbox: {
-      black: 1.0,
-      grey: 1.15,
-      white: 1.6
-    }
   }
 };
 

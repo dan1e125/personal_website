@@ -12,9 +12,9 @@ const translations = {
   en: {
     // ── Document meta ──
     documentTitle: 'Daniel Ordonez Arango | Penetration Tester',
-    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app, Active Directory & network security. HTB Top 1%, 702 lab targets. Remote-first, clear deliverables.',
+    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app and Active Directory security. HTB Top 1%, 702 lab targets. Remote-first, clear deliverables.',
     ogTitle: 'Daniel Ordonez Arango | Penetration Tester',
-    ogDescription: 'Freelance pentester for startups and SMBs. Web app, AD & network pentest. HTB Top 1%, 702 lab targets. Remote engagements, clear reporting.',
+    ogDescription: 'Freelance pentester for startups and SMBs. Web app and Active Directory pentest. HTB Top 1%, 702 lab targets. Remote engagements, clear reporting.',
     waMsg: 'Hi Daniel, I\'m interested in learning more about your pentesting services.',
 
     selectors: {
@@ -33,9 +33,7 @@ const translations = {
       '.hero-copy h2': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
       '#spec-web': 'Web Pentest',
-      '#spec-ai': 'AI / LLM Security',
       '#spec-ad': 'Active Directory',
-      '#spec-net': 'Network Pentest',
       '.hero-actions .button.primary': 'Start with a free call',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
@@ -62,21 +60,7 @@ const translations = {
       '#svc2-del3': 'Domain privilege escalation PoC',
       '#svc2-del4': 'Written remediation roadmap',
       '#svc2-price': 'From $3,000 USD',
-      '#svc-va-title': 'AI / LLM Security Assessment',
-      '#svc-va-desc': 'Red-team your AI and LLM integrations against the OWASP LLM Top 10. Covers prompt injection, jailbreaks, model output attacks, data pipeline vulnerabilities and AI abuse vectors.',
-      '#svc3-del1': 'Prompt injection (direct & indirect)',
-      '#svc3-del2': 'LLM output & jailbreak testing',
-      '#svc3-del3': 'AI data pipeline review',
-      '#svc3-del4': 'OWASP LLM Top 10 coverage',
-      '#svc3-price': 'From $4,000 USD',
-      '#svc-net-title': 'Network Pentest',
-      '#svc-net-desc': 'Full-scope recon and exploitation of your external and internal network. Every finding is documented with proof-of-concept and a clear fix.',
-      '#svc4-del1': 'External & internal recon',
-      '#svc4-del2': 'Vulnerability exploitation & PoC',
-      '#svc4-del3': 'Lateral movement & segmentation check',
-      '#svc4-del4': 'Exposed services inventory',
       '#services-retest-note': 'All services include a free re-test after fixes are applied.',
-      '#svc4-price': 'From $2,000 USD',
       '#services-copy': 'Remote engagements, clear deliverables, and findings your team can act on.',
 
       // ── Case Studies ──
@@ -167,10 +151,6 @@ const translations = {
       '#qcs-price-pentest_web': 'From $2,000',
       '#qcs-name-pentest_ad': 'Active Directory',
       '#qcs-price-pentest_ad': 'From $3,000',
-      '#qcs-name-ai_llm': 'AI / LLM',
-      '#qcs-price-ai_llm': 'From $4,000',
-      '#qcs-name-pentest_ai': 'Network Pentest',
-      '#qcs-price-pentest_ai': 'From $2,000',
       '#ql-env-params': 'Environment parameters',
       '#ql-scope': 'Scope size',
       '#tgl-small-label': 'Small',
@@ -233,10 +213,10 @@ const translations = {
       groups: ['What I do', 'Pricing', 'Process', 'Credentials'],
       items: [{
         q: 'How much does a penetration test cost?',
-        a: 'Web app from $2,000 · Active Directory from $3,000 · Network from $2,000 · AI/LLM from $4,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
+        a: 'Web app from $2,000 · Active Directory from $3,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
       }, {
         q: 'How long does a penetration test take?',
-        a: '1–3 weeks from scoping call to final report. AI/LLM focused assessments can be delivered in 3–5 days. Timeline is fixed in the written proposal before any work begins.'
+        a: '1–3 weeks from scoping call to final report. Timeline is fixed in the written proposal before any work begins.'
       }, {
         q: 'Is an NDA signed before work begins?',
         a: 'Yes. A mutual NDA is signed before any scoping call or work begins. All findings and client data are kept strictly confidential and never shared with third parties.'
@@ -272,9 +252,7 @@ const translations = {
     aria: {
       svc: {
         pentest_web: 'Select Web App Pentest, from $2,000',
-        pentest_ad: 'Select Active Directory Pentest, from $3,000',
-        ai_llm: 'Select AI / LLM Security, from $4,000',
-        pentest_ai: 'Select Network Pentest, from $2,000'
+        pentest_ad: 'Select Active Directory Pentest, from $3,000'  
       },
       tgl: {
         small: 'Scope: Small, 1 to 5 targets',
@@ -317,16 +295,6 @@ const translations = {
           small: '1–3 hosts',
           medium: '4–10 hosts',
           large: '10+ hosts'
-        },
-        ai_llm: {
-          small: '1–3 AI integrations',
-          medium: '4–8 AI integrations',
-          large: 'Full AI system'
-        },
-        pentest_ai: {
-          small: '1–10 IPs/hosts',
-          medium: '11–50 IPs/hosts',
-          large: '50+ IPs/hosts'
         }
       },
       durations: {
@@ -339,16 +307,6 @@ const translations = {
           small: '1 week',
           medium: '1–2 weeks',
           large: '2–3 weeks'
-        },
-        ai_llm: {
-          small: '3–5 days',
-          medium: '1 week',
-          large: '2 weeks'
-        },
-        pentest_ai: {
-          small: '3–5 days',
-          medium: '1–2 weeks',
-          large: '2–3 weeks'
         }
       }
     }
@@ -356,7 +314,7 @@ const translations = {
   es: {
     // ── Document meta ──
     documentTitle: 'Daniel Ordonez Arango | Pentester',
-    metaDescription: 'Pentester freelance para startups y PYMEs. Seguridad en apps web, Active Directory y redes. HTB Top 1%, 702 objetivos de laboratorio. Trabajo remoto, reportes claros.',
+    metaDescription: 'Pentester freelance para startups y PYMEs. Seguridad en apps web y Active Directory. HTB Top 1%, 702 objetivos de laboratorio. Trabajo remoto, reportes claros.',
     ogTitle: 'Daniel Ordonez Arango | Pentester',
     ogDescription: 'Portafolio de seguridad ofensiva enfocado en penetration testing, análisis defensivo, reportes detallados y superficies de ataque modernas.',
     waMsg: 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.',
@@ -377,9 +335,7 @@ const translations = {
       '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
       '#spec-web': 'Pentest Web',
-      '#spec-ai': 'AI / LLM Security',
       '#spec-ad': 'Active Directory',
-      '#spec-net': 'Pentest de Redes',
       '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
@@ -407,21 +363,7 @@ const translations = {
       '#svc2-del3': 'PoC de escalación de privilegios de dominio',
       '#svc2-del4': 'Hoja de ruta de remediación escrita',
       '#svc2-price': 'Desde $3,000 USD',
-      '#svc-va-title': 'Evaluación de Seguridad AI / LLM',
-      '#svc-va-desc': 'Evaluación red-team de tus integraciones de IA y LLM frente al OWASP LLM Top 10. Cubre prompt injection, jailbreaks, ataques de salida del modelo, vulnerabilidades en el pipeline de datos y vectores de abuso de IA.',
-      '#svc3-del1': 'Prompt injection (directa e indirecta)',
-      '#svc3-del2': 'Testing de outputs y jailbreaks LLM',
-      '#svc3-del3': 'Revisión del pipeline de datos IA',
-      '#svc3-del4': 'Cobertura OWASP LLM Top 10',
-      '#svc3-price': 'Desde $4,000 USD',
-      '#svc-net-title': 'Pentest de Redes',
-      '#svc-net-desc': 'Identifica servicios expuestos, configuraciones incorrectas, rutas de movimiento lateral y vulnerabilidades explotables en tu red interna y externa.',
-      '#svc4-del1': 'Reconocimiento externo e interno',
-      '#svc4-del2': 'Explotación de vulnerabilidades y PoC',
-      '#svc4-del3': 'Verificación de movimiento lateral y segmentación',
-      '#svc4-del4': 'Inventario de servicios expuestos',
       '#services-retest-note': 'Todos los servicios incluyen un re-test gratuito tras aplicar las correcciones.',
-      '#svc4-price': 'Desde $2,000 USD',
       '#services-copy': 'Proyectos remotos, entregables claros, hallazgos que tu equipo puede corregir.',
 
       // ── Case Studies ──
@@ -513,10 +455,6 @@ const translations = {
       '#qcs-price-pentest_web': 'Desde $2,000',
       '#qcs-name-pentest_ad': 'Directorio Activo',
       '#qcs-price-pentest_ad': 'Desde $3,000',
-      '#qcs-name-ai_llm': 'AI / LLM',
-      '#qcs-price-ai_llm': 'Desde $4,000',
-      '#qcs-name-pentest_ai': 'Pentest de Redes',
-      '#qcs-price-pentest_ai': 'Desde $2,000',
       '#ql-env-params': 'Parámetros del entorno',
       '#ql-scope': 'Tamaño del alcance',
       '#tgl-small-label': 'Pequeño',
@@ -588,10 +526,10 @@ const translations = {
       groups: ['Lo que hago', 'Precios', 'Proceso', 'Credenciales'],
       items: [{
         q: '¿Cuánto cuesta un pentest?',
-        a: 'App web desde $2,000 · Active Directory desde $3,000 · Red desde $2,000 · AI/LLM desde $4,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
+        a: 'App web desde $2,000 · Active Directory desde $3,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
       }, {
         q: '¿Cuánto tiempo tarda un pentest?',
-        a: '1–3 semanas desde la llamada de alcance hasta el reporte final. Las evaluaciones AI/LLM pueden entregarse en 3–5 días. El cronograma se fija en la propuesta escrita antes de comenzar.'
+        a: '1–3 semanas desde la llamada de alcance hasta el reporte final. El cronograma se fija en la propuesta escrita antes de comenzar.'
       }, {
         q: '¿Se firma un NDA antes de comenzar el trabajo?',
         a: 'Sí. Se firma un NDA mutuo antes de cualquier llamada o inicio de trabajo. Todos los hallazgos y datos del cliente se mantienen confidenciales y nunca se comparten con terceros.'
@@ -628,9 +566,7 @@ const translations = {
     aria: {
       svc: {
         pentest_web: 'Seleccionar Pentest Web App, desde $2,000',
-        pentest_ad: 'Seleccionar Pentest Active Directory, desde $3,000',
-        ai_llm: 'Seleccionar Seguridad AI / LLM, desde $4,000',
-        pentest_ai: 'Seleccionar Pentest de Redes, desde $2,000'
+        pentest_ad: 'Seleccionar Pentest Active Directory, desde $3,000'  
       },
       tgl: {
         small: 'Alcance: Pequeño, 1 a 5 objetivos',
@@ -673,23 +609,11 @@ const translations = {
           small: '1–3 hosts',
           medium: '4–10 hosts',
           large: '10+ hosts'
-        },
-        ai_llm: {
-          small: '1–3 integ. IA',
-          medium: '4–8 integ. IA',
-          large: 'Sistema IA completo'
-        },
-        pentest_ai: {
-          small: '1–10 IPs/hosts',
-          medium: '11–50 IPs/hosts',
-          large: '50+ IPs/hosts'
         }
       },
       svcNames: {
         pentest_web: 'Pentest de Aplicación Web',
-        pentest_ad: 'Directorio Activo',
-        ai_llm: 'Seguridad AI / LLM',
-        pentest_ai: 'Pentest de Redes'
+        pentest_ad: 'Directorio Activo'
       },
       durations: {
         pentest_web: {
@@ -699,16 +623,6 @@ const translations = {
         },
         pentest_ad: {
           small: '1 semana',
-          medium: '1–2 semanas',
-          large: '2–3 semanas'
-        },
-        ai_llm: {
-          small: '3–5 días',
-          medium: '1 semana',
-          large: '2 semanas'
-        },
-        pentest_ai: {
-          small: '3–5 días',
           medium: '1–2 semanas',
           large: '2–3 semanas'
         }
