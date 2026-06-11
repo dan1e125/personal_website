@@ -114,6 +114,7 @@ const translations = {
       '#about-p3': 'I work remotely with startups and SMBs across Latin America, the US and Europe. Fixed-price engagements, bilingual delivery, and a free re-test to confirm your fixes actually hold.',
 
       // ── Process ──
+      '#process-tag': '[ HOW IT WORKS ]',
       '#process-heading': 'Simple, end-to-end process',
       '#process-step1-title': 'Scoping Call',
       '#process-step1-desc': 'Free 30-minute call to understand your environment, define targets and agree on rules of engagement. No commitment required.',
@@ -391,6 +392,7 @@ const translations = {
       '#about-p2': 'Mi entrenamiento cubre toda la superficie de ataque ofensivo: explotación web, ataques a Active Directory, pivoting en redes, escalada de privilegios y post-explotación — complementado con análisis SOC, DFIR y respuesta a incidentes. Pensar como defensor me hace mejor atacante: sé qué detectan tus herramientas de monitoreo y qué no.',
       '#about-p3': 'Trabajo de forma remota con startups y PYMEs en Latinoamérica, EE.UU. y Europa. Proyectos a precio fijo, entregables en inglés y español, y un re-test gratuito para confirmar que las correcciones realmente funcionan.',
       // ── Process ──
+      '#process-tag': '[ CÓMO FUNCIONA ]',
       '#process-heading': 'Un proceso simple de principio a fin',
       '#process-step1-title': 'Llamada de alcance',
       '#process-step1-desc': 'Llamada gratuita de 30 min para definir objetivos y reglas de engagement. Sin compromiso.',
