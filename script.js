@@ -979,16 +979,6 @@ function initGATracking() {
     });
   });
 
-  // Case study report downloads
-  document.querySelectorAll('a[href*="assets/reports/"]').forEach((link) => {
-    link.addEventListener('click', function() {
-      gtagEvent('file_download', {
-        file_name: link.getAttribute('href'),
-        link_text: link.textContent.trim()
-      });
-    });
-  });
-
   // WhatsApp float button
   const waFloat = waFloatEl; // cached at init
   if (waFloat) waFloat.addEventListener('click', function() {
