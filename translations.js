@@ -62,11 +62,6 @@ const translations = {
       // ── Case Studies ──
       '#cs-tag': '[ CASE STUDIES ]',
       '#case-studies-heading': 'Real engagements, real findings',
-      '#cs1-client': 'E-commerce · Colombia · 2025',
-      '#cs1-high': '3 High',
-      '#cs1-title': 'SEO Injection & Malware Discovery',
-      '#cs1-f2': 'Remote content injection via cURL from attacker-controlled Cloudflare Pages subdomain',
-      '#cs1-outcome': 'All critical and high findings remediated. Re-test passed.',
       '#cs2-client': 'Corporate Intranet · Colombia · 2025',
       '#cs2-crit': '5 Critical',
       '#cs2-high': '6 High',
@@ -183,23 +178,11 @@ const translations = {
         q: 'How much does a penetration test cost?',
         a: 'Web app from $2,000 · Active Directory from $3,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
       }, {
-        q: 'How long does a penetration test take?',
-        a: '1–3 weeks from scoping call to final report. Timeline is fixed in the written proposal before any work begins.'
-      }, {
-        q: 'Is an NDA signed before work begins?',
-        a: 'Yes. A mutual NDA is signed before any scoping call or work begins. All findings and client data are kept strictly confidential and never shared with third parties.'
-      }, {
         q: 'Why hire you instead of a larger security firm?',
         a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing — from scoping to final report.'
       }, {
         q: 'What happens if you find a critical vulnerability?',
         a: 'I report it immediately — you don\'t wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
-      }, {
-        q: 'Is the first call free?',
-        a: 'Yes, free and no commitment. In 30 minutes we define your environment and agree on targets and rules of engagement. You receive a written proposal with a fixed price afterwards.'
-      }, {
-        q: 'Are you certified as a penetration tester?',
-        a: 'I have completed the CPTS, CDSA, CJCA and CWEE certification paths on HTB Academy (exams pending) and rank in the Top 1% on Hack The Box with 702 machines pwned. All training is verifiable via my HTB profile and transcript.'
       }]    },
 
     // ── Contact ──
@@ -303,7 +286,6 @@ const translations = {
       '.hero-actions .button.primary .btn-label': 'Empezar con una llamada gratuita',
       '#cert-htb-profile-link': 'HTB profile',
       '#hero-htb-btn .btn-label': 'Currículum',
-      '#cert-exp-link': 'LinkedIn',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
       '#stat-ranking': 'En el top 1% de la Academia',
@@ -332,11 +314,6 @@ const translations = {
       // ── Case Studies ──
       '#cs-tag': '[ CASOS DE ESTUDIO ]',
       '#case-studies-heading': 'Proyectos reales, hallazgos reales',
-      '#cs1-client': 'E-commerce · Colombia · 2025',
-      '#cs1-high': '3 Altos',
-      '#cs1-title': 'Inyección SEO y Descubrimiento de Malware',
-      '#cs1-f2': 'Inyección de contenido remoto vía cURL desde subdominio Cloudflare Pages controlado por el atacante',
-      '#cs1-outcome': 'Todos los hallazgos críticos y altos remediados. Re-test aprobado.',
       '#cs2-client': 'Intranet Corporativa · Colombia · 2025',
       '#cs2-crit': '5 Críticos',
       '#cs2-high': '6 Altos',
@@ -368,7 +345,6 @@ const translations = {
       '#cert-htb-ad-meta': 'CAPE',
       '#cert-bg-label': 'Experiencia',
       '#cert-exp-role': 'Desarrollador Full-Stack',
-      '#cert-exp-link': 'LinkedIn',
 
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
@@ -452,23 +428,11 @@ const translations = {
         q: '¿Cuánto cuesta un pentest?',
         a: 'App web desde $2,000 · Active Directory desde $3,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
       }, {
-        q: '¿Cuánto tiempo tarda un pentest?',
-        a: '1–3 semanas desde la llamada de alcance hasta el reporte final. El cronograma se fija en la propuesta escrita antes de comenzar.'
-      }, {
-        q: '¿Se firma un NDA antes de comenzar el trabajo?',
-        a: 'Sí. Se firma un NDA mutuo antes de cualquier llamada o inicio de trabajo. Todos los hallazgos y datos del cliente se mantienen confidenciales y nunca se comparten con terceros.'
-      }, {
         q: '¿Por qué contratarte a ti en lugar de una empresa de seguridad?',
         a: 'Costo, enfoque y acceso directo. Como tester independiente en LATAM, mis tarifas son significativamente más bajas que firmas de EE.UU./Europa sin sacrificar metodología ni calidad. Trabajas directamente con quien realiza el testing, de inicio a fin.'
       }, {
         q: '¿Qué pasa si encuentras una vulnerabilidad crítica?',
         a: 'La reporto de inmediato — no esperas al reporte final. Los hallazgos críticos y altos se comunican en cuanto se confirman para que tu equipo pueda iniciar la remediación mientras el proyecto sigue activo.'
-      }, {
-        q: '¿La primera llamada es gratuita?',
-        a: 'Sí, gratuita y sin compromiso. En 30 minutos definimos tu entorno y acordamos objetivos y reglas. Recibes una propuesta escrita con precio fijo después.'
-      }, {
-        q: '¿Estás certificado como pentester?',
-        a: 'He completado los paths CPTS, CDSA, CJCA y CWEE en HTB Academy (exámenes pendientes) y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Toda la formación es verificable en mi perfil HTB y transcript.'
       }]
     },
 
