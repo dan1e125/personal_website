@@ -31,8 +31,9 @@ const translations = {
       '.hero-copy h2': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
       '.hero-actions .button.primary .btn-label': 'Start with a free call',
-      '#cert-htb-profile-link': 'View HTB profile',
-      '#hero-htb-btn .btn-label': 'Download transcript',
+      '#cert-htb-profile-link': 'HTB profile',
+      '#hero-htb-btn .btn-label': 'Curriculum',
+      '#cert-exp-link': 'LinkedIn',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
       '#stat-ranking': 'Ranked in the top 1% on HTB Academy',
@@ -98,7 +99,7 @@ const translations = {
       '#cert-bg-label': 'Background',
       '#cert-exp-role': 'Full-Stack Developer · Cybersecurity',
       '#cert-exp-desc': 'Development background means sharper app testing and remediation guidance your dev team can act on.',
-      '#cert-exp-link': 'Verify on LinkedIn →',
+      '#cert-exp-link': 'LinkedIn',
 
       // ── About ──
       '#about-tag': '[ ABOUT ]',
@@ -303,8 +304,9 @@ const translations = {
       '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
       '.hero-actions .button.primary .btn-label': 'Empezar con una llamada gratuita',
-      '#cert-htb-profile-link': 'Ver perfil HTB',
-      '#hero-htb-btn .btn-label': 'Descargar transcript',
+      '#cert-htb-profile-link': 'HTB profile',
+      '#hero-htb-btn .btn-label': 'Currículum',
+      '#cert-exp-link': 'LinkedIn',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
       '#stat-ranking': 'En el top 1% de la Academia',
@@ -370,7 +372,7 @@ const translations = {
       '#cert-bg-label': 'Experiencia',
       '#cert-exp-role': 'Desarrollador Full-Stack · Ciberseguridad',
       '#cert-exp-desc': 'El background en desarrollo permite pruebas más precisas en apps y guías de remediación que tu equipo puede ejecutar.',
-      '#cert-exp-link': 'Verificar en LinkedIn →',
+      '#cert-exp-link': 'LinkedIn',
 
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
