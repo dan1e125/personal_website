@@ -97,7 +97,7 @@ const translations = {
             '#cert-htb-ad': 'Active Directory Pentesting Expert',
       '#cert-htb-ad-meta': 'CAPE',
       '#cert-bg-label': 'Background',
-      '#cert-exp-role': 'Full-Stack Developer · Cybersecurity',
+      '#cert-exp-role': 'Cybersecurity Analyst',
       '#cert-exp-desc': 'Development background means sharper app testing and remediation guidance your dev team can act on.',
       '#cert-exp-link': 'LinkedIn',
 
@@ -370,7 +370,7 @@ const translations = {
             '#cert-htb-ad': 'Active Directory Pentesting Expert',
       '#cert-htb-ad-meta': 'CAPE',
       '#cert-bg-label': 'Experiencia',
-      '#cert-exp-role': 'Desarrollador Full-Stack · Ciberseguridad',
+      '#cert-exp-role': 'Analista de Ciberseguridad',
       '#cert-exp-desc': 'El background en desarrollo permite pruebas más precisas en apps y guías de remediación que tu equipo puede ejecutar.',
       '#cert-exp-link': 'LinkedIn',
 
