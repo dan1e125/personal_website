@@ -1722,7 +1722,6 @@ h1.identity-name {
   list-style: none;
   margin: 36px 0 0;
   padding: 0;
-  max-width: 760px;
   display: grid;
   gap: 0
 }
