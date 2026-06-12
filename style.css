@@ -3862,6 +3862,39 @@ select {
   padding: 48px 0 72px;
 }
 
+
+.case-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px
+}
+
+.case-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--line-20);
+  border-radius: 999px;
+  background: var(--white-03);
+  flex-shrink: 0
+}
+
+@media (max-width: 767px) {
+  .case-topbar {
+    margin-bottom: 18px
+  }
+
+  .case-lang-switch .lang-button {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 6px 10px
+  }
+}
+
 .case-back {
   display: inline-flex;
   align-items: center;
