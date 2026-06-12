@@ -75,7 +75,6 @@ const translations = {
       '#cs2-f3': 'Stored XSS + path traversal in file handler',
       '#cs2-outcome': '20 vulnerabilities documented. Client applied all remediations within 2 weeks.',
       '#cs2-read-link': 'Read case study →',
-      '#cs2-report-link': 'View redacted report →',
       '#cs3-type': 'WordPress · DB & File Forensics',
       '#cs3-client': 'Automotive Industry · Colombia · 2026',
       '#cs3-crit': '5 Critical',
@@ -87,7 +86,6 @@ const translations = {
       '#cs3-f3': 'Admin credentials hardcoded in 13 places across codebase',
       '#cs3-outcome': 'All 9 findings remediated in a single session. 8/8 automated verification checks passed.',
       '#cs3-read-link': 'Read case study →',
-      '#cs3-report-link': 'View redacted report →',
       // ── Certifications ──
       '#certifications-tag': '[ CREDENTIALS ]',
       '#certifications-heading': 'Training & Experience',
@@ -363,7 +361,6 @@ const translations = {
       '#cs2-f3': 'XSS almacenado + path traversal en manejador de archivos',
       '#cs2-outcome': '20 vulnerabilidades documentadas. El cliente aplicó todas las correcciones en 2 semanas.',
       '#cs2-read-link': 'Leer caso de estudio →',
-      '#cs2-report-link': 'Ver reporte redactado →',
       '#cs3-type': 'WordPress · Forense de BD y Archivos',
       '#cs3-client': 'Industria Automotriz · Colombia · 2026',
       '#cs3-crit': '5 Críticos',
@@ -375,7 +372,6 @@ const translations = {
       '#cs3-f3': 'Credenciales de admin hardcodeadas en 13 lugares del código',
       '#cs3-outcome': 'Los 9 hallazgos remediados en una sola sesión. 8/8 verificaciones automáticas aprobadas.',
       '#cs3-read-link': 'Leer caso de estudio →',
-      '#cs3-report-link': 'Ver reporte redactado →',
       // ── Certifications ──
       '#certifications-tag': '[ CREDENCIALES ]',
       '#certifications-heading': 'Formación y Experiencia',

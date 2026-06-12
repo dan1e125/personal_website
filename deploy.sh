@@ -11,7 +11,7 @@ TS=$(date +%H%M%S)
 VERSION="${DATE}-${HASH}-${TS}"
 
 sed -i "s/?v=[^\"']*/?v=${VERSION}/g" index.html
-sed -i "s|href=\"\.\./style\.css\(\?v=[^\"']*\)\?\"|href=\"../style.css?v=${VERSION}\"|g" case-studies/*.html
+sed -i "s/?v=[^\"']*/?v=${VERSION}/g" case-studies/*.html
 sed -i "s/var CACHE = 'danieloa-[^']*'/var CACHE = 'danieloa-${VERSION}'/" sw.js
 sed -i "s/?v=[^\"']*/?v=${VERSION}/g" sw.js
 
