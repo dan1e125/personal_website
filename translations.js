@@ -30,9 +30,9 @@ const translations = {
       // ── Hero ──
       '.hero-copy h2': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
-      '.hero-actions .button.primary': 'Start with a free call',
+      '.hero-actions .button.primary .btn-label': 'Start with a free call',
       '#cert-htb-profile-link': 'View HTB profile',
-      '#hero-htb-btn': 'Download transcript',
+      '#hero-htb-btn .btn-label': 'Download transcript',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
       '#stat-ranking': 'Ranked in the top 1% on HTB Academy',
@@ -302,9 +302,9 @@ const translations = {
       // ── Hero ──
       '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
-      '.hero-actions .button.primary': 'Empezar con una llamada gratuita',
+      '.hero-actions .button.primary .btn-label': 'Empezar con una llamada gratuita',
       '#cert-htb-profile-link': 'Ver perfil HTB',
-      '#hero-htb-btn': 'Descargar transcript',
+      '#hero-htb-btn .btn-label': 'Descargar transcript',
       '#stat-paths': 'Paths de entrenamiento completados',
       '#stat-targets': 'Máquinas de laboratorio comprometidas',
       '#stat-ranking': 'En el top 1% de la Academia',
