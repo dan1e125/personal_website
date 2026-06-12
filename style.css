@@ -136,7 +136,14 @@
   --accent: #22d3ee;
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   --radius: 20px;
+  --radius-item: 16px;
   --container: 1280px;
+  --surface-panel: rgba(8, 20, 38, 0.7);
+  --surface-item: rgba(8, 20, 38, 0.55);
+  --surface-border: rgba(84, 179, 255, 0.1);
+  --panel-padding: 24px;
+  --item-padding: 16px 18px;
+  --text-muted: var(--muted);
   --transition-card: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
   --text-hi: #e2e8f0;
   --muted-alt: #94a3b8;
@@ -412,9 +419,9 @@ p {
 
 .card {
   position: relative;
-  padding: 32px;
-  background: linear-gradient(180deg, var(--bg-overlay-88), var(--bg-overlay-92));
-  border: 1px solid var(--line);
+  padding: var(--panel-padding);
+  background: linear-gradient(180deg, var(--surface-panel), rgba(6, 15, 25, 0.92));
+  border: 1px solid var(--surface-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -601,10 +608,10 @@ section {
 }
 
 .mini-card {
-  border: 1px solid var(--blue-mid-18);
-  background: var(--bg-glass);
-  border-radius: 16px;
-  padding: 16px;
+  border: 1px solid var(--line-14);
+  background: var(--surface-item);
+  border-radius: var(--radius-item);
+  padding: var(--item-padding);
   border-left: 2px solid rgba(34, 211, 238, 0.38);
 }
 
@@ -625,10 +632,10 @@ section {
 }
 
 .cert-path-item {
-  padding: 16px 18px;
-  background: rgba(8, 20, 38, 0.55);
+  padding: var(--item-padding);
+  background: var(--surface-item);
   border: 1px solid var(--line-14);
-  border-radius: 16px;
+  border-radius: var(--radius-item);
   display: grid;
   gap: 8px
 }
@@ -654,9 +661,14 @@ section {
   font-family: "JetBrains Mono", monospace
 }
 
-.cert-status {
+.badge,
+.cert-status,
+.cs-sev-crit,
+.cs-sev-high,
+.cs-sev-total {
   display: inline-flex;
   align-items: center;
+  gap: 5px;
   flex-shrink: 0;
   font-size: .68rem;
   font-family: "JetBrains Mono", monospace;
@@ -668,16 +680,63 @@ section {
   white-space: nowrap
 }
 
-.cert-status--done {
+.cert-status--done,
+.badge--ok {
   color: var(--sev-ok-text);
   background: rgba(74, 222, 128, 0.1);
   border: 1px solid rgba(74, 222, 128, 0.22)
 }
 
-.cert-status--progress {
+.cert-status--progress,
+.badge--accent {
   color: var(--accent);
   background: var(--accent-08);
   border: 1px solid var(--accent-22)
+}
+
+.cs-sev-crit,
+.badge--crit {
+  background: rgba(239, 68, 68, .1);
+  border: 1px solid rgba(239, 68, 68, .28);
+  color: #fca5a5
+}
+
+.cs-sev-crit::before,
+.badge--crit::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--sev-crit);
+  box-shadow: 0 0 6px var(--sev-crit-glow)
+}
+
+.cs-sev-high,
+.badge--high {
+  background: rgba(251, 146, 60, .1);
+  border: 1px solid rgba(251, 146, 60, .28);
+  color: var(--sev-high-text)
+}
+
+.cs-sev-high::before,
+.badge--high::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--sev-high);
+  box-shadow: 0 0 6px var(--sev-high-glow)
+}
+
+.cs-sev-total,
+.badge--info {
+  background: rgba(84, 179, 255, .07);
+  border: 1px solid rgba(84, 179, 255, .2);
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: .04em
 }
 
 .cert-three-cols {
@@ -689,10 +748,10 @@ section {
 }
 
 .cert-panel {
-  background: rgba(8, 20, 38, 0.7);
-  border: 1px solid rgba(84, 179, 255, 0.1);
-  border-radius: 20px;
-  padding: 24px 24px 22px;
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: var(--panel-padding);
   display: grid;
   align-content: start;
   gap: 0;
@@ -718,57 +777,6 @@ section {
 .cert-verify-link {
   display: inline-block;
   text-decoration: none
-}
-
-.cs-sev-crit,
-.cs-sev-high,
-.cs-sev-total {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: .75rem;
-  font-family: "JetBrains Mono", monospace;
-  padding: 3px 9px;
-  border-radius: 999px;
-  font-weight: 600
-}
-
-.cs-sev-crit {
-  background: rgba(239, 68, 68, .1);
-  border: 1px solid rgba(239, 68, 68, .28);
-  color: var(--sev-ok-text);
-}
-
-.cs-sev-crit::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--sev-crit);
-  box-shadow: 0 0 6px var(--sev-crit-glow)
-}
-
-.cs-sev-high {
-  background: rgba(251, 146, 60, .1);
-  border: 1px solid rgba(251, 146, 60, .28);
-  color: var(--sev-high-text);
-}
-
-.cs-sev-high::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--sev-high);
-  box-shadow: 0 0 6px var(--sev-high-glow)
-}
-
-.cs-sev-total {
-  background: rgba(84, 179, 255, .07);
-  border: 1px solid rgba(84, 179, 255, .2);
-  color: var(--muted);
 }
 
 .cs-client {
@@ -1331,7 +1339,11 @@ main>section+section {
 
 #about::before,
 #services::before,
+#case-studies::before,
+#certifications::before,
+#process::before,
 #quote::before,
+#faq::before,
 #contact::before {
   content: '';
   display: block;
@@ -1790,10 +1802,10 @@ h1.identity-name {
 }
 
 .process-card {
-  background: rgba(8, 20, 38, 0.7);
-  border: 1px solid rgba(84, 179, 255, 0.1);
-  border-radius: 20px;
-  padding: 24px 28px
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: var(--panel-padding)
 }
 
 .process-card strong {
@@ -1812,10 +1824,10 @@ h1.identity-name {
 
 .service-card {
   position: relative;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, var(--bg-overlay-88), var(--bg-overlay-92));
+  border: 1px solid var(--surface-border);
+  background: linear-gradient(180deg, var(--surface-panel), rgba(6, 15, 25, 0.94));
   border-radius: var(--radius);
-  padding: 28px;
+  padding: var(--panel-padding);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1962,10 +1974,10 @@ h1.identity-name {
 }
 
 .qc-block {
-  background: rgba(8, 20, 38, 0.7);
-  border: 1px solid rgba(84, 179, 255, 0.1);
-  border-radius: 20px;
-  padding: 28px 28px 24px;
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: var(--panel-padding);
   transition: border-color 200ms
 }
 
