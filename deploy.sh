@@ -1,5 +1,5 @@
 #!/bin/bash
-# deploy.sh — sync cache versions, validate, commit + push
+# deploy.sh â€” sync cache versions, validate, commit + push
 set -e
 
 SITE="/var/www/danieloa.com"

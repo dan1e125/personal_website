@@ -841,7 +841,7 @@ section {
 }
 
 .cs-outcome::before {
-  content: "â";
+  content: "\2713";
   font-weight: 700;
   color: #4ade80;
   flex-shrink: 0
@@ -1940,7 +1940,7 @@ h1.identity-name {
 }
 
 .service-deliverables li::before {
-  content: "â";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -3630,7 +3630,7 @@ select {
 
 @media (max-width: 360px) {
 
-  /* Service cards: single column instead of 2Ã—2 */
+  /* Service cards: single column instead of 2×2 */
   .qc-svc-grid {
     grid-template-columns: 1fr;
   }
@@ -3849,7 +3849,7 @@ select {
   letter-spacing: 0.03em;
 }
 .services-retest::before {
-  content: 'â ';
+  content: '¹3 ';
 }
 
 /* ===== CASE STUDY PAGES ===== */
