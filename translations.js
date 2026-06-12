@@ -109,7 +109,6 @@ const translations = {
       '#cert-exp-role': 'Full-Stack Developer · Cybersecurity',
       '#cert-exp-desc': 'Development background means sharper app testing and remediation guidance your dev team can act on.',
       '#cert-exp-link': 'Verify on LinkedIn →',
-      '#cert-about-link': 'Read full background →',
 
       // ── About ──
       '#about-tag': '[ ABOUT ]',
@@ -393,7 +392,6 @@ const translations = {
       '#cert-exp-role': 'Desarrollador Full-Stack · Ciberseguridad',
       '#cert-exp-desc': 'El background en desarrollo permite pruebas más precisas en apps y guías de remediación que tu equipo puede ejecutar.',
       '#cert-exp-link': 'Verificar en LinkedIn →',
-      '#cert-about-link': 'Leer background completo →',
 
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
