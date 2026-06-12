@@ -841,7 +841,7 @@ section {
 }
 
 .cs-outcome::before {
-  content: "✓";
+  content: "â";
   font-weight: 700;
   color: #4ade80;
   flex-shrink: 0
@@ -1156,7 +1156,7 @@ main>section+section {
   margin-top: 14px;
 }
 
-/* ── About expanded layout ── */
+/* ââ About expanded layout ââ */
 .about-layout {
   margin-top: 8px;
 }
@@ -1940,7 +1940,7 @@ h1.identity-name {
 }
 
 .service-deliverables li::before {
-  content: "✓";
+  content: "â";
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -2476,7 +2476,7 @@ h1.identity-name {
   }
 }
 
-/* ─ Cursor ─ */
+/* â Cursor â */
 
 .cursor-dot {
   position: fixed;
@@ -2538,7 +2538,7 @@ body.cursor-clicking .cursor-dot {
   margin-bottom: 1.25rem;
 }
 
-/* ── FAQ ── */
+/* ââ FAQ ââ */
 .faq-card {
   padding: 32px;
 }
@@ -2729,12 +2729,12 @@ body.cursor-clicking .cursor-dot {
 }
 
 /* ===== RESPONSIVE / MOBILE ===== */
-/* ═══════════════════════════════════════════════════════════════════
-   MOBILE RESPONSIVE FIXES — danieloa.com
-   Full audit: 320px · 375px · 390px · 414px · 768px · 1024px
-   ═══════════════════════════════════════════════════════════════════ */
+/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+   MOBILE RESPONSIVE FIXES â danieloa.com
+   Full audit: 320px Â· 375px Â· 390px Â· 414px Â· 768px Â· 1024px
+   âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 
-/* ── 1. GLOBAL ─────────────────────────────────────────────────── */
+/* ââ 1. GLOBAL âââââââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* Prevent horizontal overflow / scroll at all viewport widths.
    Using max-width instead of overflow-x:hidden to preserve sticky. */
@@ -2749,9 +2749,9 @@ picture img {
   height: auto;
 }
 
-/* ── 2. IOS AUTO-ZOOM PREVENTION ───────────────────────────────── */
+/* ââ 2. IOS AUTO-ZOOM PREVENTION âââââââââââââââââââââââââââââââââ */
 /* Any input/textarea with font-size < 16px triggers iOS auto-zoom.
-   .cf-input is currently 0.95rem (≈15.2px) — fix globally. */
+   .cf-input is currently 0.95rem (â15.2px) â fix globally. */
 input,
 input[type="text"],
 input[type="email"],
@@ -2763,61 +2763,61 @@ select {
   font-size: 16px;
 }
 
-/* ── 3. TOUCH TARGETS (44px minimum) ──────────────────────────── */
+/* ââ 3. TOUCH TARGETS (44px minimum) ââââââââââââââââââââââââââââ */
 
-/* ── 4. NAVIGATION ─────────────────────────────────────────────── */
+/* ââ 4. NAVIGATION âââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* Logo: slightly smaller on mobile to keep topbar tight */
 
 /* Ensure hamburger nav link text is readable at 2-col layout */
 
-/* ── 5. HERO ───────────────────────────────────────────────────── */
+/* ââ 5. HERO âââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 
-/* Hero two-column → single column (override existing rule for clarity) */
+/* Hero two-column â single column (override existing rule for clarity) */
 
 /* Status grid: 2-col on mobile is far better than the default 1-col
    (6 items stacked in a single column is excessively tall) */
 
 /* Ensure hero actions are full-width on mobile */
 
-/* ── 6. SERVICES ──────────────────────────────────────────────── */
+/* ââ 6. SERVICES ââââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* Service cards: full-width stacked on mobile */
 
-/* ── 7. CASE STUDIES ──────────────────────────────────────────── */
+/* ââ 7. CASE STUDIES ââââââââââââââââââââââââââââââââââââââââââââ */
 
-/* ── 8. CERTIFICATIONS ────────────────────────────────────────── */
+/* ââ 8. CERTIFICATIONS ââââââââââââââââââââââââââââââââââââââââââ */
 
-/* ── 9. PROCESS SECTION ───────────────────────────────────────── */
-/* (already handled by existing CSS — no additional fix needed) */
+/* ââ 9. PROCESS SECTION âââââââââââââââââââââââââââââââââââââââââ */
+/* (already handled by existing CSS â no additional fix needed) */
 
-/* ── 10. PRICING / QUOTE CALCULATOR ──────────────────────────── */
+/* ââ 10. PRICING / QUOTE CALCULATOR ââââââââââââââââââââââââââââ */
 
-/* Layout: 2-col → single column at tablet (already exists in CSS,
+/* Layout: 2-col â single column at tablet (already exists in CSS,
    included here for clarity and to ensure the panel isn't sticky) */
 
 /* Tighten block padding and toggle text on small phones */
 
-/* Very small screens (≤360px): stack toggles and service grid vertically */
+/* Very small screens (â¤360px): stack toggles and service grid vertically */
 
-/* ── 11. FAQ ──────────────────────────────────────────────────── */
+/* ââ 11. FAQ ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* FAQ already has mobile styles; these reinforce correct padding */
 
-/* ── 12. CONTACT SECTION ──────────────────────────────────────── */
+/* ââ 12. CONTACT SECTION ââââââââââââââââââââââââââââââââââââââââ */
 
 /* contact-two-col: stack to single column on mobile */
 
 /* On very small screens, social grid goes single column */
 
-/* ── 13. WHATSAPP BUTTON ──────────────────────────────────────── */
+/* ââ 13. WHATSAPP BUTTON ââââââââââââââââââââââââââââââââââââââââ */
 
 /* Position: already handled by existing CSS (bottom:16px;left:16px at 767px).
    Ensure it doesn't collide with back-to-top on very small screens. */
 
-/* ── 14. BACK-TO-TOP BUTTON ───────────────────────────────────── */
+/* ââ 14. BACK-TO-TOP BUTTON âââââââââââââââââââââââââââââââââââââ */
 
-/* ── 15. SCROLL PADDING for sticky nav ───────────────────────── */
+/* ââ 15. SCROLL PADDING for sticky nav âââââââââââââââââââââââââ */
 
 /* ===== CASE STUDIES GRID (WIDE) ===== */
 .cs-grid {
@@ -2914,16 +2914,16 @@ select {
 }
 
 .cs-findings li::before {
-  content: '—';
+  content: 'â';
   position: absolute;
   left: 0;
   color: var(--accent);
   opacity: .5;
 }
 
-/* ═══════════════════════════════════
+/* âââââââââââââââââââââââââââââââââââ
    CLASES DE UTILIDAD (antes inline)
-═══════════════════════════════════ */
+âââââââââââââââââââââââââââââââââââ */
 
 /* Noscript overlay */
 .noscript-overlay {
@@ -2977,9 +2977,9 @@ select {
   flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════
+/* âââââââââââââââââââââââââââââââââââ
    MEDIA QUERIES (consolidadas)
-═══════════════════════════════════ */
+âââââââââââââââââââââââââââââââââââ */
 
 @media (max-width: 1023px) {
 
@@ -3630,7 +3630,7 @@ select {
 
 @media (max-width: 360px) {
 
-  /* Service cards: single column instead of 2×2 */
+  /* Service cards: single column instead of 2Ã—2 */
   .qc-svc-grid {
     grid-template-columns: 1fr;
   }
@@ -3731,7 +3731,7 @@ select {
   font-size: .68rem;
   color: var(--muted);
 }
-/* ── Hero two-column responsive ── */
+/* ââ Hero two-column responsive ââ */
 @media (max-width: 900px) {
   .hero-copy {
     grid-template-columns: 1fr;
@@ -3747,7 +3747,7 @@ select {
   }
 }
 
-/* ── Hero stats strip (below card) ── */
+/* ââ Hero stats strip (below card) ââ */
 .hero-stats {
   margin-top: 16px;
   grid-template-columns: repeat(3, 1fr);
@@ -3758,7 +3758,7 @@ select {
   border-color: var(--line);
 }
 
-/* ══ HERO-RIGHT: full-bleed portrait photo ══ */
+/* ââ HERO-RIGHT: full-bleed portrait photo ââ */
 .hero-copy {
   align-items: stretch;
 }
@@ -3790,7 +3790,7 @@ select {
 }
 
 
-/* ── proof-bar: match service-card background ── */
+/* ââ proof-bar: match service-card background ââ */
 .proof-bar .quick-stats li {
   background: linear-gradient(180deg, var(--bg-overlay-88), var(--bg-overlay-92));
   border: 1px solid var(--line);
@@ -3813,7 +3813,7 @@ select {
   margin-bottom: 20px;
 }
 
-/* ── cs-pills (option D compact findings) ── */
+/* ââ cs-pills (option D compact findings) ââ */
 .cs-pills {
   display: flex;
   flex-direction: column;
@@ -3833,14 +3833,14 @@ select {
   padding-left: 22px;
 }
 .cs-pill::before {
-  content: '▸';
+  content: 'â–¸';
   position: absolute;
   left: 8px;
   color: var(--accent);
   font-size: 0.7rem;
 }
 
-/* ── services global re-test note ── */
+/* ââ services global re-test note ââ */
 .services-retest {
   text-align: center;
   margin-top: 24px;
@@ -3849,7 +3849,7 @@ select {
   letter-spacing: 0.03em;
 }
 .services-retest::before {
-  content: '✓ ';
+  content: 'â ';
 }
 
 /* ===== CASE STUDY PAGES ===== */
