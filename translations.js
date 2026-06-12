@@ -91,7 +91,6 @@ const translations = {
       // ── Certifications ──
       '#certifications-tag': '[ CREDENTIALS ]',
       '#certifications-heading': 'Training & Experience',
-      '#cert-intro': '702 lab targets · Top 1% on HTB — verifiable training paths below.',
       '#cert-completed-label': 'Completed paths',
       '#cert-htb-web': 'Web Penetration Tester',
       '#cert-htb-web-meta': 'CWEE · Exam pending',
@@ -380,7 +379,6 @@ const translations = {
       // ── Certifications ──
       '#certifications-tag': '[ CREDENCIALES ]',
       '#certifications-heading': 'Formación y Experiencia',
-      '#cert-intro': '702 objetivos de laboratorio · Top 1% en HTB — paths de formación verificables abajo.',
       '#cert-completed-label': 'Paths completados',
       '#cert-htb-web': 'Web Penetration Tester',
       '#cert-htb-web-meta': 'CWEE · Examen pendiente',
