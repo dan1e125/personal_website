@@ -89,22 +89,30 @@ const translations = {
       '#cs3-read-link': 'Read case study →',
       '#cs3-report-link': 'View redacted report →',
       // ── Certifications ──
-      '#certifications-tag': '[ CERTIFICATIONS ]',
+      '#certifications-tag': '[ CREDENTIALS ]',
       '#certifications-heading': 'Training & Experience',
-      '#cert-completed-label': 'Completed',
+      '#cert-intro': '702 lab targets · Top 1% on HTB — verifiable training paths below.',
+      '#cert-completed-label': 'Completed paths',
       '#cert-htb-web': 'Web Penetration Tester',
+      '#cert-htb-web-meta': 'CWEE · Exam pending',
       '#cert-htb-pt': 'Penetration Tester',
+      '#cert-htb-pt-meta': 'CPTS · Exam pending',
       '#cert-htb-soc': 'SOC Analyst',
+      '#cert-htb-soc-meta': 'CDSA · Exam pending',
       '#cert-cjca-title': 'Junior Cybersecurity Analyst',
-      '#cert-exams-note': 'Exams pending',
-      '#cert-transcript-link': 'View HTB Transcript →',
-      '#cert-progress-label': 'In Progress',
+      '#cert-cjca-meta': 'CJCA · Exam pending',
+      '.cert-status--done': 'Path complete',
+      '#cert-htb-profile-link': 'View HTB profile →',
+      '#cert-transcript-link': 'Download transcript →',
+      '#cert-progress-label': 'In progress',
       '#cert-htb-ad': 'Active Directory Pentesting Expert',
-      '#cert-htb-ai': 'Offensive AI Expert',
-      '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
-      '#cert-bg-label': 'Work Experience',
+      '#cert-badge-progress': 'In progress',
+      '#cert-htb-ad-meta': 'Aligns with Active Directory pentest service',
+      '#cert-bg-label': 'Background',
       '#cert-exp-role': 'Full-Stack Developer · Cybersecurity',
+      '#cert-exp-desc': 'Development background means sharper app testing and remediation guidance your dev team can act on.',
       '#cert-exp-link': 'Verify on LinkedIn →',
+      '#cert-about-link': 'Read full background →',
 
       // ── About ──
       '#about-tag': '[ ABOUT ]',
@@ -207,7 +215,7 @@ const translations = {
         a: 'Yes, free and no commitment. In 30 minutes we define your environment and agree on targets and rules of engagement. You receive a written proposal with a fixed price afterwards.'
       }, {
         q: 'Are you certified as a penetration tester?',
-        a: 'I have completed all CPTS, CDSA, CJCA and CWEE certification paths on HTB Academy and rank in the Top 1% on Hack The Box with 702 machines pwned. All credentials are verifiable via my HTB profile.'
+        a: 'I have completed the CPTS, CDSA, CJCA and CWEE certification paths on HTB Academy (exams pending) and rank in the Top 1% on Hack The Box with 702 machines pwned. All training is verifiable via my HTB profile and transcript.'
       }]    },
 
     // ── Contact ──
@@ -368,22 +376,30 @@ const translations = {
       '#cs3-read-link': 'Leer caso de estudio →',
       '#cs3-report-link': 'Ver reporte redactado →',
       // ── Certifications ──
-      '#certifications-tag': '[ CERTIFICACIONES ]',
+      '#certifications-tag': '[ CREDENCIALES ]',
       '#certifications-heading': 'Formación y Experiencia',
-      '#cert-completed-label': 'Completados',
+      '#cert-intro': '702 objetivos de laboratorio · Top 1% en HTB — paths de formación verificables abajo.',
+      '#cert-completed-label': 'Paths completados',
       '#cert-htb-web': 'Web Penetration Tester',
+      '#cert-htb-web-meta': 'CWEE · Examen pendiente',
       '#cert-htb-pt': 'Penetration Tester',
+      '#cert-htb-pt-meta': 'CPTS · Examen pendiente',
       '#cert-htb-soc': 'SOC Analyst',
+      '#cert-htb-soc-meta': 'CDSA · Examen pendiente',
       '#cert-cjca-title': 'Analista Junior de Ciberseguridad',
-      '#cert-exams-note': 'Exámenes pendientes',
-      '#cert-transcript-link': 'Ver transcript HTB →',
+      '#cert-cjca-meta': 'CJCA · Examen pendiente',
+      '.cert-status--done': 'Path completo',
+      '#cert-htb-profile-link': 'Ver perfil HTB →',
+      '#cert-transcript-link': 'Descargar transcript →',
       '#cert-progress-label': 'En progreso',
       '#cert-htb-ad': 'Active Directory Pentesting Expert',
-      '#cert-htb-ai': 'Offensive AI Expert',
-      '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
-      '#cert-bg-label': 'Experiencia laboral',
+      '#cert-badge-progress': 'En progreso',
+      '#cert-htb-ad-meta': 'Alineado con el servicio de pentest Active Directory',
+      '#cert-bg-label': 'Experiencia',
       '#cert-exp-role': 'Desarrollador Full-Stack · Ciberseguridad',
-      '#cert-exp-link': 'Ver en LinkedIn →',
+      '#cert-exp-desc': 'El background en desarrollo permite pruebas más precisas en apps y guías de remediación que tu equipo puede ejecutar.',
+      '#cert-exp-link': 'Verificar en LinkedIn →',
+      '#cert-about-link': 'Leer background completo →',
 
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
@@ -485,7 +501,7 @@ const translations = {
         a: 'Sí, gratuita y sin compromiso. En 30 minutos definimos tu entorno y acordamos objetivos y reglas. Recibes una propuesta escrita con precio fijo después.'
       }, {
         q: '¿Estás certificado como pentester?',
-        a: 'He completado todos los caminos de certificación CPTS, CDSA, CJCA y CWEE de HTB Academy y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Todas las credenciales son verificables en mi perfil HTB.'
+        a: 'He completado los paths CPTS, CDSA, CJCA y CWEE en HTB Academy (exámenes pendientes) y estoy en el Top 1% de Hack The Box con 702 máquinas comprometidas. Toda la formación es verificable en mi perfil HTB y transcript.'
       }]
     },
 
