@@ -488,9 +488,20 @@ p {
 }
 
 .hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 6px
+}
+
+.hero-actions .button.primary {
+  grid-column: 1 / -1
+}
+
+.hero-actions .button:not(.primary) {
+  font-size: .88rem;
+  padding: 12px 16px;
+  min-height: 42px
 }
 
 .button {
