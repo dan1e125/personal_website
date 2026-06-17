@@ -2,7 +2,7 @@
 
 > Freelance penetration tester based in Colombia. Specializes in web application security and Active Directory attacks. Available for remote engagements worldwide in English and Spanish.
 
-Daniel Ordonez Arango is a cybersecurity professional focused on offensive security. He has completed the CPTS (Certified Penetration Testing Specialist), CDSA (Certified Defensive Security Analyst), CJCA (Junior Cybersecurity Analyst Associate), and CWEE (Certified Web Exploitation Expert) training paths on Hack The Box Academy — exams pending. Currently training: Active Directory Pentesting Expert, Offensive AI Expert, and Wi-Fi Pentesting Expert (all Hack The Box Academy).
+Daniel Ordonez Arango is a cybersecurity professional focused on offensive security. He has completed the CPTS (Certified Penetration Testing Specialist), CDSA (Certified Defensive Security Analyst), CJCA (Junior Cybersecurity Analyst Associate), and CWES (Certified Web Exploitation Specialist) training paths on Hack The Box Academy — exams pending. Currently training: Active Directory Pentesting Expert, Offensive AI Expert, and Wi-Fi Pentesting Expert (all Hack The Box Academy).
 
 He offers freelance penetration testing services to startups and SMBs, including web application assessments (OWASP Top 10) and Active Directory attacks. Engagements are fully remote. Reports include executive summary, technical findings with CVSS scores, and prioritized remediation steps.
 
@@ -16,7 +16,7 @@ Contact: danielordonezarango@gmail.com
 - CPTS — Certified Penetration Testing Specialist (Hack The Box, training completed, exam pending)
 - CDSA — Certified Defensive Security Analyst (Hack The Box, training completed, exam pending)
 - CJCA — Junior Cybersecurity Analyst Associate (Hack The Box, training completed, exam pending)
-- CWEE — Certified Web Exploitation Expert (Hack The Box, training completed, exam pending)
+- CWES — Certified Web Exploitation Specialist (Hack The Box, training completed, exam pending)
 - Active Directory Pentesting Expert (Hack The Box, in progress)
 - Offensive AI Expert (Hack The Box, in progress)
 - Wi-Fi Pentesting Expert (Hack The Box, in progress)
