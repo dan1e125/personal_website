@@ -1,9 +1,9 @@
-var CACHE = 'danieloa-20260612-32b1de7-014034';
+var CACHE = 'danieloa-20260617-1c94cf2-142753';
 var ASSETS = [
   '/',
-  '/style.css?v=20260612-32b1de7-014034',
-  '/translations.js?v=20260612-32b1de7-014034',
-  '/script.js?v=20260612-32b1de7-014034',
+  '/style.css?v=20260617-1c94cf2-142753',
+  '/translations.js?v=20260617-1c94cf2-142753',
+  '/script.js?v=20260617-1c94cf2-142753',
   '/daniel_profile.webp',
   '/manifest.json',
   '/favicon.svg',

@@ -3638,8 +3638,6 @@ select {
     gap: 24px;
   }
   .hero-right {
-    min-height: 240px;
-    max-height: 360px;
     order: 1;
   }
   .hero-left {
@@ -3672,9 +3670,16 @@ select {
 }
 @media (max-width: 900px) {
   .hero-right {
-    min-height: 240px;
-    max-height: 360px;
+    min-height: unset;
+    max-height: none;
+    aspect-ratio: 1;
+    width: min(100%, 380px);
+    margin-inline: auto;
     border-radius: 12px;
+  }
+
+  .hero-portrait {
+    object-position: center center;
   }
 }
 
@@ -3868,11 +3873,6 @@ select {
     padding: 18px
   }
 
-  .hero-right {
-    min-height: 220px;
-    max-height: 340px
-  }
-
   .hero-left {
     gap: 18px
   }
@@ -3993,10 +3993,6 @@ select {
 @media (max-width: 480px) {
   .hero h2 {
     font-size: clamp(1.75rem, 10vw, 2.25rem)
-  }
-
-  .hero-right {
-    min-height: 200px
   }
 
   .proof-bar .section-tag {
