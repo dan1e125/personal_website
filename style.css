@@ -1825,31 +1825,36 @@ h1.identity-name {
   box-shadow: 0 20px 48px var(--primary-22)
 }
 
-.service-card[data-svc="web"] .service-icon {
-  background: linear-gradient(135deg, var(--primary-28), rgba(34, 211, 238, 0.14))
-}
-
 .service-card[data-svc="ad"]:hover {
   border-color: rgba(249, 115, 22, 0.5);
   box-shadow: 0 20px 48px rgba(249, 115, 22, 0.14)
 }
 
-.service-card[data-svc="ad"] .service-icon {
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(239, 68, 68, 0.12))
-}
-
 .service-icon {
-  font-size: 1.6rem;
-  line-height: 1;
-  width: 52px;
-  height: 52px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary-22), var(--accent-10));
+  border-radius: 10px;
   box-shadow: inset 0 0 0 1px var(--line-18)
+}
+
+.service-icon svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0
+}
+
+.service-card[data-svc="web"] .service-icon {
+  background: var(--primary-18);
+  color: var(--sev-blue)
+}
+
+.service-card[data-svc="ad"] .service-icon {
+  background: rgba(249, 115, 22, 0.18);
+  color: var(--sev-orange)
 }
 
 .service-card strong {
