@@ -104,12 +104,12 @@ const translations = {
 
       // ── Process ──
       '#process-tag': '[ HOW IT WORKS ]',
-      '#process-heading': 'From scoping to verified fixes',
-      '#process-step1-title': 'Scope & proposal',
+      '#process-heading': 'Structured engagement process',
+      '#process-step1-title': 'Scoping & proposal',
       '#process-step1-desc': 'Free scoping call to define your environment, targets and rules of engagement. You receive a written proposal with scope, methodology, fixed price and NDA — before any work begins.',
-      '#process-step2-title': 'Testing',
+      '#process-step2-title': 'Assessment & testing',
       '#process-step2-desc': 'Manual offensive testing with progress updates throughout. Critical and high findings are reported immediately — not held for the final report.',
-      '#process-step3-title': 'Delivery & re-test',
+      '#process-step3-title': 'Reporting & verification',
       '#process-step3-desc': 'Severity-ranked PDF report with evidence and remediation steps. Free re-test included to verify your fixes hold.',
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRICING ]',
@@ -354,12 +354,12 @@ const translations = {
       '#about-p3': 'Trabajo de forma remota con startups y PYMEs en Latinoamérica, EE.UU. y Europa. Proyectos a precio fijo, entregables en inglés y español, y un re-test gratuito para confirmar que las correcciones realmente funcionan.',
       // ── Process ──
       '#process-tag': '[ CÓMO FUNCIONA ]',
-      '#process-heading': 'Del alcance a las correcciones verificadas',
+      '#process-heading': 'Proceso de engagement estructurado',
       '#process-step1-title': 'Alcance y propuesta',
       '#process-step1-desc': 'Llamada de alcance gratuita para definir entorno, objetivos y reglas de engagement. Recibes una propuesta escrita con alcance, metodología, precio fijo y NDA — antes de iniciar cualquier trabajo.',
-      '#process-step2-title': 'Pruebas',
+      '#process-step2-title': 'Evaluación y pruebas',
       '#process-step2-desc': 'Testing ofensivo manual con actualizaciones de progreso. Los hallazgos críticos y altos se reportan de inmediato — no se retienen para el reporte final.',
-      '#process-step3-title': 'Entrega y re-test',
+      '#process-step3-title': 'Reporte y verificación',
       '#process-step3-desc': 'Reporte PDF priorizado por severidad con evidencia y pasos de remediación. Re-test gratuito incluido para verificar que tus correcciones se mantienen.',
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRECIOS ]',
