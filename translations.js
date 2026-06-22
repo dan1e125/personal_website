@@ -2,19 +2,19 @@
 // Edit text here to update all visible copy on the site.
 // Loaded before script.js; exposes global `translations` object.
 const SITE_STATS = {
-  targets: 702,
+  targets: 720,
   paths: 12,
   ranking: 'Top 1%',
-  modules: 102
+  modules: 105
 };
 
 const translations = {
   en: {
     // ── Document meta ──
     documentTitle: 'Daniel Ordonez Arango | Penetration Tester',
-    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app and Active Directory security. HTB Top 1%, 702 lab targets. Remote-first, clear deliverables.',
+    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app and Active Directory security. HTB Top 1%, 720 lab targets, 105 modules. Remote-first, clear deliverables.',
     ogTitle: 'Daniel Ordonez Arango | Penetration Tester',
-    ogDescription: 'Freelance pentester for startups and SMBs. Web app and Active Directory pentest. HTB Top 1%, 702 lab targets. Remote engagements, clear reporting.',
+    ogDescription: 'Freelance pentester for startups and SMBs. Web app and Active Directory pentest. HTB Top 1%, 720 lab targets, 105 modules. Remote engagements, clear reporting.',
     waMsg: 'Hi Daniel, I\'m interested in learning more about your pentesting services.',
 
     selectors: {
@@ -89,8 +89,12 @@ const translations = {
       '#cert-progress-label': 'In progress',
       '#cert-htb-senior-web': 'Senior Web Penetration Tester',
       '#cert-htb-senior-web-meta': 'CWEE',
-            '#cert-htb-ad': 'Active Directory Pentesting Expert',
+      '#cert-htb-ad': 'Active Directory Pentesting Expert',
       '#cert-htb-ad-meta': 'CAPE',
+      '#cert-htb-ai': 'Offensive AI Expert',
+      '#cert-htb-ai-meta': 'HTB',
+      '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
+      '#cert-htb-wifi-meta': 'HTB',
       '#cert-bg-label': 'Background',
       '#cert-exp-role': 'Full-Stack Developer',
       '#cert-exp-link': 'LinkedIn',
@@ -265,7 +269,7 @@ const translations = {
   es: {
     // ── Document meta ──
     documentTitle: 'Daniel Ordonez Arango | Pentester',
-    metaDescription: 'Pentester freelance para startups y PYMEs. Seguridad en apps web y Active Directory. HTB Top 1%, 702 objetivos de laboratorio. Trabajo remoto, reportes claros.',
+    metaDescription: 'Pentester freelance para startups y PYMEs. Seguridad en apps web y Active Directory. HTB Top 1%, 720 objetivos de laboratorio, 105 módulos. Trabajo remoto, reportes claros.',
     ogTitle: 'Daniel Ordonez Arango | Pentester',
     ogDescription: 'Portafolio de seguridad ofensiva enfocado en penetration testing, análisis defensivo, reportes detallados y superficies de ataque modernas.',
     waMsg: 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.',
@@ -341,8 +345,12 @@ const translations = {
       '#cert-progress-label': 'En progreso',
       '#cert-htb-senior-web': 'Senior Web Penetration Tester',
       '#cert-htb-senior-web-meta': 'CWEE',
-            '#cert-htb-ad': 'Active Directory Pentesting Expert',
+      '#cert-htb-ad': 'Active Directory Pentesting Expert',
       '#cert-htb-ad-meta': 'CAPE',
+      '#cert-htb-ai': 'Offensive AI Expert',
+      '#cert-htb-ai-meta': 'HTB',
+      '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
+      '#cert-htb-wifi-meta': 'HTB',
       '#cert-bg-label': 'Experiencia',
       '#cert-exp-role': 'Desarrollador Full-Stack',
 
