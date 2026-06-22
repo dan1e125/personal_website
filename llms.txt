@@ -19,8 +19,8 @@ Contact: danielordonezarango@gmail.com
 - CWES — Certified Web Exploitation Specialist (Hack The Box, training completed, exam pending)
 - Senior Web Penetration Tester (Hack The Box, in progress — CWEE)
 - Active Directory Pentesting Expert (Hack The Box, in progress — CAPE)
-- Offensive AI Expert (Hack The Box, in progress)
-- Wi-Fi Pentesting Expert (Hack The Box, in progress)
+- Offensive AI Expert (Hack The Box, in progress — COAE)
+- Wi-Fi Pentesting Expert (Hack The Box, in progress — CWPE)
 
 ## Key Facts
 - HTB Academy: 12 paths completed, 720 lab targets compromised, 105 modules completed, Top 1% ranking
