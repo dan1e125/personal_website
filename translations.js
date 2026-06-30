@@ -8,6 +8,10 @@ const SITE_STATS = {
   modules: 105
 };
 
+const SITE_LINKS = {
+  booking: 'https://calendly.com/danielordonezarango/30min'
+};
+
 const translations = {
   en: {
     // ── Document meta ──
@@ -30,10 +34,9 @@ const translations = {
       // ── Hero ──
       '.hero-copy h2': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
-      '.hero-actions .button.primary .btn-label': 'Start with a free call',
+      '#hero-book-btn-label': 'Schedule a scoping call',
       '#cert-htb-profile-link': 'HTB profile',
       '#hero-htb-btn .btn-label': 'Curriculum',
-      '#cert-exp-link': 'LinkedIn',
       '#stat-paths': 'Structured training paths completed',
       '#stat-targets': 'Vulnerable lab machines exploited',
       '#stat-ranking': 'Ranked in the top 1% on HTB Academy',
@@ -95,16 +98,12 @@ const translations = {
       '#cert-htb-ai-meta': 'COAE',
       '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
       '#cert-htb-wifi-meta': 'CWPE',
-      '#cert-bg-label': 'Background',
-      '#cert-exp-role': 'Full-Stack Developer',
-      '#cert-exp-link': 'LinkedIn',
-
       // ── About ──
       '#about-tag': '[ ABOUT ]',
-      '#about-heading': 'Background',
-      '#about-p1': 'I started as a full-stack developer. That background changes how I test — I know how applications are built, which means I know exactly where developers leave gaps.',
-      '#about-p2': 'My training covers the full offensive attack surface: web exploitation, Active Directory attacks, network pivoting, privilege escalation and post-exploitation techniques. I don\'t just find vulnerabilities — I explain why they exist, what a real attacker would do with them, and how to fix them correctly.',
-      '#about-p3': 'I work remotely with startups and SMBs across Latin America, the US and Europe. Fixed-price engagements, bilingual delivery, and a free re-test to confirm your fixes actually hold.',
+      '#about-heading': 'Why work with me',
+      '#about-p1': 'I began as a full-stack developer before moving into offensive security. That foundation is practical: I read application logic and architecture, not just scanner output — so every finding ties to a root cause and remediation your team can implement without guesswork.',
+      '#about-p2': 'I specialize in web application and Active Directory assessments for startups and SMBs. Work follows a structured methodology — scope agreed in writing, manual testing, severity-ranked reports with evidence. The case studies on this site are from real engagements: corporate WordPress intranets, active SEO spam compromises, and post-incident remediation.',
+      '#about-p3': 'You work directly with me — not a sales team or junior tester. Based in Colombia, I deliver remotely across Latin America, the US, and Europe in English or Spanish, with fixed scope and pricing agreed before testing begins.',
 
       // ── Process ──
       '#process-tag': '[ HOW IT WORKS ]',
@@ -114,7 +113,7 @@ const translations = {
       '#process-step2-title': 'Assessment & testing',
       '#process-step2-desc': 'Manual offensive testing with progress updates throughout. Critical and high findings are reported immediately — not held for the final report.',
       '#process-step3-title': 'Reporting & verification',
-      '#process-step3-desc': 'Severity-ranked PDF report with evidence and remediation steps. Free re-test included to verify your fixes hold.',
+      '#process-step3-desc': 'Severity-ranked PDF report with evidence and remediation steps.',
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRICING ]',
       '#quote-heading': 'Get an instant estimate',
@@ -168,7 +167,7 @@ const translations = {
       'label[for="cf-email"]': 'Email',
       'label[for="cf-message"]': 'Message',
       '.cf-btn-text': 'Send message',
-      '#contact .section-tag': '[ CONTACT ]',
+      '#contact .section-tag': '[ SEND A MESSAGE ]',
       '#contact h3': 'Direct message',
     },
 
@@ -179,14 +178,20 @@ const translations = {
       copy: 'Everything you need to know before booking a scoping call.',
       nav: 'FAQ',
       items: [{
-        q: 'How much does a penetration test cost?',
-        a: 'Web app from $2,000 · Active Directory from $3,000. Use the pricing calculator above for an instant estimate, or book a free scoping call.'
-      }, {
         q: 'Why hire you instead of a larger security firm?',
         a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing — from scoping to final report.'
       }, {
         q: 'What happens if you find a critical vulnerability?',
         a: 'I report it immediately — you don\'t wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
+      }, {
+        q: 'How long does a penetration test take?',
+        a: 'Most web app engagements run 1–2 weeks; Active Directory assessments typically 2–3 weeks. Exact timing depends on scope, environment size, and testing type. You get a fixed timeline in the written proposal before work begins.'
+      }, {
+        q: 'What do I need to prepare before the engagement?',
+        a: 'A short scoping call is enough to start. Before testing begins, you\'ll need a signed authorization agreement, a technical point of contact, and access details aligned with the agreed testing type (black-box, grey-box, or white-box). I provide a checklist in the proposal.'
+      }, {
+        q: 'Do you sign an NDA?',
+        a: 'Yes. Mutual NDAs are standard and included in the engagement paperwork. Your data, credentials, and findings are handled confidentially — nothing is shared with third parties.'
       }]    },
 
     // ── Contact ──
@@ -220,7 +225,8 @@ const translations = {
         grey: 'Testing type: Grey-box, partial credentials',
         white: 'Testing type: White-box, full access and code'
       },
-      emailCopy: 'Copy email address to clipboard'
+      emailCopy: 'Copy email address to clipboard',
+      bookCall: 'Schedule a virtual scoping call on Calendly'
     },
 
     // ── Labels ──
@@ -287,7 +293,7 @@ const translations = {
       // ── Hero ──
       '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
-      '.hero-actions .button.primary .btn-label': 'Empezar con una llamada gratuita',
+      '#hero-book-btn-label': 'Agendar videollamada de alcance',
       '#cert-htb-profile-link': 'HTB profile',
       '#hero-htb-btn .btn-label': 'Currículum',
       '#stat-paths': 'Paths de entrenamiento completados',
@@ -351,15 +357,12 @@ const translations = {
       '#cert-htb-ai-meta': 'COAE',
       '#cert-htb-wifi': 'Wi-Fi Pentesting Expert',
       '#cert-htb-wifi-meta': 'CWPE',
-      '#cert-bg-label': 'Experiencia',
-      '#cert-exp-role': 'Desarrollador Full-Stack',
-
       // ── About ──
       '#about-tag': '[ SOBRE MÍ ]',
-      '#about-heading': 'Sobre mí',
-      '#about-p1': 'Empecé como desarrollador full-stack. Ese contexto cambia cómo pruebo — entiendo cómo se construyen las aplicaciones, sé exactamente dónde los desarrolladores dejan brechas, y puedo rastrear cada vulnerabilidad hasta su causa raíz para que la corrección sea precisa y duradera.',
-      '#about-p2': 'Mi entrenamiento cubre toda la superficie de ataque ofensivo: explotación web, ataques a Active Directory, pivoting en redes, escalada de privilegios y post-explotación — complementado con análisis SOC, DFIR y respuesta a incidentes. Pensar como defensor me hace mejor atacante: sé qué detectan tus herramientas de monitoreo y qué no.',
-      '#about-p3': 'Trabajo de forma remota con startups y PYMEs en Latinoamérica, EE.UU. y Europa. Proyectos a precio fijo, entregables en inglés y español, y un re-test gratuito para confirmar que las correcciones realmente funcionan.',
+      '#about-heading': 'Por qué trabajar conmigo',
+      '#about-p1': 'Empecé como desarrollador full-stack antes de especializarme en seguridad ofensiva. Esa base es práctica: leo la lógica y arquitectura de las aplicaciones, no solo resultados de escáneres — cada hallazgo se vincula a una causa raíz y a una remediación que tu equipo puede ejecutar sin ambigüedades.',
+      '#about-p2': 'Me especializo en evaluaciones de aplicaciones web y Active Directory para startups y PYMEs. Cada proyecto sigue una metodología estructurada: alcance acordado por escrito, pruebas manuales y reportes priorizados por severidad con evidencia. Los casos de estudio de este sitio son trabajo real: intranets WordPress corporativas, compromisos activos por inyección SEO y remediación post-incidente.',
+      '#about-p3': 'Trabajas directamente conmigo — sin equipo comercial ni testers junior de por medio. Con base en Colombia, entrego de forma remota en Latinoamérica, EE.UU. y Europa, en inglés o español, con alcance y precio fijo acordados antes de iniciar las pruebas.',
       // ── Process ──
       '#process-tag': '[ CÓMO FUNCIONA ]',
       '#process-heading': 'Proceso de engagement estructurado',
@@ -368,7 +371,7 @@ const translations = {
       '#process-step2-title': 'Evaluación y pruebas',
       '#process-step2-desc': 'Testing ofensivo manual con actualizaciones de progreso. Los hallazgos críticos y altos se reportan de inmediato — no se retienen para el reporte final.',
       '#process-step3-title': 'Reporte y verificación',
-      '#process-step3-desc': 'Reporte PDF priorizado por severidad con evidencia y pasos de remediación. Re-test gratuito incluido para verificar que tus correcciones se mantienen.',
+      '#process-step3-desc': 'Reporte PDF priorizado por severidad con evidencia y pasos de remediación.',
       // ── Pricing / Quote calculator ──
       '#quote-tag': '[ PRECIOS ]',
       '#quote-heading': 'Obtén una estimación al instante',
@@ -422,8 +425,8 @@ const translations = {
       'label[for="cf-email"]': 'Correo',
       'label[for="cf-message"]': 'Mensaje',
       '.cf-btn-text': 'Enviar mensaje',
-      '#contact .section-tag': '[ CONTACTO ]',
-      '#contact h3': 'Contáctame',
+      '#contact .section-tag': '[ ENVÍA UN MENSAJE ]',
+      '#contact h3': 'Mensaje directo',
     },
 
     // ── FAQ ──
@@ -433,14 +436,20 @@ const translations = {
       copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
       nav: 'FAQ',
       items: [{
-        q: '¿Cuánto cuesta un pentest?',
-        a: 'App web desde $2,000 · Active Directory desde $3,000. Usa la calculadora de precios para una estimación inmediata o agenda una llamada de alcance gratuita.'
-      }, {
         q: '¿Por qué contratarte a ti en lugar de una empresa de seguridad?',
         a: 'Costo, enfoque y acceso directo. Como tester independiente en LATAM, mis tarifas son significativamente más bajas que firmas de EE.UU./Europa sin sacrificar metodología ni calidad. Trabajas directamente con quien realiza el testing, de inicio a fin.'
       }, {
         q: '¿Qué pasa si encuentras una vulnerabilidad crítica?',
         a: 'La reporto de inmediato — no esperas al reporte final. Los hallazgos críticos y altos se comunican en cuanto se confirman para que tu equipo pueda iniciar la remediación mientras el proyecto sigue activo.'
+      }, {
+        q: '¿Cuánto dura un pentest?',
+        a: 'La mayoría de proyectos web toman 1–2 semanas; evaluaciones de Active Directory suelen ser 2–3 semanas. El tiempo exacto depende del alcance, tamaño del entorno y modalidad de prueba. Recibes un cronograma fijo en la propuesta escrita antes de iniciar.'
+      }, {
+        q: '¿Qué necesito preparar antes del engagement?',
+        a: 'Basta con una llamada corta de alcance para empezar. Antes del testing necesitas un acuerdo de autorización firmado, un contacto técnico y los accesos acordados según la modalidad (caja negra, gris o blanca). Incluyo una checklist en la propuesta.'
+      }, {
+        q: '¿Firmas NDA?',
+        a: 'Sí. Los NDA mutuos son estándar y forman parte de la documentación del proyecto. Tus datos, credenciales y hallazgos se manejan de forma confidencial — no se comparten con terceros.'
       }]
     },
 
@@ -475,7 +484,8 @@ const translations = {
         grey: 'Modalidad: Caja gris, credenciales parciales',
         white: 'Modalidad: Caja blanca, acceso completo y código'
       },
-      emailCopy: 'Copiar correo al portapapeles'
+      emailCopy: 'Copiar correo al portapapeles',
+      bookCall: 'Agendar videollamada de alcance en Calendly'
     },
 
     // ── Labels ──

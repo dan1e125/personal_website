@@ -116,8 +116,13 @@ function applyLocale(locale) {
     let k = _aria.tgl[b.dataset.tbox];
     if (k) b.setAttribute('aria-label', k);
   });
-  let emailLink = document.querySelector('[data-contact]');
-  if (emailLink && emailLink.getAttribute('role') === 'button') emailLink.setAttribute('aria-label', _aria.emailCopy);
+  document.querySelectorAll('[data-contact]').forEach(function(emailLink) {
+    if (emailLink.getAttribute('role') === 'button') {
+      emailLink.setAttribute('aria-label', _aria.emailCopy);
+    }
+  });
+  let heroBook = document.getElementById('hero-book-link');
+  if (heroBook) heroBook.setAttribute('aria-label', _aria.bookCall);
   localStorage.setItem('portfolio-lang', locale);
 }
 
@@ -175,7 +180,17 @@ const PRICES = {
   }
 };
 
+function initBookingLinks() {
+  let url = (typeof SITE_LINKS !== 'undefined' && SITE_LINKS.booking) ? SITE_LINKS.booking.trim() : '';
+  let heroBook = document.getElementById('hero-book-link');
+  if (!url || !heroBook) return;
+  heroBook.href = url;
+  heroBook.target = '_blank';
+  heroBook.rel = 'noopener noreferrer';
+}
+
 initQuoteCalculator();
+initBookingLinks();
 applyLocale(currentLocale);
 
 
@@ -1033,7 +1048,7 @@ function initGATracking() {
     });
   });
 
-  // LinkedIn / GitHub / HTB social clicks
+  // GitHub / HTB social clicks
   document.querySelectorAll('.social-link, .footer-socials a').forEach((link) => {
     link.addEventListener('click', function() {
       gtagEvent('click', {
