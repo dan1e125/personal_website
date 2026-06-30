@@ -400,18 +400,24 @@ function initActiveNav() {
   let sections = Array.from(document.querySelectorAll('main section[id]'));
   if (!navLinks.length || !sections.length) return;
 
+  const HERO_TOP_THRESHOLD = 100;
+  let visible = new Set();
+
+  function clearActive() {
+    navLinks.forEach((link) => link.classList.remove('active'));
+  }
+
   function setActive(id) {
     navLinks.forEach((link) => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + id);
     });
   }
-  let visible = new Set();
-  let io = new IntersectionObserver(function(entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) visible.add(entry.target.id);
-      else visible.delete(entry.target.id);
-    });
-    // Highlight the topmost visible section that has a nav link
+
+  function updateActive() {
+    if (window.scrollY < HERO_TOP_THRESHOLD) {
+      clearActive();
+      return;
+    }
     for (let i = 0; i < sections.length; i++) {
       if (visible.has(sections[i].id) &&
         document.querySelector('.topnav a[href="#' + sections[i].id + '"]')) {
@@ -419,6 +425,15 @@ function initActiveNav() {
         return;
       }
     }
+    clearActive();
+  }
+
+  let io = new IntersectionObserver(function(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visible.add(entry.target.id);
+      else visible.delete(entry.target.id);
+    });
+    updateActive();
   }, {
     rootMargin: '-60px 0px -30% 0px',
     threshold: 0
@@ -426,6 +441,8 @@ function initActiveNav() {
   sections.forEach((sec) => {
     io.observe(sec);
   });
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
 }
 
 // Smooth scroll for nav links
