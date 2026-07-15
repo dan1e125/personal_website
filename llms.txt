@@ -36,5 +36,6 @@ Contact: danielordonezarango@gmail.com
 - [Case Study: SEO Injection & Malware Discovery](https://danieloa.com/case-studies/seo-injection-malware-discovery.html): WordPress e-commerce compromise — PHP backdoor serving SEO spam to Googlebot, full remediation
 - [Case Study: WordPress Intranet Code Review](https://danieloa.com/case-studies/wordpress-intranet-static-code-analysis.html): 20 vulnerabilities including hardcoded credentials for HR and payment systems
 - [Case Study: Active SEO Spam Injection & Remediation](https://danieloa.com/case-studies/active-seo-spam-injection-remediation.html): Active compromise — 51 illegal gambling domains injected into CMS database, full cleanup
+- [LinkedIn](https://www.linkedin.com/in/danielordonezarango): Professional profile
 - [GitHub](https://github.com/dan1e125): Code repositories
 - [Hack The Box](https://profile.hackthebox.com/profile/019d0d58-909e-7011-97e3-1f8ebc6567af): HTB profile

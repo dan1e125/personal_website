@@ -15,9 +15,9 @@ const SITE_LINKS = {
 const translations = {
   en: {
     // ── Document meta ──
-    documentTitle: 'Daniel Ordonez Arango | Penetration Tester',
-    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app and Active Directory security. HTB Top 1%, 720 lab targets, 105 modules. Remote-first, clear deliverables.',
-    ogTitle: 'Daniel Ordonez Arango | Penetration Tester',
+    documentTitle: 'Daniel Ordonez Arango | Freelance Penetration Tester — Colombia & Remote',
+    metaDescription: 'Freelance penetration tester for startups and SMBs. Web app and Active Directory security. HTB Top 1%, 720 lab targets, 105 modules. Remote-first, bilingual delivery.',
+    ogTitle: 'Daniel Ordonez Arango | Freelance Penetration Tester — Colombia & Remote',
     ogDescription: 'Freelance pentester for startups and SMBs. Web app and Active Directory pentest. HTB Top 1%, 720 lab targets, 105 modules. Remote engagements, clear reporting.',
     waMsg: 'Hi Daniel, I\'m interested in learning more about your pentesting services.',
 
@@ -32,7 +32,7 @@ const translations = {
       '.topnav a[href="#contact"]': 'Contact',
 
       // ── Hero ──
-      '.hero-copy h2': 'A breach costs more than a pentest.',
+      '.hero-copy h1': 'A breach costs more than a pentest.',
       '.hero-copy .lead': 'I find the vulnerabilities in your systems before someone exploits them. Structured methodology, written deliverables, and a report your team can act on. From initial scoping to final report delivery, every phase is tracked and documented.',
       '#hero-book-btn-label': 'Schedule a scoping call',
       '#cert-htb-profile-link': 'HTB profile',
@@ -274,10 +274,10 @@ const translations = {
   },
   es: {
     // ── Document meta ──
-    documentTitle: 'Daniel Ordonez Arango | Pentester',
+    documentTitle: 'Daniel Ordonez Arango | Pentester Freelance — Colombia y Remoto',
     metaDescription: 'Pentester freelance para startups y PYMEs. Seguridad en apps web y Active Directory. HTB Top 1%, 720 objetivos de laboratorio, 105 módulos. Trabajo remoto, reportes claros.',
-    ogTitle: 'Daniel Ordonez Arango | Pentester',
-    ogDescription: 'Portafolio de seguridad ofensiva enfocado en penetration testing, análisis defensivo, reportes detallados y superficies de ataque modernas.',
+    ogTitle: 'Daniel Ordonez Arango | Pentester Freelance — Colombia y Remoto',
+    ogDescription: 'Pentester freelance para startups y PYMEs. Pentest web y Active Directory. HTB Top 1%, 720 objetivos, 105 módulos. Trabajo remoto, reportes claros.',
     waMsg: 'Hola Daniel, me interesa conocer más sobre tus servicios de pentesting.',
 
     selectors: {
@@ -291,7 +291,7 @@ const translations = {
       '.topnav a[href="#contact"]': 'Contacto',
 
       // ── Hero ──
-      '.hero-copy h2': 'Una brecha cuesta más que un pentest.',
+      '.hero-copy h1': 'Una brecha cuesta más que un pentest.',
       '.hero-copy .lead': 'Encuentro las vulnerabilidades en tus sistemas antes de que alguien las explote. Metodología estructurada, entregables escritos y un reporte que tu equipo puede ejecutar. Desde el alcance inicial hasta la entrega del reporte final, cada fase es rastreada y documentada.',
       '#hero-book-btn-label': 'Agendar videollamada de alcance',
       '#cert-htb-profile-link': 'HTB profile',
