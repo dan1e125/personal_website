@@ -37,7 +37,7 @@ const FAQ_AUTO_CLOSE_MS = 15000; // FAQ modal auto-close delay
 const TERMINAL_ROTATE_MS = 3000;
 const COUNTER_LONG_MS = 1400; // counter animation for numbers > 100
 const COUNTER_SHORT_MS = 900; // counter animation for numbers ≤ 100
-const WA_NUMBER = atob('NTczMTM2NDU5Mjk5'); // WhatsApp — single source of truth
+const WA_NUMBER = (window.SITE_CONFIG && window.SITE_CONFIG.whatsapp) || atob('NTczMTM2NDU5Mjk5');
 
 // ── Layout / interaction constants ──
 const BACK_TO_TOP_THRESHOLD = 400; // px scrollY to show back-to-top button
@@ -193,6 +193,15 @@ initQuoteCalculator();
 initBookingLinks();
 applyLocale(currentLocale);
 
+function applySiteLinks() {
+  const cfg = window.SITE_CONFIG;
+  if (!cfg || !cfg.links) return;
+  document.querySelectorAll('[data-social]').forEach((el) => {
+    const key = el.dataset.social;
+    if (cfg.links[key]) el.href = cfg.links[key];
+  });
+}
+applySiteLinks();
 
 function initStats() {
   [

@@ -1,26 +1,20 @@
 #!/bin/bash
-# deploy.sh — bump cache versions, validate, commit + push
-# Cloudflare Pages deploys automatically via GitHub Actions on push to main.
-set -e
-
+# deploy.sh — build, validate, commit + push (Cloudflare Pages deploys via GitHub Actions)
+set -euo pipefail
 cd "$(dirname "$0")"
 
-DATE=$(date +%Y%m%d)
-HASH=$(git rev-parse --short HEAD 2>/dev/null || echo "local")
-TS=$(date +%H%M%S)
-VERSION="${DATE}-${HASH}-${TS}"
+npm run build -- --bump
+npm run validate
 
-sed -i "s/?v=[^\"']*/?v=${VERSION}/g" index.html
-sed -i "s/?v=[^\"']*/?v=${VERSION}/g" case-studies/*.html
-sed -i "s/var CACHE = 'danieloa-[^']*'/var CACHE = 'danieloa-${VERSION}'/" sw.js
-sed -i "s/?v=[^\"']*/?v=${VERSION}/g" sw.js
+source_author() {
+  node --input-type=module -e "import { SITE } from './scripts/site.config.js'; console.log(SITE.gitAuthor.email)"
+}
 
-echo "→ Cache version → ${VERSION}"
-
-if command -v node >/dev/null 2>&1 && [ -f scripts/validate.mjs ]; then
-  node scripts/validate.mjs
-  echo "→ Validation passed"
-fi
+GIT_AUTHOR_NAME="Daniel Ordonez Arango"
+GIT_AUTHOR_EMAIL="$(source_author)"
+export GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
 git add -A
 MSG="${1:-chore: deploy $(date '+%Y-%m-%d %H:%M')}"

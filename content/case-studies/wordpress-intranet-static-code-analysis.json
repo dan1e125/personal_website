@@ -1,0 +1,69 @@
+{
+  "file": "wordpress-intranet-static-code-analysis.html",
+  "slug": "wordpress-intranet-static-code-analysis",
+  "datePublished": "2025-03-01",
+  "articleHeadline": "WordPress Intranet — Static Code Analysis & Security Review",
+  "articleDescription": "Full source code review of a private WordPress intranet. 20 vulnerabilities discovered including hardcoded credentials for external HR and payment systems.",
+  "breadcrumbTitle": "WordPress Intranet Static Code Analysis",
+  "ogTitle": "Case Study: WordPress Intranet Static Code Analysis — Daniel Ordonez Arango",
+  "twitterTitle": "Case Study: WordPress Intranet Static Code Analysis",
+  "twitterDescription": "Corporate WordPress intranet code review: 20 vulnerabilities including hardcoded HR and payment credentials.",
+  "en": {
+    "documentTitle": "Case Study: WordPress Intranet Static Code Analysis — Daniel Ordonez Arango",
+    "metaDescription": "Penetration test case study: full source code review of a corporate WordPress intranet in Colombia. 20 vulnerabilities discovered including hardcoded credentials for HR and payment systems.",
+    "tag": "[ CASE STUDY ]",
+    "back": "← Back to portfolio",
+    "title": "WordPress Intranet — Static Code Analysis",
+    "headings": {
+      "summary": "Executive Summary",
+      "findings": "Findings (20 Total)",
+      "methodology": "Methodology",
+      "outcome": "Outcome"
+    },
+    "meta": {
+      "client": "Corporate intranet, Colombia, 2025",
+      "service": "Web Application Pentest",
+      "type": "White-box / source code review"
+    },
+    "summary": "Full source code review of a private WordPress intranet used by a Colombian company. The assessment revealed 20 vulnerabilities across the codebase, server configuration, and third-party integrations — including hardcoded credentials for external HR and payment systems that could allow complete account takeover and financial data exposure.",
+    "methodology": "Static code analysis using manual review and automated scanning. Dynamic testing against a staging environment. OWASP Testing Guide v4 methodology. Findings validated with proof-of-concept exploits for all critical and high issues.",
+    "outcome": "All 20 vulnerabilities documented with CVSS v3.1 scores, exploit steps, and specific remediation guidance. Client applied all remediations within 2 weeks. Re-test confirmed successful closure of all critical and high findings.",
+    "findings": [
+      "<strong>Critical (3):</strong> Hardcoded plaintext API keys and credentials for external HR platform and payment processor embedded in custom plugin source code",
+      "<strong>Critical (1):</strong> SQL injection in custom reporting module — unauthenticated, full database read access",
+      "<strong>High (4):</strong> Insecure Direct Object Reference (IDOR) allowing any authenticated user to access any other employee's documents",
+      "<strong>High (2):</strong> Stored XSS in employee profile fields, no output encoding",
+      "<strong>Medium (6):</strong> Missing CSRF tokens on state-changing forms, outdated dependencies with known CVEs, overly permissive file uploads",
+      "<strong>Low (4):</strong> Information disclosure, missing security headers, verbose error messages in production"
+    ]
+  },
+  "es": {
+    "documentTitle": "Caso de estudio: Análisis estático de intranet WordPress — Daniel Ordonez Arango",
+    "metaDescription": "Caso de estudio de pentest: revisión completa del código fuente de una intranet WordPress corporativa en Colombia. 20 vulnerabilidades, incluidas credenciales hardcodeadas de RR.HH. y sistemas de pago.",
+    "tag": "[ CASO DE ESTUDIO ]",
+    "back": "← Volver al portafolio",
+    "title": "Intranet WordPress — Análisis estático de código",
+    "headings": {
+      "summary": "Resumen ejecutivo",
+      "findings": "Hallazgos (20 en total)",
+      "methodology": "Metodología",
+      "outcome": "Resultado"
+    },
+    "meta": {
+      "client": "Intranet corporativa, Colombia, 2025",
+      "service": "Pentest de aplicación web",
+      "type": "Caja blanca / revisión de código fuente"
+    },
+    "summary": "Revisión completa del código fuente de una intranet WordPress privada usada por una empresa colombiana. La evaluación reveló 20 vulnerabilidades en el código, la configuración del servidor e integraciones de terceros — incluidas credenciales hardcodeadas de plataformas externas de RR.HH. y pagos que podían permitir toma de cuentas y exposición de datos financieros.",
+    "methodology": "Análisis estático con revisión manual y escaneo automatizado. Pruebas dinámicas contra un entorno de staging. Metodología OWASP Testing Guide v4. Hallazgos validados con pruebas de concepto para todos los issues críticos y altos.",
+    "outcome": "Las 20 vulnerabilidades documentadas con puntajes CVSS v3.1, pasos de explotación y guía de remediación específica. El cliente aplicó todas las correcciones en 2 semanas. El re-test confirmó el cierre exitoso de todos los hallazgos críticos y altos.",
+    "findings": [
+      "<strong>Crítico (3):</strong> API keys y credenciales en texto plano de plataforma de RR.HH. y procesador de pagos embebidas en código de plugin personalizado",
+      "<strong>Crítico (1):</strong> Inyección SQL en módulo de reportes personalizado — sin autenticación, lectura completa de la base de datos",
+      "<strong>Alto (4):</strong> IDOR que permitía a cualquier usuario autenticado acceder a documentos de otros empleados",
+      "<strong>Alto (2):</strong> XSS almacenado en campos de perfil de empleado, sin encoding de salida",
+      "<strong>Medio (6):</strong> Tokens CSRF ausentes en formularios, dependencias desactualizadas con CVEs conocidos, uploads demasiado permisivos",
+      "<strong>Bajo (4):</strong> Divulgación de información, headers de seguridad ausentes, mensajes de error verbosos en producción"
+    ]
+  }
+}

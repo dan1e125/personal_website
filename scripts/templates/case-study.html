@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{{ogTitle}}</title>
+  <meta name="description" content="{{metaDescription}}">
+  <meta name="author" content="{{authorName}}">
+  <link rel="canonical" href="{{canonicalUrl}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{canonicalUrl}}">
+  <meta property="og:title" content="{{ogTitle}}">
+  <meta property="og:description" content="{{metaDescription}}">
+  <meta property="og:image" content="{{ogImage}}">
+  <meta property="og:image:alt" content="{{ogImageAlt}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{twitterTitle}}">
+  <meta name="twitter:description" content="{{twitterDescription}}">
+  <meta name="twitter:image" content="{{ogImage}}">
+  <link rel="stylesheet" href="../style.css?v={{assetVersion}}">
+  <script type="application/ld+json">{{articleSchema}}</script>
+  <script type="application/ld+json">{{breadcrumbSchema}}</script>
+</head>
+<body class="case-page-body" data-case-slug="{{slug}}">
+  <div class="site-shell">
+    <main class="case-page container">
+      <div class="case-topbar">
+        <a class="case-back" id="case-back" href="/#case-studies">&larr; Back to portfolio</a>
+        <div class="case-lang-switch" aria-label="Language switcher">
+          <button class="lang-button is-active" type="button" data-case-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+          <button class="lang-button" type="button" data-case-lang="es" aria-pressed="false" aria-label="Cambiar a Español">ES</button>
+        </div>
+      </div>
+      <article class="card case-article">
+        <p class="section-tag" id="case-tag">{{tag}}</p>
+        <h1 id="case-title">{{title}}</h1>
+        <div class="case-meta">
+          <span id="case-meta-client"><strong>Client:</strong> {{metaClient}}</span>
+          <span id="case-meta-service"><strong>Service:</strong> {{metaService}}</span>
+          <span id="case-meta-type"><strong>Type:</strong> {{metaType}}</span>
+        </div>
+
+        <h2 id="case-h2-summary">{{headingSummary}}</h2>
+        <p id="case-p-summary">{{summary}}</p>
+
+        <h2 id="case-h2-findings">{{headingFindings}}</h2>
+        <ul>
+{{findingsHtml}}
+        </ul>
+
+        <h2 id="case-h2-methodology">{{headingMethodology}}</h2>
+        <p id="case-p-methodology">{{methodology}}</p>
+
+        <h2 id="case-h2-outcome">{{headingOutcome}}</h2>
+        <p id="case-p-outcome">{{outcome}}</p>
+      </article>
+    </main>
+  </div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <script src="../case-i18n.js?v={{assetVersion}}" defer></script>
+  <script src="../cursor.js?v={{assetVersion}}" defer></script>
+</body>
+</html>

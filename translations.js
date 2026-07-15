@@ -1,16 +1,8 @@
 // ── i18n — EN & ES translations ─────────────────────────────────────
-// Edit text here to update all visible copy on the site.
-// Loaded before script.js; exposes global `translations` object.
-const SITE_STATS = {
-  targets: 720,
-  paths: 12,
-  ranking: 'Top 1%',
-  modules: 105
-};
-
-const SITE_LINKS = {
-  booking: 'https://calendly.com/danielordonezarango/30min'
-};
+// Edit visible copy here. FAQ items are generated from content/faq.json via npm run build.
+// Site links/stats: scripts/site.config.js
+const SITE_STATS = window.SITE_CONFIG.stats;
+const SITE_LINKS = { booking: window.SITE_CONFIG.links.calendly };
 
 const translations = {
   en: {
@@ -177,22 +169,31 @@ const translations = {
       heading: 'Common questions',
       copy: 'Everything you need to know before booking a scoping call.',
       nav: 'FAQ',
-      items: [{
+      items: [
+    // @build:faq-en-items
+      {
         q: 'Why hire you instead of a larger security firm?',
-        a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing — from scoping to final report.'
-      }, {
+        a: 'Cost, focus, and direct access. As a LATAM-based independent tester, my rates are significantly lower than US/EU firms without sacrificing methodology or quality. You work directly with the person doing the testing � from scoping to final report.'
+      },
+      {
         q: 'What happens if you find a critical vulnerability?',
-        a: 'I report it immediately — you don\'t wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
-      }, {
+        a: 'I report it immediately � you don\'t wait for the final report. Critical and high findings are communicated as soon as confirmed so your team can begin remediation while the engagement is still active.'
+      },
+      {
         q: 'How long does a penetration test take?',
-        a: 'Most web app engagements run 1–2 weeks; Active Directory assessments typically 2–3 weeks. Exact timing depends on scope, environment size, and testing type. You get a fixed timeline in the written proposal before work begins.'
-      }, {
+        a: 'Most web app engagements run 1�2 weeks; Active Directory assessments typically 2�3 weeks. Exact timing depends on scope, environment size, and testing type. You get a fixed timeline in the written proposal before work begins.'
+      },
+      {
         q: 'What do I need to prepare before the engagement?',
         a: 'A short scoping call is enough to start. Before testing begins, you\'ll need a signed authorization agreement, a technical point of contact, and access details aligned with the agreed testing type (black-box, grey-box, or white-box). I provide a checklist in the proposal.'
-      }, {
+      },
+      {
         q: 'Do you sign an NDA?',
-        a: 'Yes. Mutual NDAs are standard and included in the engagement paperwork. Your data, credentials, and findings are handled confidentially — nothing is shared with third parties.'
-      }]    },
+        a: 'Yes. Mutual NDAs are standard and included in the engagement paperwork. Your data, credentials, and findings are handled confidentially � nothing is shared with third parties.'
+      }
+    // @end:faq-en-items
+      ]
+    },
 
     // ── Contact ──
     placeholders: {
@@ -435,22 +436,30 @@ const translations = {
       heading: 'Preguntas comunes',
       copy: 'Todo lo que necesitas saber antes de agendar una llamada de alcance.',
       nav: 'FAQ',
-      items: [{
-        q: '¿Por qué contratarte a ti en lugar de una empresa de seguridad?',
-        a: 'Costo, enfoque y acceso directo. Como tester independiente en LATAM, mis tarifas son significativamente más bajas que firmas de EE.UU./Europa sin sacrificar metodología ni calidad. Trabajas directamente con quien realiza el testing, de inicio a fin.'
-      }, {
-        q: '¿Qué pasa si encuentras una vulnerabilidad crítica?',
-        a: 'La reporto de inmediato — no esperas al reporte final. Los hallazgos críticos y altos se comunican en cuanto se confirman para que tu equipo pueda iniciar la remediación mientras el proyecto sigue activo.'
-      }, {
-        q: '¿Cuánto dura un pentest?',
-        a: 'La mayoría de proyectos web toman 1–2 semanas; evaluaciones de Active Directory suelen ser 2–3 semanas. El tiempo exacto depende del alcance, tamaño del entorno y modalidad de prueba. Recibes un cronograma fijo en la propuesta escrita antes de iniciar.'
-      }, {
-        q: '¿Qué necesito preparar antes del engagement?',
-        a: 'Basta con una llamada corta de alcance para empezar. Antes del testing necesitas un acuerdo de autorización firmado, un contacto técnico y los accesos acordados según la modalidad (caja negra, gris o blanca). Incluyo una checklist en la propuesta.'
-      }, {
-        q: '¿Firmas NDA?',
-        a: 'Sí. Los NDA mutuos son estándar y forman parte de la documentación del proyecto. Tus datos, credenciales y hallazgos se manejan de forma confidencial — no se comparten con terceros.'
-      }]
+      items: [
+    // @build:faq-es-items
+      {
+        q: '�Por qu� contratarte a ti en lugar de una empresa de seguridad?',
+        a: 'Costo, enfoque y acceso directo. Como tester independiente en LATAM, mis tarifas son significativamente m�s bajas que firmas de EE.UU./Europa sin sacrificar metodolog�a ni calidad. Trabajas directamente con quien realiza el testing, de inicio a fin.'
+      },
+      {
+        q: '�Qu� pasa si encuentras una vulnerabilidad cr�tica?',
+        a: 'La reporto de inmediato � no esperas al reporte final. Los hallazgos cr�ticos y altos se comunican en cuanto se confirman para que tu equipo pueda iniciar la remediaci�n mientras el proyecto sigue activo.'
+      },
+      {
+        q: '�Cu�nto dura un pentest?',
+        a: 'La mayor�a de proyectos web toman 1�2 semanas; evaluaciones de Active Directory suelen ser 2�3 semanas. El tiempo exacto depende del alcance, tama�o del entorno y modalidad de prueba. Recibes un cronograma fijo en la propuesta escrita antes de iniciar.'
+      },
+      {
+        q: '�Qu� necesito preparar antes del engagement?',
+        a: 'Basta con una llamada corta de alcance para empezar. Antes del testing necesitas un acuerdo de autorizaci�n firmado, un contacto t�cnico y los accesos acordados seg�n la modalidad (caja negra, gris o blanca). Incluyo una checklist en la propuesta.'
+      },
+      {
+        q: '�Firmas NDA?',
+        a: 'S�. Los NDA mutuos son est�ndar y forman parte de la documentaci�n del proyecto. Tus datos, credenciales y hallazgos se manejan de forma confidencial � no se comparten con terceros.'
+      }
+    // @end:faq-es-items
+      ]
     },
 
     // ── Contact ──

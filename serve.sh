@@ -1,11 +1,12 @@
 #!/bin/bash
 # serve.sh — local preview server for danieloa.com
-set -e
-
+set -euo pipefail
 cd "$(dirname "$0")"
+
+npm run build
 PORT="${1:-8080}"
 
-echo "? Serving personal_website at http://localhost:${PORT}"
+echo "? Serving at http://localhost:${PORT}"
 echo "? Press Ctrl+C to stop"
 echo ""
 

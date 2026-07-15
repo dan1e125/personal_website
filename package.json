@@ -1,0 +1,11 @@
+{
+  "name": "danieloa-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "serve": "npm run build && ./serve.sh",
+    "deploy": "./deploy.sh"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "file": "active-seo-spam-injection-remediation.html",
+  "slug": "active-seo-spam-injection-remediation",
+  "datePublished": "2026-01-01",
+  "articleHeadline": "Active SEO Spam Injection & Full Remediation — WordPress E-commerce",
+  "articleDescription": "Production WordPress site actively compromised. Hidden SEO spam injected into the CMS database across three attack waves, exploiting domain authority to rank 51 illegal gambling domains on Google.",
+  "breadcrumbTitle": "Active SEO Spam Injection & Remediation",
+  "ogTitle": "Case Study: Active SEO Spam Injection & Remediation — Daniel Ordonez Arango",
+  "twitterTitle": "Case Study: Active SEO Spam Injection & Remediation",
+  "twitterDescription": "Active WordPress compromise: 51 illegal gambling domains injected via CMS database, full cleanup.",
+  "en": {
+    "documentTitle": "Case Study: Active SEO Spam Injection & Remediation — Daniel Ordonez Arango",
+    "metaDescription": "Penetration test case study: active WordPress e-commerce compromise in Colombia. Hidden SEO spam injected into the CMS database across three attack waves, ranking 51 illegal gambling domains on Google.",
+    "tag": "[ CASE STUDY ]",
+    "back": "← Back to portfolio",
+    "title": "Active SEO Spam Injection & Full Remediation",
+    "headings": {
+      "summary": "Executive Summary",
+      "findings": "Findings",
+      "methodology": "Methodology",
+      "outcome": "Outcome"
+    },
+    "meta": {
+      "client": "Automotive industry e-commerce, Colombia, 2026",
+      "service": "Web Application Pentest",
+      "type": "Incident response + DB & file forensics"
+    },
+    "summary": "A production WordPress e-commerce site was actively compromised. An attacker injected hidden SEO spam into the CMS database across three attack waves, exploiting the client's domain authority to rank 51 illegal gambling domains on Google — invisible to human visitors and monitoring tools for over 2 months.",
+    "methodology": "Database forensics, file integrity analysis, and HTTP response comparison to identify injected content. Attack waves were mapped chronologically. All persistence mechanisms were traced from public backup exposure through database injection to search-engine-visible spam output.",
+    "outcome": "All 9 findings remediated in a single session. Eight automated verification checks passed. Hidden spam removed from the database, exposed backup secured, hardcoded credentials rotated, and integrity monitoring recommendations delivered with prioritized remediation steps.",
+    "findings": [
+      "<strong>Critical:</strong> 60 hidden div elements serving 51 gambling domains — undetected for 2.5 months",
+      "<strong>Critical:</strong> 3.8 GB backup file publicly exposed — probable initial access vector",
+      "<strong>Critical:</strong> Admin credentials hardcoded in 13 locations across the codebase",
+      "<strong>High:</strong> Database-level SEO injection persisting across theme and plugin updates",
+      "<strong>High:</strong> Missing integrity monitoring on CMS content tables"
+    ]
+  },
+  "es": {
+    "documentTitle": "Caso de estudio: Inyección SEO activa y remediación — Daniel Ordonez Arango",
+    "metaDescription": "Caso de estudio de pentest: compromiso activo de e-commerce WordPress en Colombia. Spam SEO oculto inyectado en la base de datos del CMS en tres oleadas, posicionando 51 dominios de apuestas ilegales en Google.",
+    "tag": "[ CASO DE ESTUDIO ]",
+    "back": "← Volver al portafolio",
+    "title": "Inyección SEO activa y remediación completa",
+    "headings": {
+      "summary": "Resumen ejecutivo",
+      "findings": "Hallazgos",
+      "methodology": "Metodología",
+      "outcome": "Resultado"
+    },
+    "meta": {
+      "client": "E-commerce industria automotriz, Colombia, 2026",
+      "service": "Pentest de aplicación web",
+      "type": "Respuesta a incidente + forense de BD y archivos"
+    },
+    "summary": "Un sitio e-commerce WordPress en producción estaba comprometido activamente. Un atacante inyectó spam SEO oculto en la base de datos del CMS en tres oleadas, explotando la autoridad del dominio del cliente para posicionar 51 dominios de apuestas ilegales en Google — invisible para visitantes humanos y herramientas de monitoreo durante más de 2 meses.",
+    "methodology": "Forense de base de datos, análisis de integridad de archivos y comparación de respuestas HTTP para identificar contenido inyectado. Las oleadas de ataque se mapearon cronológicamente. Se rastrearon los mecanismos de persistencia desde backup público expuesto hasta spam visible en buscadores.",
+    "outcome": "Los 9 hallazgos remediados en una sola sesión. Ocho verificaciones automatizadas pasaron. Spam oculto eliminado de la base de datos, backup expuesto asegurado, credenciales hardcodeadas rotadas y recomendaciones de monitoreo de integridad entregadas con pasos priorizados.",
+    "findings": [
+      "<strong>Crítico:</strong> 60 divs ocultos sirviendo 51 dominios de apuestas — no detectado durante 2.5 meses",
+      "<strong>Crítico:</strong> Backup de 3.8 GB expuesto públicamente — probable vector de acceso inicial",
+      "<strong>Crítico:</strong> Credenciales de admin hardcodeadas en 13 ubicaciones del codebase",
+      "<strong>Alto:</strong> Inyección SEO a nivel de base de datos persistiendo tras actualizaciones de tema y plugins",
+      "<strong>Alto:</strong> Monitoreo de integridad ausente en tablas de contenido del CMS"
+    ]
+  }
+}
