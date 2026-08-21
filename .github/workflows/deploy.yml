@@ -1,13 +1,11 @@
 name: Deploy to Cloudflare Pages
 
-# Auto-deploy disabled — site taken offline 2026-08-19.
-# Manual runs are also blocked. Re-enable only if the site should go live again.
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   deploy:
-    if: false
     runs-on: ubuntu-latest
     permissions:
       contents: read
